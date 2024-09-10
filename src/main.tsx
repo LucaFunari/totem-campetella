@@ -4,9 +4,15 @@ import App from "./App.tsx";
 import "./index.css";
 import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
 import ErrorPage from "./components/ErrorPage.tsx";
-import { HomePage } from "./components/HomePage.tsx";
-import ProvaParam, { loadParam } from "./components/ProvaParam.tsx";
-import Child from "./components/Child.tsx";
+import Azienda from "./components/second-level-pages/Azienda.tsx";
+import Iniezione from "./components/second-level-pages/Iniezione.tsx";
+import ThirdLevelPage, {
+  loader as thirdLevelPageLoader,
+} from "./components/third-level-pages/ThirdLevelPage.tsx";
+import HomePage from "./components/first-level-pages/HomePage.tsx";
+import { QueryClient } from "@tanstack/react-query";
+
+export const queryClient = new QueryClient();
 
 const router = createBrowserRouter([
   {
@@ -14,21 +20,23 @@ const router = createBrowserRouter([
     element: <App />,
     errorElement: <ErrorPage />,
     children: [
+      { path: "", element: <HomePage /> },
       {
-        path: "home",
-        element: <Outlet />,
-        children: [
-          { path: "", element: <HomePage />, index: true },
-          {
-            path: "child",
-            element: <Child />,
-          },
-        ],
+        path: "azienda",
+        element: <Azienda />,
       },
       {
-        path: "prova/:testParameter",
-        element: <ProvaParam />,
-        loader: loadParam,
+        path: "iniezione",
+        element: <Outlet />,
+
+        children: [
+          { path: "", element: <Iniezione />, index: true },
+          {
+            path: ":typeId",
+            loader: thirdLevelPageLoader(queryClient),
+            element: <ThirdLevelPage />,
+          },
+        ],
       },
     ],
   },

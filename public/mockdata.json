@@ -1,0 +1,27 @@
+{
+  "campi_applicativi": {
+    "appliances": {},
+    "houseware": {},
+    "automotive": {},
+    "closures": {
+      "title": "Tappi e Chiusure",
+      "subtitle:": "Verso la massima produttività",
+      "description": "Milioni di tappi e chiusure vengono impiegati ogni giorno in innumerevoli beni di uso quotidiano, dalle bevande ai prodotti per la pulizia della casa. La più grande sfida per i produttori del settore è senz'altro determinata dalla massimizzazione della produttività nel rispetto dei più elevati standard di qualità. In questo contesto, Campetella Robotic Center si presenta come partner ideale per l'automazione più avanzata del settore, passando dai robot high speed takeout fino alle isole automatizzate di assemblaggio capsule."
+    },
+    "pet_preforms": {},
+    "medical": {},
+    "crates_pallet_bins": {},
+    "packaging": {},
+    "disposable": {},
+    "technical_molding": {}
+  },
+  "robot": {
+    "top_entry": {},
+    "side_entry": {},
+    "sprue_picker": {},
+    "scara": {},
+    "industrial": {},
+    "control_units": {},
+    "stack_mold": {}
+  }
+}

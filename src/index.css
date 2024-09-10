@@ -4,7 +4,13 @@
 
 :root {
   background-color: #e5e5f7;
-  background: repeating-linear-gradient( 45deg, #222, #222 5px, #e5e5f7 5px, #e5e5f7 25px );
+  background: repeating-linear-gradient(
+    45deg,
+    #222,
+    #222 5px,
+    #e5e5f7 5px,
+    #e5e5f7 25px
+  );
 
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
@@ -18,11 +24,26 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-
+@media screen and (max-width: 430px) {
+  body {
+    height: 100dvh;
+    width: 100dvw;
+  }
+}
 
 body {
   margin: 0;
   min-width: 320px;
   aspect-ratio: 9/16;
-height: 100dvh;
+  height: 100dvh;
+}
+
+div.temp {
+  background: repeating-linear-gradient(
+    45deg,
+    #4444,
+    #4444 15px,
+    #91919120 15px,
+    #91919120 30px
+  );
 }
