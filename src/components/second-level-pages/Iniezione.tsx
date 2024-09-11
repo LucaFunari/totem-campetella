@@ -7,16 +7,18 @@ import GoBackRoundBtn from "../reusable/GoBackRoundBtn";
 const Iniezione = () => {
   return (
     <div
-      className="relative grid h-dvh w-full bg-slate-50"
+      className="grid h-dvh w-full bg-white"
       style={{ gridTemplateRows: "5fr 5fr 1fr" }}
     >
-      <Header />
-      <div className="cover flex aspect-square w-full items-end justify-center bg-[url('/asset/pexels-pixabay-257636.jpg')] bg-cover bg-bottom p-10">
-        <div className="flex items-center gap-2">
+      <div className="cover flex aspect-square w-full flex-col bg-[url('/asset/SfondoIniezione.png')] bg-cover bg-bottom px-10 py-10 pb-20">
+        <Header />
+        <div className="flex-1">
           <GoBackRoundBtn />
-
-          <h1 className="text-4xl font-bold text-white">INIEZIONE</h1>
         </div>
+
+        <h1 className="text-center text-[140px]/[180px] font-bold text-white">
+          INIEZIONE
+        </h1>
       </div>
       <div className="flex w-full items-center justify-center">
         <div className="grid w-fit grid-cols-2 gap-x-2 gap-y-6">

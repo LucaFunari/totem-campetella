@@ -5,11 +5,11 @@ const Header = () => {
   const { setOpen } = usePopupStateStore();
 
   return (
-    <div className="pointer-events-none absolute z-10 flex h-20 w-full items-center justify-center p-6">
+    <div className="pointer-events-none z-10 flex w-full items-center justify-center">
       <img
-        onClick={() => setOpen()}
-        className="pointer-events-auto"
-        src="/asset/loghetto_77837793-f7b3-481a-8b10-bbeadafcb5ae.png"
+        // onClick={() => setOpen()}
+        className="pointer-events-auto mt-16"
+        src="/asset/Logo Campetella.svg"
         alt="logo"
       ></img>
     </div>

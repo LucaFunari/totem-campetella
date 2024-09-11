@@ -11,6 +11,9 @@ import ThirdLevelPage, {
 } from "./components/third-level-pages/ThirdLevelPage.tsx";
 import HomePage from "./components/first-level-pages/HomePage.tsx";
 import { QueryClient } from "@tanstack/react-query";
+import ContentPage from "./components/third-level-pages/ContentPage.tsx";
+import ProductPage from "./components/third-level-pages/ProductPage.tsx";
+import MainPage from "./components/third-level-pages/MainPage.tsx";
 
 export const queryClient = new QueryClient();
 
@@ -32,9 +35,27 @@ const router = createBrowserRouter([
         children: [
           { path: "", element: <Iniezione />, index: true },
           {
-            path: ":typeId",
+            path: ":pageId",
             loader: thirdLevelPageLoader(queryClient),
             element: <ThirdLevelPage />,
+            children: [
+              {
+                path: "",
+                element: <MainPage />,
+                index: true,
+              },
+
+              {
+                path: ":familyId",
+                element: <ProductPage />,
+                children: [
+                  {
+                    path: ":productId",
+                    element: <ContentPage />,
+                  },
+                ],
+              },
+            ],
           },
         ],
       },
@@ -45,5 +66,5 @@ const router = createBrowserRouter([
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
     <RouterProvider router={router}></RouterProvider>
-  </StrictMode>
+  </StrictMode>,
 );

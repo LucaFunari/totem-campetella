@@ -4,8 +4,8 @@ import { Link } from "react-router-dom";
 export const GrayButton = (props: { goTo: string; innerText: string }) => {
   return (
     <Link to={props.goTo}>
-      <div className="bg-buttongray max-w-44 px-6 py-2 ">
-        <p className=" font-bold tracking-tighter uppercase text-lg text-white text-ellipsis text-nowrap overflow-hidden font-sans text-center">
+      <div className="flex h-32 w-80 items-center justify-center bg-buttongray px-6 py-2">
+        <p className="overflow-hidden text-ellipsis text-nowrap text-center font-sans text-4xl font-bold uppercase tracking-tighter text-white">
           {props.innerText}
         </p>
       </div>
@@ -16,8 +16,8 @@ export const GrayButton = (props: { goTo: string; innerText: string }) => {
 export const BlueButton = (props: { goTo: string; innerText: string }) => {
   return (
     <Link to={props.goTo}>
-      <div className="self-center bg-buttonblue w-36 px-6 py-4 h-16 flex items-center justify-center">
-        <p className="font-bold tracking-tighter uppercase text-lg text-white text-ellipsis  overflow-hidden font-sans text-center line-clamp-2">
+      <div className="flex h-16 w-36 items-center justify-center self-center bg-buttonblue px-6 py-4">
+        <p className="line-clamp-2 overflow-hidden text-ellipsis text-center font-sans text-lg font-bold uppercase tracking-tighter text-white">
           {props.innerText}
         </p>
       </div>

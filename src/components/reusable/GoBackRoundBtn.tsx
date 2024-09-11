@@ -1,27 +1,47 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const GoBackRoundBtn = (props: { className?: string }) => {
+  const navigate = useNavigate();
   return (
-    <Link to="..">
-      <button
-        className={
-          "flex aspect-square h-8 items-center justify-center rounded-full bg-slate-50" +
-          " " +
-          props.className
-        }
+    <button
+      onClick={() => navigate("..")}
+      className={
+        "flex aspect-square h-[70px] items-center justify-center rounded-full bg-slate-50" +
+        " " +
+        props.className
+      }
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="50.676"
+        height="50.668"
+        viewBox="0 0 50.676 50.668"
       >
-        <svg
-          className="fill-blue-300"
-          xmlns="http://www.w3.org/2000/svg"
-          height="24px"
-          viewBox="0 -960 960 960"
-          width="24px"
+        <g
+          id="Raggruppa_95"
+          data-name="Raggruppa 95"
+          transform="translate(-41.38 -229.01)"
         >
-          <path d="M560-240 320-480l240-240 56 56-184 184 184 184-56 56Z" />
-        </svg>
-      </button>
-    </Link>
+          <g id="Raggruppa_96" data-name="Raggruppa 96">
+            <path
+              id="Tracciato_382"
+              data-name="Tracciato 382"
+              d="M5.333,45.974A25.338,25.338,0,1,0,30.667,20.64,25.336,25.336,0,0,0,5.333,45.974"
+              transform="translate(36.047 208.37)"
+              fill="#f1f5f8"
+            />
+            <path
+              id="Unione_1"
+              data-name="Unione 1"
+              d="M12010.41,11097.482a2.492,2.492,0,0,1-1.768-.732l-8.41-8.412a2.5,2.5,0,0,1,0-3.535c.034-.035.069-.068.105-.1l8.474-8.471a2.5,2.5,0,0,1,3.535,3.537l-6.809,6.806,6.64,6.641a2.5,2.5,0,0,1-1.768,4.268Z"
+              transform="translate(-11941.572 -10832.148)"
+              fill="#9abce3"
+            />
+          </g>
+        </g>
+      </svg>
+    </button>
   );
 };
 

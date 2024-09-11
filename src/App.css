@@ -17,14 +17,6 @@ button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
-div.radial-bg {
-  background: radial-gradient(
-    circle at 80% 80%,
-    rgba(64, 127, 205, 1) 0%,
-    rgba(160, 208, 244, 1) 100%
-  );
-}
-
 div.radial-bg-2 {
   background: linear-gradient(0.1turn, #4ebdd9, rgba(255, 0, 0, 0) 25%),
     linear-gradient(0.9turn, #2d88b4, rgba(255, 0, 0, 0) 71%),
@@ -41,3 +33,11 @@ div.radial-bg-2 {
   ); */
 }
 /* #a1c3e8 25%, */
+
+div.radial-bg {
+  height: 100dvh;
+  aspect-ratio: 9/16;
+  background: linear-gradient(45deg, #57b3d5, #fff0 60%),
+    radial-gradient(circle at 100% 75%, #3b79cd 10%, #fff0 80%),
+    linear-gradient(180deg, #b1d1f3 30%, #0000);
+}

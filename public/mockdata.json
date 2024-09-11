@@ -5,8 +5,19 @@
     "automotive": {},
     "closures": {
       "title": "Tappi e Chiusure",
-      "subtitle:": "Verso la massima produttività",
-      "description": "Milioni di tappi e chiusure vengono impiegati ogni giorno in innumerevoli beni di uso quotidiano, dalle bevande ai prodotti per la pulizia della casa. La più grande sfida per i produttori del settore è senz'altro determinata dalla massimizzazione della produttività nel rispetto dei più elevati standard di qualità. In questo contesto, Campetella Robotic Center si presenta come partner ideale per l'automazione più avanzata del settore, passando dai robot high speed takeout fino alle isole automatizzate di assemblaggio capsule."
+      "subtitle": "Verso la massima produttività",
+      "description": "Milioni di tappi e chiusure vengono impiegati ogni giorno in innumerevoli beni di uso quotidiano, dalle bevande ai prodotti per la pulizia della casa. La più grande sfida per i produttori del settore è senz'altro determinata dalla massimizzazione della produttività nel rispetto dei più elevati standard di qualità. In questo contesto, Campetella Robotic Center si presenta come partner ideale per l'automazione più avanzata del settore, passando dai robot high speed takeout fino alle isole automatizzate di assemblaggio capsule.",
+      "content": [
+        "video",
+        "video",
+        "video",
+        "video",
+        "video",
+        "video",
+        "video",
+        "video",
+        "video"
+      ]
     },
     "pet_preforms": {},
     "medical": {},
@@ -16,7 +27,10 @@
     "technical_molding": {}
   },
   "robot": {
-    "top_entry": {},
+    "top_entry": {
+      "subtitle": "Highly configurable robots, optimized to guarantee maximum performance in specific sectors",
+      "description": "Milioni di tappi e chiusure vengono impiegati ogni giorno in innumerevoli beni di uso quotidiano, dalle bevande ai prodotti per la pulizia della casa. La più grande sfida per i produttori del settore è senz'altro determinata dalla massimizzazione della produttività nel rispetto dei più elevati standard di qualità. In questo contesto, Campetella Robotic Center si presenta come partner ideale per l'automazione più avanzata del settore, passando dai robot high speed take out fino alle isole automatizzate di assemblaggio capsule."
+    },
     "side_entry": {},
     "sprue_picker": {},
     "scara": {},

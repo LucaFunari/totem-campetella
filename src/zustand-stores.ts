@@ -15,3 +15,13 @@ export const usePopupStateStore = create<popupStateStoreType>()((set) => ({
     }
   },
 }));
+
+interface detailedPageStoreType {
+  title: string;
+  setTitle: (title: string) => void;
+}
+
+export const useDetailedPageStore = create<detailedPageStoreType>()((set) => ({
+  title: "",
+  setTitle: (title: string) => set({ title: title }),
+}));

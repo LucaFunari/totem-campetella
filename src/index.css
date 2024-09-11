@@ -3,14 +3,14 @@
 @import "tailwindcss/utilities";
 
 :root {
-  background-color: #e5e5f7;
-  background: repeating-linear-gradient(
+  background-color: #fff;
+  /* background: repeating-linear-gradient(
     45deg,
     #222,
     #222 5px,
     #e5e5f7 5px,
     #e5e5f7 25px
-  );
+  ); */
 
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
@@ -33,8 +33,7 @@
 
 body {
   margin: 0;
-  min-width: 320px;
-  aspect-ratio: 9/16;
+  width: 100dvw;
   height: 100dvh;
 }
 
