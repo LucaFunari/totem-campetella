@@ -1,23 +1,16 @@
 import React from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
-const GoBackRoundBtn = (props: { className?: string }) => {
+const GoBackRoundBtn = ({ size = 70 }: { size?: number }) => {
   const navigate = useNavigate();
+
   return (
     <button
       onClick={() => navigate("..")}
-      className={
-        "flex aspect-square h-[70px] items-center justify-center rounded-full bg-slate-50" +
-        " " +
-        props.className
-      }
+      className={`flex aspect-square items-center justify-center rounded-full`}
+      style={{ width: size, height: size }}
     >
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="50.676"
-        height="50.668"
-        viewBox="0 0 50.676 50.668"
-      >
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50.676 50.668">
         <g
           id="Raggruppa_95"
           data-name="Raggruppa 95"

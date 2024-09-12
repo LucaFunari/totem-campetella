@@ -6,10 +6,9 @@ const PageTitle = () => {
   const { title } = useDetailedPageStore();
 
   return (
-    <div className="flex h-14 w-full flex-col bg-red-500">
-      <GoBackRoundBtn />
-
-      <p className="line-clamp-2 overflow-clip text-center text-4xl font-semibold uppercase text-white">
+    <div className="mb-20 flex w-full flex-col gap-16">
+      <GoBackRoundBtn size={50} />
+      <p className="line-clamp-2 overflow-clip text-center text-[92px] font-semibold uppercase tracking-tight text-white">
         {title}
       </p>
     </div>

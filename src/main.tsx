@@ -5,15 +5,16 @@ import "./index.css";
 import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
 import ErrorPage from "./components/ErrorPage.tsx";
 import Azienda from "./components/second-level-pages/Azienda.tsx";
-import Iniezione from "./components/second-level-pages/Iniezione.tsx";
-import ThirdLevelPage, {
-  loader as thirdLevelPageLoader,
-} from "./components/third-level-pages/ThirdLevelPage.tsx";
+import Iniezione from "./components/first-level-pages/Iniezione.tsx";
+import ThirdLevelPage from "./components/third-level-pages/ThirdLevelPage.tsx";
 import HomePage from "./components/first-level-pages/HomePage.tsx";
 import { QueryClient } from "@tanstack/react-query";
 import ContentPage from "./components/third-level-pages/ContentPage.tsx";
 import ProductPage from "./components/third-level-pages/ProductPage.tsx";
 import MainPage from "./components/third-level-pages/MainPage.tsx";
+import { loader } from "./components/third-level-pages/mockdataloader.ts";
+import { QueryClientProvider } from "@tanstack/react-query";
+import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 
 export const queryClient = new QueryClient();
 
@@ -36,7 +37,7 @@ const router = createBrowserRouter([
           { path: "", element: <Iniezione />, index: true },
           {
             path: ":pageId",
-            loader: thirdLevelPageLoader(queryClient),
+            loader: loader(queryClient),
             element: <ThirdLevelPage />,
             children: [
               {
@@ -65,6 +66,9 @@ const router = createBrowserRouter([
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
-    <RouterProvider router={router}></RouterProvider>
+    <QueryClientProvider client={queryClient}>
+      <ReactQueryDevtools />
+      <RouterProvider router={router}></RouterProvider>
+    </QueryClientProvider>
   </StrictMode>,
 );

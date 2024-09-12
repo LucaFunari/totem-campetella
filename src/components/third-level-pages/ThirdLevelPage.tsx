@@ -1,49 +1,17 @@
-import { QueryClient } from "@tanstack/react-query";
 import React from "react";
-import { Outlet, Params, useParams } from "react-router-dom";
-import GoBackRoundBtn from "../reusable/GoBackRoundBtn";
-import PageTitle from "./PageTitle";
-
-export const mockDataQuery = (id: string) => ({
-  queryKey: ["mockData"],
-  queryFn: async () => {
-    const data = await fetch("/mockdata.json");
-    const jsonData = await data.json();
-    return jsonData;
-  },
-});
-
-export const loader =
-  (queryClient: QueryClient) =>
-  async ({ params }: { params: Params<"pageId"> }) => {
-    const query = mockDataQuery(params.pageId ?? "");
-
-    return (
-      queryClient.getQueryData(query.queryKey) ?? queryClient.fetchQuery(query)
-    );
-  };
+import { Outlet } from "react-router-dom";
 
 const ThirdLevelPage = () => {
-  const params = useParams();
-
-  const pageTitle = React.useMemo(() => {
-    const lastObjKey = Object.keys(params).slice(-1);
-
-    const lastParam = params[lastObjKey[0]];
-    return lastParam;
-  }, [params]);
-
   return (
     <div className="radial-bg grid h-dvh w-full grid-rows-[1fr_9fr]">
       <header className="flex items-center justify-center bg-white">
         <img className="max-w-72" src="/asset/Logo Campetella.svg" alt="logo" />
       </header>
 
-      <div>
-        <div className="w-full">
-          <Outlet />
-        </div>
-        {/* 
+      <div className="flex w-full flex-col p-10">
+        <Outlet />
+      </div>
+      {/* 
         <div className="flex w-full flex-col p-6">
           <div className="">
             <GoBackRoundBtn className="scale-75" />
@@ -62,7 +30,6 @@ const ThirdLevelPage = () => {
           </div>
         </div> 
         */}
-      </div>
     </div>
   );
 };

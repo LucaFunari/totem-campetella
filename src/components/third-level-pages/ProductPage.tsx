@@ -1,9 +1,9 @@
 import { useQuery } from "@tanstack/react-query";
 import React from "react";
-import { useNavigate, useParams } from "react-router-dom";
-import { mockDataQuery } from "./ThirdLevelPage";
+import { useParams } from "react-router-dom";
 import { useDetailedPageStore } from "../../zustand-stores";
 import PageTitle from "./PageTitle";
+import { mockDataQuery } from "./mockdataloader";
 
 interface productPageType {
   title?: string;
@@ -17,7 +17,7 @@ const ProductPage = () => {
     pageId: string;
     familyId: string;
   };
-  const { data: pageData } = useQuery(mockDataQuery(params.pageId));
+  const { data: pageData } = useQuery(mockDataQuery());
 
   const { setTitle } = useDetailedPageStore();
 
@@ -26,18 +26,15 @@ const ProductPage = () => {
 
     const productFamily = page[params.familyId];
 
-    console.debug(productFamily);
-
-    if (productFamily.title) {
-      setTitle(productFamily.title);
-    }
-
     return productFamily;
-  }, [pageData, params.pageId, params.familyId, setTitle]);
+  }, [pageData, params.pageId, params.familyId]);
 
-  const navigate = useNavigate();
+  React.useEffect(() => {
+    if (params.familyId) setTitle(params.familyId);
+  }, [setTitle, params]);
+
   return (
-    <div className="w-full">
+    <div className="text-white">
       <PageTitle />
       {!currentlyShownElement && <div>Pagina vuota</div>}
       {currentlyShownElement.subtitle}
@@ -51,10 +48,15 @@ const ProductPage = () => {
 };
 
 export function VideoGrid(props: { content: string[] }) {
+  console.debug(props);
   return (
-    <div>
-      <hr></hr>
+    <div className="border-2">
       vids
+      <div className="grid w-full grid-cols-[auto_auto_auto] justify-between gap-14">
+        {props.content.map((vid, index) => (
+          <div className="aspect-video w-64 bg-white"></div>
+        ))}
+      </div>
     </div>
   );
 }
