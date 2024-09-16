@@ -4,7 +4,7 @@ const ExitRoundBtn = (props: { fn: () => void }) => {
   return (
     <button
       onClick={props.fn}
-      className="aspect-square w-24 rounded-full bg-blue-50 fill-blue-300"
+      className="aspect-square w-24 rounded-full border-none bg-blue-50 fill-blue-300 outline-none"
     >
       <svg
         className="scale-[67%]"
@@ -17,12 +17,3 @@ const ExitRoundBtn = (props: { fn: () => void }) => {
   );
 };
 export default ExitRoundBtn;
-
-//   <svg
-//     xmlns="http://www.w3.org/2000/svg"
-//     width="24"
-//     height="24"
-//     viewBox="0 -960 960 960"
-//   >
-//     <path d="m313-440 224 224-57 56-320-320 320-320 57 56-224 224h487v80H313Z" />
-//   </svg>

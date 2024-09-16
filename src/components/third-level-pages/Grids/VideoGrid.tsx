@@ -12,7 +12,7 @@ export function VideoGrid(props: { content: string[] }) {
   return (
     <div>
       <h1 className="text-xl font-semibold uppercase">VIDEO</h1>
-      <hr className="mb-6 mt-1 border-2 border-white"></hr>
+      <hr className="mb-6 mt-1 h-[3px] border-none bg-white"></hr>
       <div className="grid w-full grid-cols-[auto_auto_auto] justify-between gap-14">
         {props.content.map((vid, index) => (
           <div

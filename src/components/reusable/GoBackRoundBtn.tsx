@@ -7,7 +7,7 @@ const GoBackRoundBtn = ({ size = 70 }: { size?: number }) => {
   return (
     <button
       onClick={() => navigate("..")}
-      className={`flex aspect-square items-center justify-center rounded-full`}
+      className={`flex aspect-square items-center justify-center rounded-full border-none outline-none`}
       style={{ width: size, height: size }}
     >
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50.676 50.668">

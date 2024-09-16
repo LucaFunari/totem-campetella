@@ -11,6 +11,9 @@ const ErrorPage = () => {
   };
   const navigate = useNavigate();
 
+  React.useEffect(() => {
+    console.debug(error);
+  }, [error]);
   return (
     <div className="radial-bg flex h-dvh w-full flex-col items-start justify-center gap-4 p-6 text-left text-white">
       <>

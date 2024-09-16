@@ -1,7 +1,34 @@
+import { useQuery } from "@tanstack/react-query";
 import React from "react";
-import { Outlet } from "react-router-dom";
+import { Outlet, useParams } from "react-router-dom";
+import { mockDataQuery, mockDetailedQuery } from "./mockdataloader";
+import { useDetailedPageStore } from "../../zustand-stores";
 
 const ThirdLevelPage = () => {
+  const { setPage } = useDetailedPageStore();
+  const params = useParams() as { pageId: string; sectionId?: string };
+
+  const { data: siteData } = useQuery(mockDataQuery());
+  const { data: pageData } = useQuery(mockDetailedQuery(params.pageId));
+
+  const currentPage = React.useMemo(() => {
+    if (params.sectionId) {
+      const currSection = siteData?.sections[params.sectionId];
+      const currentPage = currSection?.sections[params?.pageId];
+
+      if (pageData) {
+        const children = Object.keys(pageData).map((key) => {
+          return { ...pageData[key], id: key };
+        });
+        const page = { ...currentPage, children: children };
+
+        setPage(page);
+
+        return page;
+      }
+    }
+  }, [siteData, params, pageData, setPage]);
+
   return (
     <div className="radial-bg grid h-dvh w-full grid-rows-[1fr_9fr]">
       <header className="flex items-center justify-center bg-white">

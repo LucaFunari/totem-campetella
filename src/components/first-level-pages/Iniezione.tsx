@@ -24,7 +24,7 @@ const Iniezione = () => {
           <GoBackRoundBtn />
         </div>
 
-        <h1 className="text-center text-[140px]/[180px] font-bold text-white">
+        <h1 className="font-d-din-condensed text-center text-[140px]/[180px] font-bold text-white">
           INIEZIONE
         </h1>
       </div>

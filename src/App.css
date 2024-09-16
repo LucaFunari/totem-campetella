@@ -1,3 +1,44 @@
+/* DIN Regular */
+@font-face {
+  font-family: "D-Din";
+  font-style: normal;
+  font-weight: 400;
+  font-display: "swap";
+  src:
+    url("/fonts/D-DIN.woff2") format("woff2"),
+    url("/fonts/D-DIN.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "D-Din";
+  font-style: normal;
+  font-weight: 700;
+  font-display: "swap";
+  src:
+    url("/fonts/D-DIN-Bold.woff2") format("woff2"),
+    url("/fonts/D-DIN-Bold.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "D-Din";
+  font-style: italic;
+  font-weight: 400;
+  font-display: "swap";
+  src:
+    url("/fonts/D-Din-Italic.woff2") format("woff2"),
+    url("/fonts/D-Din-Italic.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "D-Din-Condensed";
+  font-style: normal;
+  font-weight: 700;
+  font-display: "swap";
+  src:
+    url("/fonts/D-DINCondensed-Bold.woff2") format("woff2"),
+    url("/fonts/D-DINCondensed-Bold.ttf") format("truetype");
+}
+
 button {
   border-radius: 8px;
   border: 1px solid transparent;

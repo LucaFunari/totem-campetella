@@ -19,7 +19,9 @@ const Popup = () => {
         >
           <div className="popup header flex items-center justify-between px-6 py-2 text-2xl text-textlightblue">
             <ExitRoundBtn fn={() => setOpen(false)} />
-            <h1 className="text-center text-[92px]/[140px]">TITLE</h1>
+            <h1 className="font-d-din-condensed text-center text-[92px]/[140px]">
+              video title
+            </h1>
 
             <div className="h-1 w-6"></div>
           </div>
