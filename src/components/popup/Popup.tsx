@@ -12,23 +12,18 @@ const Popup = () => {
         onClick={() => setOpen(false)}
       >
         <div
-          className="absolute left-1/2 top-1/2 w-11/12 -translate-x-1/2 -translate-y-1/2 bg-white drop-shadow-xl"
+          className="absolute left-1/2 top-1/2 w-11/12 -translate-x-1/2 -translate-y-1/2 bg-white drop-shadow-2xl"
           onClick={(e) => {
             e.stopPropagation();
           }}
         >
-          <div className="popup header text-textlightblue flex h-12 items-center justify-between px-6 py-2 text-2xl">
+          <div className="popup header flex items-center justify-between px-6 py-2 text-2xl text-textlightblue">
             <ExitRoundBtn fn={() => setOpen(false)} />
-            <h1 className="text-center">TITLE</h1>
+            <h1 className="text-center text-[92px]/[140px]">TITLE</h1>
 
             <div className="h-1 w-6"></div>
           </div>
-          <div className="popup content radial-bg-2 p-3 text-white">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-            Praesentium dignissimos molestias quae quasi amet et ad
-            reprehenderit ut? Facere, optio quasi? Neque beatae, repellendus
-            perferendis eligendi architecto accusantium odio optio.
-          </div>
+          <div className="video aspect-video w-full bg-buttonblue bg-opacity-20"></div>
         </div>
       </div>
     );

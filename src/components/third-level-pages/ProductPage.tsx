@@ -1,9 +1,11 @@
 import { useQuery } from "@tanstack/react-query";
 import React from "react";
 import { useParams } from "react-router-dom";
-import { useDetailedPageStore } from "../../zustand-stores";
+import { useDetailedPageStore, usePopupStateStore } from "../../zustand-stores";
 import PageTitle from "./PageTitle";
 import { mockDataQuery } from "./mockdataloader";
+import { ProductsGrid } from "./Grids/ProductsGrid";
+import { VideoGrid } from "./Grids/VideoGrid";
 
 interface productPageType {
   title?: string;
@@ -34,31 +36,28 @@ const ProductPage = () => {
   }, [setTitle, params]);
 
   return (
-    <div className="text-white">
+    <div className="flex h-full flex-col justify-between text-white">
       <PageTitle />
       {!currentlyShownElement && <div>Pagina vuota</div>}
-      {currentlyShownElement.subtitle}
-      <br /> {currentlyShownElement.description}
-      {currentlyShownElement.content &&
-        currentlyShownElement.content?.length > 0 && (
-          <VideoGrid content={currentlyShownElement.content} />
-        )}
-    </div>
-  );
-};
+      <div className="flex flex-1 flex-col p-7">
+        <div className="flex flex-1 flex-col justify-center gap-32">
+          <h1 className="text-4xl font-semibold">
+            {currentlyShownElement.subtitle}
+          </h1>
 
-export function VideoGrid(props: { content: string[] }) {
-  console.debug(props);
-  return (
-    <div className="border-2">
-      vids
-      <div className="grid w-full grid-cols-[auto_auto_auto] justify-between gap-14">
-        {props.content.map((vid, index) => (
-          <div className="aspect-video w-64 bg-white"></div>
-        ))}
+          <p className="text-2xl">{currentlyShownElement.description}</p>
+        </div>
+        {currentlyShownElement.content &&
+          currentlyShownElement.content?.length > 0 && (
+            <VideoGrid content={currentlyShownElement.content} />
+          )}
+
+        {currentlyShownElement.products && (
+          <ProductsGrid products={currentlyShownElement.products} />
+        )}
       </div>
     </div>
   );
-}
+};
 
 export default ProductPage;
