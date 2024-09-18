@@ -4,7 +4,7 @@ import ThirdLevelPageHeader from "../reusable/ThirdLevelPageHeader";
 
 const Service = () => {
   return (
-    <div className="radial-bg grid h-dvh w-full grid-rows-[1fr_9fr] text-white">
+    <div className="radial-bg grid h-full w-full grid-rows-[1fr_9fr] text-white">
       <ThirdLevelPageHeader />
 
       <div className="flex w-full flex-col p-10">

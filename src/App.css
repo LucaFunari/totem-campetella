@@ -76,8 +76,6 @@ div.radial-bg-2 {
 /* #a1c3e8 25%, */
 
 div.radial-bg {
-  height: 100dvh;
-  aspect-ratio: 9/16;
   background: linear-gradient(45deg, #57b3d5, #fff0 60%),
     radial-gradient(circle at 100% 75%, #3b79cd 10%, #fff0 80%),
     linear-gradient(180deg, #b1d1f3 30%, #0000);

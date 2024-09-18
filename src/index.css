@@ -3,7 +3,6 @@
 @import "tailwindcss/utilities";
 
 :root {
-  background-color: #fff;
   /* background: repeating-linear-gradient(
     45deg,
     #222,
@@ -12,29 +11,8 @@
     #e5e5f7 25px
   ); */
 
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-
   color-scheme: light dark;
   color: #222;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-@media screen and (max-width: 430px) {
-  body {
-    height: 100dvh;
-    width: 100dvw;
-  }
-}
-
-body {
-  margin: 0;
-  width: 100dvw;
-  height: 100dvh;
 }
 
 div.temp {

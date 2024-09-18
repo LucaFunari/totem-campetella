@@ -11,7 +11,7 @@ const Popup = () => {
 
   return (
     <div
-      className="absolute left-0 top-0 z-20 h-dvh w-dvw bg-white bg-opacity-60"
+      className="absolute left-0 top-0 z-20 h-full w-full bg-white bg-opacity-60"
       onClick={() => setOpen(false)}
     >
       <div

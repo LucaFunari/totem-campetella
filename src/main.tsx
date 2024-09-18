@@ -2,7 +2,12 @@ import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import App from "./App.tsx";
 import "./index.css";
-import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
+import {
+  createBrowserRouter,
+  createHashRouter,
+  Outlet,
+  RouterProvider,
+} from "react-router-dom";
 import ErrorPage from "./components/ErrorPage.tsx";
 import ThirdLevelPage from "./components/third-level-pages/ThirdLevelPage.tsx";
 import { QueryClient } from "@tanstack/react-query";
@@ -18,7 +23,7 @@ import Service from "./components/special-pages/Service.tsx";
 
 export const queryClient = new QueryClient();
 
-const router = createBrowserRouter([
+const router = createHashRouter([
   {
     path: "/",
     element: <App />,

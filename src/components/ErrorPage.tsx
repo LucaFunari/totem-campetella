@@ -12,7 +12,7 @@ const ErrorPage = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="radial-bg flex h-dvh w-full flex-col items-start justify-center gap-4 p-6 text-left text-white">
+    <div className="radial-bg flex h-full w-full flex-col items-start justify-center gap-4 p-6 text-left text-white">
       <>
         <h3 className="text-2xl font-bold">
           {error.status} {error.statusText}

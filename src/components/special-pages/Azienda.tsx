@@ -24,7 +24,11 @@ const Azienda = () => {
       </div>
       <div className="overflow-x-auto">
         <div className="h-full w-max bg-[#006eb7]" ref={ref}>
-          <img src="/asset/Raggruppa_429.png" className="" loading="lazy" />
+          <img
+            src="/asset/Raggruppa_429.png"
+            className="select-none"
+            loading="lazy"
+          />
         </div>
       </div>
       {/* <img

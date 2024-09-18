@@ -21,7 +21,7 @@ export function VideoGrid(props: { content: video[] }) {
             onClick={() => vidOpenFn(vid)}
             className="aspect-video w-64 border-2 border-white"
           >
-            <img src="/public/asset/Raggruppa 63.png"></img>
+            <img src="/public/asset/Raggruppa_63.png"></img>
           </div>
         ))}
       </div>

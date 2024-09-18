@@ -45,7 +45,7 @@ const Icon = (props: { obj: gridElement }) => {
           <div className="h-28 w-28 border-2 border-white" />
         )}
       </div>
-      <span className="line-clamp-2 h-[2lh] w-32 break-words text-center font-d-din-condensed text-2xl font-semibold uppercase text-white">
+      <span className="line-clamp-2 h-[2lh] w-32 select-none break-words text-center font-d-din-condensed text-2xl font-semibold uppercase text-white">
         {props.obj.id}
       </span>
     </div>
