@@ -1,12 +1,19 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import { useDetailedPageStore } from "../../zustand-stores";
 
 const GoBackRoundBtn = ({ size = 70 }: { size?: number }) => {
   const navigate = useNavigate();
 
+  const { resetPage } = useDetailedPageStore();
+
+  function buttonFunction() {
+    navigate("..");
+  }
+
   return (
     <button
-      onClick={() => navigate("..")}
+      onClick={buttonFunction}
       className={`flex aspect-square items-center justify-center rounded-full border-none outline-none`}
       style={{ width: size, height: size }}
     >

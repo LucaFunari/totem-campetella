@@ -1,23 +1,22 @@
 import React from "react";
 import PageTitle from "../third-level-pages/PageTitle";
+import ThirdLevelPageHeader from "../reusable/ThirdLevelPageHeader";
 
 const Service = () => {
   return (
     <div className="radial-bg grid h-dvh w-full grid-rows-[1fr_9fr] text-white">
-      <header className="flex items-center justify-center bg-white">
-        <img className="max-w-72" src="/asset/Logo Campetella.svg" alt="logo" />
-      </header>
+      <ThirdLevelPageHeader />
 
       <div className="flex w-full flex-col p-10">
         <PageTitle>Service</PageTitle>
 
-        <div className="flex flex-1 flex-col items-start p-8">
-          <h1 className="font-d-din-condensed text-3xl font-bold">
+        <div className="flex flex-1 flex-col items-center gap-7 p-8">
+          <h1 className="line-clamp-3 w-full font-d-din-condensed text-4xl font-bold">
             Campetella: il partner di fiducia per l’ottimizzazione dei tuoi
             processi produttivi
           </h1>
 
-          <p className="din-test text-2xl font-thin">
+          <p className="font-baiti text-[32px]/[38px] font-thin">
             Con un’esperienza di oltre 8000 impianti installati in tutto il
             mondo, l’azienda ha acquisito una conoscenza approfondita delle
             esigenze dei suoi clienti. Questo know-how consente di offrire
@@ -25,25 +24,26 @@ const Service = () => {
             impianto.
           </p>
 
-          <div className="grid h-56 grid-cols-5">
+          <div className="grid h-56 w-full grid-cols-5">
             {icons.map((icon, index) => (
               <div key={index} className="flex w-44 flex-col items-center">
-                <div className="aspect-square h-32 border-2"> </div>
-
-                <span className="font-d-din line-clamp-2 w-full text-center text-2xl font-bold">
-                  {icon}
+                <div className="aspect-square h-32">
+                  <img src={icon.iconPath} className="h-full w-full" />
+                </div>
+                <span className="line-clamp-2 w-full text-center font-d-din text-2xl font-bold uppercase">
+                  {icon.title}
                 </span>
               </div>
             ))}
           </div>
 
-          <p className="din-test text-2xl font-thin">
+          <p className="w-full font-baiti text-[32px]/[38px] font-thin">
             Con centri di assistenza e più di 60 tecnici altamente qualificati,
             Campetella offre un supporto tempestivo e professionale in tutto il
             mondo.
           </p>
 
-          <img src="/asset/Raggruppa 341.png" alt="planisfero"></img>
+          <img src="/asset/service/Raggruppa 341.png" alt="planisfero"></img>
         </div>
       </div>
       {/* 
@@ -70,11 +70,31 @@ const Service = () => {
 };
 
 const icons = [
-  "Manutenzione Programmata",
-  "Assistenza da remoto",
-  "Spedizioni rapida ricambi",
-  "Revamping",
-  "Formazione",
+  {
+    id: "manutenzione",
+    title: "Manutenzione Programmata",
+    iconPath: "/asset/service/Raggruppa 351.svg",
+  },
+  {
+    id: "assistenza",
+    title: "Assistenza da remoto",
+    iconPath: "/asset/service/Raggruppa 350.svg",
+  },
+  {
+    id: "spezidioni",
+    title: "Spedizioni rapida ricambi",
+    iconPath: "/asset/service/Raggruppa 349.svg",
+  },
+  {
+    id: "revamping",
+    title: "Revamping",
+    iconPath: "/asset/service/Raggruppa 347.svg",
+  },
+  {
+    id: "formazione",
+    title: "Formazione",
+    iconPath: "/asset/service/Raggruppa 348.svg",
+  },
 ];
 
 export default Service;

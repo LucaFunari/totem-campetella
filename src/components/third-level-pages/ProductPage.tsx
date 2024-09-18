@@ -1,27 +1,16 @@
-import { useQuery } from "@tanstack/react-query";
 import React from "react";
 import { useParams } from "react-router-dom";
 import { useDetailedPageStore } from "../../zustand-stores";
 import PageTitle from "./PageTitle";
-import { mockDataQuery } from "./mockdataloader";
 import { ProductsGrid } from "./Grids/ProductsGrid";
 import { VideoGrid } from "./Grids/VideoGrid";
-
-interface productPageType {
-  title?: string;
-  subtitle?: string;
-  description?: string;
-  content?: string[];
-}
+import NotExisting from "../special-pages/NotExisting";
 
 const ProductPage = () => {
   const params = useParams() as {
     pageId: string;
     familyId: string;
   };
-  const { data: pageData } = useQuery(mockDataQuery());
-
-  const { setTitle } = useDetailedPageStore();
 
   const { page } = useDetailedPageStore();
 
@@ -30,6 +19,7 @@ const ProductPage = () => {
 
     return elem;
   }, [page, params]);
+
   if (currentlyShownElement)
     return (
       <div className="flex h-full flex-col justify-between text-white">
@@ -55,6 +45,7 @@ const ProductPage = () => {
         </div>
       </div>
     );
+  else return <NotExisting />;
 };
 
 export default ProductPage;

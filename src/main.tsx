@@ -8,10 +8,7 @@ import ThirdLevelPage from "./components/third-level-pages/ThirdLevelPage.tsx";
 import { QueryClient } from "@tanstack/react-query";
 import ProductPage from "./components/third-level-pages/ProductPage.tsx";
 import MainPage from "./components/third-level-pages/MainPage.tsx";
-import {
-  detailedPageLoader,
-  loader,
-} from "./components/third-level-pages/mockdataloader.ts";
+import { detailedPageLoader, loader } from "./components/mockdataloader.ts";
 import { QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import SingleProductPage from "./components/third-level-pages/SingleProductPage.tsx";

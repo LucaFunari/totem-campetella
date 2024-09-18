@@ -1,8 +1,9 @@
 import { useQuery } from "@tanstack/react-query";
 import React from "react";
 import { Outlet, useParams } from "react-router-dom";
-import { mockDataQuery, mockDetailedQuery } from "./mockdataloader";
+import { mockDataQuery, mockDetailedQuery } from "../mockdataloader";
 import { useDetailedPageStore } from "../../zustand-stores";
+import ThirdLevelPageHeader from "../reusable/ThirdLevelPageHeader";
 
 const ThirdLevelPage = () => {
   const { setPage } = useDetailedPageStore();
@@ -11,31 +12,28 @@ const ThirdLevelPage = () => {
   const { data: siteData } = useQuery(mockDataQuery());
   const { data: pageData } = useQuery(mockDetailedQuery(params.pageId));
 
-  const currentPage = React.useMemo(() => {
-    if (params.sectionId) {
+  React.useEffect(() => {
+    if (params.sectionId && pageData) {
       const currSection = siteData?.sections[params.sectionId];
       const currentPage = currSection?.sections[params?.pageId];
 
-      if (pageData) {
-        const children = Object.keys(pageData).map((key) => {
-          return { ...pageData[key], id: key };
+      if (pageData.children) {
+        const children = Object.keys(pageData?.children)?.map((key) => {
+          return { ...pageData?.children[key], id: key };
         });
-        const page = { ...currentPage, children: children };
-
+        const page = { ...currentPage, ...pageData, children: children };
         setPage(page);
-
-        return page;
+      } else {
+        const page = { ...currentPage, ...pageData };
+        setPage(page);
       }
     }
-  }, [siteData, params, pageData, setPage]);
+  }, [pageData, params.pageId, params.sectionId, setPage, siteData?.sections]);
 
   return (
-    <div className="radial-bg grid h-dvh w-full grid-rows-[1fr_9fr]">
-      <header className="flex items-center justify-center bg-white">
-        <img className="max-w-72" src="/asset/Logo Campetella.svg" alt="logo" />
-      </header>
-
-      <div className="flex w-full flex-col p-10">
+    <div className="radial-bg grid h-dvh w-full grid-rows-[1fr_9fr] text-white">
+      <ThirdLevelPageHeader />
+      <div className="flex w-full flex-col overflow-x-auto p-10">
         <Outlet />
       </div>
       {/* 

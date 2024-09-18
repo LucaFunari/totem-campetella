@@ -1,10 +1,7 @@
-import { useQuery } from "@tanstack/react-query";
-import React from "react";
-import { useParams } from "react-router-dom";
 import PageTitle from "./PageTitle";
 import { useDetailedPageStore } from "../../zustand-stores";
-import { mockDataQuery, mockDetailedQuery } from "./mockdataloader";
 import Grid from "./Grids/Grid";
+import { VideoGrid } from "./Grids/VideoGrid";
 
 const MainPage = () => {
   const { page } = useDetailedPageStore();
@@ -13,7 +10,12 @@ const MainPage = () => {
     return (
       <>
         <PageTitle />
-        <Grid elements={page.children}></Grid>
+
+        <p className="w-full whitespace-pre-line">{page.description}</p>
+
+        {page.children && <Grid elements={page.children}></Grid>}
+
+        {page.content && <VideoGrid content={page.content} />}
       </>
     );
 };

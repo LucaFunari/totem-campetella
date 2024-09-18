@@ -1,7 +1,8 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import { product } from "../../../zustand-stores";
 
-export const ProductsGrid = (props: { products: any[] }) => {
+export const ProductsGrid = (props: { products: product[] }) => {
   return (
     <div className="grid grid-cols-4 gap-10">
       {props.products.map((prod) => (
@@ -11,7 +12,7 @@ export const ProductsGrid = (props: { products: any[] }) => {
   );
 };
 
-const Product = (props: { product: any }) => {
+const Product = (props: { product: product }) => {
   const isNavigable = React.useMemo(() => {
     const keys = Object.keys(props.product);
     return keys.length > 2;

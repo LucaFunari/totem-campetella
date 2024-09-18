@@ -1,28 +1,35 @@
 {
-  "top_entry": {
-    "subtitle": "Highly configurable robots, optimized to guarantee maximum performance in specific sectors",
-    "description": "Milioni di tappi e chiusure vengono impiegati ogni giorno in innumerevoli beni di uso quotidiano, dalle bevande ai prodotti per la pulizia della casa. La più grande sfida per i produttori del settore è senz'altro determinata dalla massimizzazione della produttività nel rispetto dei più elevati standard di qualità. In questo contesto, Campetella Robotic Center si presenta come partner ideale per l'automazione più avanzata del settore, passando dai robot high speed take out fino alle isole automatizzate di assemblaggio capsule.",
-    "products": [
-      { "id": "rhea" },
+  "children": {
+    "top_entry": {
+      "subtitle": "Highly configurable robots, optimized to guarantee maximum performance in specific sectors",
+      "description": "Milioni di tappi e chiusure vengono impiegati ogni giorno in innumerevoli beni di uso quotidiano, dalle bevande ai prodotti per la pulizia della casa. La più grande sfida per i produttori del settore è senz'altro determinata dalla massimizzazione della produttività nel rispetto dei più elevati standard di qualità. In questo contesto, Campetella Robotic Center si presenta come partner ideale per l'automazione più avanzata del settore, passando dai robot high speed take out fino alle isole automatizzate di assemblaggio capsule.",
+      "products": [
+        { "id": "rhea" },
 
-      { "id": "cx0" },
-      { "id": "cx1" },
-      { "id": "me1" },
-      {
-        "id": "mc2",
-        "title": "mc2",
-        "content": ["video", "video", "video"],
-        "img": "/asset/robot/mc2/Raggruppa 257.png",
-        "thumbnail": "/asset/robot/mc2/Raggruppa 206.png",
-        "description_short": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet, iure asperiores! Laudantium aperiam dolorem deserunt nostrum quidem.",
-        "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet, iure asperiores! Laudantium aperiam dolorem deserunt nostrum quidem. Distinctio a deleniti impedit fugit, ea pariatur magni excepturi, architecto odit, voluptas accusamus."
-      }
-    ]
-  },
-  "side_entry": {},
-  "sprue_picker": {},
-  "scara": {},
-  "industrial": {},
-  "control_units": {},
-  "stack_mold": {}
+        { "id": "cx0" },
+        { "id": "cx1" },
+        { "id": "me1" },
+        {
+          "id": "mc2",
+          "title": "mc2",
+          "content": [
+            { "title": "test", "id": 1 },
+            { "title": "test", "id": 2 },
+            { "title": "test", "id": 3 }
+          ],
+          "img": "/asset/robot/mc2/Raggruppa 257.png",
+          "thumbnail": "/asset/robot/mc2/Raggruppa 206.png",
+          "description_short": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet, iure asperiores! Laudantium aperiam dolorem deserunt nostrum quidem.",
+          "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet, iure asperiores! Laudantium aperiam dolorem deserunt nostrum quidem. Distinctio a deleniti impedit fugit, ea pariatur magni excepturi, architecto odit, voluptas accusamus.",
+          "table_path": "/asset/csv/mock.csv"
+        }
+      ]
+    },
+    "side_entry": {},
+    "sprue_picker": {},
+    "scara": {},
+    "industrial": {},
+    "control_units": {},
+    "stack_mold": {}
+  }
 }

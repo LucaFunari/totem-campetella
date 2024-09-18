@@ -1,6 +1,6 @@
 import React from "react";
-import Header from "../Header";
 import GoBackRoundBtn from "../reusable/GoBackRoundBtn";
+import ThirdLevelPageHeader from "../reusable/ThirdLevelPageHeader";
 
 const Azienda = () => {
   const ref = React.useRef() as React.RefObject<HTMLDivElement>;
@@ -11,14 +11,13 @@ const Azienda = () => {
 
   return (
     <div className="grid h-full grid-rows-[10%_23%_auto] bg-slate-50">
-      <header className="flex items-center justify-center bg-white">
-        <img className="max-w-72" src="/asset/Logo Campetella.svg" alt="logo" />
-      </header>
+      <ThirdLevelPageHeader />
+
       <div className="flex flex-col bg-babyblue p-10">
         <GoBackRoundBtn size={50} />
 
         <div className="flex flex-1 items-center justify-center">
-          <p className="font-d-din-condensed line-clamp-2 w-4/5 text-[70px] font-bold text-white">
+          <p className="line-clamp-2 w-4/5 font-d-din-condensed text-[70px] font-bold text-white">
             Da più di un secolo, produttori di automazioni complesse
           </p>
         </div>

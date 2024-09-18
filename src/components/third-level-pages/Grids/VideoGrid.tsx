@@ -1,12 +1,13 @@
-import { usePopupStateStore } from "../../../zustand-stores";
+import { usePopupStateStore, video } from "../../../zustand-stores";
 
-export function VideoGrid(props: { content: string[] }) {
-  const { setOpen } = usePopupStateStore();
+export function VideoGrid(props: { content: video[] }) {
+  const { setOpen, setVideo } = usePopupStateStore();
 
-  const vidOpenFn = (vid: any) => {
+  const vidOpenFn = (vid: video) => {
     setOpen();
+    setVideo(vid);
 
-    return () => console.debug("opening popup with video " + vid);
+    return console.debug("opening popup with video " + vid.id);
   };
 
   return (
@@ -16,6 +17,7 @@ export function VideoGrid(props: { content: string[] }) {
       <div className="grid w-full grid-cols-[auto_auto_auto] justify-between gap-14">
         {props.content.map((vid, index) => (
           <div
+            key={index}
             onClick={() => vidOpenFn(vid)}
             className="aspect-video w-64 border-2 border-white"
           >

@@ -1,9 +1,9 @@
 import React from "react";
-import Header from "../Header";
+import Header from "../reusable/Header";
 import { BlueButton, GrayButton } from "../reusable/LinkButton";
-import { Footer } from "../Footer";
+import { Footer } from "../reusable/Footer";
 import { useQuery } from "@tanstack/react-query";
-import { mockDataQuery } from "../third-level-pages/mockdataloader";
+import { mockDataQuery } from "../mockdataloader";
 import { useParams } from "react-router-dom";
 import GoBackRoundBtn from "../reusable/GoBackRoundBtn";
 
@@ -52,8 +52,10 @@ const FirstLevelPage = () => {
   return (
     <div className="relative grid h-full grid-rows-[5fr_5fr_1fr]">
       <div
-        className="cover flex aspect-square w-full flex-col bg-cover bg-bottom px-10 py-10 pb-20"
-        style={{ background: `url(${thisPageData?.bgImg})` }}
+        style={
+          thisPageData.bgImg && { background: `url(${thisPageData?.bgImg})` }
+        }
+        className="cover flex aspect-square w-full flex-col bg-buttonbluedarker bg-cover bg-bottom px-10 py-10 pb-20"
       >
         <Header />
         <div className="flex-1">{!isHomePage && <GoBackRoundBtn />}</div>
@@ -69,7 +71,7 @@ const FirstLevelPage = () => {
             ))}
           </div>
         ) : (
-          <h1 className="font-d-din-condensed text-center text-[140px]/[180px] font-bold uppercase text-white">
+          <h1 className="text-center font-d-din-condensed text-[140px]/[180px] font-bold uppercase text-white">
             {thisPageData.title}
           </h1>
         )}

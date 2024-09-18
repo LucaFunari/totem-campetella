@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, redirect, useNavigate, useRouteError } from "react-router-dom";
+import { useNavigate, useRouteError } from "react-router-dom";
 import SimpleButton from "./reusable/SimpleButton";
 
 const ErrorPage = () => {
@@ -11,9 +11,6 @@ const ErrorPage = () => {
   };
   const navigate = useNavigate();
 
-  React.useEffect(() => {
-    console.debug(error);
-  }, [error]);
   return (
     <div className="radial-bg flex h-dvh w-full flex-col items-start justify-center gap-4 p-6 text-left text-white">
       <>
@@ -23,8 +20,7 @@ const ErrorPage = () => {
         <code className="w-full">{error.data}</code>
 
         <br></br>
-        <div className="grid w-full grid-cols-2">
-          <SimpleButton fn={() => navigate("..")}>indietro</SimpleButton>
+        <div className="">
           <SimpleButton fn={() => navigate("/")}>Home</SimpleButton>
         </div>
       </>

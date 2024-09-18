@@ -3,6 +3,7 @@ import { useDetailedPageStore } from "../../zustand-stores";
 import { useParams } from "react-router-dom";
 import PageTitle from "./PageTitle";
 import { VideoGrid } from "./Grids/VideoGrid";
+import { useTableData } from "../mockdataloader";
 
 const SingleProductPage = () => {
   const params = useParams() as {
@@ -25,18 +26,18 @@ const SingleProductPage = () => {
     return product;
   }, [page, params]);
 
-  console.debug(currentProduct);
+  const { data: tableData } = useTableData(currentProduct?.table_path);
 
   return (
     <div className="flex h-full flex-col text-white">
       <PageTitle>{currentProduct?.title}</PageTitle>
 
-      <div className="flex">
+      <div className="flex flex-1">
         <div className="grid grid-cols-2">
-          <p className="font-d-din flex flex-1 items-center p-2 text-2xl italic">
-            {currentProduct.description_short}
+          <p className="flex flex-1 items-center p-2 font-d-din text-2xl italic">
+            {currentProduct?.description_short}
           </p>
-          <img src={currentProduct.img} className="flex-1" />
+          <img src={currentProduct?.img} className="flex-1" />
         </div>
       </div>
       <div className="flex-1 pb-32 pt-32">
@@ -49,7 +50,29 @@ const SingleProductPage = () => {
         </p>
       </div>
 
-      {currentProduct.content && <VideoGrid content={currentProduct.content} />}
+      {tableData && (
+        <table className="table-auto font-d-din text-xs">
+          <tbody>
+            {tableData.map((row, ind) => (
+              <tr key={ind}>
+                {" "}
+                {row.map((cell, index) => (
+                  <td
+                    className="border-2 border-white p-1 text-center"
+                    key={index}
+                  >
+                    {cell}
+                  </td>
+                ))}
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      )}
+
+      {currentProduct?.content && (
+        <VideoGrid content={currentProduct.content} />
+      )}
     </div>
   );
 };

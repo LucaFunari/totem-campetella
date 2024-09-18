@@ -1,9 +1,8 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import { gridElement } from "../../../zustand-stores";
 
-const Grid = (props: { elements: any[] }) => {
-  console.debug(props.elements);
-
+const Grid = (props: { elements: gridElement[] }) => {
   return (
     <div className="content items-star flex w-full flex-1 justify-center overflow-auto">
       <div className="flex h-min w-4/5 flex-wrap items-center justify-center gap-20">
@@ -17,7 +16,7 @@ const Grid = (props: { elements: any[] }) => {
 
 export default Grid;
 
-const Icon = (props: { obj: object }) => {
+const Icon = (props: { obj: gridElement }) => {
   const elementIsntEmpty = React.useMemo(() => {
     const keys = Object.keys(props.obj);
 
@@ -35,26 +34,19 @@ const Icon = (props: { obj: object }) => {
   return (
     <div
       onClick={navigateFn}
-      className={`${!elementIsntEmpty ? "cursor-not-allowed opacity-50" : ""} flex shrink-0 grow-0 flex-col items-center gap-5`}
+      className={`${!elementIsntEmpty && "cursor-not-allowed opacity-50"} flex shrink-0 grow-0 flex-col items-center gap-5`}
     >
       <div
         className={`float-start flex aspect-square items-end justify-center align-middle`}
       >
         {props.obj.icon ? (
-          <img
-            src={props.obj.icon}
-            loading="lazy"
-            // className="h-full w-full"
-          />
+          <img src={props.obj.icon} loading="lazy" />
         ) : (
           <div className="h-28 w-28 border-2 border-white" />
         )}
       </div>
-      <span className="font-d-din-condensed line-clamp-2 h-[2lh] w-32 break-words text-center text-2xl font-semibold uppercase text-white">
-        {
-          // @ts-expect-error missing detailed obj type
-          props.obj.id
-        }
+      <span className="line-clamp-2 h-[2lh] w-32 break-words text-center font-d-din-condensed text-2xl font-semibold uppercase text-white">
+        {props.obj.id}
       </span>
     </div>
   );
