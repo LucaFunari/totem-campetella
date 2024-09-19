@@ -69,10 +69,28 @@ export interface product {
   table_path?: string;
 }
 
-export interface gridElement {
-  id: string;
-  description?: string;
-  subtitle?: string;
+// export interface gridElement {
+//   id: string;
+//   description?: string;
+//   subtitle?: string;
+//   icon?: string;
+//   products?: product[];
+// }
+
+export type gridElement = {
+  id: number;
+  name: string;
   icon?: string;
-  products?: product[];
-}
+  count: number;
+  slug: string;
+};
+
+// export interface RobotType {
+//   id: number;
+//   count: number;
+//   description: string;
+//   name: string;
+//   slug: string;
+//   taxonomy: string;
+// }
+// >

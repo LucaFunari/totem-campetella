@@ -4,13 +4,11 @@ import "./App.css";
 
 import Popup from "./components/popup/Popup";
 import { usePopupStateStore } from "./zustand-stores";
-import { useRobotList, useRobotType } from "./api/queries";
-
+import { useMediaAsset, useRobotList } from "./api/queries";
 function App() {
   const { isOpen } = usePopupStateStore();
 
-  const { data } = useRobotList();
-  const { data: robotTypeData } = useRobotType(3);
+  const { data } = useMediaAsset();
 
   const [scale, setScale] = React.useState(1);
 

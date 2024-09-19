@@ -1,8 +1,8 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import { product } from "../../../zustand-stores";
+import { Robot, useCSVFile, useMediaAsset } from "../../../api/queries";
 
-export const ProductsGrid = (props: { products: product[] }) => {
+export const ProductsGrid = (props: { products: Robot[] }) => {
   return (
     <div className="grid grid-cols-4 gap-10">
       {props.products.map((prod) => (
@@ -12,23 +12,31 @@ export const ProductsGrid = (props: { products: product[] }) => {
   );
 };
 
-const Product = (props: { product: product }) => {
+const Product = (props: { product: Robot }) => {
+  const { product } = props;
+
+  const { data: prov } = useCSVFile(71);
+
+  const { data } = useMediaAsset(product.featured_media) as
+    | { guid: { rendered: string } }
+    | undefined;
+
   const isNavigable = React.useMemo(() => {
-    const keys = Object.keys(props.product);
+    const keys = Object.keys(product);
     return keys.length > 2;
-  }, [props.product]);
+  }, [product]);
 
   const navigate = useNavigate();
   return (
     <div
-      className={`${!isNavigable && "cursor-not-allowed opacity-50"} flex aspect-video w-52 flex-col items-center`}
+      className={`${!isNavigable && "cursor-not-allowed opacity-50"} flex aspect-video w-52 select-none flex-col items-center`}
       onClick={() => {
-        if (isNavigable) navigate(props.product.id);
+        if (isNavigable) navigate(product.slug);
       }}
     >
-      <img className="" src={props.product.thumbnail}></img>
+      <img className="" src={data?.guid?.rendered} alt={product.slug}></img>
       <span className="font-d-din text-xl font-bold uppercase">
-        {props.product.title ?? props.product.id}
+        {product.title.rendered ?? product.id}
       </span>
     </div>
   );
