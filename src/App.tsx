@@ -4,7 +4,11 @@ import "./App.css";
 
 import Popup from "./components/popup/Popup";
 import { usePopupStateStore } from "./zustand-stores";
-import { useMediaAsset, useRobotList } from "./api/queries";
+import { useMediaAsset } from "./api/queries";
+
+const width = 2160;
+const heigth = 3840;
+
 function App() {
   const { isOpen } = usePopupStateStore();
 
@@ -15,7 +19,7 @@ function App() {
   const resizeFunc = React.useCallback(() => {
     const h = window.innerHeight;
 
-    setScale(h / 1920);
+    setScale(h / heigth);
 
     // 1920: 1600 = 1: x
   }, []);
@@ -29,8 +33,9 @@ function App() {
   return (
     <div className="absolute left-1/2 aspect-[9/16] h-dvh -translate-x-1/2 overflow-hidden bg-white">
       <div
-        className="h-[1920px] w-[1080px]"
         style={{
+          width: width,
+          height: heigth,
           transformOrigin: "top left",
           transform: `scale(${scale})`,
         }}

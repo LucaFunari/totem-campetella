@@ -8,4 +8,5 @@ export const robotPage: SecondLevelPage = {
 };
 export const campiApplicativiPage: SecondLevelPage = {
   title: "campi applicativi",
+  disabled: true,
 };

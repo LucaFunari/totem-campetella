@@ -1,4 +1,6 @@
 import { create } from "zustand";
+import { AllegatoCampo } from "./components/third-level-pages/Grids/VideoGrid";
+import { Allegato } from "./api/queries";
 
 export interface video {
   id: number;
@@ -7,14 +9,14 @@ export interface video {
 
 interface popupStateStoreType {
   isOpen: boolean;
-  video?: video;
-  setVideo: (v: video) => void;
+  video?: Allegato | AllegatoCampo;
+  setVideo: (v: Allegato | AllegatoCampo) => void;
   setOpen: (bool?: boolean) => void;
 }
 
 export const usePopupStateStore = create<popupStateStoreType>()((set) => ({
   isOpen: false,
-  setVideo: (v: video) => set({ video: v }),
+  setVideo: (v: Allegato | AllegatoCampo) => set({ video: v }),
   setOpen: (bool?: boolean) => {
     if (bool) {
       set({ isOpen: bool });

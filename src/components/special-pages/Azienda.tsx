@@ -1,6 +1,6 @@
 import React from "react";
 import GoBackRoundBtn from "../reusable/GoBackRoundBtn";
-import ThirdLevelPageHeader from "../reusable/ThirdLevelPageHeader";
+import ThirdLevelPageHeader from "../second-level-pages/ThirdLevelPageHeader";
 
 const Azienda = () => {
   const ref = React.useRef() as React.RefObject<HTMLDivElement>;

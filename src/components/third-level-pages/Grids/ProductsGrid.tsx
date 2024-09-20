@@ -1,6 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import { Robot, useCSVFile, useMediaAsset } from "../../../api/queries";
+import { Robot, useMediaAsset } from "../../../api/queries";
 
 export const ProductsGrid = (props: { products: Robot[] }) => {
   return (
@@ -14,8 +14,6 @@ export const ProductsGrid = (props: { products: Robot[] }) => {
 
 const Product = (props: { product: Robot }) => {
   const { product } = props;
-
-  const { data: prov } = useCSVFile(71);
 
   const { data } = useMediaAsset(product.featured_media) as
     | { guid: { rendered: string } }

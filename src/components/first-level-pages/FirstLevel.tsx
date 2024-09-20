@@ -1,8 +1,8 @@
 import React from "react";
 import GoBackRoundBtn from "../reusable/GoBackRoundBtn";
-import Header from "../reusable/Header";
+import Header from "./Header";
 import { BlueButton, GrayButton } from "../reusable/LinkButton";
-import { Footer } from "../reusable/Footer";
+import { Footer } from "./Footer";
 
 const FirstLevel = (props: { pageData: PageData }) => {
   const { pageData } = props;
@@ -21,7 +21,7 @@ const FirstLevel = (props: { pageData: PageData }) => {
               }
             : {}
         }
-        className={`cover flex aspect-square w-full flex-col bg-buttonbluedarker bg-opacity-80 bg-contain bg-[20%] px-10 py-10 pb-20`}
+        className={`cover flex aspect-square w-full flex-col bg-buttonbluedarker bg-opacity-80 bg-contain bg-[20%] px-20 py-10 pb-40`}
       >
         <Header />
         <div className="flex-1">
@@ -39,7 +39,7 @@ const FirstLevel = (props: { pageData: PageData }) => {
             )}
           </div>
         ) : (
-          <h1 className="text-center font-d-din-condensed text-[140px]/[180px] font-bold uppercase text-white">
+          <h1 className="text-center font-d-din-condensed text-[280px]/[360px] font-bold uppercase text-white">
             {pageData.title}
           </h1>
         )}

@@ -1,6 +1,6 @@
 import React from "react";
 import PageTitle from "../third-level-pages/PageTitle";
-import ThirdLevelPageHeader from "../reusable/ThirdLevelPageHeader";
+import ThirdLevelPageHeader from "../second-level-pages/ThirdLevelPageHeader";
 
 const Service = () => {
   return (

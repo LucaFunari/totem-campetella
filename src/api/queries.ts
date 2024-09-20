@@ -1,19 +1,6 @@
 import { QueryClient, useQuery, useQueryClient } from "@tanstack/react-query";
 import { queryClient } from "../main";
 
-export const useRobotList = () => {
-  return useQuery({
-    queryKey: ["robotList"],
-    queryFn: async () => {
-      const data = await fetch(import.meta.env.VITE_ROBOT_LIST_ENDPOINT);
-
-      const json = await data.json();
-      return json;
-    },
-    staleTime: Infinity,
-    refetchOnWindowFocus: false,
-  });
-};
 
 export const robotTypesQuery: QueryType = () => ({
   queryKey: ["robotTypes"],
@@ -80,14 +67,14 @@ export interface RobotType {
   taxonomy: string;
   children_robots?: Robot[];
   acf:
-    | {
-        intro: string;
-        immagine_robot: number;
-        testo: string;
-        file_csv: number;
-        allegati: Allegato[];
-      }
-    | [];
+  | {
+    intro: string;
+    immagine_robot: number;
+    testo: string;
+    file_csv: number;
+    allegati: Allegato[];
+  }
+  | [];
 }
 
 export interface Robot {
@@ -112,6 +99,7 @@ export interface Allegato {
   video_url: string;
 }
 
+
 export const useMediaAsset = (assetId?: number) => {
   return useQuery({
     queryKey: ["getAssets", assetId],
@@ -124,8 +112,7 @@ export const useMediaAsset = (assetId?: number) => {
 
         return { id, guid, title, media_type, link };
       });
-
-      if (assetId) {
+      if (assetId || assetId === 0) {
         const selectedAsset = parsedJson.find((one) => one.id == assetId);
         return selectedAsset;
       } else return parsedJson;
@@ -177,13 +164,6 @@ export const useCSVFile = (id?: number) => {
         }
       }
 
-      // const data = await fetch(import.meta.env.VITE_ASSET_ENDPOINT + "/" + id);
-      // const json = await data.json();
-
-      // const csvData = await fetch(json.guid.rendered);
-
-      // console.debug(csvData);
-      // return json;
     },
     staleTime: Infinity,
     enabled: !!id,
@@ -194,11 +174,17 @@ export const campiApplicativiQuery: QueryType = () => ({
   queryKey: ["campiApplicativi"],
   queryFn: async () => {
     const data = await fetch(import.meta.env.VITE_CAMPI_APP_ENDPOINT);
-    const json = await data.json();
+    const json = await data.json() as CampoApplicativo[];
 
-    console.debug(json);
+    const parsedCamps = json.map((campo) => {
 
-    return json;
+      const { id, slug, acf, content, featured_media, title, type
+      } = campo
+      return { id, slug, acf, content, featured_media, title, type, name: title.rendered }
+    })
+
+
+    return parsedCamps;
   },
 
   staleTime: Infinity,
@@ -210,9 +196,41 @@ export const campiApplicativiLoader =
   (queryClient: QueryClient) => async () => {
     const query = campiApplicativiQuery();
 
-    console.debug("ao");
 
     return (
       queryClient.getQueryData(query.queryKey) ?? queryClient.fetchQuery(query)
     );
   };
+
+
+export type CampoApplicativo = {
+  id: number,
+  guid: {
+    rendered: string
+  },
+  slug: string,
+  type: "campo-applicativo",
+  title: {
+    rendered: string
+  },
+  content: {
+    rendered:
+    string,
+    protected: boolean
+  },
+  featured_media: number,
+
+  acf: {
+    icona: string,
+    testo: string,
+    allegati:
+    {
+      "allegato-immagine": number,
+      "allegato-video": number,
+      "allegato-file": string,
+      "allegato-didascalia": string
+    }[]
+
+  },
+
+}

@@ -12,7 +12,7 @@ import { detailedPageLoader, loader } from "./components/mockdataloader.ts";
 import { QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import SingleProductPage from "./components/third-level-pages/SingleProductPage.tsx";
-import FirstLevelPage from "./components/first-level-pages/FirstLevelPage.tsx";
+import FirstLevelPage from "./components/deprecated/FirstLevelPage.tsx";
 import Azienda from "./components/special-pages/Azienda.tsx";
 import Service from "./components/special-pages/Service.tsx";
 import {
@@ -35,6 +35,7 @@ import {
 import SecondLevelPageWrapper from "./components/second-level-pages/SecondLevelPageWrapper.tsx";
 import ThirdLevel from "./components/third-level-pages/ThirdLevel.tsx";
 import RobotPage from "./components/third-level-pages/RobotPage.tsx";
+import CampoApplicativo from "./components/third-level-pages/CampoApplicativo.tsx";
 
 export const queryClient = new QueryClient();
 
@@ -117,6 +118,7 @@ const router = createHashRouter([
                       return () => campiApplicativiLoader(queryClient);
                     },
                   },
+                  { path: ":id", element: <CampoApplicativo /> },
                 ],
               },
             ],

@@ -4,6 +4,7 @@ import { useQuery } from "@tanstack/react-query";
 import { RobotType, robotTypesQuery } from "../../api/queries";
 import { useParams } from "react-router-dom";
 import { ProductsGrid } from "./Grids/ProductsGrid";
+import Spinner from "../reusable/Spinner";
 
 const ThirdLevel = () => {
   const { data } = useQuery(robotTypesQuery());
@@ -18,15 +19,16 @@ const ThirdLevel = () => {
     }
   }, [params, data]);
 
-  return (
-    <>
-      <PageTitle>{currentRobotType?.name}</PageTitle>
-
-      {currentRobotType?.children_robots && (
-        <ProductsGrid products={currentRobotType.children_robots} />
-      )}
-    </>
-  );
+  if (currentRobotType)
+    return (
+      <>
+        <PageTitle>{currentRobotType?.name}</PageTitle>
+        {currentRobotType?.children_robots && (
+          <ProductsGrid products={currentRobotType.children_robots} />
+        )}
+      </>
+    );
+  else return <Spinner />;
 };
 
 export default ThirdLevel;

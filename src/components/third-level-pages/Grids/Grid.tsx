@@ -1,18 +1,20 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import { gridElement } from "../../../zustand-stores";
+import Spinner from "../../reusable/Spinner";
 
 const Grid = (props: { elements?: gridElement[] }) => {
   if (props.elements)
     return (
       <div className="content items-star flex w-full flex-1 justify-center overflow-auto">
-        <div className="flex h-min w-4/5 flex-wrap items-center justify-center gap-20">
+        <div className="flex h-min w-4/5 flex-wrap items-center justify-center gap-40">
           {props.elements.map((obj, index) => (
             <Icon key={index} obj={obj} />
           ))}
         </div>
       </div>
     );
+  else return <Spinner />;
 };
 
 export default Grid;
@@ -33,7 +35,7 @@ const Icon = (props: { obj: gridElement }) => {
   return (
     <div
       onClick={navigateFn}
-      className={`${elementIsEmpty && "cursor-not-allowed opacity-50"} flex shrink-0 grow-0 flex-col items-center gap-5`}
+      className={`${elementIsEmpty && "cursor-not-allowed opacity-50"} flex shrink-0 grow-0 flex-col items-center gap-10`}
     >
       <div
         className={`float-start flex aspect-square items-end justify-center align-middle`}
@@ -41,10 +43,10 @@ const Icon = (props: { obj: gridElement }) => {
         {obj.icon ? (
           <img src={obj.icon} loading="lazy" />
         ) : (
-          <div className="h-28 w-28 border-2 border-white" />
+          <div className="h-56 w-56 border-4 border-white" />
         )}
       </div>
-      <span className="line-clamp-2 h-[2lh] w-32 select-none break-words text-center font-d-din-condensed text-2xl font-semibold uppercase text-white">
+      <span className="line-clamp-2 h-[2lh] w-56 select-none break-words text-center font-d-din-condensed text-5xl font-semibold uppercase text-white">
         {obj.name}
       </span>
     </div>

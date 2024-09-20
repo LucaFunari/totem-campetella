@@ -2,12 +2,16 @@ import * as React from "react";
 import { Allegato, Asset, useMediaAsset } from "../../../api/queries";
 import { usePopupStateStore, video } from "../../../zustand-stores";
 
-export function VideoGrid(props: { content: Allegato[] }) {
-  const allegatiDaMostrare = React.useMemo(() => {
-    const vid = props.content.filter((ones) => ones.tipo === "immagine");
-    return vid;
-  }, [props.content]);
+export interface AllegatoCampo {
+  "allegato-immagine": number;
+  "allegato-video": number;
+  "allegato-file": string;
+  "allegato-didascalia": string;
+}
 
+export function VideoGrid(props: {
+  content: Allegato[] | AllegatoCampo[] | undefined;
+}) {
   // const vidOpenFn = (vid: Allegato) => {
   //   setOpen();
   //   setVideo(vid);
@@ -15,27 +19,30 @@ export function VideoGrid(props: { content: Allegato[] }) {
   //   return console.debug("opening popup with video " + vid.tipo);
   // };
 
-  return (
-    <div>
-      <h1 className="text-xl font-semibold uppercase">VIDEO</h1>
-      <hr className="mb-6 mt-1 h-[3px] border-none bg-white"></hr>
-      <div className="grid w-full grid-cols-[auto_auto_auto] justify-between gap-14">
-        {allegatiDaMostrare.map((vid, index) => (
-          <VideoGridChildElem key={index} vid={vid} />
-        ))}
+  if (props.content)
+    return (
+      <div>
+        <h1 className="text-xl font-semibold uppercase">VIDEO</h1>
+        <hr className="mb-6 mt-1 h-[3px] border-none bg-white"></hr>
+        <div className="grid w-full grid-cols-[auto_auto_auto] justify-between gap-14">
+          {props.content.map((vid, index) => (
+            <VideoGridChildElem key={index} vid={vid} />
+          ))}
+        </div>
       </div>
-    </div>
-  );
+    );
 }
 
-function VideoGridChildElem(props: { vid: Allegato }) {
-  const { data }: Asset | undefined = useMediaAsset(props.vid.file);
+function VideoGridChildElem(props: { vid: Allegato | AllegatoCampo }) {
+  const { data: robotallegato }: Asset | undefined = useMediaAsset(
+    props.vid.file,
+  );
 
-  const vidOpenFn = (vid: Allegato) => {
+  const { data: thumbnail } = useMediaAsset(props.vid["allegato-immagine"]);
+
+  const vidOpenFn = (vid: Allegato | AllegatoCampo) => {
     setOpen();
     setVideo(vid);
-
-    return console.debug("opening popup with video " + vid.tipo);
   };
 
   const { setOpen, setVideo } = usePopupStateStore();
@@ -43,9 +50,10 @@ function VideoGridChildElem(props: { vid: Allegato }) {
   return (
     <div
       onClick={() => vidOpenFn(props.vid)}
-      className="aspect-video w-64 border-2 border-white"
+      className="aspect-video w-64 overflow-clip border-2 border-white"
     >
-      {data?.title?.rendered}
+      {thumbnail && <img loading="lazy" src={thumbnail?.guid?.rendered} />}
+
       {/* <img src="/public/asset/Raggruppa_63.png"></img> */}
     </div>
   );

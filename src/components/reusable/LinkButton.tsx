@@ -39,12 +39,12 @@ export const BlueButton = (props: {
     <button
       onClick={navigateFn}
       disabled={props.disabled || !props.goTo}
-      className="flex h-32 w-64 select-none items-center justify-center self-center rounded-none bg-buttonblue px-6 py-4 outline-none hover:border-none enabled:hover:bg-buttonbluedarker disabled:cursor-not-allowed disabled:opacity-25"
+      className="flex h-64 w-[32rem] select-none items-center justify-center self-center rounded-none border-none bg-buttonblue px-6 py-4 outline-none enabled:hover:bg-buttonbluedarker disabled:cursor-not-allowed disabled:opacity-25"
     >
       {props.iconUrl ? (
         <img src={props.iconUrl} alt="icon" />
       ) : (
-        <p className="line-clamp-2 overflow-hidden text-ellipsis text-center font-d-din-condensed text-4xl font-bold uppercase text-white">
+        <p className="line-clamp-2 overflow-hidden text-ellipsis text-center font-d-din-condensed text-[4.6rem] font-bold uppercase text-white">
           {props.children}
         </p>
       )}

@@ -3,7 +3,7 @@ import React from "react";
 import { Outlet, useParams } from "react-router-dom";
 import { mockDataQuery, mockDetailedQuery } from "../mockdataloader";
 import { useDetailedPageStore } from "../../zustand-stores";
-import ThirdLevelPageHeader from "../reusable/ThirdLevelPageHeader";
+import ThirdLevelPageHeader from "../second-level-pages/ThirdLevelPageHeader";
 
 const ThirdLevelPage = () => {
   const { setPage } = useDetailedPageStore();

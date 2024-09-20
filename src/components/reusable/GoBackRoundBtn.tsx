@@ -2,7 +2,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import { useDetailedPageStore } from "../../zustand-stores";
 
-const GoBackRoundBtn = ({ size = 70 }: { size?: number }) => {
+const GoBackRoundBtn = ({ size = 140 }: { size?: number }) => {
   const navigate = useNavigate();
 
   const { resetPage } = useDetailedPageStore();
