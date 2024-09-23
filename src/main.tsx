@@ -36,6 +36,7 @@ import SecondLevelPageWrapper from "./components/second-level-pages/SecondLevelP
 import ThirdLevel from "./components/third-level-pages/ThirdLevel.tsx";
 import RobotPage from "./components/third-level-pages/RobotPage.tsx";
 import CampoApplicativo from "./components/third-level-pages/CampoApplicativo.tsx";
+import FineLinea from "./components/special-pages/FineLinea.tsx";
 
 export const queryClient = new QueryClient();
 
@@ -131,6 +132,10 @@ const router = createHashRouter([
           {
             path: "",
             element: <FirstLevel pageData={estrusioneData} />,
+          },
+          {
+            path: "fine-linea",
+            element: <FineLinea />,
           },
         ],
       },

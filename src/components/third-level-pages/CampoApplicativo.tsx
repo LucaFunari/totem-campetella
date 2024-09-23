@@ -24,15 +24,17 @@ const CampoApplicativo = () => {
   return (
     <div className="flex h-full flex-col justify-between text-white">
       <PageTitle>{currentCampo?.title.rendered}</PageTitle>
-      <div className="flex flex-1 flex-col p-7">
-        <div className="flex flex-1 flex-col justify-center gap-32">
-          <div className="flex-1 pb-32 pt-32">
+      <div className="flex flex-1 flex-col p-14">
+        <div className="flex flex-1 flex-col justify-center gap-64">
+          <div className="flex-1 pb-64 pt-64">
             {/* {JSON.stringify(currentCampo)} */}
 
-            {imageData && <img src={imageData?.guid?.rendered} />}
+            {imageData && (
+              <img src={imageData?.guid?.rendered} alt="immagine cammpo" />
+            )}
 
             <div
-              className="font-d-din text-2xl [&>*:first-child]:font-d-din-condensed [&>*:first-child]:text-4xl [&>*:first-child]:font-bold [&>*]:list-disc [&>ul]:ps-10"
+              className="[ font-baiti text-contentLg [&>*:first-child]:font-d-din-condensed [&>*:first-child]:text-contentTitle [&>*:first-child]:font-bold [&>*]:list-disc [&>ul]:ps-20"
               dangerouslySetInnerHTML={{
                 __html: currentCampo?.content.rendered ?? "",
               }}

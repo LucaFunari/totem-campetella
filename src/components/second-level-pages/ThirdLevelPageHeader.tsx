@@ -7,9 +7,10 @@ const ThirdLevelPageHeader = () => {
   return (
     <header className="flex items-center justify-center bg-white text-black">
       <img
-        className="max-w-72 cursor-pointer"
+        className="w-[576px] cursor-pointer"
+        loading="lazy"
         src="/asset/Logo Campetella.svg"
-        alt="log o"
+        alt="logo"
         onClick={() => navigate("/")}
       />
     </header>

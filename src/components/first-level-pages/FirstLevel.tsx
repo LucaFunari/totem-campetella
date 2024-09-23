@@ -13,7 +13,8 @@ const FirstLevel = (props: { pageData: PageData }) => {
         style={
           pageData.bgImgPath
             ? {
-                background: `url(${pageData?.bgImgPath}) `,
+                backgroundColor: "#1e4f7d",
+                backgroundImage: `url(${pageData?.bgImgPath}) `,
                 backgroundSize: "200%",
                 backgroundRepeat: "no-repeat",
 

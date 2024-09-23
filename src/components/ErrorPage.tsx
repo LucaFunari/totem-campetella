@@ -22,7 +22,9 @@ const ErrorPage = () => {
 
           <br></br>
           <div className="">
-            <SimpleButton fn={() => navigate("/")}>Home</SimpleButton>
+            <SimpleButton fn={() => navigate("/")}>
+              Torna Alla Home
+            </SimpleButton>
           </div>
         </>
       </div>

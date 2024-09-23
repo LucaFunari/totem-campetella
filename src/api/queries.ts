@@ -1,7 +1,6 @@
 import { QueryClient, useQuery, useQueryClient } from "@tanstack/react-query";
 import { queryClient } from "../main";
 
-
 export const robotTypesQuery: QueryType = () => ({
   queryKey: ["robotTypes"],
   queryFn: async () => {
@@ -67,14 +66,14 @@ export interface RobotType {
   taxonomy: string;
   children_robots?: Robot[];
   acf:
-  | {
-    intro: string;
-    immagine_robot: number;
-    testo: string;
-    file_csv: number;
-    allegati: Allegato[];
-  }
-  | [];
+    | {
+        intro: string;
+        immagine_robot: number;
+        testo: string;
+        file_csv: number;
+        allegati: Allegato[];
+      }
+    | [];
 }
 
 export interface Robot {
@@ -98,7 +97,6 @@ export interface Allegato {
   file: string;
   video_url: string;
 }
-
 
 export const useMediaAsset = (assetId?: number) => {
   return useQuery({
@@ -145,10 +143,14 @@ export const useCSVFile = (id?: number) => {
       if (data) {
         const tableElement = data.find((one) => one.id === id);
 
-        if (tableElement?.guid.rendered) {
-          const csvData = await fetch(tableElement?.guid.rendered);
+        const csvUrl = tableElement?.guid.rendered || "asset/csv/mc2_table.csv";
+
+        if (csvUrl) {
+          const csvData = await fetch(csvUrl);
 
           const csvText = await csvData.text();
+
+          const array = csvToArray(csvText);
 
           const resultArray: string[][] = [];
 
@@ -160,10 +162,9 @@ export const useCSVFile = (id?: number) => {
             resultArray.push(rowArray);
           });
 
-          return resultArray;
+          return array;
         }
       }
-
     },
     staleTime: Infinity,
     enabled: !!id,
@@ -174,15 +175,21 @@ export const campiApplicativiQuery: QueryType = () => ({
   queryKey: ["campiApplicativi"],
   queryFn: async () => {
     const data = await fetch(import.meta.env.VITE_CAMPI_APP_ENDPOINT);
-    const json = await data.json() as CampoApplicativo[];
+    const json = (await data.json()) as CampoApplicativo[];
 
     const parsedCamps = json.map((campo) => {
-
-      const { id, slug, acf, content, featured_media, title, type
-      } = campo
-      return { id, slug, acf, content, featured_media, title, type, name: title.rendered }
-    })
-
+      const { id, slug, acf, content, featured_media, title, type } = campo;
+      return {
+        id,
+        slug,
+        acf,
+        content,
+        featured_media,
+        title,
+        type,
+        name: title.rendered,
+      };
+    });
 
     return parsedCamps;
   },
@@ -196,41 +203,82 @@ export const campiApplicativiLoader =
   (queryClient: QueryClient) => async () => {
     const query = campiApplicativiQuery();
 
-
     return (
       queryClient.getQueryData(query.queryKey) ?? queryClient.fetchQuery(query)
     );
   };
 
-
 export type CampoApplicativo = {
-  id: number,
+  id: number;
   guid: {
-    rendered: string
-  },
-  slug: string,
-  type: "campo-applicativo",
+    rendered: string;
+  };
+  slug: string;
+  type: "campo-applicativo";
   title: {
-    rendered: string
-  },
+    rendered: string;
+  };
   content: {
-    rendered:
-    string,
-    protected: boolean
-  },
-  featured_media: number,
+    rendered: string;
+    protected: boolean;
+  };
+  featured_media: number;
 
   acf: {
-    icona: string,
-    testo: string,
-    allegati:
-    {
-      "allegato-immagine": number,
-      "allegato-video": number,
-      "allegato-file": string,
-      "allegato-didascalia": string
-    }[]
+    icona: string;
+    testo: string;
+    allegati: {
+      "allegato-immagine": number;
+      "allegato-video": number;
+      "allegato-file": string;
+      "allegato-didascalia": string;
+    }[];
+  };
+};
 
-  },
+function csvToArray(text: string, quoteChar = '"', delimiter = ",") {
+  const rows = text.split("\n");
+  const headers = rows[0].split(",");
 
+  const regex = new RegExp(
+    `\\s*(${quoteChar})?(.*?)\\1\\s*(?:${delimiter}|$)`,
+    "gs",
+  );
+
+  const match = (line: string) =>
+    [...line.matchAll(regex)].map((m) => m[2]).slice(0, -1);
+
+  let lines = text.split("\n");
+  const heads = headers ?? match(lines.shift());
+  lines = lines.slice(1);
+
+  const prov = lines.map((line) => {
+    return match(line).reduce((acc, cur, i) => {
+      // replace blank matches with `null`
+      const val = cur.length <= 0 ? null : Number(cur) || cur;
+      const key = heads[i] ?? `{i}`;
+      return { ...acc, [key]: val };
+    }, {});
+  });
+
+  const prov2 = lines.map((line) => {
+    const cells: string[] = [];
+
+    line.split(",").map((cell) => {
+      cells.push(cell);
+    });
+
+    return cells;
+  });
+
+  return prov2;
+
+  // return lines.map((line) => {
+  //   return match(line).reduce((acc, cur, i) => {
+  //     // replace blank matches with `null`
+  //     const val = cur.length <= 0 ? null : Number(cur) || cur;
+  //     const key = heads[i] ?? `{i}`;
+  //     return { ...acc, [key]: val };
+  //   }, {});
+  // });
 }

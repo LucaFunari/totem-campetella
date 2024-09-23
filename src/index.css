@@ -11,6 +11,11 @@
     #e5e5f7 25px
   ); */
 
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
   color-scheme: light dark;
   color: #222;
 }
@@ -23,4 +28,17 @@ div.temp {
     #91919120 15px,
     #91919120 30px
   );
+}
+
+* {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+
+  scrollbar-width: none; /* Firefox */
+}
+*::-webkit-scrollbar {
+  display: none; /* Safari and Chrome */
 }

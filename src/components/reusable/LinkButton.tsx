@@ -11,10 +11,10 @@ export const GrayButton = (props: { goTo: string; innerText: string }) => {
   return (
     <button
       disabled={!props.goTo}
-      className="flex h-32 w-80 select-none items-center justify-center rounded-none bg-buttongray px-6 py-2 outline-none hover:border-none hover:bg-buttongraydarker"
+      className="flex h-64 w-[32rem] select-none items-center justify-center rounded-none bg-buttongray px-6 py-2 outline-none hover:border-none hover:bg-buttongraydarker"
       onClick={navigateFn}
     >
-      <p className="overflow-hidden text-ellipsis text-nowrap text-center font-d-din-condensed text-4xl font-bold uppercase text-white">
+      <p className="overflow-hidden text-ellipsis text-nowrap text-center font-d-din-condensed text-[4.6rem] font-bold uppercase text-white">
         {props.innerText}
       </p>
     </button>
@@ -42,7 +42,7 @@ export const BlueButton = (props: {
       className="flex h-64 w-[32rem] select-none items-center justify-center self-center rounded-none border-none bg-buttonblue px-6 py-4 outline-none enabled:hover:bg-buttonbluedarker disabled:cursor-not-allowed disabled:opacity-25"
     >
       {props.iconUrl ? (
-        <img src={props.iconUrl} alt="icon" />
+        <img src={props.iconUrl} alt="icon" className="w-3/4" />
       ) : (
         <p className="line-clamp-2 overflow-hidden text-ellipsis text-center font-d-din-condensed text-[4.6rem] font-bold uppercase text-white">
           {props.children}

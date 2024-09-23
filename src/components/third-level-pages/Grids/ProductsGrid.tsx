@@ -4,7 +4,7 @@ import { Robot, useMediaAsset } from "../../../api/queries";
 
 export const ProductsGrid = (props: { products: Robot[] }) => {
   return (
-    <div className="grid grid-cols-4 gap-10">
+    <div className="grid grid-cols-4 gap-20">
       {props.products.map((prod) => (
         <Product key={prod.id} product={prod} />
       ))}
@@ -27,13 +27,13 @@ const Product = (props: { product: Robot }) => {
   const navigate = useNavigate();
   return (
     <div
-      className={`${!isNavigable && "cursor-not-allowed opacity-50"} flex aspect-video w-52 select-none flex-col items-center`}
+      className={`${!isNavigable && "cursor-not-allowed opacity-50"} flex aspect-video w-[26rem] select-none flex-col items-center`}
       onClick={() => {
         if (isNavigable) navigate(product.slug);
       }}
     >
       <img className="" src={data?.guid?.rendered} alt={product.slug}></img>
-      <span className="font-d-din text-xl font-bold uppercase">
+      <span className="font-d-din text-[2.5rem]/[3.5rem] font-bold uppercase">
         {product.title.rendered ?? product.id}
       </span>
     </div>

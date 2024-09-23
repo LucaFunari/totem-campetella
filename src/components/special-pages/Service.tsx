@@ -7,16 +7,16 @@ const Service = () => {
     <div className="radial-bg grid h-full w-full grid-rows-[1fr_9fr] text-white">
       <ThirdLevelPageHeader />
 
-      <div className="flex w-full flex-col p-10">
+      <div className="flex w-full flex-col p-20">
         <PageTitle>Service</PageTitle>
 
-        <div className="flex flex-1 flex-col items-center gap-7 p-8">
-          <h1 className="line-clamp-3 w-full font-d-din-condensed text-4xl font-bold">
+        <div className="flex flex-1 flex-col items-center justify-center gap-14 p-16">
+          <h1 className="line-clamp-3 w-full font-d-din-condensed text-contentTitle font-bold">
             Campetella: il partner di fiducia per l’ottimizzazione dei tuoi
             processi produttivi
           </h1>
 
-          <p className="font-baiti text-[32px]/[38px] font-thin">
+          <p className="font-baiti text-contentLg">
             Con un’esperienza di oltre 8000 impianti installati in tutto il
             mondo, l’azienda ha acquisito una conoscenza approfondita delle
             esigenze dei suoi clienti. Questo know-how consente di offrire
@@ -24,26 +24,33 @@ const Service = () => {
             impianto.
           </p>
 
-          <div className="grid h-56 w-full grid-cols-5">
+          <div className="grid w-full grid-cols-5 content-start items-start justify-items-center">
             {icons.map((icon, index) => (
-              <div key={index} className="flex w-44 flex-col items-center">
-                <div className="aspect-square h-32">
+              <div
+                key={index}
+                className="flex w-full flex-col items-center gap-5"
+              >
+                <div className="aspect-square h-64">
                   <img src={icon.iconPath} className="h-full w-full" />
                 </div>
-                <span className="line-clamp-2 w-full text-center font-d-din text-2xl font-bold uppercase">
+                <span className="line-clamp-2 w-full break-words text-center font-d-din text-[3rem] font-bold uppercase">
                   {icon.title}
                 </span>
               </div>
             ))}
           </div>
 
-          <p className="w-full font-baiti text-[32px]/[38px] font-thin">
+          <p className="w-full font-baiti text-contentLg">
             Con centri di assistenza e più di 60 tecnici altamente qualificati,
             Campetella offre un supporto tempestivo e professionale in tutto il
             mondo.
           </p>
 
-          <img src="/asset/service/Raggruppa 341.png" alt="planisfero"></img>
+          <img
+            src="/asset/service/Raggruppa 341.png"
+            alt="planisfero"
+            className="w-full"
+          ></img>
         </div>
       </div>
       {/* 

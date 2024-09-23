@@ -25,7 +25,7 @@ export const estrusioneData: PageData = {
   isHomePage: false,
   links: [
     { goTo: "avvolgitori", title: "avvolgitori", disabled: true },
-    { goTo: "fine_linea", title: "fine linea", disabled: true },
+    { goTo: "fine-linea", title: "fine linea", disabled: false },
   ],
 };
 

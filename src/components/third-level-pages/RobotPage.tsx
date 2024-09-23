@@ -40,16 +40,16 @@ const RobotPage = () => {
         <PageTitle>{currentRobotProduct?.title.rendered}</PageTitle>
         <div className="flex flex-1">
           <div className="grid grid-cols-2">
-            <p className="flex flex-1 items-center p-2 font-d-din text-2xl italic">
+            <p className="flex flex-1 items-center p-8 font-d-din text-content font-thin italic leading-[4.5rem]">
               {currentRobotProduct?.acf.intro}
             </p>
             <img src={imageData?.guid?.rendered} className="flex-1" />
           </div>
         </div>
 
-        <div className="flex-1 pb-32 pt-32">
+        <div className="flex-1 pb-64 pt-64">
           <div
-            className="font-d-din text-2xl [&>*:first-child]:font-d-din-condensed [&>*:first-child]:text-4xl [&>*:first-child]:font-bold [&>*]:list-disc [&>ul]:ps-10"
+            className="font-d-din text-content [&>*:first-child]:font-d-din-condensed [&>*:first-child]:text-contentTitle [&>*:first-child]:font-bold [&>*]:list-disc [&>ul]:ps-20"
             dangerouslySetInnerHTML={{
               __html: currentRobotProduct?.acf.testo ?? "",
             }}
@@ -57,14 +57,13 @@ const RobotPage = () => {
         </div>
 
         {tableData && (
-          <table className="w-full table-auto font-d-din text-xs">
+          <table className="w-full table-auto font-d-din text-4xl">
             <tbody>
               {tableData.map((row, ind) => (
                 <tr key={ind}>
-                  {" "}
                   {row.map((cell, index) => (
                     <td
-                      className="border-2 border-white p-1 text-center"
+                      className="border-4 border-white p-3 text-center text-3xl"
                       key={index}
                     >
                       {cell}

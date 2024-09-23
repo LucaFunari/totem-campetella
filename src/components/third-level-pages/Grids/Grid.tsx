@@ -35,7 +35,7 @@ const Icon = (props: { obj: gridElement }) => {
   return (
     <div
       onClick={navigateFn}
-      className={`${elementIsEmpty && "cursor-not-allowed opacity-50"} flex shrink-0 grow-0 flex-col items-center gap-10`}
+      className={`${elementIsEmpty && "cursor-not-allowed opacity-50"} flex shrink-0 grow-0 flex-col items-center gap-20`}
     >
       <div
         className={`float-start flex aspect-square items-end justify-center align-middle`}

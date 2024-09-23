@@ -4,6 +4,11 @@ export default {
 
   theme: {
     extend: {
+      fontSize: {
+        contentTitle: ["4.5rem", "5rem"],
+        content: ["3rem", "4rem"],
+        contentLg: ["4rem", "4.75rem"],
+      },
       fontFamily: {
         baiti: ["Microsoft Yi Baiti", "Arial", "sans-serif"],
         "d-din": ["D-Din", "Arial", "sans-serif"],

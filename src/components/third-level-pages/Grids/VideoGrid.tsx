@@ -22,9 +22,9 @@ export function VideoGrid(props: {
   if (props.content)
     return (
       <div>
-        <h1 className="text-xl font-semibold uppercase">VIDEO</h1>
-        <hr className="mb-6 mt-1 h-[3px] border-none bg-white"></hr>
-        <div className="grid w-full grid-cols-[auto_auto_auto] justify-between gap-14">
+        <h1 className="text-content font-d-din font-bold uppercase">VIDEO</h1>
+        <hr className="mb-16 mt-2 h-[6px] border-none bg-white"></hr>
+        <div className="grid w-full grid-cols-[auto_auto_auto] justify-between gap-28">
           {props.content.map((vid, index) => (
             <VideoGridChildElem key={index} vid={vid} />
           ))}
@@ -50,7 +50,7 @@ function VideoGridChildElem(props: { vid: Allegato | AllegatoCampo }) {
   return (
     <div
       onClick={() => vidOpenFn(props.vid)}
-      className="aspect-video w-64 overflow-clip border-2 border-white"
+      className="aspect-video w-[512px] overflow-clip border-4 border-white"
     >
       {thumbnail && <img loading="lazy" src={thumbnail?.guid?.rendered} />}
 
