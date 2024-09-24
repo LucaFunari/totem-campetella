@@ -23,9 +23,14 @@ const ThirdLevel = () => {
     return (
       <>
         <PageTitle>{currentRobotType?.name}</PageTitle>
-        {currentRobotType?.children_robots && (
-          <ProductsGrid products={currentRobotType.children_robots} />
-        )}
+        <div className="flex h-full flex-col gap-10">
+          <div className="w-full font-baiti text-contentLg">
+            {currentRobotType.description}
+          </div>
+          {currentRobotType?.children_robots && (
+            <ProductsGrid products={currentRobotType.children_robots} />
+          )}
+        </div>
       </>
     );
   else return <Spinner />;

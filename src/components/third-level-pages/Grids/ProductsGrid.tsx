@@ -32,7 +32,9 @@ const Product = (props: { product: Robot }) => {
         if (isNavigable) navigate(product.slug);
       }}
     >
-      <img className="" src={data?.guid?.rendered} alt={product.slug}></img>
+      <div className="aspect-video w-full border-4">
+        <img className="" src={data?.guid?.rendered} alt={product.slug}></img>
+      </div>
       <span className="font-d-din text-[2.5rem]/[3.5rem] font-bold uppercase">
         {product.title.rendered ?? product.id}
       </span>

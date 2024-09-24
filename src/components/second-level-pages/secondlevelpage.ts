@@ -1,6 +1,7 @@
 export interface SecondLevelPage {
-  title: string;
+  title?: string;
   description?: string;
+  disabled?: boolean;
 }
 
 export const robotPage: SecondLevelPage = {
@@ -9,4 +10,8 @@ export const robotPage: SecondLevelPage = {
 export const campiApplicativiPage: SecondLevelPage = {
   title: "campi applicativi",
   disabled: true,
+};
+
+export const avvolgitoriPageData: SecondLevelPage = {
+  title: undefined,
 };

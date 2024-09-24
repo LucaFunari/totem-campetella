@@ -1,11 +1,8 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import { useDetailedPageStore } from "../../zustand-stores";
 
 const GoBackRoundBtn = ({ size = 140 }: { size?: number }) => {
   const navigate = useNavigate();
-
-  const { resetPage } = useDetailedPageStore();
 
   function buttonFunction() {
     navigate("..");
@@ -14,10 +11,10 @@ const GoBackRoundBtn = ({ size = 140 }: { size?: number }) => {
   return (
     <button
       onClick={buttonFunction}
-      className={`flex aspect-square items-center justify-center rounded-full border-none outline-none`}
+      className={`flex aspect-square items-center justify-center overflow-visible rounded-full border-none outline-none`}
       style={{ width: size, height: size }}
     >
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50.676 50.668">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 51 51">
         <g
           id="Raggruppa_95"
           data-name="Raggruppa 95"

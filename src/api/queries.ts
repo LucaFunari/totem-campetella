@@ -1,5 +1,5 @@
 import { QueryClient, useQuery, useQueryClient } from "@tanstack/react-query";
-import { queryClient } from "../main";
+import { EstrusioneEntitaResp, EstrusioneTipoResp } from "./types";
 
 export const robotTypesQuery: QueryType = () => ({
   queryKey: ["robotTypes"],
@@ -26,6 +26,7 @@ export const robotTypesQuery: QueryType = () => ({
       return {
         id: elem.id,
         name: elem.name,
+        description: elem.description,
         slug: elem.slug,
         count: elem.count,
         children_robots: parsedRobots.filter((rob) =>
@@ -44,6 +45,69 @@ export const robotTypesQuery: QueryType = () => ({
 
 export const robotTypesLoader = (queryClient: QueryClient) => async () => {
   const query = robotTypesQuery();
+
+  return (
+    queryClient.getQueryData(query.queryKey) ?? queryClient.fetchQuery(query)
+  );
+};
+
+export const estrusioniQuery: QueryType = () => ({
+  queryKey: ["getEstrusioni"],
+  queryFn: async () => {
+    const estrusioneResp = await fetch(
+      import.meta.env.VITE_ESTRUSIONI_TIPO_ENDPOINT,
+    );
+
+    const estrusioneTipi = (await estrusioneResp.json()) as EstrusioneTipoResp;
+
+    const entitaResp = await fetch(
+      import.meta.env.VITE_ESTRUSIONI_ENTITA_ENDPOINT,
+    );
+
+    const entitaEstrusione = (await entitaResp.json()) as EstrusioneEntitaResp;
+
+    const parsedTipi = estrusioneTipi.map((tipo) => {
+      const { id, name, count, acf, slug, meta, ...rest } = tipo;
+
+      return { id, name, count, acf, slug, meta };
+    });
+    const parsedEntita = entitaEstrusione.map((entita) => {
+      const { acf, content, id, guid, featured_media, slug, title, ...rest } =
+        entita;
+
+      const tipo_estrusione = entita["tipo-estrusione"];
+
+      return {
+        acf,
+        content,
+        title,
+        id,
+        guid,
+        featured_media,
+        slug,
+        tipo_estrusione,
+      };
+    });
+
+    const response = parsedTipi.map((tipo) => {
+      return {
+        ...tipo,
+        children: parsedEntita.filter((ones) =>
+          ones.tipo_estrusione.includes(tipo.id),
+        ),
+      };
+    });
+
+    return response;
+  },
+
+  staleTime: Infinity,
+  refetchOnMount: false,
+  refetchOnWindowFocus: false,
+});
+
+export const estrusioniLoader = (queryClient: QueryClient) => async () => {
+  const query = estrusioniQuery();
 
   return (
     queryClient.getQueryData(query.queryKey) ?? queryClient.fetchQuery(query)
@@ -71,7 +135,7 @@ export interface RobotType {
         immagine_robot: number;
         testo: string;
         file_csv: number;
-        allegati: Allegato[];
+        allegato: Allegato[];
       }
     | [];
 }
@@ -100,9 +164,11 @@ export interface Allegato {
 
 export const useMediaAsset = (assetId?: number) => {
   return useQuery({
-    queryKey: ["getAssets", assetId],
+    queryKey: ["getAssets"],
     queryFn: async () => {
-      const data = await fetch(import.meta.env.VITE_ASSET_ENDPOINT);
+      const data = await fetch(
+        import.meta.env.VITE_ASSET_ENDPOINT + "?lang=" + "it",
+      );
       const json: Asset[] = await data.json();
 
       const parsedJson = json.map((asset) => {
@@ -112,14 +178,56 @@ export const useMediaAsset = (assetId?: number) => {
       });
       if (assetId || assetId === 0) {
         const selectedAsset = parsedJson.find((one) => one.id == assetId);
-        return selectedAsset;
+        if (selectedAsset) {
+          return selectedAsset;
+        } else {
+          const err = new Error("asset " + assetId + " is missing");
+          throw err;
+        }
       } else return parsedJson;
     },
     staleTime: Infinity,
     refetchOnMount: false,
     refetchOnWindowFocus: false,
+    retry: false,
   });
 };
+
+export function useSingleAsset(id?: number) {
+  const resp: { asset?: Asset; error?: Error; isLoading: boolean } = {
+    asset: undefined,
+    error: undefined,
+    isLoading: true,
+  };
+
+  const { data, error } = useMediaAsset() as {
+    data: Asset[];
+    error: Error;
+  };
+  if (data) {
+    const singleAsset = data.find((one) => one.id == id);
+
+    if (singleAsset) {
+      resp.asset = singleAsset;
+      resp.isLoading = false;
+      return resp;
+    } else {
+      const err = new Error("Asset " + id + " is missing");
+      resp.error = err;
+      resp.isLoading = false;
+      return resp;
+    }
+  } else if (error) {
+    resp.error = error;
+    resp.isLoading = false;
+    return resp;
+  } else {
+    const err = new Error("missing media list data");
+    resp.error = err;
+    resp.isLoading = false;
+    return resp;
+  }
+}
 
 export interface Asset {
   id: number;
@@ -135,15 +243,12 @@ export const useCSVFile = (id?: number) => {
   return useQuery({
     queryKey: ["FetchedCSV", id],
     queryFn: async () => {
-      const data: Asset[] | undefined = queryClient.getQueryData([
-        "getAssets",
-        null,
-      ]);
+      const data: Asset[] | undefined = queryClient.getQueryData(["getAssets"]);
 
       if (data) {
         const tableElement = data.find((one) => one.id === id);
 
-        const csvUrl = tableElement?.guid.rendered || "asset/csv/mc2_table.csv";
+        const csvUrl = tableElement?.guid.rendered;
 
         if (csvUrl) {
           const csvData = await fetch(csvUrl);
@@ -162,7 +267,7 @@ export const useCSVFile = (id?: number) => {
             resultArray.push(rowArray);
           });
 
-          return array;
+          return resultArray;
         }
       }
     },
@@ -282,3 +387,24 @@ function csvToArray(text: string, quoteChar = '"', delimiter = ",") {
   //   }, {});
   // });
 }
+
+export const getFineLineaQuery: QueryType = () => ({
+  queryKey: ["FineLineaData"],
+  queryFn: async () => {
+    const data = await fetch("/json/fine_linea.json");
+    const json = await data.json();
+
+    return json;
+  },
+  staleTime: Infinity,
+  refetchOnMount: false,
+  refetchOnWindowFocus: false,
+});
+
+export const fineLineaLoader = (queryClient: QueryClient) => async () => {
+  const query = getFineLineaQuery();
+
+  return (
+    queryClient.getQueryData(query.queryKey) ?? queryClient.fetchQuery(query)
+  );
+};

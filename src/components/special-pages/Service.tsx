@@ -51,6 +51,7 @@ const Service = () => {
             alt="planisfero"
             className="w-full"
           ></img>
+          {/* <TestPlani /> */}
         </div>
       </div>
       {/* 

@@ -2,6 +2,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import { gridElement } from "../../../zustand-stores";
 import Spinner from "../../reusable/Spinner";
+import { useSingleAsset } from "../../../api/queries";
 
 const Grid = (props: { elements?: gridElement[] }) => {
   if (props.elements)
@@ -19,8 +20,16 @@ const Grid = (props: { elements?: gridElement[] }) => {
 
 export default Grid;
 
-const Icon = (props: { obj: gridElement }) => {
+export const Icon = (props: {
+  obj: gridElement;
+  specialFn?: () => void;
+  iconID?: number;
+}) => {
   const { obj } = props;
+
+  const campoApplicativoIcona = obj?.acf?.icona;
+
+  const { asset } = useSingleAsset(props.iconID);
 
   const elementIsEmpty = obj.count == 0;
 
@@ -34,14 +43,14 @@ const Icon = (props: { obj: gridElement }) => {
 
   return (
     <div
-      onClick={navigateFn}
+      onClick={props.specialFn ?? navigateFn}
       className={`${elementIsEmpty && "cursor-not-allowed opacity-50"} flex shrink-0 grow-0 flex-col items-center gap-20`}
     >
       <div
         className={`float-start flex aspect-square items-end justify-center align-middle`}
       >
-        {obj.icon ? (
-          <img src={obj.icon} loading="lazy" />
+        {asset?.guid.rendered ? (
+          <img src={asset?.guid.rendered} loading="lazy" />
         ) : (
           <div className="h-56 w-56 border-4 border-white" />
         )}

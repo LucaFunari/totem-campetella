@@ -1,14 +1,14 @@
 import * as React from "react";
-import { Allegato, Asset, useMediaAsset } from "../../../api/queries";
-import { usePopupStateStore, video } from "../../../zustand-stores";
+import { Allegato, useSingleAsset } from "../../../api/queries";
+import { usePopupStateStore } from "../../../zustand-stores";
+import { dataTagSymbol } from "@tanstack/react-query";
 
 export interface AllegatoCampo {
-  "allegato-immagine": number;
-  "allegato-video": number;
-  "allegato-file": string;
-  "allegato-didascalia": string;
+  tipo_file: "pdf" | "immagine" | "video";
+  anteprima: number;
+  file: number;
+  didascalia: string;
 }
-
 export function VideoGrid(props: {
   content: Allegato[] | AllegatoCampo[] | undefined;
 }) {
@@ -21,24 +21,22 @@ export function VideoGrid(props: {
 
   if (props.content)
     return (
-      <div>
-        <h1 className="text-content font-d-din font-bold uppercase">VIDEO</h1>
+      <>
+        <h1 className="font-d-din text-content font-bold uppercase">VIDEO</h1>
         <hr className="mb-16 mt-2 h-[6px] border-none bg-white"></hr>
-        <div className="grid w-full grid-cols-[auto_auto_auto] justify-between gap-28">
+        <div className="grid w-full grid-cols-3 justify-between gap-28">
           {props.content.map((vid, index) => (
             <VideoGridChildElem key={index} vid={vid} />
           ))}
         </div>
-      </div>
+      </>
     );
 }
 
 function VideoGridChildElem(props: { vid: Allegato | AllegatoCampo }) {
-  const { data: robotallegato }: Asset | undefined = useMediaAsset(
-    props.vid.file,
-  );
+  // const { data: thumbnail } = useMediaAsset(props.vid["allegato-immagine"]);
 
-  const { data: thumbnail } = useMediaAsset(props.vid["allegato-immagine"]);
+  const { asset: thumbnail, error } = useSingleAsset(props.vid?.anteprima);
 
   const vidOpenFn = (vid: Allegato | AllegatoCampo) => {
     setOpen();
@@ -50,11 +48,19 @@ function VideoGridChildElem(props: { vid: Allegato | AllegatoCampo }) {
   return (
     <div
       onClick={() => vidOpenFn(props.vid)}
-      className="aspect-video w-[512px] overflow-clip border-4 border-white"
+      className="aspect-video max-h-min w-[512px] overflow-clip border-4 border-white"
     >
-      {thumbnail && <img loading="lazy" src={thumbnail?.guid?.rendered} />}
-
-      {/* <img src="/public/asset/Raggruppa_63.png"></img> */}
+      {thumbnail ? (
+        <img
+          loading="lazy"
+          className="h-full w-full object-cover object-center"
+          src={thumbnail?.guid?.rendered}
+        />
+      ) : (
+        <div className="h-full w-full bg-white bg-opacity-40 text-content">
+          {props.vid.tipo_file}
+        </div>
+      )}
     </div>
   );
 }

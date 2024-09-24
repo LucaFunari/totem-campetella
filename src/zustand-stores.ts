@@ -2,6 +2,16 @@ import { create } from "zustand";
 import { AllegatoCampo } from "./components/third-level-pages/Grids/VideoGrid";
 import { Allegato } from "./api/queries";
 
+type localizatinStoreType = {
+  lang: "en" | "it";
+  setLang: (langCode: "en" | "it") => void;
+};
+
+export const useLocalizationStore = create<localizatinStoreType>()((set) => ({
+  lang: "it",
+  setLang: (langCode: "it" | "en") => set({ lang: langCode }),
+}));
+
 export interface video {
   id: number;
   title: string;
@@ -83,7 +93,7 @@ export type gridElement = {
   id: number;
   name: string;
   icon?: string;
-  count: number;
+  count?: number;
   slug: string;
 };
 

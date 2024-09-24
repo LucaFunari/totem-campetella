@@ -24,7 +24,7 @@ const FirstLevel = (props: { pageData: PageData }) => {
         }
         className={`cover flex aspect-square w-full flex-col bg-buttonbluedarker bg-opacity-80 bg-contain bg-[20%] px-20 py-10 pb-40`}
       >
-        <Header />
+        <Header pageData={pageData} />
         <div className="flex-1">
           {!pageData.isHomePage && <GoBackRoundBtn />}
         </div>

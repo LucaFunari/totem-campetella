@@ -1,8 +1,17 @@
 import React from "react";
+import LangBtn from "../reusable/LangBtn";
+import { useParams } from "react-router-dom";
+import { PageData } from "./FirstLevel";
 
-const Header = () => {
+const Header = (props: { pageData?: PageData }) => {
   return (
-    <div className="pointer-events-none z-10 flex w-full items-center justify-center">
+    <div className="pointer-events-none relative z-10 flex w-full items-center justify-center">
+      {props.pageData?.isHomePage && (
+        <div className="absolute right-0 flex flex-col items-start gap-5">
+          <LangBtn lang="it" />
+          <LangBtn lang="en" />
+        </div>
+      )}
       <a href="totem:servicerequest">
         <img
           loading="lazy"

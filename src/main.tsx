@@ -2,17 +2,11 @@ import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import App from "./App.tsx";
 import "./index.css";
-import { createHashRouter, Outlet, RouterProvider } from "react-router-dom";
+import { createHashRouter, RouterProvider } from "react-router-dom";
 import ErrorPage from "./components/ErrorPage.tsx";
-import ThirdLevelPage from "./components/third-level-pages/ThirdLevelPage.tsx";
 import { QueryClient } from "@tanstack/react-query";
-import ProductPage from "./components/third-level-pages/ProductPage.tsx";
-import MainPage from "./components/third-level-pages/MainPage.tsx";
-import { detailedPageLoader, loader } from "./components/mockdataloader.ts";
 import { QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
-import SingleProductPage from "./components/third-level-pages/SingleProductPage.tsx";
-import FirstLevelPage from "./components/deprecated/FirstLevelPage.tsx";
 import Azienda from "./components/special-pages/Azienda.tsx";
 import Service from "./components/special-pages/Service.tsx";
 import {
@@ -25,6 +19,8 @@ import SecondLevel from "./components/second-level-pages/SecondLevel.tsx";
 import {
   campiApplicativiLoader,
   campiApplicativiQuery,
+  estrusioniLoader,
+  fineLineaLoader,
   robotTypesLoader,
   robotTypesQuery,
 } from "./api/queries.ts";
@@ -37,6 +33,7 @@ import ThirdLevel from "./components/third-level-pages/ThirdLevel.tsx";
 import RobotPage from "./components/third-level-pages/RobotPage.tsx";
 import CampoApplicativo from "./components/third-level-pages/CampoApplicativo.tsx";
 import FineLinea from "./components/special-pages/FineLinea.tsx";
+import Avvolgitori from "./components/second-level-pages/Avvolgitori.tsx";
 
 export const queryClient = new QueryClient();
 
@@ -44,7 +41,6 @@ const router = createHashRouter([
   {
     path: "/",
     element: <App />,
-    loader: loader(queryClient),
 
     errorElement: <ErrorPage />,
     children: [
@@ -134,8 +130,26 @@ const router = createHashRouter([
             element: <FirstLevel pageData={estrusioneData} />,
           },
           {
+            path: "avvolgitori",
+            element: <SecondLevelPageWrapper />,
+            loader: async () => {
+              return () => estrusioniLoader(queryClient);
+            },
+            children: [
+              {
+                path: "",
+                element: <Avvolgitori />,
+              },
+            ],
+          },
+
+          {
             path: "fine-linea",
+
             element: <FineLinea />,
+            loader: async () => {
+              return () => fineLineaLoader(queryClient);
+            },
           },
         ],
       },

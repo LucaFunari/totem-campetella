@@ -6,7 +6,7 @@ export const homePageData: PageData = {
   isHomePage: true,
   links: [
     { goTo: "iniezione", title: "iniezione" },
-    { goTo: "estrusione", title: "estrusione", disabled: true },
+    { goTo: "estrusione", title: "estrusione", disabled: false },
     { goTo: "service", title: "service" },
     {
       goTo: "educamp",
@@ -24,7 +24,7 @@ export const estrusioneData: PageData = {
 
   isHomePage: false,
   links: [
-    { goTo: "avvolgitori", title: "avvolgitori", disabled: true },
+    { goTo: "avvolgitori", title: "avvolgitori", disabled: false },
     { goTo: "fine-linea", title: "fine linea", disabled: false },
   ],
 };

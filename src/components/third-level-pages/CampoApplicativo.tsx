@@ -4,10 +4,11 @@ import { useParams } from "react-router-dom";
 import {
   campiApplicativiQuery,
   CampoApplicativo as CampoApplType,
-  useMediaAsset,
+  useSingleAsset,
 } from "../../api/queries";
 import PageTitle from "./PageTitle";
 import { VideoGrid } from "./Grids/VideoGrid";
+import Spinner from "../reusable/Spinner";
 
 const CampoApplicativo = () => {
   const params = useParams();
@@ -16,35 +17,40 @@ const CampoApplicativo = () => {
 
   const currentCampo: CampoApplType | undefined = React.useMemo(() => {
     const campo = data?.find((one) => one.slug === params.id);
+
     return campo;
   }, [data, params]);
 
-  const { data: imageData } = useMediaAsset(currentCampo?.featured_media);
+  const { asset, error } = useSingleAsset(currentCampo?.featured_media);
 
-  return (
-    <div className="flex h-full flex-col justify-between text-white">
-      <PageTitle>{currentCampo?.title.rendered}</PageTitle>
-      <div className="flex flex-1 flex-col p-14">
-        <div className="flex flex-1 flex-col justify-center gap-64">
-          <div className="flex-1 pb-64 pt-64">
-            {/* {JSON.stringify(currentCampo)} */}
+  // const { data: imageData } = useMediaAsset(currentCampo?.featured_media);
 
-            {imageData && (
-              <img src={imageData?.guid?.rendered} alt="immagine cammpo" />
-            )}
+  if (currentCampo)
+    return (
+      <div className="flex h-full flex-col justify-between text-white">
+        <PageTitle>{currentCampo?.title.rendered}</PageTitle>
+        <div className="flex flex-1 flex-col p-14">
+          <div className="flex flex-1 flex-col justify-center gap-64">
+            <div className="flex-1 pb-64 pt-64">
+              {/* {JSON.stringify(currentCampo)} */}
+              <div className="aspect-vid w-full bg-red-50">
+                {asset && (
+                  <img src={asset?.guid?.rendered} alt="immagine cammpo" />
+                )}
+              </div>
 
-            <div
-              className="[ font-baiti text-contentLg [&>*:first-child]:font-d-din-condensed [&>*:first-child]:text-contentTitle [&>*:first-child]:font-bold [&>*]:list-disc [&>ul]:ps-20"
-              dangerouslySetInnerHTML={{
-                __html: currentCampo?.content.rendered ?? "",
-              }}
-            ></div>
+              <div
+                className="[ font-baiti text-contentLg [&>*:first-child]:font-d-din-condensed [&>*:first-child]:text-contentTitle [&>*:first-child]:font-bold [&>*]:list-disc [&>ul]:ps-20"
+                dangerouslySetInnerHTML={{
+                  __html: currentCampo?.content.rendered ?? "",
+                }}
+              ></div>
+            </div>
           </div>
-        </div>
 
-        <VideoGrid content={currentCampo?.acf?.allegati} />
+          <VideoGrid content={currentCampo?.acf?.allegato} />
 
-        {/* {currentlyShownElement.content &&
+          {/* {currentlyShownElement.content &&
       currentlyShownElement.content?.length > 0 && (
         <VideoGrid content={currentlyShownElement.content} />
       )}
@@ -52,9 +58,10 @@ const CampoApplicativo = () => {
     {currentlyShownElement.products && (
       <ProductsGrid products={currentlyShownElement.products} />
     )} */}
+        </div>
       </div>
-    </div>
-  );
+    );
+  else return <Spinner />;
 };
 
 export default CampoApplicativo;
