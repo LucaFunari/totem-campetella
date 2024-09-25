@@ -1,27 +1,25 @@
 import * as React from "react";
-import { Outlet } from "react-router-dom";
 import "./App.css";
-
+import { Outlet } from "react-router-dom";
 import Popup from "./components/popup/Popup";
-import { usePopupStateStore } from "./zustand-stores";
-import { useMediaAsset } from "./api/queries";
+import { useLocalizationStore, usePopupStateStore } from "./zustand-stores";
+import { generalSettingsQuery, useMediaAsset } from "./api/queries";
+import { useQuery } from "@tanstack/react-query";
 
 const width = 2160;
 const heigth = 3840;
 
 function App() {
   const { isOpen } = usePopupStateStore();
-
+  const { lang } = useLocalizationStore();
+  const { data: generalData } = useQuery(generalSettingsQuery(lang));
   const { data } = useMediaAsset();
 
   const [scale, setScale] = React.useState(1);
 
   const resizeFunc = React.useCallback(() => {
     const h = window.innerHeight;
-
     setScale(h / heigth);
-
-    // 1920: 1600 = 1: x
   }, []);
 
   React.useEffect(() => {

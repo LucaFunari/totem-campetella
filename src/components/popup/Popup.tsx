@@ -7,12 +7,12 @@ import SpinnerSmall from "../reusable/SpinnerSmall";
 const Popup = () => {
   const { setOpen, video } = usePopupStateStore();
 
-  const { asset, error, isLoading } = useSingleAsset(video?.file);
+  const { asset, error, isLoading } = useSingleAsset(video?.file as number);
 
   return (
     <div
       className="absolute left-0 top-0 z-20 h-full w-full bg-white bg-opacity-60"
-      onClick={() => setOpen(false)}
+      // onClick={() => setOpen(false)}
     >
       <div
         className="absolute left-1/2 top-1/2 w-11/12 -translate-x-1/2 -translate-y-1/2 bg-white drop-shadow-2xl"
@@ -22,9 +22,12 @@ const Popup = () => {
       >
         <div className="popup header flex items-center justify-between px-6 py-2 text-2xl text-textlightblue">
           <ExitRoundBtn fn={() => setOpen(false)} />
-          <h1 className="text-center font-d-din-condensed text-[92px]/[140px]">
-            {video?.didascalia || "MISSING TITLE"}
-          </h1>
+          <h1
+            className="text-center font-d-din-condensed text-[92px]/[140px]"
+            dangerouslySetInnerHTML={{
+              __html: video?.didascalia || "missing title",
+            }}
+          ></h1>
 
           <div className="h-1 w-6"></div>
         </div>
@@ -33,15 +36,15 @@ const Popup = () => {
             <SpinnerSmall />
           ) : (
             <>
-              <div className="flex w-full items-center justify-center font-d-din-condensed text-content font-bold text-textlightblue">
+              <div className="flex h-full w-full items-center justify-center font-d-din-condensed text-content font-bold text-textlightblue">
                 {error?.name}
                 <br />
                 {error?.message}
               </div>
 
-              {asset?.guid?.rendered && (
+              {asset?.source_url && (
                 <video autoPlay className="h-full w-full" loop>
-                  <source src={asset.guid.rendered} />
+                  <source src={asset.source_url} />
                 </video>
               )}
             </>

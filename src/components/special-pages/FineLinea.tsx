@@ -2,7 +2,7 @@ import React from "react";
 import SecondLevelPageWrapper from "../second-level-pages/SecondLevelPageWrapper";
 import PageTitle from "../third-level-pages/PageTitle";
 import { useQuery } from "@tanstack/react-query";
-import { Asset, getFineLineaQuery, useMediaAsset } from "../../api/queries";
+import { getFineLineaQuery, useSingleAsset } from "../../api/queries";
 import Spinner from "../reusable/Spinner";
 import { VideoGrid } from "../third-level-pages/Grids/VideoGrid";
 
@@ -24,9 +24,7 @@ interface mockFineLineaData {
 const FineLinea = () => {
   const { data } = useQuery(getFineLineaQuery()) as mockFineLineaData;
 
-  const { data: imageData } = useMediaAsset(data?.featured_media) as {
-    data: Asset;
-  };
+  const { asset } = useSingleAsset(data?.featured_media);
 
   if (data)
     return (
@@ -38,11 +36,11 @@ const FineLinea = () => {
             <div className="font-d-din-condensed text-contentTitle font-bold">
               {data.subtitle}
             </div>
-            <pre className="whitespace-pre-wrap font-baiti text-contentLg">
+            <pre className="whitespace-pre-wrap font-d-din text-content">
               {data.description}
             </pre>
-            {imageData && (
-              <img className="w-full" src={imageData?.guid?.rendered}></img>
+            {asset && (
+              <img className="w-full" src={asset?.source_url} loading="lazy" />
             )}
             {data.allegati && <VideoGrid content={data.allegati} />}
           </div>

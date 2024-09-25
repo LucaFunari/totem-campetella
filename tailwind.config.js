@@ -10,7 +10,6 @@ export default {
         contentLg: ["4rem", "4.75rem"],
       },
       fontFamily: {
-        baiti: ["Microsoft Yi Baiti", "Arial", "sans-serif"],
         "d-din": ["D-Din", "Arial", "sans-serif"],
         "d-din-condensed": ["D-Din-Condensed", "Arial", "sans-serif"],
       },

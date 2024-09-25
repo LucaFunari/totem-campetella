@@ -9,7 +9,7 @@ const SecondLevel = (props: {
   query: QueryType;
   pageData: SecondLevelPage;
 }) => {
-  const { data, isError } = useQuery(props.query()) as {
+  const { data } = useQuery(props.query()) as {
     data: RobotTypesList;
     isError: boolean;
   };
@@ -31,6 +31,7 @@ const SecondLevel = (props: {
   return (
     <>
       <PageTitle>{props.pageData.title}</PageTitle>
+
       <Grid elements={data} />
     </>
   );

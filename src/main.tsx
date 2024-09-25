@@ -21,6 +21,7 @@ import {
   campiApplicativiQuery,
   estrusioniLoader,
   fineLineaLoader,
+  generalSettingsLoader,
   robotTypesLoader,
   robotTypesQuery,
 } from "./api/queries.ts";
@@ -34,13 +35,21 @@ import RobotPage from "./components/third-level-pages/RobotPage.tsx";
 import CampoApplicativo from "./components/third-level-pages/CampoApplicativo.tsx";
 import FineLinea from "./components/special-pages/FineLinea.tsx";
 import Avvolgitori from "./components/second-level-pages/Avvolgitori.tsx";
+import { defaultLanguage, useLocalizationStore } from "./zustand-stores.ts";
 
 export const queryClient = new QueryClient();
+
+let language = defaultLanguage;
+const unsub = useLocalizationStore.subscribe(({ lang }) => (language = lang));
 
 const router = createHashRouter([
   {
     path: "/",
     element: <App />,
+
+    loader: async () => {
+      return () => generalSettingsLoader(queryClient);
+    },
 
     errorElement: <ErrorPage />,
     children: [
@@ -70,7 +79,7 @@ const router = createHashRouter([
                     path: "",
                     element: (
                       <SecondLevel
-                        query={robotTypesQuery}
+                        query={() => robotTypesQuery(language as "it" | "en")}
                         pageData={robotPage}
                       />
                     ),
@@ -108,7 +117,9 @@ const router = createHashRouter([
                     element: (
                       <SecondLevel
                         pageData={campiApplicativiPage}
-                        query={campiApplicativiQuery}
+                        query={() =>
+                          campiApplicativiQuery(language as "it" | "en")
+                        }
                       />
                     ),
                     loader: async () => {
@@ -153,11 +164,10 @@ const router = createHashRouter([
           },
         ],
       },
-
+      //
       // {
       //   path: ":sectionId",
       //   element: <Outlet />,
-
       //   children: [
       //     { path: "", element: <FirstLevelPage />, index: true },
       //     {
@@ -172,20 +182,14 @@ const router = createHashRouter([
       //           element: <MainPage />,
       //           index: true,
       //         },
-
       //         {
       //           path: ":familyId",
       //           children: [
       //             {
       //               path: "",
       //               index: true,
-
       //               element: <ProductPage />,
-      //             },
-      //             {
-      //               path: ":productId",
-      //               element: <SingleProductPage />,
-      //             },
+      //             }
       //           ],
       //         },
       //       ],

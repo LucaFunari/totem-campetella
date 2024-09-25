@@ -8,17 +8,23 @@ const Grid = (props: { elements?: gridElement[] }) => {
   if (props.elements)
     return (
       <div className="content items-star flex w-full flex-1 justify-center overflow-auto">
-        <div className="flex h-min w-4/5 flex-wrap items-center justify-center gap-40">
-          {props.elements.map((obj, index) => (
-            <Icon key={index} obj={obj} />
-          ))}
-        </div>
+        <GridWrapper elements={props.elements} />
       </div>
     );
   else return <Spinner />;
 };
 
 export default Grid;
+
+export const GridWrapper = (props: { elements: gridElement[] }) => {
+  return (
+    <div className="flex h-min w-[95%] flex-wrap items-center justify-center gap-20">
+      {props.elements.map((obj, index) => (
+        <Icon key={index} obj={obj} />
+      ))}
+    </div>
+  );
+};
 
 export const Icon = (props: {
   obj: gridElement;
@@ -27,9 +33,9 @@ export const Icon = (props: {
 }) => {
   const { obj } = props;
 
-  const campoApplicativoIcona = obj?.acf?.icona;
+  const iconaIDFromACF = obj?.acf?.icona ?? obj?.featured_media;
 
-  const { asset } = useSingleAsset(props.iconID);
+  const { asset } = useSingleAsset(iconaIDFromACF ?? props.iconID);
 
   const elementIsEmpty = obj.count == 0;
 
@@ -44,20 +50,29 @@ export const Icon = (props: {
   return (
     <div
       onClick={props.specialFn ?? navigateFn}
-      className={`${elementIsEmpty && "cursor-not-allowed opacity-50"} flex shrink-0 grow-0 flex-col items-center gap-20`}
+      className={`${elementIsEmpty && "cursor-not-allowed opacity-50"} flex shrink-0 grow-0 flex-col items-center gap-5`}
     >
       <div
         className={`float-start flex aspect-square items-end justify-center align-middle`}
       >
-        {asset?.guid.rendered ? (
-          <img src={asset?.guid.rendered} loading="lazy" />
+        {asset ? (
+          <img
+            src={asset?.source_url ?? asset?.guid.rendered}
+            loading="lazy"
+            className="h-96 w-auto"
+          />
         ) : (
-          <div className="h-56 w-56 border-4 border-white" />
+          <div className="flex aspect-square h-96 items-center justify-center">
+            <div className="aspect-square h-60 border-[6px] border-white" />
+          </div>
         )}
       </div>
-      <span className="line-clamp-2 h-[2lh] w-56 select-none break-words text-center font-d-din-condensed text-5xl font-semibold uppercase text-white">
-        {obj.name}
-      </span>
+      <p
+        className="line-clamp-2 h-[2lh] w-96 select-none whitespace-pre-wrap break-words text-center font-d-din-condensed text-[4rem] font-semibold uppercase text-white [&>strong]:mb-10 [&>strong]:block"
+        dangerouslySetInnerHTML={{
+          __html: props.obj.name ?? props?.obj?.title?.rendered,
+        }}
+      />
     </div>
   );
 };

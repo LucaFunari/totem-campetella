@@ -1,22 +1,23 @@
 import React from "react";
 import { useParams } from "react-router-dom";
 import {
-  Asset,
   RobotType,
   robotTypesQuery,
   useCSVFile,
-  useMediaAsset,
   useSingleAsset,
 } from "../../api/queries";
 import { useQuery } from "@tanstack/react-query";
 import PageTitle from "./PageTitle";
 import { VideoGrid } from "./Grids/VideoGrid";
 import Spinner from "../reusable/Spinner";
+import { useLocalizationStore } from "../../zustand-stores";
 
 const RobotPage = () => {
   const params = useParams() as { id: string; productId: string };
 
-  const { data: robotData } = useQuery(robotTypesQuery());
+  const { lang } = useLocalizationStore();
+
+  const { data: robotData } = useQuery(robotTypesQuery(lang));
 
   const currentRobotProduct = React.useMemo(() => {
     const currentRobotType: RobotType = robotData?.find(
@@ -40,31 +41,32 @@ const RobotPage = () => {
     return (
       <>
         <PageTitle>{currentRobotProduct?.title.rendered}</PageTitle>
-        <div className="flex flex-1">
-          <div className="grid grid-cols-2">
-            <p className="flex flex-1 items-center p-14 font-d-din text-content font-thin italic leading-[4.5rem]">
-              {currentRobotProduct?.acf.intro}
-            </p>
-            <img src={asset?.guid?.rendered} className="flex-1" />
-          </div>
+        <div className="grid grid-cols-2">
+          <p className="flex items-center p-14 font-d-din text-content font-thin italic leading-[4.5rem]">
+            {currentRobotProduct?.acf.intro}
+          </p>
+          <img
+            src={asset?.source_url ?? asset?.guid.rendered}
+            className="flex-1"
+          />
         </div>
 
-        <div className="flex-1">
+        <div className="mt-10 flex-1 p-14">
           <div
-            className="font-d-din text-content [&>*:first-child]:font-d-din-condensed [&>*:first-child]:text-contentTitle [&>*:first-child]:font-bold [&>*]:list-disc [&>ul]:ps-20"
+            className="break-words font-d-din text-content [&>*:first-child]:font-d-din-condensed [&>*:first-child]:text-contentTitle [&>*:first-child]:font-bold [&>*]:list-disc [&>strong]:mb-10 [&>strong]:block [&>ul]:ps-20"
             dangerouslySetInnerHTML={{
               __html: currentRobotProduct?.acf.testo ?? "",
             }}
           ></div>
         </div>
         {tableData && (
-          <table className="w-full table-auto font-d-din text-4xl">
+          <table className="w-full table-auto p-14 font-d-din text-4xl">
             <tbody>
               {tableData.map((row, ind) => (
                 <tr key={ind}>
-                  {row.map((cell, index) => (
+                  {row.map((cell, index, row) => (
                     <td
-                      className="border-4 border-white p-3 text-center text-2xl"
+                      className={`border-4 border-white p-3 text-center text-2xl`}
                       key={index}
                     >
                       {cell}

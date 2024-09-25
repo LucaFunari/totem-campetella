@@ -5,10 +5,11 @@ import { estrusioniQuery } from "../../api/queries";
 import Spinner from "../reusable/Spinner";
 import { ParsedEntita, ParsedEstrusioni } from "../../api/types";
 import { Icon } from "../third-level-pages/Grids/Grid";
-import { usePopupStateStore } from "../../zustand-stores";
+import { useLocalizationStore, usePopupStateStore } from "../../zustand-stores";
 
 const Avvolgitori = () => {
-  const { data, isLoading, error } = useQuery(estrusioniQuery()) as {
+  const { lang } = useLocalizationStore();
+  const { data } = useQuery(estrusioniQuery(lang)) as {
     data: ParsedEstrusioni[];
     isLoading: boolean;
     error: Error;
@@ -51,10 +52,11 @@ const AvvolgitoriSection = (props: { avvolgitore: ParsedEstrusioni }) => {
       <p className="line-clamp-2 overflow-clip text-center font-d-din-condensed text-[184px]/[278px] font-bold uppercase text-white">
         {props.avvolgitore.name}
       </p>
-      <div className="flex h-min w-4/5 flex-wrap items-center justify-center gap-40">
+
+      <div className="flex h-min w-[95%] flex-wrap items-center justify-center gap-20">
         {props.avvolgitore.children.map((ent, index) => (
           <Icon
-            iconID={ent.acf.immagine}
+            iconID={ent.featured_media}
             obj={{ ...ent, name: ent.title.rendered }}
             key={index}
             specialFn={() => videoOpenFunc(ent)}

@@ -1,14 +1,50 @@
 import { QueryClient, useQuery, useQueryClient } from "@tanstack/react-query";
 import { EstrusioneEntitaResp, EstrusioneTipoResp } from "./types";
+import Papa from "papaparse";
+import { queryClient } from "../main";
+import { useLocalizationStore } from "../zustand-stores";
 
-export const robotTypesQuery: QueryType = () => ({
-  queryKey: ["robotTypes"],
+export const generalSettingsQuery = (lang_id?: "it" | "en") => ({
+  queryKey: ["generalSettings", lang_id],
   queryFn: async () => {
-    const data = await fetch(import.meta.env.VITE_ROBOT_TYPE_ENDPOINT);
+    console.debug("downloading " + lang_id + " settings file");
+    const data = await fetch(
+      "https://campetella.wp.jef.it/index.php/wp-json/wp/v2/settings/impostazioni-app-" +
+        lang_id,
+    );
+
+    const json = (await data.json()) as GeneralSetting;
+    return json;
+  },
+
+  staleTime: Infinity,
+  refetchOnMount: false,
+  refetchOnWindowFocus: false,
+});
+
+export const generalSettingsLoader = (queryClient: QueryClient) => async () => {
+  const { lang } = useLocalizationStore.getState();
+  const query = generalSettingsQuery(lang);
+
+  return (
+    queryClient.getQueryData(query.queryKey) ?? queryClient.fetchQuery(query)
+  );
+};
+
+export const robotTypesQuery = (langID: "it" | "en") => ({
+  queryKey: ["robotTypes", langID],
+  queryFn: async () => {
+    const data = await fetch(
+      import.meta.env.VITE_ROBOT_TYPE_ENDPOINT +
+        "?per_page=100" +
+        "&lang=" +
+        langID,
+    );
     const json = await data.json();
 
-    const robotList = await fetch(import.meta.env.VITE_ROBOT_LIST_ENDPOINT);
-
+    const robotList = await fetch(
+      import.meta.env.VITE_ROBOT_LIST_ENDPOINT + "?per_page=100&lang=" + langID,
+    );
     const robotListJson: Robot[] = await robotList.json();
 
     const parsedRobots = robotListJson.map((robot) => {
@@ -25,6 +61,7 @@ export const robotTypesQuery: QueryType = () => ({
     const parsedJson = json.map((elem: RobotType) => {
       return {
         id: elem.id,
+        acf: elem.acf,
         name: elem.name,
         description: elem.description,
         slug: elem.slug,
@@ -44,24 +81,30 @@ export const robotTypesQuery: QueryType = () => ({
 });
 
 export const robotTypesLoader = (queryClient: QueryClient) => async () => {
-  const query = robotTypesQuery();
+  const { lang } = useLocalizationStore.getState();
+
+  const query = robotTypesQuery(lang);
 
   return (
     queryClient.getQueryData(query.queryKey) ?? queryClient.fetchQuery(query)
   );
 };
 
-export const estrusioniQuery: QueryType = () => ({
-  queryKey: ["getEstrusioni"],
+export const estrusioniQuery = (langID: "it" | "en") => ({
+  queryKey: ["getEstrusioni", langID],
   queryFn: async () => {
     const estrusioneResp = await fetch(
-      import.meta.env.VITE_ESTRUSIONI_TIPO_ENDPOINT,
+      import.meta.env.VITE_ESTRUSIONI_TIPO_ENDPOINT +
+        "?per_page=100&lang=" +
+        langID,
     );
 
     const estrusioneTipi = (await estrusioneResp.json()) as EstrusioneTipoResp;
 
     const entitaResp = await fetch(
-      import.meta.env.VITE_ESTRUSIONI_ENTITA_ENDPOINT,
+      import.meta.env.VITE_ESTRUSIONI_ENTITA_ENDPOINT +
+        "?per_page=100&lang=" +
+        langID,
     );
 
     const entitaEstrusione = (await entitaResp.json()) as EstrusioneEntitaResp;
@@ -107,7 +150,9 @@ export const estrusioniQuery: QueryType = () => ({
 });
 
 export const estrusioniLoader = (queryClient: QueryClient) => async () => {
-  const query = estrusioniQuery();
+  const { lang } = useLocalizationStore.getState();
+
+  const query = estrusioniQuery(lang);
 
   return (
     queryClient.getQueryData(query.queryKey) ?? queryClient.fetchQuery(query)
@@ -132,8 +177,9 @@ export interface RobotType {
   acf:
     | {
         intro: string;
-        immagine_robot: number;
+        immagine: number;
         testo: string;
+        icona: number;
         file_csv: number;
         allegato: Allegato[];
       }
@@ -162,29 +208,15 @@ export interface Allegato {
   video_url: string;
 }
 
-export const useMediaAsset = (assetId?: number) => {
+export const useMediaAsset = () => {
   return useQuery({
     queryKey: ["getAssets"],
     queryFn: async () => {
       const data = await fetch(
-        import.meta.env.VITE_ASSET_ENDPOINT + "?lang=" + "it",
+        import.meta.env.VITE_ASSET_ENDPOINT + "?per_page=2000",
       );
       const json: Asset[] = await data.json();
-
-      const parsedJson = json.map((asset) => {
-        const { id, guid, title, media_type, link, ...rest } = asset;
-
-        return { id, guid, title, media_type, link };
-      });
-      if (assetId || assetId === 0) {
-        const selectedAsset = parsedJson.find((one) => one.id == assetId);
-        if (selectedAsset) {
-          return selectedAsset;
-        } else {
-          const err = new Error("asset " + assetId + " is missing");
-          throw err;
-        }
-      } else return parsedJson;
+      return json;
     },
     staleTime: Infinity,
     refetchOnMount: false,
@@ -233,6 +265,7 @@ export interface Asset {
   id: number;
   guid: { rendered: string };
   title: { rendered: string };
+  source_url: string;
   media_type: "file" | "image";
   link: string;
 }
@@ -246,28 +279,28 @@ export const useCSVFile = (id?: number) => {
       const data: Asset[] | undefined = queryClient.getQueryData(["getAssets"]);
 
       if (data) {
-        const tableElement = data.find((one) => one.id === id);
+        const tableElement = data?.find((one) => one.id === id);
 
-        const csvUrl = tableElement?.guid.rendered;
+        const csvUrl = tableElement?.source_url;
 
         if (csvUrl) {
           const csvData = await fetch(csvUrl);
 
           const csvText = await csvData.text();
 
-          const array = csvToArray(csvText);
+          const { data } = Papa.parse(csvText);
 
           const resultArray: string[][] = [];
 
           csvText.split("\n").forEach(function (row) {
             const rowArray: string[] = [];
-            row.split(",").forEach(function (cell) {
+            row.split(";").forEach(function (cell) {
               rowArray.push(cell);
             });
             resultArray.push(rowArray);
           });
 
-          return resultArray;
+          return data;
         }
       }
     },
@@ -276,10 +309,12 @@ export const useCSVFile = (id?: number) => {
   });
 };
 
-export const campiApplicativiQuery: QueryType = () => ({
-  queryKey: ["campiApplicativi"],
+export const campiApplicativiQuery = (langID: "it" | "en") => ({
+  queryKey: ["campiApplicativi", langID],
   queryFn: async () => {
-    const data = await fetch(import.meta.env.VITE_CAMPI_APP_ENDPOINT);
+    const data = await fetch(
+      import.meta.env.VITE_CAMPI_APP_ENDPOINT + "?per_page=100&lang=" + langID,
+    );
     const json = (await data.json()) as CampoApplicativo[];
 
     const parsedCamps = json.map((campo) => {
@@ -306,7 +341,8 @@ export const campiApplicativiQuery: QueryType = () => ({
 
 export const campiApplicativiLoader =
   (queryClient: QueryClient) => async () => {
-    const query = campiApplicativiQuery();
+    const { lang } = useLocalizationStore();
+    const query = campiApplicativiQuery(lang);
 
     return (
       queryClient.getQueryData(query.queryKey) ?? queryClient.fetchQuery(query)
@@ -407,4 +443,36 @@ export const fineLineaLoader = (queryClient: QueryClient) => async () => {
   return (
     queryClient.getQueryData(query.queryKey) ?? queryClient.fetchQuery(query)
   );
+};
+
+type GeneralSetting = {
+  settings: {
+    "home-sfondo": boolean | number;
+    home_cta_azienda: string;
+    home_cta_iniezione: string;
+    home_cta_estrusione: string;
+    home_cta_service: string;
+    iniezione_sfondo: boolean | number;
+    iniezione_titolo: string;
+    iniezione_titoli_campi_applicativi: string;
+    iniezione_titolo_robot: string;
+    estrusione_sfondo: boolean | number;
+    estrusione_titolo: string;
+    estrusione_titolo_avvolgitori: string;
+    estrusione_titolo_finelinea: string;
+    estrusione_lista_video: [
+      {
+        "estrusione-video": number;
+        immagine_anteprima_video: number;
+      },
+      {
+        "estrusione-video": number;
+        immagine_anteprima_video: number;
+      },
+    ];
+    linea_titolo: string;
+    linea_testo: string;
+    linea_immagine: boolean | string;
+    linea_lista_video: boolean;
+  };
 };

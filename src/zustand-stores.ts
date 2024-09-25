@@ -2,13 +2,15 @@ import { create } from "zustand";
 import { AllegatoCampo } from "./components/third-level-pages/Grids/VideoGrid";
 import { Allegato } from "./api/queries";
 
+export const defaultLanguage: "it" | "en" = "it";
+
 type localizatinStoreType = {
   lang: "en" | "it";
   setLang: (langCode: "en" | "it") => void;
 };
 
 export const useLocalizationStore = create<localizatinStoreType>()((set) => ({
-  lang: "it",
+  lang: defaultLanguage,
   setLang: (langCode: "it" | "en") => set({ lang: langCode }),
 }));
 

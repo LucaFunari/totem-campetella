@@ -16,7 +16,7 @@ const Service = () => {
             processi produttivi
           </h1>
 
-          <p className="font-baiti text-contentLg">
+          <p className="font-d-din text-content">
             Con un’esperienza di oltre 8000 impianti installati in tutto il
             mondo, l’azienda ha acquisito una conoscenza approfondita delle
             esigenze dei suoi clienti. Questo know-how consente di offrire
@@ -33,14 +33,14 @@ const Service = () => {
                 <div className="aspect-square h-64">
                   <img src={icon.iconPath} className="h-full w-full" />
                 </div>
-                <span className="line-clamp-2 w-full break-words text-center font-d-din text-[3rem] font-bold uppercase">
+                <span className="line-clamp-2 w-full break-words text-center font-d-din text-content font-bold uppercase">
                   {icon.title}
                 </span>
               </div>
             ))}
           </div>
 
-          <p className="w-full font-baiti text-contentLg">
+          <p className="w-full font-d-din text-content">
             Con centri di assistenza e più di 60 tecnici altamente qualificati,
             Campetella offre un supporto tempestivo e professionale in tutto il
             mondo.
@@ -54,25 +54,6 @@ const Service = () => {
           {/* <TestPlani /> */}
         </div>
       </div>
-      {/* 
-    <div className="flex w-full flex-col p-6">
-      <div className="">
-        <GoBackRoundBtn className="scale-75" />
-      </div>
-
-
-      <p className="line-clamp-2 overflow-clip text-center text-4xl font-semibold uppercase text-white">
-        {params.pageId}
-      </p>
-    </div>
-    <div className="content w-full overflow-auto">
-      <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2">
-        {dataAsArray.map((obj, index) => (
-          <Icon key={index} obj={obj} />
-        ))}
-      </div>
-    </div> 
-    */}
     </div>
   );
 };

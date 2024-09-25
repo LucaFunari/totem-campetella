@@ -50,7 +50,6 @@ const ThirdLevelPage = () => {
         <div className="content w-full overflow-auto">
           <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2">
             {dataAsArray.map((obj, index) => (
-              <Icon key={index} obj={obj} />
             ))}
           </div>
         </div> 

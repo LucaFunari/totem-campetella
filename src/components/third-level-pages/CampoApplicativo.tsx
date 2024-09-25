@@ -1,29 +1,26 @@
 import { useQuery } from "@tanstack/react-query";
 import React from "react";
 import { useParams } from "react-router-dom";
-import {
-  campiApplicativiQuery,
-  CampoApplicativo as CampoApplType,
-  useSingleAsset,
-} from "../../api/queries";
+import { campiApplicativiQuery, useSingleAsset } from "../../api/queries";
 import PageTitle from "./PageTitle";
 import { VideoGrid } from "./Grids/VideoGrid";
 import Spinner from "../reusable/Spinner";
+import { useLocalizationStore } from "../../zustand-stores";
 
 const CampoApplicativo = () => {
   const params = useParams();
 
-  const { data } = useQuery(campiApplicativiQuery());
+  const { lang } = useLocalizationStore();
 
-  const currentCampo: CampoApplType | undefined = React.useMemo(() => {
+  const { data } = useQuery(campiApplicativiQuery(lang));
+
+  const currentCampo = React.useMemo(() => {
     const campo = data?.find((one) => one.slug === params.id);
 
     return campo;
   }, [data, params]);
 
-  const { asset, error } = useSingleAsset(currentCampo?.featured_media);
-
-  // const { data: imageData } = useMediaAsset(currentCampo?.featured_media);
+  const { asset } = useSingleAsset(currentCampo?.featured_media);
 
   if (currentCampo)
     return (
@@ -32,15 +29,12 @@ const CampoApplicativo = () => {
         <div className="flex flex-1 flex-col p-14">
           <div className="flex flex-1 flex-col justify-center gap-64">
             <div className="flex-1 pb-64 pt-64">
-              {/* {JSON.stringify(currentCampo)} */}
               <div className="aspect-vid w-full bg-red-50">
-                {asset && (
-                  <img src={asset?.guid?.rendered} alt="immagine cammpo" />
-                )}
+                {asset && <img src={asset?.source_url} alt="immagine cammpo" />}
               </div>
 
               <div
-                className="[ font-baiti text-contentLg [&>*:first-child]:font-d-din-condensed [&>*:first-child]:text-contentTitle [&>*:first-child]:font-bold [&>*]:list-disc [&>ul]:ps-20"
+                className="[ break-words font-d-din text-content [&>*:first-child]:font-d-din-condensed [&>*:first-child]:text-contentTitle [&>*:first-child]:font-bold [&>*]:list-disc [&>strong]:mb-10 [&>strong]:block [&>ul]:ps-20"
                 dangerouslySetInnerHTML={{
                   __html: currentCampo?.content.rendered ?? "",
                 }}

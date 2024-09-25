@@ -3,9 +3,25 @@ import GoBackRoundBtn from "../reusable/GoBackRoundBtn";
 import Header from "./Header";
 import { BlueButton, GrayButton } from "../reusable/LinkButton";
 import { Footer } from "./Footer";
+import { useQuery } from "@tanstack/react-query";
+import { generalSettingsQuery, useSingleAsset } from "../../api/queries";
+import { useLocalizationStore } from "../../zustand-stores";
 
 const FirstLevel = (props: { pageData: PageData }) => {
   const { pageData } = props;
+
+  const { lang } = useLocalizationStore();
+  const { data } = useQuery(generalSettingsQuery(lang));
+
+  const bgImageID = React.useMemo(() => {
+    if (data) {
+      const id = data.settings[pageData.bgImgKey];
+
+      return id;
+    }
+  }, [pageData, data]);
+
+  const { asset: bgImageAsset } = useSingleAsset(bgImageID);
 
   return (
     <div className="relative grid h-full grid-rows-[5fr_5fr_1fr]">
@@ -14,7 +30,7 @@ const FirstLevel = (props: { pageData: PageData }) => {
           pageData.bgImgPath
             ? {
                 backgroundColor: "#1e4f7d",
-                backgroundImage: `url(${pageData?.bgImgPath}) `,
+                backgroundImage: `url(${bgImageAsset?.source_url ?? pageData.bgImgPath}) `,
                 backgroundSize: "200%",
                 backgroundRepeat: "no-repeat",
 
@@ -70,6 +86,7 @@ export default FirstLevel;
 export interface PageData {
   title: string;
   bgImgPath?: string;
+  bgImgKey: string;
   isHomePage?: boolean;
   specialLink?: { title: string; goTo: string };
   links?: { goTo: string; title: string; icon?: string; disabled?: boolean }[];
