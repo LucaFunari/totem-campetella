@@ -4,7 +4,7 @@ import { useQuery } from "@tanstack/react-query";
 import { estrusioniQuery } from "../../api/queries";
 import Spinner from "../reusable/Spinner";
 import { ParsedEntita, ParsedEstrusioni } from "../../api/types";
-import { Icon } from "../third-level-pages/Grids/Grid";
+import { GridWrapper, Icon } from "../third-level-pages/Grids/Grid";
 import { useLocalizationStore, usePopupStateStore } from "../../zustand-stores";
 
 const Avvolgitori = () => {
@@ -53,7 +53,7 @@ const AvvolgitoriSection = (props: { avvolgitore: ParsedEstrusioni }) => {
         {props.avvolgitore.name}
       </p>
 
-      <div className="flex h-min w-[95%] flex-wrap items-center justify-center gap-20">
+      <div className="flex h-min w-[95%] flex-wrap items-center justify-center gap-10">
         {props.avvolgitore.children.map((ent, index) => (
           <Icon
             iconID={ent.featured_media}

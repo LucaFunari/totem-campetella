@@ -12,7 +12,7 @@ const LangBtn = (props: { lang: "en" | "it" }) => {
     >
       <img
         src={`/asset/icons/${props.lang}.svg`}
-        className="h-full w-full object-cover"
+        className="pointer-events-none h-full w-full object-cover"
       />
     </button>
   );

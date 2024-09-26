@@ -4,7 +4,11 @@ import Header from "./Header";
 import { BlueButton, GrayButton } from "../reusable/LinkButton";
 import { Footer } from "./Footer";
 import { useQuery } from "@tanstack/react-query";
-import { generalSettingsQuery, useSingleAsset } from "../../api/queries";
+import {
+  generalSettingsQuery,
+  useSingleAsset,
+  useString,
+} from "../../api/queries";
 import { useLocalizationStore } from "../../zustand-stores";
 
 const FirstLevel = (props: { pageData: PageData }) => {
@@ -22,6 +26,8 @@ const FirstLevel = (props: { pageData: PageData }) => {
   }, [pageData, data]);
 
   const { asset: bgImageAsset } = useSingleAsset(bgImageID);
+
+  const pageTitle = useString(pageData.titleKey);
 
   return (
     <div className="relative grid h-full grid-rows-[5fr_5fr_1fr]">
@@ -51,19 +57,19 @@ const FirstLevel = (props: { pageData: PageData }) => {
               <GrayButton
                 key={pageData.specialLink.title}
                 goTo={pageData.specialLink.goTo}
-                innerText={pageData.specialLink.title}
+                innerText={pageData.specialLink.key}
               />
             )}
           </div>
         ) : (
           <h1 className="text-center font-d-din-condensed text-[280px]/[360px] font-bold uppercase text-white">
-            {pageData.title}
+            {pageTitle}
           </h1>
         )}
       </div>
 
       <div className="flex w-full items-center justify-center">
-        <div className="grid w-fit grid-cols-2 gap-x-2 gap-y-6">
+        <div className="grid w-fit grid-cols-2 gap-x-6 gap-y-6">
           {pageData.links?.map((section, index) => (
             <BlueButton
               goTo={section.goTo}
@@ -71,7 +77,7 @@ const FirstLevel = (props: { pageData: PageData }) => {
               iconUrl={section.icon}
               disabled={section.disabled}
             >
-              {section.title}
+              {section.key ?? ""}
             </BlueButton>
           ))}
         </div>
@@ -85,9 +91,16 @@ export default FirstLevel;
 
 export interface PageData {
   title: string;
+  titleKey: string;
   bgImgPath?: string;
   bgImgKey: string;
   isHomePage?: boolean;
-  specialLink?: { title: string; goTo: string };
-  links?: { goTo: string; title: string; icon?: string; disabled?: boolean }[];
+  specialLink?: { title: string; goTo: string; key: string };
+  links?: {
+    goTo: string;
+    title: string;
+    icon?: string;
+    disabled?: boolean;
+    key: string | null;
+  }[];
 }

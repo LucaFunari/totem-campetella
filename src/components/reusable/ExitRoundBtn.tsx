@@ -4,7 +4,7 @@ const ExitRoundBtn = (props: { fn: () => void }) => {
   return (
     <button
       onClick={props.fn}
-      className="aspect-square w-24 rounded-full border-none bg-blue-50 fill-blue-300 outline-none"
+      className="aspect-square w-36 rounded-full border-none bg-blue-50 fill-blue-300 outline-none"
     >
       <svg
         className="scale-[67%]"

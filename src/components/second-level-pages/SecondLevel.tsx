@@ -30,7 +30,7 @@ const SecondLevel = (props: {
 
   return (
     <>
-      <PageTitle>{props.pageData.title}</PageTitle>
+      <PageTitle>{props.pageData.titleKey}</PageTitle>
 
       <Grid elements={data} />
     </>

@@ -6,37 +6,54 @@ export const homePageData: PageData = {
   bgImgKey: "home-sfondo",
   isHomePage: true,
   links: [
-    { goTo: "iniezione", title: "iniezione" },
-    { goTo: "estrusione", title: "estrusione", disabled: false },
-    { goTo: "service", title: "service" },
+    { goTo: "iniezione", title: "iniezione", key: "home_cta_iniezione" },
+    { goTo: "estrusione", title: "estrusione", key: "home_cta_estrusione" },
+    { goTo: "service", title: "service", key: "home_cta_service" },
     {
       goTo: "educamp",
       title: "educamp",
       disabled: true,
       icon: "/asset/Educamp logo.svg",
+      key: null,
     },
   ],
-  specialLink: { goTo: "azienda", title: "l'azienda" },
+  specialLink: { goTo: "azienda", title: "l'azienda", key: "home_cta_azienda" },
 };
 
 export const estrusioneData: PageData = {
   title: "estrusione",
+  titleKey: "home_cta_estrusione",
   bgImgPath: "/asset/sfondi/A016_07040820_C013.braw.08_20_46_34-2.jpg",
   bgImgKey: "estrusione_sfondo",
   isHomePage: false,
   links: [
-    { goTo: "avvolgitori", title: "avvolgitori", disabled: false },
-    { goTo: "fine-linea", title: "fine linea", disabled: false },
+    {
+      goTo: "avvolgitori",
+      title: "avvolgitori",
+      disabled: false,
+      key: "estrusione_titolo_avvolgitori",
+    },
+    {
+      goTo: "fine-linea",
+      title: "fine linea",
+      disabled: false,
+      key: "estrusione_titolo_finelinea",
+    },
   ],
 };
 
 export const iniezioneData: PageData = {
   title: "iniezione",
+  titleKey: "home_cta_iniezione",
   bgImgKey: "iniezione_sfondo",
   bgImgPath: "/asset/sfondi/271020_HP3D_CAMPETELLA_0002.jpg",
   isHomePage: false,
   links: [
-    { goTo: "campi-applicativi", title: "campi applicativi" },
-    { goTo: "robot", title: "robot" },
+    {
+      goTo: "campi-applicativi",
+      title: "campi applicativi",
+      key: "iniezione_titoli_campi_applicativi",
+    },
+    { goTo: "robot", title: "robot", key: "iniezione_titolo_robot" },
   ],
 };

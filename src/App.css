@@ -50,14 +50,6 @@ button {
   cursor: pointer;
   transition: border-color 0.25s;
 }
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
-}
-
 div.radial-bg-2 {
   background: linear-gradient(0.1turn, #4ebdd9, rgba(255, 0, 0, 0) 25%),
     linear-gradient(0.9turn, #2d88b4, rgba(255, 0, 0, 0) 71%),

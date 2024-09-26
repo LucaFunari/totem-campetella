@@ -31,6 +31,20 @@ export const generalSettingsLoader = (queryClient: QueryClient) => async () => {
   );
 };
 
+export const useString = (key?: string) => {
+  const { lang } = useLocalizationStore();
+  const { data } = useQuery(generalSettingsQuery(lang));
+  if (data && key) {
+    const { settings } = data;
+
+    const string = settings[key];
+
+    if (string) {
+      return string;
+    } else return key;
+  }
+};
+
 export const robotTypesQuery = (langID: "it" | "en") => ({
   queryKey: ["robotTypes", langID],
   queryFn: async () => {
@@ -460,19 +474,17 @@ type GeneralSetting = {
     estrusione_titolo: string;
     estrusione_titolo_avvolgitori: string;
     estrusione_titolo_finelinea: string;
-    estrusione_lista_video: [
-      {
-        "estrusione-video": number;
-        immagine_anteprima_video: number;
-      },
-      {
-        "estrusione-video": number;
-        immagine_anteprima_video: number;
-      },
-    ];
+    estrusione_lista_video: {
+      "estrusione-video": number;
+      immagine_anteprima_video: number;
+    }[];
+
     linea_titolo: string;
     linea_testo: string;
     linea_immagine: boolean | string;
-    linea_lista_video: boolean;
+    linea_lista_video: {
+      "estrusione-video": number;
+      immagine_anteprima_video: number;
+    }[];
   };
 };
