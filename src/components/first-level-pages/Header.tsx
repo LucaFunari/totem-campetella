@@ -1,6 +1,5 @@
 import React from "react";
 import LangBtn from "../reusable/LangBtn";
-import { useParams } from "react-router-dom";
 import { PageData } from "./FirstLevel";
 
 const Header = (props: { pageData?: PageData }) => {
@@ -16,7 +15,7 @@ const Header = (props: { pageData?: PageData }) => {
         <img
           loading="lazy"
           className="pointer-events-auto mt-[11rem] w-[35rem]"
-          src="/asset/Logo Campetella.svg"
+          src="./asset/Logo Campetella.svg"
           alt="logo"
         ></img>
       </a>

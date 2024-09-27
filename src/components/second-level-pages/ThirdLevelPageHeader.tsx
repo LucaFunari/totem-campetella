@@ -9,7 +9,7 @@ const ThirdLevelPageHeader = () => {
       <img
         className="w-[576px] cursor-pointer"
         loading="lazy"
-        src="/asset/Logo Campetella.svg"
+        src="./asset/Logo Campetella.svg"
         alt="logo"
         onClick={() => navigate("/")}
       />

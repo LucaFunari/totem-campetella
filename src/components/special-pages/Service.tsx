@@ -47,7 +47,7 @@ const Service = () => {
           </p>
 
           <img
-            src="/asset/service/Raggruppa 341.png"
+            src="./asset/service/Raggruppa 341.png"
             alt="planisfero"
             className="w-full"
           ></img>
@@ -62,27 +62,27 @@ const icons = [
   {
     id: "manutenzione",
     title: "Manutenzione Programmata",
-    iconPath: "/asset/service/Raggruppa 351.svg",
+    iconPath: "./asset/service/Raggruppa 351.svg",
   },
   {
     id: "assistenza",
     title: "Assistenza da remoto",
-    iconPath: "/asset/service/Raggruppa 350.svg",
+    iconPath: "./asset/service/Raggruppa 350.svg",
   },
   {
     id: "spezidioni",
     title: "Spedizioni rapida ricambi",
-    iconPath: "/asset/service/Raggruppa 349.svg",
+    iconPath: "./asset/service/Raggruppa 349.svg",
   },
   {
     id: "revamping",
     title: "Revamping",
-    iconPath: "/asset/service/Raggruppa 347.svg",
+    iconPath: "./asset/service/Raggruppa 347.svg",
   },
   {
     id: "formazione",
     title: "Formazione",
-    iconPath: "/asset/service/Raggruppa 348.svg",
+    iconPath: "./asset/service/Raggruppa 348.svg",
   },
 ];
 

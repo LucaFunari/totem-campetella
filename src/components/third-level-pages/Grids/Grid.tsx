@@ -64,7 +64,7 @@ export const Icon = (props: {
       className={`${elementIsEmpty && "cursor-not-allowed opacity-50"} flex shrink-0 grow-0 flex-col items-center gap-5`}
     >
       <div
-        className={`float-start flex aspect-square items-end justify-center overflow-hidden align-middle`}
+        className={`float-start flex aspect-square min-h-96 items-end justify-center overflow-hidden align-middle`}
       >
         {asset ? (
           <img

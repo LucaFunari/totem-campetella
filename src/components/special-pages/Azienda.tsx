@@ -54,7 +54,7 @@ const Azienda = () => {
         {/* <div className="h-full w-full overflow-scroll"> */}
         <img
           // onClick={clickToScroll}
-          src="/asset/Raggruppa_429.png"
+          src="./asset/Raggruppa_429.png"
           className="h-full max-w-fit select-none object-cover"
           loading="lazy"
         />

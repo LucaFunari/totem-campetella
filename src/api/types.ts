@@ -117,3 +117,7 @@ export type ParsedEntita = {
   slug: string;
   tipo_estrusione: number[];
 };
+
+export type serviceResp = {
+  title: string
+}

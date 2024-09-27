@@ -33,7 +33,7 @@ const ThirdLevelPage = () => {
   return (
     <div className="radial-bg grid h-full w-full grid-rows-[1fr_9fr] text-white">
       <ThirdLevelPageHeader />
-      <div className="flex w-full flex-col overflow-x-auto p-10">
+      <div className="ao flex w-full flex-col overflow-x-auto">
         <Outlet />
       </div>
       {/* 

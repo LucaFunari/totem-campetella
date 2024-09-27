@@ -10,7 +10,7 @@ export const generalSettingsQuery = (lang_id?: "it" | "en") => ({
     console.debug("downloading " + lang_id + " settings file");
     const data = await fetch(
       "https://campetella.wp.jef.it/index.php/wp-json/wp/v2/settings/impostazioni-app-" +
-        lang_id,
+      lang_id,
     );
 
     const json = (await data.json()) as GeneralSetting;
@@ -50,9 +50,9 @@ export const robotTypesQuery = (langID: "it" | "en") => ({
   queryFn: async () => {
     const data = await fetch(
       import.meta.env.VITE_ROBOT_TYPE_ENDPOINT +
-        "?per_page=100" +
-        "&lang=" +
-        langID,
+      "?per_page=100" +
+      "&lang=" +
+      langID,
     );
     const json = await data.json();
 
@@ -109,16 +109,16 @@ export const estrusioniQuery = (langID: "it" | "en") => ({
   queryFn: async () => {
     const estrusioneResp = await fetch(
       import.meta.env.VITE_ESTRUSIONI_TIPO_ENDPOINT +
-        "?per_page=100&lang=" +
-        langID,
+      "?per_page=100&lang=" +
+      langID,
     );
 
     const estrusioneTipi = (await estrusioneResp.json()) as EstrusioneTipoResp;
 
     const entitaResp = await fetch(
       import.meta.env.VITE_ESTRUSIONI_ENTITA_ENDPOINT +
-        "?per_page=100&lang=" +
-        langID,
+      "?per_page=100&lang=" +
+      langID,
     );
 
     const entitaEstrusione = (await entitaResp.json()) as EstrusioneEntitaResp;
@@ -189,15 +189,15 @@ export interface RobotType {
   taxonomy: string;
   children_robots?: Robot[];
   acf:
-    | {
-        intro: string;
-        immagine: number;
-        testo: string;
-        icona: number;
-        file_csv: number;
-        allegato: Allegato[];
-      }
-    | [];
+  | {
+    intro: string;
+    immagine: number;
+    testo: string;
+    icona: number;
+    file_csv: number;
+    allegato: Allegato[];
+  }
+  | [];
 }
 
 export interface Robot {
@@ -326,6 +326,7 @@ export const useCSVFile = (id?: number) => {
 export const campiApplicativiQuery = (langID: "it" | "en") => ({
   queryKey: ["campiApplicativi", langID],
   queryFn: async () => {
+
     const data = await fetch(
       import.meta.env.VITE_CAMPI_APP_ENDPOINT + "?per_page=100&lang=" + langID,
     );
@@ -391,52 +392,6 @@ export type CampoApplicativo = {
   };
 };
 
-function csvToArray(text: string, quoteChar = '"', delimiter = ",") {
-  const rows = text.split("\n");
-  const headers = rows[0].split(",");
-
-  const regex = new RegExp(
-    `\\s*(${quoteChar})?(.*?)\\1\\s*(?:${delimiter}|$)`,
-    "gs",
-  );
-
-  const match = (line: string) =>
-    [...line.matchAll(regex)].map((m) => m[2]).slice(0, -1);
-
-  let lines = text.split("\n");
-  const heads = headers ?? match(lines.shift());
-  lines = lines.slice(1);
-
-  const prov = lines.map((line) => {
-    return match(line).reduce((acc, cur, i) => {
-      // replace blank matches with `null`
-      const val = cur.length <= 0 ? null : Number(cur) || cur;
-      const key = heads[i] ?? `{i}`;
-      return { ...acc, [key]: val };
-    }, {});
-  });
-
-  const prov2 = lines.map((line) => {
-    const cells: string[] = [];
-
-    line.split(",").map((cell) => {
-      cells.push(cell);
-    });
-
-    return cells;
-  });
-
-  return prov2;
-
-  // return lines.map((line) => {
-  //   return match(line).reduce((acc, cur, i) => {
-  //     // replace blank matches with `null`
-  //     const val = cur.length <= 0 ? null : Number(cur) || cur;
-  //     const key = heads[i] ?? `{i}`;
-  //     return { ...acc, [key]: val };
-  //   }, {});
-  // });
-}
 
 export const getFineLineaQuery: QueryType = () => ({
   queryKey: ["FineLineaData"],

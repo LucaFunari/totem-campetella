@@ -30,18 +30,17 @@ const ThirdLevel = () => {
     return (
       <div className="mauro flex h-full flex-col overflow-clip">
         <PageTitle>{currentRobotType?.name}</PageTitle>
-        <div className="flex flex-1 flex-col gap-10 overflow-scroll">
+        <div className="flex flex-1 flex-col gap-5 overflow-scroll">
           {immagineRobot && (
             <img
               src={immagineRobot?.source_url}
-              className="h-1/4 w-full object-contain"
+              className="h-1/5 w-full object-contain"
             ></img>
           )}
           <div
             className="w-full break-words font-d-din text-content [&>strong]:mb-10 [&>strong]:block"
             dangerouslySetInnerHTML={{ __html: currentRobotType?.acf?.testo }}
           ></div>
-
           <div className="h-full overflow-scroll">
             {currentRobotType?.children_robots && (
               <ProductsGrid products={currentRobotType.children_robots} />
