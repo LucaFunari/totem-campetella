@@ -13,23 +13,42 @@ import Spinner from "../reusable/Spinner";
 import { useLocalizationStore } from "../../zustand-stores";
 
 const RobotPage = () => {
-  const params = useParams() as { id: string; productId: string };
+  const params = useParams() as {
+    id?: string;
+    productId?: string;
+    robotId?: string;
+  };
 
   const { lang } = useLocalizationStore();
 
-  const { data: robotData } = useQuery(robotTypesQuery(lang));
+  const { data: robotData } = useQuery(robotTypesQuery(lang)) as {
+    data: RobotType[];
+  };
 
   const currentRobotProduct = React.useMemo(() => {
-    const currentRobotType: RobotType = robotData?.find(
-      (one) => one.slug == params.id,
-    );
+    if (params.id && params.productId) {
+      const currentRobotType = robotData?.find((one) => one.slug == params.id);
 
-    const currentRob = currentRobotType?.children_robots?.find(
-      (one) => one.slug == params.productId,
-    );
+      const currentRob = currentRobotType?.children_robots?.find(
+        (one) => one.slug == params.productId,
+      );
 
-    return currentRob;
-  }, [params.id, robotData, params.productId]);
+      return currentRob;
+    } else if (params.robotId) {
+      const a = robotData
+        ?.map((robType) => {
+          const a = robType?.children_robots?.find(
+            (one) => one.slug === params.robotId,
+          );
+          if (a) {
+            return a;
+          } else return null;
+        })
+        .find((one) => one !== null);
+
+      return a;
+    }
+  }, [params, robotData]);
 
   const { asset, error } = useSingleAsset(
     currentRobotProduct?.acf.immagine_robot,
@@ -72,7 +91,7 @@ const RobotPage = () => {
 
   if (currentRobotProduct)
     return (
-      <div className="flex h-full flex-col">
+      <div className="flex h-full flex-col pb-20">
         <PageTitle>{currentRobotProduct?.title.rendered}</PageTitle>
 
         <div className="flex h-full grow-0 flex-col overflow-scroll">
@@ -87,7 +106,7 @@ const RobotPage = () => {
             />
           </div>
 
-          <div className="mt-10 flex-1 p-14">
+          <div className="p-14 pb-28">
             <div
               className="break-words font-d-din text-content [&>*:first-child]:font-d-din-condensed [&>*:first-child]:text-contentTitle [&>*:first-child]:font-bold [&>*]:list-disc [&>strong]:mb-10 [&>strong]:block [&>ul]:ps-20"
               dangerouslySetInnerHTML={{
@@ -159,10 +178,11 @@ const RobotPage = () => {
               </tbody>
             </table>
           )}
-          {currentRobotProduct?.acf.allegato && (
-            <VideoGrid content={currentRobotProduct?.acf.allegato} />
-          )}
         </div>
+
+        {currentRobotProduct?.acf.allegato && (
+          <VideoGrid content={currentRobotProduct?.acf.allegato} />
+        )}
       </div>
     );
   else return <Spinner />;

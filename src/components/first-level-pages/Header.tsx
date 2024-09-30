@@ -14,7 +14,7 @@ const Header = (props: { pageData?: PageData }) => {
       <a href="totem:servicerequest">
         <img
           loading="lazy"
-          className="pointer-events-auto mt-[11rem] w-[35rem]"
+          className="pointer-events-auto mt-[11rem] min-h-32 w-[35rem]"
           src="./asset/Logo Campetella.svg"
           alt="logo"
         ></img>

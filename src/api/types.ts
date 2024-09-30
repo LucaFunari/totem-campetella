@@ -1,3 +1,5 @@
+import { Robot, RobotType } from "./queries";
+
 export type EstrusioneEntitaResp = {
   id: number;
   "tipo-estrusione": number[];
@@ -88,6 +90,11 @@ export type EstrusioneTipoResp = {
   };
 }[];
 
+export type EstrusioniResp = {
+  estrusioni: ParsedEstrusioni[];
+  robot: RobotType[];
+};
+
 export type ParsedEstrusioni = {
   id: number;
   name: string;
@@ -119,5 +126,5 @@ export type ParsedEntita = {
 };
 
 export type serviceResp = {
-  title: string
-}
+  title: string;
+};

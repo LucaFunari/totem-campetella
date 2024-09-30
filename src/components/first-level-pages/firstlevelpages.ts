@@ -12,7 +12,6 @@ export const homePageData: PageData = {
     {
       goTo: "educamp",
       title: "educamp",
-      disabled: true,
       icon: "./asset/Educamp logo.svg",
       key: null,
     },

@@ -24,6 +24,7 @@ import {
   generalSettingsLoader,
   robotTypesLoader,
   robotTypesQuery,
+  serviceLoader,
 } from "./api/queries.ts";
 import {
   campiApplicativiPage,
@@ -36,6 +37,7 @@ import CampoApplicativo from "./components/third-level-pages/CampoApplicativo.ts
 import FineLinea from "./components/special-pages/FineLinea.tsx";
 import Avvolgitori from "./components/second-level-pages/Avvolgitori.tsx";
 import { defaultLanguage, useLocalizationStore } from "./zustand-stores.ts";
+import EduCamp from "./components/special-pages/EduCamp.tsx";
 
 export const queryClient = new QueryClient();
 
@@ -58,8 +60,14 @@ const router = createHashRouter([
         path: "azienda",
         element: <Azienda />,
       },
-      { path: "service", element: <Service /> },
-
+      {
+        path: "service",
+        element: <Service />,
+        loader: async () => {
+          return () => serviceLoader(queryClient);
+        },
+      },
+      { path: "educamp", element: <EduCamp /> },
       {
         path: "iniezione",
         children: [
@@ -151,6 +159,7 @@ const router = createHashRouter([
                 path: "",
                 element: <Avvolgitori />,
               },
+              { path: ":robotId", element: <RobotPage /> },
             ],
           },
 

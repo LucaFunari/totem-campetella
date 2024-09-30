@@ -1,50 +1,59 @@
-import React from "react";
+import React, { useState } from "react";
 import PageTitle from "../third-level-pages/PageTitle";
 import ThirdLevelPageHeader from "../second-level-pages/ThirdLevelPageHeader";
+import { useLocalizationStore } from "../../zustand-stores";
+import {
+  generalSettingsQuery,
+  getServiceQuery,
+  useSingleAsset,
+} from "../../api/queries";
+import { useQuery } from "@tanstack/react-query";
+import SpinnerSmall from "../reusable/SpinnerSmall";
 
 const Service = () => {
+  const { lang } = useLocalizationStore();
+
+  const { data: settingsData } = useQuery(generalSettingsQuery(lang));
+
+  const { data: iconsList, isLoading } = useQuery(getServiceQuery(lang)) as {
+    data?: Icona[];
+  };
+
   return (
     <div className="radial-bg grid h-full w-full grid-rows-[1fr_9fr] text-white">
       <ThirdLevelPageHeader />
 
       <div className="flex w-full flex-col p-20">
-        <PageTitle>Service</PageTitle>
+        <PageTitle>
+          {settingsData?.settings["service_titolo"] as string}
+        </PageTitle>
 
         <div className="flex flex-1 flex-col items-center justify-center gap-14 p-16">
-          <h1 className="line-clamp-3 w-full font-d-din-condensed text-contentTitle font-bold">
-            Campetella: il partner di fiducia per l’ottimizzazione dei tuoi
-            processi produttivi
-          </h1>
+          <div
+            className="w-full break-words font-d-din text-content [&>*:first-child]:font-d-din-condensed [&>*:first-child]:text-contentTitle"
+            dangerouslySetInnerHTML={{
+              __html: settingsData?.settings["service_testo1"] as string,
+            }}
+          ></div>
 
-          <p className="font-d-din text-content">
-            Con un’esperienza di oltre 8000 impianti installati in tutto il
-            mondo, l’azienda ha acquisito una conoscenza approfondita delle
-            esigenze dei suoi clienti. Questo know-how consente di offrire
-            soluzioni su misura e un supporto costante per ogni tipo di
-            impianto.
-          </p>
+          {iconsList ? (
+            <div className="grid w-full grid-cols-5 content-start items-start justify-items-center">
+              {iconsList
+                ?.sort((a, b) => {
+                  return a.acf.ordine - b.acf.ordine;
+                })
+                .map((icon, index) => <Icona key={index} icon={icon}></Icona>)}
+            </div>
+          ) : (
+            <div className="h-[120px] w-full"></div>
+          )}
 
-          <div className="grid w-full grid-cols-5 content-start items-start justify-items-center">
-            {icons.map((icon, index) => (
-              <div
-                key={index}
-                className="flex w-full flex-col items-center gap-5"
-              >
-                <div className="aspect-square h-64">
-                  <img src={icon.iconPath} className="h-full w-full" />
-                </div>
-                <span className="line-clamp-2 w-full break-words text-center font-d-din text-content font-bold uppercase">
-                  {icon.title}
-                </span>
-              </div>
-            ))}
-          </div>
-
-          <p className="w-full font-d-din text-content">
-            Con centri di assistenza e più di 60 tecnici altamente qualificati,
-            Campetella offre un supporto tempestivo e professionale in tutto il
-            mondo.
-          </p>
+          <div
+            dangerouslySetInnerHTML={{
+              __html: settingsData?.settings["service_testo2"] as string,
+            }}
+            className="w-full font-d-din text-content"
+          ></div>
 
           <img
             src="./asset/service/Raggruppa 341.png"
@@ -58,32 +67,39 @@ const Service = () => {
   );
 };
 
-const icons = [
-  {
-    id: "manutenzione",
-    title: "Manutenzione Programmata",
-    iconPath: "./asset/service/Raggruppa 351.svg",
-  },
-  {
-    id: "assistenza",
-    title: "Assistenza da remoto",
-    iconPath: "./asset/service/Raggruppa 350.svg",
-  },
-  {
-    id: "spezidioni",
-    title: "Spedizioni rapida ricambi",
-    iconPath: "./asset/service/Raggruppa 349.svg",
-  },
-  {
-    id: "revamping",
-    title: "Revamping",
-    iconPath: "./asset/service/Raggruppa 347.svg",
-  },
-  {
-    id: "formazione",
-    title: "Formazione",
-    iconPath: "./asset/service/Raggruppa 348.svg",
-  },
-];
+const Icona = (props: { icon: Icona }) => {
+  const { asset, isLoading } = useSingleAsset(props.icon.acf.icona);
+
+  const [loaded, setLoaded] = useState(false);
+
+  return (
+    <div className="flex w-full flex-col items-center gap-5">
+      <div className="aspect-square h-64">
+        {isLoading ? (
+          <div className="h-full w-full opacity-40">
+            <SpinnerSmall />
+          </div>
+        ) : (
+          <img
+            onLoad={() => setLoaded(true)}
+            src={asset?.source_url}
+            className={`${loaded ? "opacity-100" : "opacity-0"} h-full w-full scale-150 object-contain transition-opacity`}
+          />
+        )}
+      </div>
+      <span className="line-clamp-2 w-full break-words text-center font-d-din text-content font-bold uppercase">
+        {props.icon.acf.nome}
+      </span>
+    </div>
+  );
+};
+
+type Icona = {
+  acf: {
+    ordine: number;
+    nome: string;
+    icona: number;
+  };
+};
 
 export default Service;

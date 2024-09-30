@@ -1,0 +1,8 @@
+Modello:, MC2-1B, MC2-1M, MC2-1H, MC2-1HS, MC2-2B, MC2-2M, MC2-2H, MC2-2HS, MC2-3B, MC2-3M, MC2-3H
+Portata massima [kg]:, 16, 30, 18, 8, 16, 30, 18, 8, 16, 30, 18
+Asse verticale:, Diretto, Diretto, Telescopico, Telescopico, Diretto, Diretto, Telescopico, Telescopico, Diretto, Diretto, Telescopico
+Bilanciamento pneumatico asse verticale: -, •, •, •, -, •, •, •, -, •, •,
+Corsa Asse Z - Trave [mm]:, 2000, 2000, 2000, 2000, 2500, 2500, 2500, 2500, 3000, 3000, 3000
+Corsa Asse X - Estrazione [mm]:, 970, 970, 970, 970, 970, 970, 970, 970, 970, 970, 970
+Corsa Asse Y - Verticale [mm]:, 1400, 1200, 1600, 1600, 1400, 1200, 1600, 1600, 1400, 1200, 1600
+Tempo ciclo minimo con la portata massima [s]:, 6, 6, 6, 4.5, 6, 6, 6, 4.5, 6, 6, 6

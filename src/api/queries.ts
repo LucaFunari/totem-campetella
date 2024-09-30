@@ -10,7 +10,7 @@ export const generalSettingsQuery = (lang_id?: "it" | "en") => ({
     console.debug("downloading " + lang_id + " settings file");
     const data = await fetch(
       "https://campetella.wp.jef.it/index.php/wp-json/wp/v2/settings/impostazioni-app-" +
-      lang_id,
+        lang_id,
     );
 
     const json = (await data.json()) as GeneralSetting;
@@ -50,9 +50,9 @@ export const robotTypesQuery = (langID: "it" | "en") => ({
   queryFn: async () => {
     const data = await fetch(
       import.meta.env.VITE_ROBOT_TYPE_ENDPOINT +
-      "?per_page=100" +
-      "&lang=" +
-      langID,
+        "?per_page=100" +
+        "&lang=" +
+        langID,
     );
     const json = await data.json();
 
@@ -109,16 +109,16 @@ export const estrusioniQuery = (langID: "it" | "en") => ({
   queryFn: async () => {
     const estrusioneResp = await fetch(
       import.meta.env.VITE_ESTRUSIONI_TIPO_ENDPOINT +
-      "?per_page=100&lang=" +
-      langID,
+        "?per_page=100&lang=" +
+        langID,
     );
 
     const estrusioneTipi = (await estrusioneResp.json()) as EstrusioneTipoResp;
 
     const entitaResp = await fetch(
       import.meta.env.VITE_ESTRUSIONI_ENTITA_ENDPOINT +
-      "?per_page=100&lang=" +
-      langID,
+        "?per_page=100&lang=" +
+        langID,
     );
 
     const entitaEstrusione = (await entitaResp.json()) as EstrusioneEntitaResp;
@@ -146,6 +146,48 @@ export const estrusioniQuery = (langID: "it" | "en") => ({
       };
     });
 
+    const data = await fetch(
+      import.meta.env.VITE_ROBOT_TYPE_ENDPOINT +
+        "?per_page=100" +
+        "&lang=" +
+        langID,
+    );
+    const json = await data.json();
+
+    const robotList = await fetch(
+      import.meta.env.VITE_ROBOT_LIST_ENDPOINT + "?per_page=100&lang=" + langID,
+    );
+    const robotListJson: Robot[] = await robotList.json();
+
+    const parsedRobots = robotListJson.map((robot) => {
+      return {
+        id: robot.id,
+        acf: robot.acf,
+        featured_media: robot.featured_media,
+        tipo_robot: robot["tipo-robot"],
+        slug: robot.slug,
+        title: robot.title,
+      };
+    });
+
+    const parsedJson = json.map((elem: RobotType) => {
+      return {
+        id: elem.id,
+        acf: elem.acf,
+        name: elem.name,
+        description: elem.description,
+        slug: elem.slug,
+        count: elem.count,
+        children_robots: parsedRobots.filter((rob) =>
+          rob.tipo_robot.includes(elem.id),
+        ),
+      };
+    });
+
+    const parsedGyreRobots = parsedJson.filter(
+      (robotType: RobotType) => robotType.acf.sezione === "estrusione",
+    );
+
     const response = parsedTipi.map((tipo) => {
       return {
         ...tipo,
@@ -155,7 +197,9 @@ export const estrusioniQuery = (langID: "it" | "en") => ({
       };
     });
 
-    return response;
+    const extendedResp = { estrusioni: response, robot: parsedGyreRobots };
+
+    return extendedResp;
   },
 
   staleTime: Infinity,
@@ -189,15 +233,16 @@ export interface RobotType {
   taxonomy: string;
   children_robots?: Robot[];
   acf:
-  | {
-    intro: string;
-    immagine: number;
-    testo: string;
-    icona: number;
-    file_csv: number;
-    allegato: Allegato[];
-  }
-  | [];
+    | {
+        intro: string;
+        immagine: number;
+        testo: string;
+        icona: number;
+        file_csv: number;
+        sezione: "estrusione" | "iniezione";
+        allegato: Allegato[];
+      }
+    | [];
 }
 
 export interface Robot {
@@ -207,6 +252,7 @@ export interface Robot {
   featured_media: number;
   "tipo-robot": number[];
   acf: {
+    ordine: number;
     intro: string;
     immagine_robot: number;
     testo: string;
@@ -246,13 +292,13 @@ export function useSingleAsset(id?: number) {
     isLoading: true,
   };
 
-  const { data, error } = useMediaAsset() as {
+  const { data, error, isLoading } = useMediaAsset() as {
     data: Asset[];
     error: Error;
+    isLoading: boolean;
   };
   if (data) {
     const singleAsset = data.find((one) => one.id == id);
-
     if (singleAsset) {
       resp.asset = singleAsset;
       resp.isLoading = false;
@@ -263,6 +309,9 @@ export function useSingleAsset(id?: number) {
       resp.isLoading = false;
       return resp;
     }
+  } else if (isLoading) {
+    resp.isLoading = true;
+    return resp;
   } else if (error) {
     resp.error = error;
     resp.isLoading = false;
@@ -326,7 +375,6 @@ export const useCSVFile = (id?: number) => {
 export const campiApplicativiQuery = (langID: "it" | "en") => ({
   queryKey: ["campiApplicativi", langID],
   queryFn: async () => {
-
     const data = await fetch(
       import.meta.env.VITE_CAMPI_APP_ENDPOINT + "?per_page=100&lang=" + langID,
     );
@@ -392,7 +440,6 @@ export type CampoApplicativo = {
   };
 };
 
-
 export const getFineLineaQuery: QueryType = () => ({
   queryKey: ["FineLineaData"],
   queryFn: async () => {
@@ -416,30 +463,40 @@ export const fineLineaLoader = (queryClient: QueryClient) => async () => {
 
 type GeneralSetting = {
   settings: {
-    "home-sfondo": boolean | number;
-    home_cta_azienda: string;
-    home_cta_iniezione: string;
-    home_cta_estrusione: string;
-    home_cta_service: string;
-    iniezione_sfondo: boolean | number;
-    iniezione_titolo: string;
-    iniezione_titoli_campi_applicativi: string;
-    iniezione_titolo_robot: string;
-    estrusione_sfondo: boolean | number;
-    estrusione_titolo: string;
-    estrusione_titolo_avvolgitori: string;
-    estrusione_titolo_finelinea: string;
+    [key: string]: boolean | string | number;
     estrusione_lista_video: {
       "estrusione-video": number;
       immagine_anteprima_video: number;
     }[];
-
-    linea_titolo: string;
-    linea_testo: string;
-    linea_immagine: boolean | string;
     linea_lista_video: {
       "estrusione-video": number;
       immagine_anteprima_video: number;
     }[];
   };
+};
+
+export const getServiceQuery = (lang: "it" | "en") => ({
+  queryKey: ["getService", lang],
+  queryFn: async () => {
+    const data = await fetch(
+      "https://campetella.wp.jef.it/index.php/wp-json/wp/v2/service?lang=" +
+        lang,
+    );
+
+    const json = await data.json();
+
+    return json;
+  },
+  staleTime: Infinity,
+  refetchOnMount: false,
+  refetchOnWindowFocus: false,
+});
+
+export const serviceLoader = (queryClient: QueryClient) => async () => {
+  const { lang } = useLocalizationStore.getState();
+  const query = getServiceQuery(lang);
+
+  return (
+    queryClient.getQueryData(query.queryKey) ?? queryClient.fetchQuery(query)
+  );
 };

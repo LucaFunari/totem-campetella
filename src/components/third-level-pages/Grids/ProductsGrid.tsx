@@ -4,7 +4,7 @@ import { Robot, useSingleAsset } from "../../../api/queries";
 
 export const ProductsGrid = (props: { products: Robot[] }) => {
   return (
-    <div className="grid grid-cols-4 gap-20 overflow-scroll">
+    <div className="grid grid-cols-4 gap-20 overflow-scroll pb-20">
       {props.products.map((prod) => (
         <Product key={prod.id} product={prod} />
       ))}
@@ -15,7 +15,7 @@ export const ProductsGrid = (props: { products: Robot[] }) => {
 const Product = (props: { product: Robot }) => {
   const { product } = props;
 
-  const { asset } = useSingleAsset(product?.featured_media);
+  const { asset, isLoading } = useSingleAsset(product?.featured_media);
 
   const isNavigable = React.useMemo(() => {
     const keys = Object.keys(product);
@@ -26,18 +26,23 @@ const Product = (props: { product: Robot }) => {
     return asset?.source_url ?? asset?.guid.rendered;
   }, [asset]);
 
+  const [loaded, setLoaded] = React.useState(false);
+
   const navigate = useNavigate();
   return (
     <div
-      className={`${!isNavigable && "cursor-not-allowed opacity-50"} flex aspect-video w-[26rem] select-none flex-col items-center`}
+      className={`${!isNavigable && "cursor-not-allowed opacity-50"} flex w-[26rem] select-none flex-col items-center justify-between`}
       onClick={() => {
         if (isNavigable) navigate(product.slug);
       }}
     >
-      <div className="aspect-[1.27] w-full">
-        {imageUrl ? (
+      <div className="flex aspect-[1.27] w-full">
+        {isLoading ? (
+          <div className="h-full w-full" />
+        ) : imageUrl ? (
           <img
-            className="h-full w-full object-cover"
+            onLoad={() => setLoaded(true)}
+            className={`aspect-video w-full object-cover transition-opacity ${loaded ? "opacity-100" : "opacity-0"} `}
             src={imageUrl}
             loading="lazy"
           />

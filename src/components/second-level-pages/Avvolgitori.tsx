@@ -1,16 +1,26 @@
 import React from "react";
 import PageTitle from "../third-level-pages/PageTitle";
 import { useQuery } from "@tanstack/react-query";
-import { estrusioniQuery } from "../../api/queries";
+import {
+  estrusioniQuery,
+  Robot,
+  RobotType,
+  useSingleAsset,
+} from "../../api/queries";
 import Spinner from "../reusable/Spinner";
-import { ParsedEntita, ParsedEstrusioni } from "../../api/types";
+import {
+  EstrusioniResp,
+  ParsedEntita,
+  ParsedEstrusioni,
+} from "../../api/types";
 import { GridWrapper, Icon } from "../third-level-pages/Grids/Grid";
 import { useLocalizationStore, usePopupStateStore } from "../../zustand-stores";
+import { ProductsGrid } from "../third-level-pages/Grids/ProductsGrid";
 
 const Avvolgitori = () => {
   const { lang } = useLocalizationStore();
   const { data } = useQuery(estrusioniQuery(lang)) as {
-    data: ParsedEstrusioni[];
+    data: EstrusioniResp;
     isLoading: boolean;
     error: Error;
   };
@@ -19,7 +29,7 @@ const Avvolgitori = () => {
     return (
       <>
         <PageTitle></PageTitle>
-        {data
+        {data?.estrusioni
           .filter((ones) => ones.count > 0)
           .map((avvolgitore) => (
             <AvvolgitoriSection
@@ -27,6 +37,16 @@ const Avvolgitori = () => {
               avvolgitore={avvolgitore}
             />
           ))}
+
+        {data.robot.map((robot) => (
+          <RobotSection robot={robot} key={robot.id} />
+        ))}
+
+        {/* <div className="h-full overflow-scroll bg-red">
+          {data?.robot[0]?.children_robots && (
+            <ProductsGrid products={data.robot[0]?.children_robots} />
+          )}
+        </div> */}
       </>
     );
   else return <Spinner />;
@@ -49,22 +69,65 @@ const AvvolgitoriSection = (props: { avvolgitore: ParsedEstrusioni }) => {
 
   return (
     <div className="flex w-full flex-col items-center font-d-din-condensed text-contentTitle">
-      <p className="line-clamp-2 overflow-clip text-center font-d-din-condensed text-[184px]/[278px] font-bold uppercase text-white">
-        {props.avvolgitore.name}
-      </p>
+      <p
+        className="line-clamp-2 overflow-clip p-0 text-center font-d-din-condensed text-[184px]/[278px] font-bold uppercase text-white"
+        dangerouslySetInnerHTML={{ __html: props.avvolgitore.name }}
+      ></p>
 
       <div className="flex h-min w-[95%] flex-wrap items-center justify-center gap-10">
         {props.avvolgitore.children.map((ent, index) => (
-          <Icon
-            iconID={ent.featured_media}
-            obj={{ ...ent, name: ent.title.rendered }}
-            key={index}
-            specialFn={() => videoOpenFunc(ent)}
-          ></Icon>
+          <AvvolgitoreIconWrapper ent={ent} key={index} />
         ))}
       </div>
     </div>
   );
 };
 
+const AvvolgitoreIconWrapper = (props: { ent: ParsedEntita }) => {
+  const { ent } = props;
+  const { asset } = useSingleAsset(ent.acf.estrusione_entita_video);
+  const { setVideo, setOpen } = usePopupStateStore();
+
+  const videoOpenFunc = React.useCallback(() => {
+    if (asset) {
+      setOpen(true);
+      setVideo({
+        anteprima: undefined,
+        didascalia: ent.title.rendered,
+        file: ent.acf.estrusione_entita_video,
+      });
+    } else return;
+  }, [setOpen, setVideo, ent, asset]);
+
+  return (
+    <Icon
+      smaller={true}
+      iconID={ent.featured_media}
+      obj={{ ...ent, name: ent.title.rendered }}
+      specialFn={() => videoOpenFunc()}
+    ></Icon>
+  );
+};
+
+const RobotSection = (props: { robot: RobotType }) => {
+  return (
+    <div className="flex w-full flex-col items-center font-d-din-condensed text-contentTitle">
+      <p
+        className="line-clamp-2 overflow-clip text-center font-d-din-condensed text-[184px]/[278px] font-bold uppercase text-white"
+        dangerouslySetInnerHTML={{ __html: "Robot" }}
+      ></p>
+      <div className="flex h-min w-[95%] flex-wrap items-center justify-center gap-10">
+        {props.robot.children_robots?.map((robot) => (
+          <Icon
+            smaller={true}
+            iconID={robot.featured_media}
+            obj={{ ...robot }}
+            key={robot.id}
+            shouldNavigate={true}
+          ></Icon>
+        ))}
+      </div>
+    </div>
+  );
+};
 export default Avvolgitori;

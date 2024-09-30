@@ -26,9 +26,25 @@ const ThirdLevel = () => {
     currentRobotType?.acf?.immagine,
   );
 
+  const sortedProducts = React.useMemo(() => {
+    return currentRobotType?.children_robots?.sort((a, b) => {
+      const keyA = a.slug.toLocaleUpperCase();
+      const keyB = b.slug.toLocaleUpperCase();
+
+      return a.acf.ordine - b.acf.ordine;
+    });
+  }, [currentRobotType?.children_robots]);
+
+  // sort(function (a, b) {
+  //   var textA = a.name.toUpperCase();
+  //   var textB = b.name.toUpperCase();
+
+  //   return textA.localeCompare(textB);
+  // });
+
   if (currentRobotType)
     return (
-      <div className="mauro flex h-full flex-col overflow-clip">
+      <div className="flex h-full flex-col overflow-clip">
         <PageTitle>{currentRobotType?.name}</PageTitle>
         <div className="flex flex-1 flex-col gap-5 overflow-scroll">
           {immagineRobot && (
@@ -41,10 +57,9 @@ const ThirdLevel = () => {
             className="w-full break-words font-d-din text-content [&>strong]:mb-10 [&>strong]:block"
             dangerouslySetInnerHTML={{ __html: currentRobotType?.acf?.testo }}
           ></div>
+
           <div className="h-full overflow-scroll">
-            {currentRobotType?.children_robots && (
-              <ProductsGrid products={currentRobotType.children_robots} />
-            )}
+            {sortedProducts && <ProductsGrid products={sortedProducts} />}
           </div>
         </div>
       </div>

@@ -14,6 +14,10 @@ const SecondLevel = (props: {
     isError: boolean;
   };
 
+  const filteredRobotData = React.useMemo(() => {
+    return data?.filter((robot) => robot.acf.sezione !== "estrusione");
+  }, [data]);
+
   //   const gridElements: gridElement[] | undefined = React.useMemo(() => {
   //     if (data) {
   //       const parsedData = data.map((elem) => {
@@ -32,7 +36,7 @@ const SecondLevel = (props: {
     <>
       <PageTitle>{props.pageData.titleKey}</PageTitle>
 
-      <Grid elements={data} />
+      <Grid elements={filteredRobotData} />
     </>
   );
 };

@@ -1,11 +1,22 @@
 import React from "react";
 import GoBackRoundBtn from "../reusable/GoBackRoundBtn";
 import ThirdLevelPageHeader from "../second-level-pages/ThirdLevelPageHeader";
+import { useQuery } from "@tanstack/react-query";
+import { generalSettingsQuery, useSingleAsset } from "../../api/queries";
+import { useLocalizationStore } from "../../zustand-stores";
+import SpinnerSmall from "../reusable/SpinnerSmall";
 
 const Azienda = () => {
   const ref = React.useRef() as React.RefObject<HTMLDivElement>;
+  const { lang } = useLocalizationStore();
+
+  const { data: settingsData } = useQuery(generalSettingsQuery(lang));
 
   const ref2 = React.useRef();
+
+  const { asset: assetData, isLoading } = useSingleAsset(
+    settingsData?.settings?.azienda_immagine,
+  );
 
   React.useEffect(() => {
     ref.current?.scroll(0, 0);
@@ -31,7 +42,8 @@ const Azienda = () => {
   );
   const clickToScroll = React.useCallback(
     (ev: React.MouseEvent<HTMLImageElement>) => {
-      console.debug(ev);
+      ev.stopPropagation();
+      console.debug(ev.currentTarget);
     },
     [],
   );
@@ -44,18 +56,31 @@ const Azienda = () => {
         <GoBackRoundBtn size={100} />
 
         <div className="flex flex-1 items-center justify-center">
-          <p className="line-clamp-2 w-4/5 font-d-din-condensed text-[140px] font-bold text-white">
-            Da più di un secolo, produttori di automazioni complesse
-          </p>
+          <p
+            className="line-clamp-2 w-4/5 break-words font-d-din-condensed text-[140px] font-bold text-white"
+            dangerouslySetInnerHTML={{
+              __html: settingsData?.settings?.azienda_titolo,
+            }}
+          ></p>
         </div>
       </div>
-      <div className="h-full overflow-x-scroll" ref={ref}>
+      <div
+        onClick={clickToScroll}
+        className="relative h-full overflow-x-scroll bg-buttonblue"
+        ref={ref}
+      >
         {/* <div className="h-full border-[20px] border-lime-400"> */}
         {/* <div className="h-full w-full overflow-scroll"> */}
+
+        {isLoading && (
+          <div className="absolute flex h-full w-full items-center justify-center">
+            <SpinnerSmall></SpinnerSmall>
+          </div>
+        )}
+
         <img
-          // onClick={clickToScroll}
-          src="./asset/Raggruppa_429.png"
-          className="h-full max-w-fit select-none object-cover"
+          src={assetData?.source_url}
+          className="h-full max-w-fit select-none bg-buttonblue object-cover"
           loading="lazy"
         />
         {/* </div> */}

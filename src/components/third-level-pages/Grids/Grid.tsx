@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { gridElement } from "../../../zustand-stores";
 import Spinner from "../../reusable/Spinner";
 import { useSingleAsset } from "../../../api/queries";
+import SpinnerSmall from "../../reusable/SpinnerSmall";
 
 const Grid = (props: { elements?: gridElement[] }) => {
   if (props.elements)
@@ -40,12 +41,13 @@ export const Icon = (props: {
   shouldNavigate: boolean;
   specialFn?: () => void;
   iconID?: number;
+  smaller?: boolean;
 }) => {
   const { obj, specialFn, shouldNavigate, iconID } = props;
 
   const iconIdFromACF = obj?.acf?.icona ?? obj?.featured_media;
 
-  const { asset } = useSingleAsset(iconIdFromACF ?? iconID);
+  const { asset, isLoading } = useSingleAsset(iconIdFromACF ?? iconID);
 
   const elementIsEmpty = obj.count == 0;
 
@@ -58,6 +60,8 @@ export const Icon = (props: {
     else return;
   }, [shouldNavigate, specialFn, obj, navigate]);
 
+  const [loaded, setLoaded] = React.useState(false);
+
   return (
     <div
       onClick={() => iconFn()}
@@ -66,11 +70,17 @@ export const Icon = (props: {
       <div
         className={`float-start flex aspect-square min-h-96 items-end justify-center overflow-hidden align-middle`}
       >
-        {asset ? (
+        {isLoading ? (
+          <div className="flex aspect-square h-96 items-center justify-center opacity-40">
+            {/* <div className="aspect-square h-60" /> */}
+            <SpinnerSmall />
+          </div>
+        ) : asset ? (
           <img
             src={asset?.source_url ?? asset?.guid.rendered}
             loading="lazy"
-            className="h-96 w-auto scale-125 object-cover"
+            onLoad={(e) => setLoaded(true)}
+            className={`aspect-square h-96 scale-125 object-contain transition-opacity ${loaded ? "opacity-100" : "opacity-0"} `}
           />
         ) : (
           <div className="flex aspect-square h-96 items-center justify-center">
@@ -79,7 +89,7 @@ export const Icon = (props: {
         )}
       </div>
       <p
-        className="line-clamp-3 h-[3lh] w-[26rem] select-none whitespace-pre-wrap break-words text-center font-d-din-condensed text-[4rem] font-semibold uppercase text-white [&>strong]:mb-10 [&>strong]:block"
+        className={`${props.smaller ? "line-clamp-2 h-[2lh]" : "line-clamp-3 h-[3lh]"} w-[26rem] select-none whitespace-pre-wrap break-words text-center font-d-din-condensed text-[4rem] font-semibold uppercase text-white [&>strong]:mb-10 [&>strong]:block`}
         dangerouslySetInnerHTML={{
           __html: obj.name ?? obj?.title?.rendered,
         }}
