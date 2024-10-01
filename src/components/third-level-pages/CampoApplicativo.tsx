@@ -31,9 +31,8 @@ const CampoApplicativo = () => {
                 <div className="aspect-vid w-full">
                   {/* {asset && <img src={asset?.source_url} alt="immagine campo" />} */}
                 </div>
-
                 <div
-                  className="break-words font-d-din text-content [&>*:first-child]:font-d-din-condensed [&>*:first-child]:text-contentTitle [&>*:first-child]:font-bold [&>*]:list-disc [&>strong]:my-10 [&>strong]:block [&>ul]:ps-20"
+                  className="break-words font-d-din text-content [&>*:first-child]:font-d-din-condensed [&>*:first-child]:text-contentTitle [&>*:first-child]:font-bold [&>*]:mb-10 [&>*]:block [&>*]:list-disc [&>ul]:ps-20"
                   dangerouslySetInnerHTML={{
                     __html: currentCampo?.acf.testo ?? "",
                   }}
