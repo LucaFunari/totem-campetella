@@ -20,7 +20,6 @@ import {
   campiApplicativiLoader,
   campiApplicativiQuery,
   estrusioniLoader,
-  fineLineaLoader,
   generalSettingsLoader,
   robotTypesLoader,
   robotTypesQuery,
@@ -167,9 +166,6 @@ const router = createHashRouter([
             path: "fine-linea",
 
             element: <FineLinea />,
-            loader: async () => {
-              return () => fineLineaLoader(queryClient);
-            },
           },
         ],
       },

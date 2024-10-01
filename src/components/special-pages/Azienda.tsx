@@ -4,7 +4,6 @@ import ThirdLevelPageHeader from "../second-level-pages/ThirdLevelPageHeader";
 import { useQuery } from "@tanstack/react-query";
 import { generalSettingsQuery, useSingleAsset } from "../../api/queries";
 import { useLocalizationStore } from "../../zustand-stores";
-import SpinnerSmall from "../reusable/SpinnerSmall";
 
 const Azienda = () => {
   const ref = React.useRef() as React.RefObject<HTMLDivElement>;
@@ -15,7 +14,7 @@ const Azienda = () => {
   const ref2 = React.useRef();
 
   const { asset: assetData, isLoading } = useSingleAsset(
-    settingsData?.settings?.azienda_immagine,
+    settingsData?.azienda_immagine,
   );
 
   React.useEffect(() => {
@@ -59,7 +58,7 @@ const Azienda = () => {
           <p
             className="line-clamp-2 w-4/5 break-words font-d-din-condensed text-[140px] font-bold text-white"
             dangerouslySetInnerHTML={{
-              __html: settingsData?.settings?.azienda_titolo,
+              __html: settingsData?.azienda_titolo,
             }}
           ></p>
         </div>
@@ -73,9 +72,7 @@ const Azienda = () => {
         {/* <div className="h-full w-full overflow-scroll"> */}
 
         {isLoading && (
-          <div className="absolute flex h-full w-full items-center justify-center">
-            <SpinnerSmall></SpinnerSmall>
-          </div>
+          <div className="absolute flex h-full w-full items-center justify-center"></div>
         )}
 
         <img

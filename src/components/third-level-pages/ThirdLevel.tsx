@@ -35,13 +35,6 @@ const ThirdLevel = () => {
     });
   }, [currentRobotType?.children_robots]);
 
-  // sort(function (a, b) {
-  //   var textA = a.name.toUpperCase();
-  //   var textB = b.name.toUpperCase();
-
-  //   return textA.localeCompare(textB);
-  // });
-
   if (currentRobotType)
     return (
       <div className="flex h-full flex-col overflow-clip">
@@ -54,7 +47,7 @@ const ThirdLevel = () => {
             ></img>
           )}
           <div
-            className="w-full break-words font-d-din text-content [&>strong]:mb-10 [&>strong]:block"
+            className="w-full break-words font-d-din text-content [&>*]:mb-10 [&>*]:block [&>strong]:mb-10 [&>strong]:block"
             dangerouslySetInnerHTML={{ __html: currentRobotType?.acf?.testo }}
           ></div>
 

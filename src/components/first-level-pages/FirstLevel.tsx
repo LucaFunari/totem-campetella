@@ -19,7 +19,7 @@ const FirstLevel = (props: { pageData: PageData }) => {
 
   const bgImageID = React.useMemo(() => {
     if (data) {
-      const id = data.settings[pageData.bgImgKey];
+      const id = data[pageData.bgImgKey];
 
       return id;
     }

@@ -99,7 +99,7 @@ export type ParsedEstrusioni = {
   id: number;
   name: string;
   count: number;
-  acf: [];
+  acf: { ordine: number };
   slug: string;
   meta: [];
   children: ParsedEntita[] | [];

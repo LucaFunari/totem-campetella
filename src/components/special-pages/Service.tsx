@@ -8,7 +8,6 @@ import {
   useSingleAsset,
 } from "../../api/queries";
 import { useQuery } from "@tanstack/react-query";
-import SpinnerSmall from "../reusable/SpinnerSmall";
 
 const Service = () => {
   const { lang } = useLocalizationStore();
@@ -19,52 +18,53 @@ const Service = () => {
     data?: Icona[];
   };
 
-  return (
-    <div className="radial-bg grid h-full w-full grid-rows-[1fr_9fr] text-white">
-      <ThirdLevelPageHeader />
+  if (settingsData)
+    return (
+      <div className="radial-bg grid h-full w-full grid-rows-[1fr_9fr] text-white">
+        <ThirdLevelPageHeader />
 
-      <div className="flex w-full flex-col p-20">
-        <PageTitle>
-          {settingsData?.settings["service_titolo"] as string}
-        </PageTitle>
+        <div className="flex w-full flex-col p-20">
+          <PageTitle>{settingsData["service_titolo"] as string}</PageTitle>
 
-        <div className="flex flex-1 flex-col items-center justify-center gap-14 p-16">
-          <div
-            className="w-full break-words font-d-din text-content [&>*:first-child]:font-d-din-condensed [&>*:first-child]:text-contentTitle"
-            dangerouslySetInnerHTML={{
-              __html: settingsData?.settings["service_testo1"] as string,
-            }}
-          ></div>
+          <div className="flex flex-1 flex-col items-center justify-center gap-14 p-16">
+            <div
+              className="w-full break-words font-d-din text-content [&>*:first-child]:font-d-din-condensed [&>*:first-child]:text-contentTitle"
+              dangerouslySetInnerHTML={{
+                __html: settingsData["service_testo1"] as string,
+              }}
+            ></div>
 
-          {iconsList ? (
-            <div className="grid w-full grid-cols-5 content-start items-start justify-items-center">
-              {iconsList
-                ?.sort((a, b) => {
-                  return a.acf.ordine - b.acf.ordine;
-                })
-                .map((icon, index) => <Icona key={index} icon={icon}></Icona>)}
-            </div>
-          ) : (
-            <div className="h-[120px] w-full"></div>
-          )}
+            {iconsList ? (
+              <div className="grid w-full grid-cols-5 content-start items-start justify-items-center">
+                {iconsList
+                  ?.sort((a, b) => {
+                    return a.acf.ordine - b.acf.ordine;
+                  })
+                  .map((icon, index) => (
+                    <Icona key={index} icon={icon}></Icona>
+                  ))}
+              </div>
+            ) : (
+              <div className="h-[400px] w-full"></div>
+            )}
 
-          <div
-            dangerouslySetInnerHTML={{
-              __html: settingsData?.settings["service_testo2"] as string,
-            }}
-            className="w-full font-d-din text-content"
-          ></div>
+            <div
+              dangerouslySetInnerHTML={{
+                __html: settingsData["service_testo2"] as string,
+              }}
+              className="w-full font-d-din text-content"
+            ></div>
 
-          <img
-            src="./asset/service/Raggruppa 341.png"
-            alt="planisfero"
-            className="w-full"
-          ></img>
-          {/* <TestPlani /> */}
+            <img
+              src="./asset/service/Raggruppa 341.png"
+              alt="planisfero"
+              className="w-full"
+            ></img>
+            {/* <TestPlani /> */}
+          </div>
         </div>
       </div>
-    </div>
-  );
+    );
 };
 
 const Icona = (props: { icon: Icona }) => {
@@ -76,9 +76,7 @@ const Icona = (props: { icon: Icona }) => {
     <div className="flex w-full flex-col items-center gap-5">
       <div className="aspect-square h-64">
         {isLoading ? (
-          <div className="h-full w-full opacity-40">
-            <SpinnerSmall />
-          </div>
+          <div className="h-full w-full opacity-40"></div>
         ) : (
           <img
             onLoad={() => setLoaded(true)}

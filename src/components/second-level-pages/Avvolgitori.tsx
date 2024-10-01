@@ -1,21 +1,15 @@
 import React from "react";
 import PageTitle from "../third-level-pages/PageTitle";
 import { useQuery } from "@tanstack/react-query";
-import {
-  estrusioniQuery,
-  Robot,
-  RobotType,
-  useSingleAsset,
-} from "../../api/queries";
+import { estrusioniQuery, RobotType, useSingleAsset } from "../../api/queries";
 import Spinner from "../reusable/Spinner";
 import {
   EstrusioniResp,
   ParsedEntita,
   ParsedEstrusioni,
 } from "../../api/types";
-import { GridWrapper, Icon } from "../third-level-pages/Grids/Grid";
+import { Icon } from "../third-level-pages/Grids/Grid";
 import { useLocalizationStore, usePopupStateStore } from "../../zustand-stores";
-import { ProductsGrid } from "../third-level-pages/Grids/ProductsGrid";
 
 const Avvolgitori = () => {
   const { lang } = useLocalizationStore();
@@ -29,7 +23,11 @@ const Avvolgitori = () => {
     return (
       <>
         <PageTitle></PageTitle>
+
         {data?.estrusioni
+          .sort((a, b) => {
+            return a.acf.ordine - b.acf.ordine;
+          })
           .filter((ones) => ones.count > 0)
           .map((avvolgitore) => (
             <AvvolgitoriSection

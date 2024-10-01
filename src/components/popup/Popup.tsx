@@ -23,7 +23,7 @@ const Popup = () => {
         <div className="popup header flex items-center justify-between px-32 py-14 text-2xl text-textlightblue">
           <ExitRoundBtn fn={() => setOpen(false)} />
           <h1
-            className="line-clamp-2 w-full break-words text-center font-d-din-condensed text-[8rem]/[12rem] uppercase"
+            className="line-clamp-2 w-full break-words text-center font-d-din-condensed text-[8rem]/[8rem] uppercase"
             dangerouslySetInnerHTML={{
               __html: video?.didascalia || "missing title",
             }}
@@ -34,12 +34,7 @@ const Popup = () => {
 
         <div className="relative min-h-[1183px] w-full">
           {asset ? (
-            <video
-              muted
-              autoPlay
-              className="relative z-10 h-full w-full p-20"
-              loop
-            >
+            <video autoPlay className="relative z-10 h-full w-full p-20" loop>
               <source src={asset?.source_url} />
             </video>
           ) : (

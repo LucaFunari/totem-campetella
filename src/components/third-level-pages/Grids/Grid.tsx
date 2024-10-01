@@ -73,7 +73,6 @@ export const Icon = (props: {
         {isLoading ? (
           <div className="flex aspect-square h-96 items-center justify-center opacity-40">
             {/* <div className="aspect-square h-60" /> */}
-            <SpinnerSmall />
           </div>
         ) : asset ? (
           <img

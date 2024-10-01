@@ -14,7 +14,7 @@ export const generalSettingsQuery = (lang_id?: "it" | "en") => ({
     );
 
     const json = (await data.json()) as GeneralSetting;
-    return json;
+    return json?.settings;
   },
 
   staleTime: Infinity,
@@ -35,9 +35,7 @@ export const useString = (key?: string) => {
   const { lang } = useLocalizationStore();
   const { data } = useQuery(generalSettingsQuery(lang));
   if (data && key) {
-    const { settings } = data;
-
-    const string = settings[key];
+    const string = data[key];
 
     if (string) {
       return string;
@@ -62,6 +60,19 @@ export const robotTypesQuery = (langID: "it" | "en") => ({
     const robotListJson: Robot[] = await robotList.json();
 
     const parsedRobots = robotListJson.map((robot) => {
+      const parentFamilies: RobotType[] = json.filter((families: RobotType) =>
+        robot["tipo-robot"].includes(families.id),
+      );
+
+      const allegatiFam = parentFamilies.map((fam) => {
+        return fam.acf?.allegato;
+      });
+
+      const mergedAllegati = [
+        ...(robot.acf.allegato || []),
+        ...allegatiFam.flat(),
+      ];
+
       return {
         id: robot.id,
         acf: robot.acf,
@@ -257,7 +268,7 @@ export interface Robot {
     immagine_robot: number;
     testo: string;
     file_csv: number;
-    allegati: Allegato[];
+    allegato: Allegato[];
   };
 }
 
@@ -440,39 +451,16 @@ export type CampoApplicativo = {
   };
 };
 
-export const getFineLineaQuery: QueryType = () => ({
-  queryKey: ["FineLineaData"],
-  queryFn: async () => {
-    const data = await fetch("/json/fine_linea.json");
-    const json = await data.json();
-
-    return json;
-  },
-  staleTime: Infinity,
-  refetchOnMount: false,
-  refetchOnWindowFocus: false,
-});
-
-export const fineLineaLoader = (queryClient: QueryClient) => async () => {
-  const query = getFineLineaQuery();
-
-  return (
-    queryClient.getQueryData(query.queryKey) ?? queryClient.fetchQuery(query)
-  );
-};
-
 type GeneralSetting = {
-  settings: {
-    [key: string]: boolean | string | number;
-    estrusione_lista_video: {
-      "estrusione-video": number;
-      immagine_anteprima_video: number;
-    }[];
-    linea_lista_video: {
-      "estrusione-video": number;
-      immagine_anteprima_video: number;
-    }[];
-  };
+  [key: string]: boolean | string | number;
+  estrusione_lista_video: {
+    "estrusione-video": number;
+    immagine_anteprima_video: number;
+  }[];
+  linea_lista_video: {
+    "estrusione-video": number;
+    immagine_anteprima_video: number;
+  }[];
 };
 
 export const getServiceQuery = (lang: "it" | "en") => ({

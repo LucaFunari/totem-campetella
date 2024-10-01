@@ -50,6 +50,12 @@ const RobotPage = () => {
     }
   }, [params, robotData]);
 
+  const videosList = React.useMemo(() => {
+    if (params.id) {
+      const currentFamily = robotData?.find((one) => one.slug == params.id);
+    }
+  }, [robotData, params]);
+
   const { asset, error } = useSingleAsset(
     currentRobotProduct?.acf.immagine_robot,
   );
@@ -91,10 +97,10 @@ const RobotPage = () => {
 
   if (currentRobotProduct)
     return (
-      <div className="flex h-full flex-col pb-20">
-        <PageTitle>{currentRobotProduct?.title.rendered}</PageTitle>
+      <div className="flex-col gap-3 overflow-y-scroll">
+        <div className="flex flex-1 flex-col overflow-y-scroll">
+          <PageTitle>{currentRobotProduct?.title.rendered}</PageTitle>
 
-        <div className="flex h-full grow-0 flex-col overflow-scroll">
           <div className="grid grid-cols-2">
             <p className="flex items-center p-14 font-d-din text-content font-thin italic leading-[4.5rem]">
               {currentRobotProduct?.acf.intro}
@@ -108,28 +114,12 @@ const RobotPage = () => {
 
           <div className="p-14 pb-28">
             <div
-              className="break-words font-d-din text-content [&>*:first-child]:font-d-din-condensed [&>*:first-child]:text-contentTitle [&>*:first-child]:font-bold [&>*]:list-disc [&>strong]:mb-10 [&>strong]:block [&>ul]:ps-20"
+              className="break-words font-d-din text-content [&>*:first-child]:font-d-din-condensed [&>*:first-child]:text-contentTitle [&>*:first-child]:font-bold [&>*]:mb-10 [&>*]:block [&>*]:list-disc [&>ul]:ps-20 [&>ul]:pt-10"
               dangerouslySetInnerHTML={{
                 __html: currentRobotProduct?.acf.testo ?? "",
               }}
             ></div>
           </div>
-
-          {/* <table className="font-d-din text-4xl">
-          <tbody>
-            <tr>
-              <td className="border-4 text-center text-5xl">pro</td>
-              <td className="border-4 text-center text-5xl">pro</td>
-              <td className="border-4 text-center text-5xl">pro</td>
-            </tr>
-            <tr>
-              <td colSpan={2} className="border-4 text-center text-5xl">
-                pro
-              </td>
-              <td className="border-4 text-center text-5xl">pro</td>
-            </tr>
-          </tbody>
-        </table> */}
 
           {parsedTableData2 && (
             <table className="w-full table-auto p-14 font-d-din text-4xl">
@@ -155,26 +145,6 @@ const RobotPage = () => {
                     </tr>
                   ),
                 )}
-                {/* {parsedTableData?.map((row: string[], ind: number) => (
-                <tr key={ind}>
-                  {row.map(
-                    (cell, index, row) =>
-                      cell && (
-                        <td
-                          className={`border-4 border-white p-3 text-center text-2xl`}
-                          key={index}
-                          colSpan={
-                            row[index + 1]
-                              ? 1
-                              : row.filter((cells) => cells === "").length + 1
-                          }
-                        >
-                          {cell}
-                        </td>
-                      ),
-                  )}
-                </tr>
-              ))} */}
               </tbody>
             </table>
           )}
