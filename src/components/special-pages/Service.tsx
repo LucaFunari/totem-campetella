@@ -23,7 +23,7 @@ const Service = () => {
       <div className="radial-bg grid h-full w-full grid-rows-[1fr_9fr] text-white">
         <ThirdLevelPageHeader />
 
-        <div className="flex w-full flex-col p-20">
+        <div className="flex w-full flex-col px-20">
           <PageTitle>{settingsData["service_titolo"] as string}</PageTitle>
 
           <div className="flex flex-1 flex-col items-center justify-center gap-14 p-16">

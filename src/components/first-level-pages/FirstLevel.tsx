@@ -48,7 +48,11 @@ const FirstLevel = (props: { pageData: PageData }) => {
       >
         <Header pageData={pageData} />
         <div className="flex-1">
-          {!pageData.isHomePage && <GoBackRoundBtn />}
+          {!pageData.isHomePage && (
+            <div className="mt-52">
+              <GoBackRoundBtn />
+            </div>
+          )}
         </div>
 
         {pageData.specialLink ? (

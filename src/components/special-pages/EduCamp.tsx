@@ -16,7 +16,7 @@ const EduCamp = () => {
         <ThirdLevelPageHeader />
 
         <div
-          className={`flex h-full w-full flex-col items-center justify-start gap-56 px-20 py-20`}
+          className={`flex h-full w-full flex-col items-center justify-start gap-56 px-20 pb-20`}
         >
           <PageTitle iconURL="./asset/Educamp logo.svg"></PageTitle>
           <div
@@ -25,15 +25,15 @@ const EduCamp = () => {
           ></div>
           <div className="grid grid-cols-2 items-start justify-items-center gap-28">
             {icons.map((icon) => (
-              <div className="relative h-min text-center font-[Impact] font-black uppercase">
+              <div className="relative flex h-min flex-col items-center justify-center text-center font-[Impact] font-black uppercase">
                 <div
-                  className="block overflow-hidden break-words px-12 text-contentLg leading-none [&>h1]:text-[7rem]/[7rem] [&>h2]:text-[4rem]/[5rem] [&>h3]:text-[2rem]/[2.4rem]"
+                  className="overflow-hidden break-words px-12 text-contentLg leading-none [&>h1]:text-[7rem]/[7rem] [&>h2]:text-[4rem]/[5rem] [&>h3]:text-[2rem]/[2.4rem]"
                   dangerouslySetInnerHTML={{ __html: data[icon.innerTextKey] }}
                 ></div>
                 {icon.bgIcon && (
                   <img
                     src={icon.bgIcon}
-                    className="absolute left-1/2 top-0 h-[7rem] -translate-x-1/2 object-contain"
+                    className="h-[4rem] object-contain"
                   ></img>
                 )}
               </div>

@@ -14,12 +14,13 @@ const PageTitle = (props: {
   return (
     <>
       <div className="flex w-full select-none flex-col gap-32">
-        <div className="fixed top-[12%]">
+        <div className="fixed top-[574px] w-fit">
           <GoBackRoundBtn size={100} />
         </div>
+
         {props.iconURL ? (
-          <div className="flex w-full items-center justify-center">
-            <img className="mt-56 w-[700px]" src={props.iconURL} />
+          <div className="mt-24 flex h-[276px] items-center justify-center">
+            <img className="h-[164px]" loading="lazy" src={props.iconURL} />
           </div>
         ) : (
           title && (

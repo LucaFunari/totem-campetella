@@ -11,8 +11,6 @@ const Azienda = () => {
 
   const { data: settingsData } = useQuery(generalSettingsQuery(lang));
 
-  const ref2 = React.useRef();
-
   const { asset: assetData, isLoading } = useSingleAsset(
     settingsData?.azienda_immagine,
   );
@@ -20,32 +18,6 @@ const Azienda = () => {
   React.useEffect(() => {
     ref.current?.scroll(0, 0);
   }, [ref]);
-
-  const scrollFunc = React.useCallback(
-    (ref: React.RefObject<HTMLDivElement>) => {
-      const div = ref.current;
-
-      if (div) {
-        const currentScroll = ref.current?.scrollLeft;
-        const child = ref.current?.lastChild as HTMLImageElement;
-
-        console.debug(child.scrollWidth);
-
-        ref.current?.scroll({
-          left: 13391 - 2160,
-          behavior: "instant",
-        });
-      }
-    },
-    [],
-  );
-  const clickToScroll = React.useCallback(
-    (ev: React.MouseEvent<HTMLImageElement>) => {
-      ev.stopPropagation();
-      console.debug(ev.currentTarget);
-    },
-    [],
-  );
 
   return (
     <div className="grid h-full grid-rows-[10%_23%_auto] bg-slate-50">
@@ -64,7 +36,6 @@ const Azienda = () => {
         </div>
       </div>
       <div
-        onClick={clickToScroll}
         className="relative h-full overflow-x-scroll bg-buttonblue"
         ref={ref}
       >

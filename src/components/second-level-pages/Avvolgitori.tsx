@@ -1,7 +1,12 @@
 import React from "react";
 import PageTitle from "../third-level-pages/PageTitle";
 import { useQuery } from "@tanstack/react-query";
-import { estrusioniQuery, RobotType, useSingleAsset } from "../../api/queries";
+import {
+  estrusioniQuery,
+  RobotType,
+  useSingleAsset,
+  useString,
+} from "../../api/queries";
 import Spinner from "../reusable/Spinner";
 import {
   EstrusioniResp,
@@ -19,18 +24,29 @@ const Avvolgitori = () => {
     error: Error;
   };
 
+  const firstSubElementName = React.useMemo(() => {
+    const primaEstrusioneValida = data?.estrusioni?.filter(
+      (estr) => estr.count > 0,
+    )[0];
+
+    if (primaEstrusioneValida) {
+      return primaEstrusioneValida.name;
+    }
+  }, [data]);
+
   if (data)
     return (
-      <>
-        <PageTitle></PageTitle>
+      <div className="flex flex-col">
+        <PageTitle>{firstSubElementName}</PageTitle>
 
         {data?.estrusioni
           .sort((a, b) => {
             return a.acf.ordine - b.acf.ordine;
           })
           .filter((ones) => ones.count > 0)
-          .map((avvolgitore) => (
+          .map((avvolgitore, index) => (
             <AvvolgitoriSection
+              index={index}
               key={avvolgitore.id}
               avvolgitore={avvolgitore}
             />
@@ -45,32 +61,24 @@ const Avvolgitori = () => {
             <ProductsGrid products={data.robot[0]?.children_robots} />
           )}
         </div> */}
-      </>
+      </div>
     );
   else return <Spinner />;
 };
 
-const AvvolgitoriSection = (props: { avvolgitore: ParsedEstrusioni }) => {
-  const { setVideo, setOpen } = usePopupStateStore();
-
-  const videoOpenFunc = React.useCallback(
-    (data: ParsedEntita) => {
-      setOpen(true);
-      setVideo({
-        anteprima: undefined,
-        didascalia: data.title.rendered,
-        file: data.acf.estrusione_entita_video,
-      });
-    },
-    [setOpen, setVideo],
-  );
-
+const AvvolgitoriSection = (props: {
+  avvolgitore: ParsedEstrusioni;
+  index: number;
+}) => {
   return (
     <div className="flex w-full flex-col items-center font-d-din-condensed text-contentTitle">
-      <p
-        className="line-clamp-2 overflow-clip p-0 text-center font-d-din-condensed text-[184px]/[278px] font-bold uppercase text-white"
-        dangerouslySetInnerHTML={{ __html: props.avvolgitore.name }}
-      ></p>
+      {props.index !== 0 && (
+        <p
+          className="line-clamp-2 overflow-clip break-words px-40 text-center font-d-din-condensed text-[184px]/[274px] font-bold uppercase text-white"
+          // className="line-clamp-2 overflow-clip p-0 text-center font-d-din-condensed text-[184px]/[278px] font-bold uppercase text-white"
+          dangerouslySetInnerHTML={{ __html: props.avvolgitore.name }}
+        ></p>
+      )}
 
       <div className="flex h-min w-[95%] flex-wrap items-center justify-center gap-10">
         {props.avvolgitore.children.map((ent, index) => (
@@ -108,11 +116,13 @@ const AvvolgitoreIconWrapper = (props: { ent: ParsedEntita }) => {
 };
 
 const RobotSection = (props: { robot: RobotType }) => {
+  const robotString = useString("iniezione_titolo_robot");
+
   return (
     <div className="flex w-full flex-col items-center font-d-din-condensed text-contentTitle">
       <p
         className="line-clamp-2 overflow-clip text-center font-d-din-condensed text-[184px]/[278px] font-bold uppercase text-white"
-        dangerouslySetInnerHTML={{ __html: "Robot" }}
+        dangerouslySetInnerHTML={{ __html: robotString }}
       ></p>
       <div className="flex h-min w-[95%] flex-wrap items-center justify-center gap-10">
         {props.robot.children_robots?.map((robot) => (
