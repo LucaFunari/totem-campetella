@@ -24,7 +24,7 @@ const PageTitle = (props: {
         ) : (
           title && (
             <p
-              className="mt-24 line-clamp-2 overflow-clip break-words text-center font-d-din-condensed text-[184px] font-bold uppercase text-white"
+              className="mt-24 line-clamp-2 overflow-clip break-words px-40 text-center font-d-din-condensed text-[184px] font-bold uppercase text-white"
               dangerouslySetInnerHTML={{ __html: title }}
             ></p>
           )
