@@ -8,7 +8,6 @@ const Popup = () => {
   const { setOpen, video } = usePopupStateStore();
 
   const { asset, error, isLoading } = useSingleAsset(video?.file as number);
-
   return (
     <div
       className="absolute left-0 top-0 z-20 h-full w-full bg-white bg-opacity-60"
@@ -33,10 +32,18 @@ const Popup = () => {
         </div>
 
         <div className="relative min-h-[1183px] w-full">
-          {asset ? (
+          {asset && asset?.media_type === "file" ? (
             <video autoPlay className="relative z-10 h-full w-full p-20" loop>
               <source src={asset?.source_url} />
             </video>
+          ) : asset?.media_type === "image" ? (
+            <div className="aspect-video w-full p-20">
+              <img
+                src={asset.source_url}
+                loading="lazy"
+                className="pointer-events-none relative z-10 h-full w-full object-cover"
+              />
+            </div>
           ) : (
             <div className="relative z-10 w-full p-20 font-d-din-condensed text-contentLg font-bold text-white">
               <div className="flex aspect-video items-center justify-center bg-black text-white">

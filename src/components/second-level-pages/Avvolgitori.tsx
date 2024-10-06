@@ -37,7 +37,9 @@ const Avvolgitori = () => {
   if (data)
     return (
       <div className="flex flex-col">
-        <PageTitle>{firstSubElementName}</PageTitle>
+        <PageTitle iconURL=".\asset\icons\GYRE_LOGO_BIANCO.png">
+          {firstSubElementName}
+        </PageTitle>
 
         {data?.estrusioni
           .sort((a, b) => {
@@ -116,7 +118,7 @@ const AvvolgitoreIconWrapper = (props: { ent: ParsedEntita }) => {
 };
 
 const RobotSection = (props: { robot: RobotType }) => {
-  const robotString = useString("iniezione_titolo_robot");
+  const robotString = useString("estrusione_titolo_avvolgitori");
 
   return (
     <div className="flex w-full flex-col items-center font-d-din-condensed text-contentTitle">

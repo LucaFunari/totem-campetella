@@ -94,7 +94,6 @@ const RobotPage = () => {
       return newTableData;
     }
   }, [tableData]);
-
   if (currentRobotProduct)
     return (
       <div className="flex-col gap-3 overflow-y-scroll">
