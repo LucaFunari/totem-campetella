@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Allegato, useSingleAsset } from "../../../api/queries";
+import { Allegato, useSingleAsset, useString } from "../../../api/queries";
 import { usePopupStateStore } from "../../../zustand-stores";
 import SpinnerSmall from "../../reusable/SpinnerSmall";
 
@@ -13,10 +13,13 @@ export interface AllegatoCampo {
 export function VideoGrid(props: {
   content: Allegato[] | AllegatoCampo[] | undefined;
 }) {
+  const allegatiString = useString("attachments_field_title");
   if (props.content)
     return (
       <div className="mt-10 flex w-full basis-auto flex-col overflow-scroll">
-        <h1 className="font-d-din text-content font-bold uppercase">video</h1>
+        <h1 className="font-d-din text-content font-bold uppercase">
+          {allegatiString}
+        </h1>
         <hr className="mt-2 h-[6px] border-none bg-white"></hr>
 
         <div className="w-full overflow-y-scroll pt-16">

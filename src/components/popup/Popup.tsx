@@ -24,7 +24,7 @@ const Popup = () => {
           <h1
             className="line-clamp-2 w-full break-words text-center font-d-din-condensed text-[8rem]/[8rem] uppercase"
             dangerouslySetInnerHTML={{
-              __html: video?.didascalia || "missing title",
+              __html: video?.didascalia || "",
             }}
           ></h1>
 
@@ -41,7 +41,7 @@ const Popup = () => {
               <img
                 src={asset.source_url}
                 loading="lazy"
-                className="pointer-events-none relative z-10 h-full w-full object-cover"
+                className="pointer-events-none relative z-10 h-full w-full object-contain"
               />
             </div>
           ) : (

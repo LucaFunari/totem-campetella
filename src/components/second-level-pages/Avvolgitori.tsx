@@ -34,12 +34,22 @@ const Avvolgitori = () => {
     }
   }, [data]);
 
+  const firstElementIconID = React.useMemo(() => {
+    const primaEstrusioneValida = data?.estrusioni?.filter(
+      (estr) => estr.count > 0,
+    )[0];
+
+    if (primaEstrusioneValida) {
+      return primaEstrusioneValida?.acf?.icona_id;
+    }
+  }, [data]);
+
+  const { asset } = useSingleAsset(firstElementIconID);
+
   if (data)
     return (
       <div className="flex flex-col">
-        <PageTitle iconURL=".\asset\icons\GYRE_LOGO_BIANCO.png">
-          {firstSubElementName}
-        </PageTitle>
+        <PageTitle iconURL={asset?.source_url}>{firstSubElementName}</PageTitle>
 
         {data?.estrusioni
           .sort((a, b) => {
