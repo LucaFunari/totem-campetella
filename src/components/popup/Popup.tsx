@@ -58,7 +58,7 @@ const Popup = () => {
             </div>
           )}
 
-          <div className="radial-bg absolute top-0 h-full w-4/5"></div>
+          <div className="radial-bg absolute top-0 h-full w-full"></div>
         </div>
 
         {/* <div className="relative aspect-[16/10] w-full">

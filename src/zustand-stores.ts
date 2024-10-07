@@ -30,7 +30,7 @@ export const usePopupStateStore = create<popupStateStoreType>()((set) => ({
   isOpen: false,
   setVideo: (v: Allegato | AllegatoCampo) => set({ video: v }),
   setOpen: (bool?: boolean) => {
-    if (bool) {
+    if (bool == false || bool == true) {
       set({ isOpen: bool });
     } else {
       set((state) => ({ isOpen: !state.isOpen }));

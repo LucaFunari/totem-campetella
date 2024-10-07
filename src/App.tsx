@@ -1,6 +1,6 @@
 import * as React from "react";
 import "./App.css";
-import { Outlet } from "react-router-dom";
+import { Outlet, useLocation } from "react-router-dom";
 import Popup from "./components/popup/Popup";
 import { useLocalizationStore, usePopupStateStore } from "./zustand-stores";
 import { generalSettingsQuery } from "./api/queries";
@@ -11,7 +11,7 @@ const width = 2160;
 const heigth = 3840;
 
 function App() {
-  const { isOpen } = usePopupStateStore();
+  const { isOpen, setOpen } = usePopupStateStore();
   const { lang } = useLocalizationStore();
 
   const queryClient = useQueryClient();
@@ -34,6 +34,11 @@ function App() {
     window.addEventListener("resize", resizeFunc);
     return () => window.removeEventListener("resize", resizeFunc);
   }, [resizeFunc]);
+
+  const location = useLocation();
+  React.useEffect(() => {
+    setOpen(false);
+  }, [location, setOpen]);
 
   return (
     <div className="absolute left-1/2 aspect-[9/16] h-dvh -translate-x-1/2 overflow-hidden bg-white">
