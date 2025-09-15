@@ -1,7 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import React from "react";
 import { useParams } from "react-router-dom";
-import { campiApplicativiQuery, useSingleAsset } from "../../api/queries";
+import { campiApplicativiQuery } from "../../api/queries";
 import PageTitle from "./PageTitle";
 import { VideoGrid } from "./Grids/VideoGrid";
 import Spinner from "../reusable/Spinner";

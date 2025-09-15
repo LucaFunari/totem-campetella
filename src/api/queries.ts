@@ -1,7 +1,6 @@
 import { QueryClient, useQuery, useQueryClient } from "@tanstack/react-query";
 import { EstrusioneEntitaResp, EstrusioneTipoResp } from "./types";
 import Papa from "papaparse";
-import { queryClient } from "../main";
 import { useLocalizationStore } from "../zustand-stores";
 
 export const generalSettingsQuery = (lang_id?: "it" | "en") => ({
@@ -13,7 +12,7 @@ export const generalSettingsQuery = (lang_id?: "it" | "en") => ({
       lang_id,
     );
 
-    const json = (await data.json()) as GeneralSetting;
+    const json = (await data.json()) as Settings;
     return json?.settings;
   },
 
@@ -35,7 +34,7 @@ export const useString = (key?: string) => {
   const { lang } = useLocalizationStore();
   const { data } = useQuery(generalSettingsQuery(lang));
   if (data && key) {
-    const string = data[key];
+    const string = data[key as keyof typeof data];
 
     if (string) {
       return string;
@@ -453,17 +452,13 @@ export type CampoApplicativo = {
   };
 };
 
-type GeneralSetting = {
-  [key: string]: boolean | string | number;
-  estrusione_lista_video: {
-    "estrusione-video": number;
-    immagine_anteprima_video: number;
-  }[];
-  linea_lista_video: {
-    "estrusione-video": number;
-    immagine_anteprima_video: number;
-  }[];
-};
+interface Video {
+  "estrusione-video": number;
+  immagine_anteprima_video: number;
+}
+
+type Settings = Record<string, boolean | string | number | Array<Video>>
+
 
 export const getServiceQuery = (lang: "it" | "en") => ({
   queryKey: ["getService", lang],

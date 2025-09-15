@@ -14,7 +14,7 @@ const Service = () => {
 
   const { data: settingsData } = useQuery(generalSettingsQuery(lang));
 
-  const { data: iconsList, isLoading } = useQuery(getServiceQuery(lang)) as {
+  const { data: iconsList } = useQuery(getServiceQuery(lang)) as {
     data?: Icona[];
   };
 
@@ -24,13 +24,16 @@ const Service = () => {
         <ThirdLevelPageHeader />
 
         <div className="flex w-full flex-col px-20">
-          <PageTitle>{settingsData["service_titolo"] as string}</PageTitle>
+          <PageTitle>
+            {settingsData["service_titolo" as keyof typeof settingsData]}
+          </PageTitle>
 
           <div className="flex flex-1 flex-col items-center justify-center gap-14 p-16">
             <div
               className="w-full break-words font-d-din text-content [&>*:first-child]:font-d-din-condensed [&>*:first-child]:text-contentTitle"
               dangerouslySetInnerHTML={{
-                __html: settingsData["service_testo1"] as string,
+                __html:
+                  settingsData["service_testo1" as keyof typeof settingsData],
               }}
             ></div>
 
@@ -50,7 +53,8 @@ const Service = () => {
 
             <div
               dangerouslySetInnerHTML={{
-                __html: settingsData["service_testo2"] as string,
+                __html:
+                  settingsData["service_testo2" as keyof typeof settingsData],
               }}
               className="w-full font-d-din text-content"
             ></div>

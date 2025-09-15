@@ -37,6 +37,7 @@ import FineLinea from "./components/special-pages/FineLinea.tsx";
 import Avvolgitori from "./components/second-level-pages/Avvolgitori.tsx";
 import { defaultLanguage, useLocalizationStore } from "./zustand-stores.ts";
 import EduCamp from "./components/special-pages/EduCamp.tsx";
+import Dashboard from "./components/special-pages/Dashboard/Dashboard.tsx";
 
 export const queryClient = new QueryClient();
 
@@ -168,6 +169,10 @@ const router = createHashRouter([
             element: <FineLinea />,
           },
         ],
+      },
+      {
+        path: "dashboard",
+        element: <Dashboard />,
       },
       //
       // {

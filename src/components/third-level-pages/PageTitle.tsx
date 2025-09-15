@@ -6,6 +6,7 @@ import { useString } from "../../api/queries";
 const PageTitle = (props: {
   children?: string | HTMLImageElement;
   iconURL?: string;
+  className?: string;
 }) => {
   const { page } = useDetailedPageStore();
 
@@ -13,7 +14,9 @@ const PageTitle = (props: {
 
   return (
     <>
-      <div className="flex w-full select-none flex-col gap-32">
+      <div
+        className={`flex w-full select-none flex-col gap-32 ${props.className}`}
+      >
         <div className="fixed top-[574px] w-fit">
           <GoBackRoundBtn size={100} />
         </div>

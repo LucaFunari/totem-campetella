@@ -2,6 +2,7 @@ import { PageData } from "./FirstLevel";
 
 export const homePageData: PageData = {
   title: "homepage",
+  titleKey: 'home',
   bgImgPath: "./asset/sfondi/DJI_0110_MOD.jpg",
   bgImgKey: "home-sfondo",
   isHomePage: true,
@@ -13,6 +14,11 @@ export const homePageData: PageData = {
       goTo: "educamp",
       title: "educamp",
       icon: "./asset/Educamp logo.svg",
+      key: null,
+    },
+    {
+      goTo: "dashboard",
+      title: "dashboard",
       key: null,
     },
   ],
