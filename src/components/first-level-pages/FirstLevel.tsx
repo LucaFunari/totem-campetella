@@ -73,12 +73,17 @@ const FirstLevel = (props: { pageData: PageData }) => {
       </div>
       <div className="flex w-full items-center justify-center">
         <div className="grid w-fit grid-cols-2 gap-x-6 gap-y-6">
-          {pageData.links?.map((section, index) => (
+          {pageData.links?.map((section, index, { length }) => (
             <BlueButton
               goTo={section.goTo}
               key={index}
               iconUrl={section.icon}
               disabled={section.disabled}
+              className={
+                length % 2 === 1 && index + 1 === length
+                  ? "col-span-2 !w-full"
+                  : undefined
+              }
             >
               {section.key ?? section.title}
             </BlueButton>

@@ -28,11 +28,11 @@ function Dashboard() {
               onLoad={() => setIframeLoaded(true)}
               title="Dashboard"
               className="h-full w-full"
-              src="https://www.ubisive.it/"
+              src={iframeUrl}
             />
           </div>
 
-          <Gallery images={slideImages} />
+          {slideImages.length ? <Gallery images={slideImages} /> : null}
         </div>
       </div>
     </div>
@@ -40,6 +40,8 @@ function Dashboard() {
 }
 
 export default Dashboard;
+
+const iframeUrl = "https://www.ubisive.it/";
 
 const slideImages = [
   "https://images.unsplash.com/photo-1509721434272-b79147e0e708?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80",

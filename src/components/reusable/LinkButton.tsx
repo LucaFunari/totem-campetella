@@ -29,6 +29,7 @@ export const BlueButton = (props: {
   children?: string;
   iconUrl?: string;
   disabled?: boolean;
+  className?: string;
 }) => {
   const navigate = useNavigate();
 
@@ -44,7 +45,7 @@ export const BlueButton = (props: {
     <button
       onClick={navigateFn}
       disabled={props.disabled || !props.goTo}
-      className="flex h-64 w-[32rem] select-none items-center justify-center self-center rounded-none border-none bg-buttonblue px-6 py-4 outline-none enabled:hover:bg-buttonbluedarker disabled:cursor-not-allowed disabled:opacity-25"
+      className={`flex h-64 w-[32rem] select-none items-center justify-center self-center rounded-none border-none bg-buttonblue px-6 py-4 outline-none enabled:hover:bg-buttonbluedarker disabled:cursor-not-allowed disabled:opacity-25 ${props.className}`}
     >
       {props.iconUrl ? (
         <img src={props.iconUrl} alt="icon" className="w-3/4" />

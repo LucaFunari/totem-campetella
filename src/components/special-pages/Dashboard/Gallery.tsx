@@ -36,7 +36,7 @@ const Gallery = ({ images }: { images: string[] }) => {
           <Spinner />
         </div>
       )}
-      <div className="relative aspect-video w-full overflow-hidden rounded-lg shadow-lg">
+      <div className="relative aspect-video w-full overflow-hidden rounded-lg">
         {data?.map((image, index) => (
           <div
             key={index}
@@ -45,12 +45,14 @@ const Gallery = ({ images }: { images: string[] }) => {
             }`}
             style={{
               transform: `translateX(${(index - currentIndex) * 100}%)`,
+              // background: `url(${image})`,
+              // backgroundSize: "cover",
             }}
           >
             <img
               src={image}
               alt={`Slide ${index}`}
-              className="pointer-events-none h-full w-full object-cover"
+              className="pointer-events-none h-full w-full object-contain"
             />
           </div>
         ))}
