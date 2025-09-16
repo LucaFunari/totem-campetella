@@ -17,7 +17,7 @@ const PageTitle = (props: {
       <div
         className={`flex w-full select-none flex-col gap-32 ${props.className}`}
       >
-        <div className="fixed top-[574px] w-fit">
+        <div className="fixed top-[574px] box-border">
           <GoBackRoundBtn size={100} />
         </div>
 

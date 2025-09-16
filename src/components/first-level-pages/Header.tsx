@@ -38,7 +38,7 @@ const Header = (props: { pageData?: PageData }) => {
         <img
           loading="lazy"
           className="pointer-events-auto mt-[11rem] min-h-32 w-[35rem]"
-          src="./asset/Logo Campetella.svg"
+          src={props.pageData?.customLogoPath ?? "./asset/Logo Campetella.svg"}
           alt="logo"
         ></img>
       </div>

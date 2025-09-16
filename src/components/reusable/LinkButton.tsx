@@ -24,12 +24,16 @@ export const GrayButton = (props: { goTo: string; innerText: string }) => {
   );
 };
 
-export const BlueButton = (props: {
+export const BlueButton = ({
+  variant = "primary",
+  ...props
+}: {
   goTo: string;
   children?: string;
   iconUrl?: string;
   disabled?: boolean;
   className?: string;
+  variant?: "primary" | "secondary";
 }) => {
   const navigate = useNavigate();
 
@@ -45,13 +49,13 @@ export const BlueButton = (props: {
     <button
       onClick={navigateFn}
       disabled={props.disabled || !props.goTo}
-      className={`flex h-64 w-[32rem] select-none items-center justify-center self-center rounded-none border-none bg-buttonblue px-6 py-4 outline-none enabled:hover:bg-buttonbluedarker disabled:cursor-not-allowed disabled:opacity-25 ${props.className}`}
+      className={`flex h-64 w-[32rem] select-none items-center justify-center self-center rounded-none border-none px-6 py-4 outline-none disabled:cursor-not-allowed disabled:opacity-25 ${variant === "primary" ? "bg-buttonblue text-white enabled:hover:bg-buttonbluedarker" : "text-medicalgray bg-secondaryblue"} ${props.className}`}
     >
       {props.iconUrl ? (
         <img src={props.iconUrl} alt="icon" className="w-3/4" />
       ) : (
-        <p className="line-clamp-2 overflow-hidden text-ellipsis break-words text-center font-d-din-condensed text-[4.6rem] font-bold uppercase text-white">
-          {displayedText}
+        <p className="line-clamp-2 overflow-hidden text-ellipsis break-words text-center font-d-din-condensed text-[4.6rem] font-bold uppercase">
+          {displayedText ?? props.children}
         </p>
       )}
     </button>

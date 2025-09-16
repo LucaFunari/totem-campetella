@@ -9,11 +9,11 @@ export const generalSettingsQuery = (lang_id?: "it" | "en") => ({
     console.debug("downloading " + lang_id + " settings file");
     const data = await fetch(
       "https://campetella.wp.jef.it/index.php/wp-json/wp/v2/settings/impostazioni-app-" +
-      lang_id,
+        lang_id,
     );
 
-    const json = (await data.json()) as Settings;
-    return json?.settings;
+    const json = await data.json();
+    return json?.settings as Settings;
   },
 
   staleTime: Infinity,
@@ -34,7 +34,7 @@ export const useString = (key?: string) => {
   const { lang } = useLocalizationStore();
   const { data } = useQuery(generalSettingsQuery(lang));
   if (data && key) {
-    const string = data[key as keyof typeof data];
+    const string = data[key as keyof typeof data] as string;
 
     if (string) {
       return string;
@@ -47,9 +47,9 @@ export const robotTypesQuery = (langID: "it" | "en") => ({
   queryFn: async () => {
     const data = await fetch(
       import.meta.env.VITE_ROBOT_TYPE_ENDPOINT +
-      "?per_page=100" +
-      "&lang=" +
-      langID,
+        "?per_page=100" +
+        "&lang=" +
+        langID,
     );
     const json = await data.json();
 
@@ -95,6 +95,7 @@ export const robotTypesQuery = (langID: "it" | "en") => ({
         ),
       };
     });
+    console.debug(parsedJson);
 
     return parsedJson;
   },
@@ -119,20 +120,19 @@ export const estrusioniQuery = (langID: "it" | "en") => ({
   queryFn: async () => {
     const estrusioneResp = await fetch(
       import.meta.env.VITE_ESTRUSIONI_TIPO_ENDPOINT +
-      "?per_page=100&lang=" +
-      langID,
+        "?per_page=100&lang=" +
+        langID,
     );
 
     const estrusioneTipi = (await estrusioneResp.json()) as EstrusioneTipoResp;
 
     const entitaResp = await fetch(
       import.meta.env.VITE_ESTRUSIONI_ENTITA_ENDPOINT +
-      "?per_page=100&lang=" +
-      langID,
+        "?per_page=100&lang=" +
+        langID,
     );
 
     const entitaEstrusione = (await entitaResp.json()) as EstrusioneEntitaResp;
-
 
     const parsedTipi = estrusioneTipi.map((tipo) => {
       const { id, name, count, acf, slug, meta, ...rest } = tipo;
@@ -159,9 +159,9 @@ export const estrusioniQuery = (langID: "it" | "en") => ({
 
     const data = await fetch(
       import.meta.env.VITE_ROBOT_TYPE_ENDPOINT +
-      "?per_page=100" +
-      "&lang=" +
-      langID,
+        "?per_page=100" +
+        "&lang=" +
+        langID,
     );
     const json = await data.json();
 
@@ -244,16 +244,16 @@ export interface RobotType {
   taxonomy: string;
   children_robots?: Robot[];
   acf:
-  | {
-    intro: string;
-    immagine: number;
-    testo: string;
-    icona: number;
-    file_csv: number;
-    sezione: "estrusione" | "iniezione";
-    allegato: Allegato[];
-  }
-  | [];
+    | {
+        intro: string;
+        immagine: number;
+        testo: string;
+        icona: number;
+        file_csv: number;
+        sezione: "estrusione" | "iniezione";
+        allegato: Allegato[];
+      }
+    | [];
 }
 
 export interface Robot {
@@ -311,7 +311,6 @@ export function useSingleAsset(id?: number) {
   if (data) {
     const singleAsset = data.find((one) => one.id == id);
     if (singleAsset) {
-
       resp.asset = singleAsset;
       resp.isLoading = false;
       return resp;
@@ -457,15 +456,14 @@ interface Video {
   immagine_anteprima_video: number;
 }
 
-type Settings = Record<string, boolean | string | number | Array<Video>>
-
+type Settings = Record<string, boolean | string | number | Array<Video>>;
 
 export const getServiceQuery = (lang: "it" | "en") => ({
   queryKey: ["getService", lang],
   queryFn: async () => {
     const data = await fetch(
       "https://campetella.wp.jef.it/index.php/wp-json/wp/v2/service?lang=" +
-      lang,
+        lang,
     );
 
     const json = await data.json();

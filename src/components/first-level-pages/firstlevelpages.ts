@@ -2,20 +2,26 @@ import { PageData } from "./FirstLevel";
 
 export const homePageData: PageData = {
   title: "homepage",
-  titleKey: 'home',
+  titleKey: "home",
   bgImgPath: "./asset/sfondi/DJI_0110_MOD.jpg",
   bgImgKey: "home-sfondo",
   isHomePage: true,
   links: [
     { goTo: "iniezione", title: "iniezione", key: "home_cta_iniezione" },
     { goTo: "estrusione", title: "estrusione", key: "home_cta_estrusione" },
-    { goTo: "service", title: "service", key: "home_cta_service" },
+
+    {
+      goTo: "medical",
+      title: "medical",
+      key: null,
+    },
     {
       goTo: "educamp",
       title: "educamp",
       icon: "./asset/Educamp logo.svg",
       key: null,
     },
+    { goTo: "service", title: "service", key: "home_cta_service" },
     {
       goTo: "dashboard",
       title: "dashboard",
@@ -60,5 +66,25 @@ export const iniezioneData: PageData = {
       key: "iniezione_titoli_campi_applicativi",
     },
     { goTo: "robot", title: "robot", key: "iniezione_titolo_robot" },
+  ],
+};
+
+export const medicalData: PageData = {
+  title: "medicale",
+  titleKey: "med",
+  bgImgKey: "TEMP",
+  bgImgPath: "./asset/sfondi/Immagine-per-sito_MEDICAL_high.jpg",
+  customLogoPath: "./asset/Logo CampetellaMEDICALTMP.svg",
+  links: [
+    {
+      goTo: "medical-execution",
+      title: "medical execution",
+      key: "medical_title_execution",
+    },
+    {
+      goTo: "cleanroom-execution",
+      title: "cleanroom execution",
+      key: "medical_title_cleanroom",
+    },
   ],
 };

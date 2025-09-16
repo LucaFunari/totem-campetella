@@ -18,6 +18,8 @@ const SecondLevel = (props: {
     return data?.filter((robot) => robot.acf.sezione !== "estrusione");
   }, [data]);
 
+  console.debug(filteredRobotData);
+
   //   const gridElements: gridElement[] | undefined = React.useMemo(() => {
   //     if (data) {
   //       const parsedData = data.map((elem) => {

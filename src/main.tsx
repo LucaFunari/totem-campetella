@@ -13,6 +13,7 @@ import {
   estrusioneData,
   homePageData,
   iniezioneData,
+  medicalData,
 } from "./components/first-level-pages/firstlevelpages.ts";
 import FirstLevel from "./components/first-level-pages/FirstLevel.tsx";
 import SecondLevel from "./components/second-level-pages/SecondLevel.tsx";
@@ -38,6 +39,9 @@ import Avvolgitori from "./components/second-level-pages/Avvolgitori.tsx";
 import { defaultLanguage, useLocalizationStore } from "./zustand-stores.ts";
 import EduCamp from "./components/special-pages/EduCamp.tsx";
 import Dashboard from "./components/special-pages/Dashboard/Dashboard.tsx";
+import Medical from "./components/second-level-pages/Medical.tsx";
+import FirstLevelPage from "./components/deprecated/FirstLevelPage.tsx";
+import FirstLevelAlternative from "./components/first-level-pages/FirstLevelAlternative.tsx";
 
 export const queryClient = new QueryClient();
 
@@ -174,6 +178,37 @@ const router = createHashRouter([
         path: "dashboard",
         element: <Dashboard />,
       },
+      {
+        path: "medical",
+        // loader: async () => {
+        //   return () => estrusioniLoader(queryClient);
+        // },
+        children: [
+          {
+            path: "",
+            element: <FirstLevelAlternative pageData={medicalData} />,
+          },
+          {
+            path: "medical-execution",
+            element: <SecondLevelPageWrapper variant="secondary" />,
+
+            children: [
+              {
+                path: "",
+                element: <Medical />,
+              },
+              // { path: ":robotId", element: <RobotPage /> },
+            ],
+          },
+
+          {
+            path: "fine-linea",
+
+            element: <FineLinea />,
+          },
+        ],
+      },
+
       //
       // {
       //   path: ":sectionId",

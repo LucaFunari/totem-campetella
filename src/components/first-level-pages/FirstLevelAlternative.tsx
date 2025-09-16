@@ -11,7 +11,7 @@ import {
 } from "../../api/queries";
 import { useLocalizationStore } from "../../zustand-stores";
 
-const FirstLevel = (props: { pageData: PageData }) => {
+const FirstLevelAlternative = (props: { pageData: PageData }) => {
   const { pageData } = props;
 
   const { lang } = useLocalizationStore();
@@ -40,36 +40,21 @@ const FirstLevel = (props: { pageData: PageData }) => {
                 backgroundSize: "cover",
                 backgroundRepeat: "no-repeat",
 
-                backgroundPosition: "center",
+                backgroundPosition: "70% center",
               }
             : {}
         }
-        className={`cover flex aspect-square w-full flex-col bg-buttonbluedarker bg-opacity-80 bg-contain bg-[20%] px-20 py-10 pb-40`}
+        className={`cover flex aspect-square w-full flex-col justify-between bg-buttonbluedarker bg-opacity-80 bg-contain bg-[20%] px-20 py-10 pb-40`}
       >
         <Header pageData={pageData} />
-        <div className="flex-1">
-          {!pageData.isHomePage && (
-            <div className="mt-52">
-              <GoBackRoundBtn />
-            </div>
-          )}
-        </div>
 
-        {pageData.specialLink ? (
-          <div className="flex w-full items-center justify-center">
-            {pageData.specialLink && (
-              <GrayButton
-                key={pageData.specialLink.title}
-                goTo={pageData.specialLink.goTo}
-                innerText={pageData.specialLink.key}
-              />
-            )}
-          </div>
-        ) : (
-          <h1 className="text-center font-d-din-condensed text-[280px]/[360px] font-bold uppercase text-white">
+        <div className="flex items-center justify-between">
+          {!pageData.isHomePage && <GoBackRoundBtn alternative />}
+          <h1 className="text-medicalgray text-center font-d-din-condensed text-[280px]/[360px] font-bold uppercase">
             {pageTitle as string}
           </h1>
-        )}
+          <div className="w-[140px]" />
+        </div>
       </div>
       <div className="flex w-full items-center justify-center">
         <div className="grid w-fit grid-cols-2 gap-x-6 gap-y-6">
@@ -84,6 +69,7 @@ const FirstLevel = (props: { pageData: PageData }) => {
                   ? "col-span-2 !w-full"
                   : undefined
               }
+              variant="secondary"
             >
               {section.key ?? section.title}
             </BlueButton>
@@ -95,7 +81,7 @@ const FirstLevel = (props: { pageData: PageData }) => {
   );
 };
 
-export default FirstLevel;
+export default FirstLevelAlternative;
 
 export interface PageData {
   title: string;

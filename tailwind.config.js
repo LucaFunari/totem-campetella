@@ -20,6 +20,8 @@ export default {
         buttongraydarker: "#212227",
         textlightblue: "#6a94cc",
         babyblue: "#9dccf2",
+        secondaryblue: "#cee8f8",
+        medicalgray: "#353535",
       },
     },
   },

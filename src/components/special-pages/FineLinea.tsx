@@ -11,12 +11,12 @@ const FineLinea = () => {
   const { lang } = useLocalizationStore();
   const { data: settingsData } = useQuery(generalSettingsQuery(lang));
 
-  const { asset } = useSingleAsset(settingsData?.linea_immagine);
+  const { asset } = useSingleAsset(settingsData?.linea_immagine as number);
 
   const parsedVideoList = React.useMemo(() => {
     const videoList = settingsData?.linea_lista_video;
 
-    if (videoList) {
+    if (videoList && Array.isArray(videoList)) {
       const lista: AllegatoCampo[] = videoList.map((vid) => {
         return {
           anteprima: vid.immagine_anteprima_video,
@@ -33,7 +33,7 @@ const FineLinea = () => {
     <SecondLevelPageWrapper>
       {settingsData ? (
         <>
-          <PageTitle>{settingsData?.linea_titolo}</PageTitle>
+          <PageTitle>{settingsData?.linea_titolo as string}</PageTitle>
 
           <div className="flex h-full flex-col gap-20 p-14 font-d-din text-content">
             <pre

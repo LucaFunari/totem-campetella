@@ -1,7 +1,13 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 
-const GoBackRoundBtn = ({ size = 140 }: { size?: number }) => {
+const GoBackRoundBtn = ({
+  size = 140,
+  alternative = false,
+}: {
+  size?: number;
+  alternative?: boolean;
+}) => {
   const navigate = useNavigate();
 
   function buttonFunction() {
@@ -28,12 +34,13 @@ const GoBackRoundBtn = ({ size = 140 }: { size?: number }) => {
               transform="translate(36.047 208.37)"
               fill="#f1f5f8"
             />
+
             <path
               id="Unione_1"
               data-name="Unione 1"
               d="M12010.41,11097.482a2.492,2.492,0,0,1-1.768-.732l-8.41-8.412a2.5,2.5,0,0,1,0-3.535c.034-.035.069-.068.105-.1l8.474-8.471a2.5,2.5,0,0,1,3.535,3.537l-6.809,6.806,6.64,6.641a2.5,2.5,0,0,1-1.768,4.268Z"
               transform="translate(-11941.572 -10832.148)"
-              fill="#9abce3"
+              fill={alternative ? "red" : "#9abce3"}
             />
           </g>
         </g>
