@@ -3,7 +3,7 @@ import "./App.css";
 import { Outlet, useLocation } from "react-router-dom";
 import Popup from "./components/popup/Popup";
 import { useLocalizationStore, usePopupStateStore } from "./zustand-stores";
-import { generalSettingsQuery } from "./api/queries";
+import { generalSettingsQuery, useAssets } from "./api/queries";
 import { useQuery, useQueryClient } from "@tanstack/react-query";
 import WholePageSpinner from "./components/reusable/WholePageSpinner";
 
@@ -17,6 +17,8 @@ function App() {
   const queryClient = useQueryClient();
 
   const { isLoading } = useQuery(generalSettingsQuery(lang));
+
+  useAssets();
 
   React.useEffect(() => {
     queryClient.prefetchQuery({ queryKey: ["getAssets"] });

@@ -71,20 +71,20 @@ export const iniezioneData: PageData = {
 
 export const medicalData: PageData = {
   title: "medicale",
-  titleKey: "med",
-  bgImgKey: "TEMP",
+  titleKey: "medical_title",
+  bgImgKey: "medical_sfondo",
   bgImgPath: "./asset/sfondi/Immagine-per-sito_MEDICAL_high.jpg",
   customLogoPath: "./asset/Logo CampetellaMEDICALTMP.svg",
   links: [
     {
       goTo: "medical-execution",
       title: "medical execution",
-      key: "medical_title_execution",
+      key: "medical_execution_button",
     },
     {
       goTo: "cleanroom-execution",
       title: "cleanroom execution",
-      key: "medical_title_cleanroom",
+      key: "medical_cleanroom_execution_button",
     },
   ],
 };

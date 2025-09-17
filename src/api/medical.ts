@@ -1,62 +1,35 @@
+import { useQuery } from "@tanstack/react-query";
 import { Robot, RobotType } from "./queries";
+import { EstrusionepoResp, IconResp } from "./types";
 
-export const medicalExecutionQuery = (langID: "it" | "en") => ({
-  queryKey: ["medicalExecution", langID],
-  queryFn: async () => {
-    const data = await fetch(
-      import.meta.env.VITE_ROBOT_TYPE_ENDPOINT +
-        "?per_page=100" +
-        "&lang=" +
-        langID,
-    );
-    const json = await data.json();
+interface MedicalResponse {
+  title: string;
+  description: string;
+  robots: RobotType[];
+  icons: IconResp[];
+}
 
-    const robotList = await fetch(
-      import.meta.env.VITE_ROBOT_LIST_ENDPOINT + "?per_page=100&lang=" + langID,
-    );
-    const robotListJson: Robot[] = await robotList.json();
+interface ParsedMedicalResponse extends Omit<MedicalResponse, "icons"> {
+  icons: { title: string; iconId: number }[];
+}
 
-    const parsedRobots = robotListJson.map((robot) => {
-      const parentFamilies: RobotType[] = json.filter((families: RobotType) =>
-        robot["tipo-robot"].includes(families.id),
-      );
+export const useMedicalExecution = (langID: "it" | "en") => {
+  return useQuery({
+    queryKey: ["medicalExecution", langID],
+    queryFn: async () => {
+      const data = await fetch("./json/mockmedical.json");
 
-      const allegatiFam = parentFamilies.map((fam) => {
-        return fam.acf?.allegato;
+      const resp = (await data.json()) as MedicalResponse;
+
+      const icons = resp.icons.map(({ acf }) => {
+        return { title: acf.nome, iconId: acf.icona };
       });
 
-      const mergedAllegati = [
-        ...(robot.acf.allegato || []),
-        ...allegatiFam.flat(),
-      ];
+      return { ...resp, icons: icons } as ParsedMedicalResponse;
+    },
 
-      return {
-        id: robot.id,
-        acf: robot.acf,
-        featured_media: robot.featured_media,
-        tipo_robot: robot["tipo-robot"],
-        slug: robot.slug,
-        title: robot.title,
-      };
-    });
-
-    const parsedJson = json.map((elem: RobotType) => {
-      return {
-        id: elem.id,
-        acf: elem.acf,
-        name: elem.name,
-        description: elem.description,
-        slug: elem.slug,
-        count: elem.count,
-        children_robots: parsedRobots.filter((rob) =>
-          rob.tipo_robot.includes(elem.id),
-        ),
-      };
-    });
-    return parsedJson;
-  },
-
-  staleTime: Infinity,
-  refetchOnMount: false,
-  refetchOnWindowFocus: false,
-});
+    staleTime: Infinity,
+    refetchOnMount: false,
+    refetchOnWindowFocus: false,
+  });
+};

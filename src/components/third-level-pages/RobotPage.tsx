@@ -99,7 +99,7 @@ const RobotPage = () => {
       <div className="flex-col gap-3 overflow-y-scroll">
         <div className="flex flex-1 flex-col overflow-y-scroll">
           <PageTitle>{currentRobotProduct?.title.rendered}</PageTitle>
-
+          
           <div className="grid grid-cols-2">
             <p className="flex items-center p-14 font-d-din text-content font-thin italic leading-[4.5rem]">
               {currentRobotProduct?.acf.intro}
@@ -110,7 +110,6 @@ const RobotPage = () => {
               className="min-h-[705px] flex-1"
             />
           </div>
-
           <div className="p-14 pb-28">
             <div
               className="break-words font-d-din text-content [&>*:first-child]:font-d-din-condensed [&>*:first-child]:text-contentTitle [&>*:first-child]:font-bold [&>*]:mb-10 [&>*]:block [&>*]:list-disc [&>ul]:ps-20 [&>ul]:pt-10"
@@ -119,7 +118,6 @@ const RobotPage = () => {
               }}
             ></div>
           </div>
-
           {parsedTableData2 && (
             <table className="w-full table-auto p-14 font-d-din text-4xl">
               <tbody>

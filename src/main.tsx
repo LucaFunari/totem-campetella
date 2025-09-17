@@ -39,7 +39,7 @@ import Avvolgitori from "./components/second-level-pages/Avvolgitori.tsx";
 import { defaultLanguage, useLocalizationStore } from "./zustand-stores.ts";
 import EduCamp from "./components/special-pages/EduCamp.tsx";
 import Dashboard from "./components/special-pages/Dashboard/Dashboard.tsx";
-import Medical from "./components/second-level-pages/Medical.tsx";
+import Medical from "./components/second-level-pages/medical/Medical.tsx";
 import FirstLevelPage from "./components/deprecated/FirstLevelPage.tsx";
 import FirstLevelAlternative from "./components/first-level-pages/FirstLevelAlternative.tsx";
 
@@ -95,9 +95,8 @@ const router = createHashRouter([
                         pageData={robotPage}
                       />
                     ),
-                    loader: async () => {
-                      return () => robotTypesLoader(queryClient);
-                    },
+                    loader: async () =>
+                      robotTypesLoader(queryClient, { section: "iniezione" }),
                   },
                   {
                     path: ":id",
@@ -119,24 +118,15 @@ const router = createHashRouter([
           },
           {
             path: "campi-applicativi",
-            element: <SecondLevelPageWrapper></SecondLevelPageWrapper>,
+            element: <SecondLevelPageWrapper />,
             children: [
               {
                 path: "",
                 children: [
                   {
                     path: "",
-                    element: (
-                      <SecondLevel
-                        pageData={campiApplicativiPage}
-                        query={() =>
-                          campiApplicativiQuery(language as "it" | "en")
-                        }
-                      />
-                    ),
-                    loader: async () => {
-                      return () => campiApplicativiLoader(queryClient);
-                    },
+                    element: <SecondLevel pageData={campiApplicativiPage} />,
+                    loader: async () => campiApplicativiLoader(queryClient),
                   },
                   { path: ":id", element: <CampoApplicativo /> },
                 ],
@@ -169,7 +159,6 @@ const router = createHashRouter([
 
           {
             path: "fine-linea",
-
             element: <FineLinea />,
           },
         ],
@@ -180,9 +169,7 @@ const router = createHashRouter([
       },
       {
         path: "medical",
-        // loader: async () => {
-        //   return () => estrusioniLoader(queryClient);
-        // },
+
         children: [
           {
             path: "",
@@ -190,12 +177,21 @@ const router = createHashRouter([
           },
           {
             path: "medical-execution",
-            element: <SecondLevelPageWrapper variant="secondary" />,
+            element: (
+              <SecondLevelPageWrapper
+                customLogoPath="./asset/Logo CampetellaMEDICALTMP.svg"
+                variant="secondary"
+              />
+            ),
 
             children: [
               {
                 path: "",
                 element: <Medical />,
+                loader: async () =>
+                  robotTypesLoader(queryClient, {
+                    slugs: ["medical-execution"],
+                  }),
               },
               // { path: ":robotId", element: <RobotPage /> },
             ],

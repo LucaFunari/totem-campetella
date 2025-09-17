@@ -1,5 +1,9 @@
 import { QueryClient, useQuery, useQueryClient } from "@tanstack/react-query";
-import { EstrusioneEntitaResp, EstrusioneTipoResp } from "./types";
+import {
+  EstrusioneEntitaResp,
+  EstrusioneTipoResp,
+  ParsedEstrusioni,
+} from "./types";
 import Papa from "papaparse";
 import { useLocalizationStore } from "../zustand-stores";
 
@@ -58,6 +62,7 @@ export const robotTypesQuery = (langID: "it" | "en") => ({
     );
     const robotListJson: Robot[] = await robotList.json();
 
+    console.debug(json);
     const parsedRobots = robotListJson.map((robot) => {
       const parentFamilies: RobotType[] = json.filter((families: RobotType) =>
         robot["tipo-robot"].includes(families.id),
@@ -95,8 +100,6 @@ export const robotTypesQuery = (langID: "it" | "en") => ({
         ),
       };
     });
-    console.debug(parsedJson);
-
     return parsedJson;
   },
 
@@ -105,15 +108,51 @@ export const robotTypesQuery = (langID: "it" | "en") => ({
   refetchOnWindowFocus: false,
 });
 
-export const robotTypesLoader = (queryClient: QueryClient) => async () => {
+export async function robotTypesLoader(
+  queryClient: QueryClient,
+  selector?: {
+    slugs?: string[];
+    section?: "iniezione" | "estrusione" | "medical";
+  },
+) {
   const { lang } = useLocalizationStore.getState();
 
   const query = robotTypesQuery(lang);
 
-  return (
-    queryClient.getQueryData(query.queryKey) ?? queryClient.fetchQuery(query)
-  );
-};
+  const queryData = queryClient.getQueryData(
+    query.queryKey,
+  ) as ParsedEstrusioni[];
+
+  const fetchedData = (await queryClient.fetchQuery(
+    query,
+  )) as ParsedEstrusioni[];
+
+  const data = queryData ?? fetchedData;
+
+  if (selector) {
+    if (
+      selector.section === "estrusione" ||
+      selector.section === "iniezione" ||
+      selector.section === "medical"
+    ) {
+      const filtered = data.filter(
+        (type) => type.acf.sezione === selector.section,
+      );
+
+      return filtered;
+    } else if (selector.slugs) {
+      const filtered = data.filter((type) =>
+        selector.slugs?.some((slug) =>
+          type.slug.toLowerCase().includes(slug.toLowerCase()),
+        ),
+      );
+
+      return filtered;
+    }
+  }
+
+  return data;
+}
 
 export const estrusioniQuery = (langID: "it" | "en") => ({
   queryKey: ["getEstrusioni", langID],
@@ -135,13 +174,13 @@ export const estrusioniQuery = (langID: "it" | "en") => ({
     const entitaEstrusione = (await entitaResp.json()) as EstrusioneEntitaResp;
 
     const parsedTipi = estrusioneTipi.map((tipo) => {
-      const { id, name, count, acf, slug, meta, ...rest } = tipo;
+      const { id, name, count, acf, slug, meta } = tipo;
 
       return { id, name, count, acf, slug, meta };
     });
+
     const parsedEntita = entitaEstrusione.map((entita) => {
-      const { acf, content, id, guid, featured_media, slug, title, ...rest } =
-        entita;
+      const { acf, content, id, guid, featured_media, slug, title } = entita;
 
       const tipo_estrusione = entita["tipo-estrusione"];
 
@@ -296,20 +335,50 @@ export const useMediaAsset = () => {
   });
 };
 
+export function useAssets() {
+  return useQuery({
+    queryKey: ["getMediaAssets"],
+    queryFn: async () => {
+      const data = await fetch(
+        import.meta.env.VITE_ASSET_ENDPOINT + "?per_page=2000",
+      );
+      const json: Asset[] = await data.json();
+
+      const map = new Map();
+
+      json.forEach((asset) => {
+        map.set(asset.id, { source_url: asset.source_url });
+      });
+
+      return map;
+    },
+    staleTime: Infinity,
+    refetchOnMount: false,
+    refetchOnWindowFocus: false,
+    retry: false,
+  });
+}
+
 export function useSingleAsset(id?: number) {
-  const resp: { asset?: Asset; error?: Error; isLoading: boolean } = {
+  const resp: {
+    asset?: { source_url: string };
+    error?: Error;
+    isLoading: boolean;
+  } = {
     asset: undefined,
     error: undefined,
     isLoading: true,
   };
 
-  const { data, error, isLoading } = useMediaAsset() as {
-    data: Asset[];
+  const { data, error, isLoading } = useAssets() as {
+    data: Map<number, { source_url: string }>;
     error: Error;
     isLoading: boolean;
   };
-  if (data) {
-    const singleAsset = data.find((one) => one.id == id);
+  if (data && id) {
+    // const singleAsset = data.find((one) => one.id == id);
+    const singleAsset = data.get(id);
+
     if (singleAsset) {
       resp.asset = singleAsset;
       resp.isLoading = false;
@@ -332,6 +401,26 @@ export function useSingleAsset(id?: number) {
     resp.error = err;
     resp.isLoading = false;
     return resp;
+  }
+}
+
+export function useMultipleAssets(ids: number[]) {
+  const { data } = useAssets();
+
+  // const data = queryClient.getQueryData(["getMediaAssets"]) as
+  //   | Map<number, { source_url: string }>
+  //   | undefined;
+
+  if (data) {
+    const map1 = new Map();
+
+    ids.forEach((id) => {
+      const value = data.get(id);
+
+      map1.set(id, value);
+    });
+
+    return map1 as Map<number, { source_url: string }>;
   }
 }
 
@@ -413,15 +502,19 @@ export const campiApplicativiQuery = (langID: "it" | "en") => ({
   refetchOnWindowFocus: false,
 });
 
-export const campiApplicativiLoader =
-  (queryClient: QueryClient) => async () => {
-    const { lang } = useLocalizationStore();
-    const query = campiApplicativiQuery(lang);
+export async function campiApplicativiLoader(queryClient: QueryClient) {
+  const { lang } = useLocalizationStore.getState();
+  const query = campiApplicativiQuery(lang);
 
-    return (
-      queryClient.getQueryData(query.queryKey) ?? queryClient.fetchQuery(query)
-    );
-  };
+  const data = queryClient.getQueryData(query.queryKey);
+
+  if (data) return data;
+  else {
+    const fetchedData = await queryClient.fetchQuery(query);
+
+    return fetchedData;
+  }
+}
 
 export type CampoApplicativo = {
   id: number;

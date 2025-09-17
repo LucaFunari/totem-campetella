@@ -5,11 +5,27 @@ import Spinner from "../../reusable/Spinner";
 import { useSingleAsset } from "../../../api/queries";
 import SpinnerSmall from "../../reusable/SpinnerSmall";
 
-const Grid = (props: { elements?: gridElement[] }) => {
-  if (props.elements)
+const Grid = ({
+  elements,
+  variant = "primary",
+  shouldNavigate = true,
+  large = false,
+}: {
+  elements?: gridElement[];
+  variant?: "primary" | "secondary";
+  shouldNavigate?: boolean;
+  large?: boolean;
+}) => {
+  if (elements)
     return (
-      <div className="content flex w-full flex-1 items-start justify-center overflow-auto">
-        <GridWrapper elements={props.elements} shouldNavigate={true} />
+      <div
+        className={`content flex w-full flex-1 items-start justify-center overflow-auto ${variant === "primary" ? "[&_p]:text-white" : "[&_p]:text-medicalgray"}`}
+      >
+        <GridWrapper
+          elements={elements}
+          shouldNavigate={shouldNavigate}
+          large={large}
+        />
       </div>
     );
   else return <Spinner />;
@@ -21,15 +37,19 @@ export const GridWrapper = (props: {
   elements: gridElement[];
   shouldNavigate: boolean;
   specialFn?: () => void;
+  large: boolean;
 }) => {
   return (
-    <div className="flex h-min w-[95%] flex-wrap items-center justify-center gap-10">
+    <div
+      className={`flex h-min ${props.large ? "w-full gap-1" : "w-[95%] gap-10"} flex-wrap items-center justify-center`}
+    >
       {props.elements.map((obj, index) => (
         <Icon
           key={index}
           obj={obj}
           shouldNavigate={props.shouldNavigate}
           specialFn={props.specialFn}
+          large={props.large}
         />
       ))}
     </div>
@@ -40,8 +60,10 @@ export const Icon = (props: {
   obj: gridElement;
   shouldNavigate: boolean;
   specialFn?: () => void;
+  iconURL?: string;
   iconID?: number;
   smaller?: boolean;
+  large: boolean;
 }) => {
   const { obj, specialFn, shouldNavigate, iconID } = props;
 
@@ -68,7 +90,7 @@ export const Icon = (props: {
       className={`${elementIsEmpty && "cursor-not-allowed opacity-50"} flex shrink-0 grow-0 flex-col items-center gap-5`}
     >
       <div
-        className={`float-start flex aspect-square min-h-96 items-end justify-center overflow-hidden align-middle`}
+        className={`float-start flex aspect-square ${props.large ? "min-h-[30rem]" : "min-h-96"} items-end justify-center overflow-hidden align-middle`}
       >
         {isLoading ? (
           <div className="flex aspect-square h-96 items-center justify-center opacity-40">
@@ -76,9 +98,9 @@ export const Icon = (props: {
           </div>
         ) : asset ? (
           <img
-            src={asset?.source_url ?? asset?.guid.rendered}
+            src={props.iconURL ?? asset?.source_url}
             loading="lazy"
-            onLoad={(e) => setLoaded(true)}
+            onLoad={() => setLoaded(true)}
             className={`aspect-square h-96 scale-125 object-contain transition-opacity ${loaded ? "opacity-100" : "opacity-0"} `}
           />
         ) : (

@@ -1,9 +1,10 @@
 import React from "react";
 import PageTitle from "../third-level-pages/PageTitle";
-import { useQuery } from "@tanstack/react-query";
+import { useQueries, useQuery } from "@tanstack/react-query";
 import {
   estrusioniQuery,
   RobotType,
+  useMultipleAssets,
   useSingleAsset,
   useString,
 } from "../../api/queries";
@@ -14,7 +15,11 @@ import {
   ParsedEstrusioni,
 } from "../../api/types";
 import { Icon } from "../third-level-pages/Grids/Grid";
-import { useLocalizationStore, usePopupStateStore } from "../../zustand-stores";
+import {
+  gridElement,
+  useLocalizationStore,
+  usePopupStateStore,
+} from "../../zustand-stores";
 
 const Avvolgitori = () => {
   const { lang } = useLocalizationStore();
@@ -82,6 +87,27 @@ const AvvolgitoriSection = (props: {
   avvolgitore: ParsedEstrusioni;
   index: number;
 }) => {
+  const elementsIds = React.useMemo(() => {
+    return props.avvolgitore.children.map((child) => child.featured_media);
+  }, [props.avvolgitore]);
+
+  const icons = useMultipleAssets(elementsIds);
+
+  // useless for now
+  const videoOpenCallback = React.useCallback((ent: ParsedEntita) => {
+    if (ent.acf.estrusione_entita_video) {
+      const { setOpen, setVideo } = usePopupStateStore.getState();
+
+      setOpen(true);
+      setVideo({
+        // @ts-expect-error  anteprima type is wrong
+        anteprima: undefined,
+        didascalia: ent.title.rendered,
+        file: ent.acf.estrusione_entita_video,
+      });
+    } else return;
+  }, []);
+
   return (
     <div className="flex w-full flex-col items-center font-d-din-condensed text-contentTitle">
       {props.index !== 0 && (
@@ -92,40 +118,53 @@ const AvvolgitoriSection = (props: {
         ></p>
       )}
 
-      <div className="flex h-min w-[95%] flex-wrap items-center justify-center gap-10">
-        {props.avvolgitore.children.map((ent, index) => (
-          <AvvolgitoreIconWrapper ent={ent} key={index} />
+      <div
+        className={`flex h-min w-[95%] flex-wrap items-center justify-center gap-10`}
+      >
+        {props.avvolgitore.children.map((ent) => (
+          <Icon
+            smaller={true}
+            // @ts-expect-error must recheck this type
+            obj={{ ...ent, name: ent.title.rendered } as gridElement}
+            shouldNavigate={false}
+            iconURL={icons?.get(ent.featured_media)?.source_url}
+            specialFn={() => videoOpenCallback(ent)}
+          />
+
+          // <AvvolgitoreIconWrapper ent={ent} key={index} />
         ))}
       </div>
     </div>
   );
 };
 
-const AvvolgitoreIconWrapper = (props: { ent: ParsedEntita }) => {
-  const { ent } = props;
-  const { asset } = useSingleAsset(ent.acf.estrusione_entita_video);
-  const { setVideo, setOpen } = usePopupStateStore();
+// DEPRECATED
 
-  const videoOpenFunc = React.useCallback(() => {
-    if (asset) {
-      setOpen(true);
-      setVideo({
-        anteprima: undefined,
-        didascalia: ent.title.rendered,
-        file: ent.acf.estrusione_entita_video,
-      });
-    } else return;
-  }, [setOpen, setVideo, ent, asset]);
+// const AvvolgitoreIconWrapper = (props: { ent: ParsedEntita }) => {
+//   const { ent } = props;
+//   const { asset } = useSingleAsset(ent.acf.estrusione_entita_video);
+//   const { setVideo, setOpen } = usePopupStateStore();
 
-  return (
-    <Icon
-      smaller={true}
-      iconID={ent.featured_media}
-      obj={{ ...ent, name: ent.title.rendered }}
-      specialFn={() => videoOpenFunc()}
-    ></Icon>
-  );
-};
+//   const videoOpenFunc = React.useCallback(() => {
+//     if (asset) {
+//       setOpen(true);
+//       setVideo({
+//         anteprima: undefined,
+//         didascalia: ent.title.rendered,
+//         file: ent.acf.estrusione_entita_video,
+//       });
+//     } else return;
+//   }, [setOpen, setVideo, ent, asset]);
+
+//   return (
+//     <Icon
+//       smaller={true}
+//       iconID={ent.featured_media}
+//       obj={{ ...ent, name: ent.title.rendered }}
+//       specialFn={() => videoOpenFunc()}
+//     ></Icon>
+//   );
+// };
 
 const RobotSection = (props: { robot: RobotType }) => {
   const robotString = useString("estrusione_titolo_avvolgitori");
@@ -141,7 +180,7 @@ const RobotSection = (props: { robot: RobotType }) => {
           <Icon
             smaller={true}
             iconID={robot.featured_media}
-            obj={{ ...robot }}
+            obj={{ ...robot, name: robot.title.rendered }}
             key={robot.id}
             shouldNavigate={true}
           ></Icon>

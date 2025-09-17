@@ -1,7 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 
-const ThirdLevelPageHeader = () => {
+const ThirdLevelPageHeader = (props: { customLogoPath?: string }) => {
   const navigate = useNavigate();
 
   return (
@@ -9,7 +9,7 @@ const ThirdLevelPageHeader = () => {
       <img
         className="w-[576px] cursor-pointer"
         loading="lazy"
-        src="./asset/Logo Campetella.svg"
+        src={props.customLogoPath ?? "./asset/Logo Campetella.svg"}
         alt="logo"
         onClick={() => navigate("/")}
       />

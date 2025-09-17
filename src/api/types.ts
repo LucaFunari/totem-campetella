@@ -1,4 +1,4 @@
-import { Robot, RobotType } from "./queries";
+import { RobotType } from "./queries";
 
 export type EstrusioneEntitaResp = {
   id: number;
@@ -98,11 +98,17 @@ export type EstrusioniResp = {
 export type ParsedEstrusioni = {
   id: number;
   name: string;
+  description: string;
   count: number;
-  acf: { ordine: number };
+  acf: {
+    icona: number;
+    immagine: number;
+    sezione: "iniezione" | "estrusione" | "medical";
+    testo: string;
+  };
   slug: string;
   meta: [];
-  children: ParsedEntita[] | [];
+  children_robots: ParsedEntita[] | [];
 };
 
 export type ParsedEntita = {
@@ -127,4 +133,31 @@ export type ParsedEntita = {
 
 export type serviceResp = {
   title: string;
+};
+
+export type IconResp = {
+  id: number;
+  date: string;
+  date_gmt: string;
+  guid: {
+    rendered: string;
+  };
+  modified: string;
+  modified_gmt: string;
+  slug: string;
+  status: string;
+  type: string;
+  link: string;
+  title: { rendered: string };
+  content: { rendered: string; protected: boolean };
+  featured_media: number;
+  template: string;
+  meta: { _acf_changed: boolean };
+  class_list: string[];
+  acf: {
+    ordine: number;
+    nome: string;
+    icona: number;
+  };
+  _links: Record<string, [{ href: string }]>;
 };

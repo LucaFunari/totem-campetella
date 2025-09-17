@@ -1,0 +1,1960 @@
+{
+  "title": "medical execution",
+  "description": "Engineered for the strict demands of medical injection molding. With ultra-clean operation, gentle part handling, and consistent precision, our robots ensure safe, high-quality production for critical healthcare components.",
+  "robots": [
+    {
+      "id": 38,
+      "acf": {
+        "icona": "",
+        "testo": "<strong>Benvenuti nel futuro dell’avvolgimento tubi!</strong>\r\n\r\n<p>\r\nCampetella Robotic Center è orgogliosa di presentare la sua nuova serie di avvolgitori automatici Gyre.</p>\r\n\r\n<p>\r\nDa leader nel settore della robotica, abbiamo sviluppato questi avvolgitori di ultima generazione volti alla massima integrazione con i nostri robots. Il risultato è l’ottimizzazione totale del processo di produzione delle bobine per tubi flessibili corrugati, rivestiti e lisci.</p>\r\n\r\n<p>\r\nGli avvolgitori Gyre trovano applicazione per una vasta gamma di tubi flessibili in diversi settori e materiali</p>",
+        "immagine": "",
+        "sezione": "estrusione",
+        "allegato": [
+          {
+            "tipo_file": "video",
+            "anteprima": 704,
+            "file": 623,
+            "didascalia": "Coil it up"
+          }
+        ]
+      },
+      "name": "GYRE",
+      "description": "",
+      "slug": "gyre-it",
+      "count": 3,
+      "children_robots": [
+        {
+          "id": 605,
+          "acf": {
+            "ordine": 3,
+            "intro": "Lasciate che il futuro entri nella vostra linea di produzione con Gyre1200, l'avvolgitore automatico ad elevata produttività, affidabilità e sicurezza.",
+            "immagine_robot": 599,
+            "testo": "<strong>Ridisegna il concetto di avvolgitore per produzioni no-stop</strong>\r\n\r\nGyre 1200 è un avvolgitore a due aspi in linea per l’avvolgimento ad alta velocità e confezionamento di bobine con diametro esterno fino a 1200 mm. La nuova piattaforma è stata sviluppata con una seconda unità di avvolgimento e confezionamento per alzare il livello di affidabilità e per assicurare un funzionamento non-stop. Il tutto con ingombri estremamente contenuti, in particolare in direzione laterale.\r\n\r\nIdeale per tubi:\r\n<ul>\r\n \t<li>PEHD liscio</li>\r\n \t<li>Rame coibentato multistrato PE-AL-PE</li>\r\n \t<li>Corrugato PVC e PE</li>\r\n</ul>\r\n&nbsp;\r\n\r\n- Diametro esterno bobina: max 1200 mm\r\n\r\n- Diametro interno bobina: 420 - 650 mm\r\n\r\n- Larghezza bobina: 150 - 300 mm\r\n\r\n- Doppio legatore a reggia con motori brushless\r\n\r\n- Ingombro a terra: 4700 x 2150 mm",
+            "file_csv": null,
+            "allegato": [
+              {
+                "tipo_file": "video",
+                "anteprima": 768,
+                "file": 792,
+                "didascalia": ""
+              }
+            ]
+          },
+          "featured_media": 600,
+          "tipo_robot": [38],
+          "slug": "gyre-1200",
+          "title": { "rendered": "GYRE 1200" }
+        },
+        {
+          "id": 602,
+          "acf": {
+            "ordine": 2,
+            "intro": "Preparati a raggiungere nuovi livelli di eccellenza con l’avvolgitore automatico Gyre 800",
+            "immagine_robot": 598,
+            "testo": "<strong>Automazione di livello superiore</strong>\r\n\r\nGyre 800 è un avvolgitore a due aspi paralleli per l’avvolgimento ad alta velocità e confezionamento di bobine con diametro esterno fino a 800 mm. Nasce per offrire un altissimo livello di precisione e flessibilità con differenti formati bobina, includendo un innovativo sistema di regolazione automatizzata del diametro interno e larghezza bobina.\r\n\r\nIdeale per tubi:\r\n<ul>\r\n \t<li>PEHD liscio</li>\r\n \t<li>PE corrugato</li>\r\n \t<li>PVC liscio, corrugato, spiroidale</li>\r\n \t<li>Rilsan</li>\r\n \t<li>Retinato liscio</li>\r\n \t<li>Retinato per oleodinamica</li>\r\n</ul>\r\n&nbsp;\r\n\r\n- Diametro esterno bobina: max 800 mm\r\n\r\n- Diametro interno bobina: 200 - 360 mm\r\n\r\n- Larghezza bobina: 90 - 250 mm\r\n\r\n- Legatore a reggia con motore brushless\r\n\r\n- Ingombro a terra: 3360 x 2420 mm",
+            "file_csv": null,
+            "allegato": [
+              {
+                "tipo_file": "video",
+                "anteprima": 769,
+                "file": 793,
+                "didascalia": "GYRE 800"
+              },
+              {
+                "tipo_file": "video",
+                "anteprima": 704,
+                "file": 623,
+                "didascalia": "Coil it up"
+              }
+            ]
+          },
+          "featured_media": 597,
+          "tipo_robot": [38],
+          "slug": "gyre-800",
+          "title": { "rendered": "GYRE 800" }
+        },
+        {
+          "id": 601,
+          "acf": {
+            "ordine": 1,
+            "intro": "L’esperienza nella robotica incontra la visione del futuro nell’avvolgimento tubi: Gyre 400 rappresenta il nuovo concetto di avvolgitore automatico, estremamente veloce e dal minimo ingombro a terra per bobine di piccole dimensioni.",
+            "immagine_robot": 595,
+            "testo": "<strong>Ultracompatto e veloce con la perfetta integrazione tra avvolgitore e robot</strong>\r\n\r\nIl Gyre 400 è un avvolgitore a singolo aspo per l’avvolgimento e confezionamento di bobine con diametro esterno fino a 400 mm. Integrando al suo interno un robot cartesiano programmabile, consente di eseguire le operazioni di manipolazione e scarico della bobina con movimenti rapidi, elevato controllo ed ingombri minimi.\r\n\r\nIdeale per tubi:\r\n<ul>\r\n \t<li>PE, PVC, PA</li>\r\n \t<li>Rilsan</li>\r\n \t<li>Retinato</li>\r\n</ul>\r\n- Diametro esterno bobina: max 400 mm\r\n\r\n- Diametro interno bobina: 95 - 300 mm\r\n\r\n- Larghezza bobina: 20 - 100 mm\r\n\r\n- Legatore a filo elastico / reggia\r\n\r\n- Ingombro a terra: 2500 x 1500 mm",
+            "file_csv": null,
+            "allegato": [
+              {
+                "tipo_file": "video",
+                "anteprima": 766,
+                "file": 790,
+                "didascalia": ""
+              },
+              {
+                "tipo_file": "video",
+                "anteprima": 767,
+                "file": 791,
+                "didascalia": ""
+              },
+              {
+                "tipo_file": "video",
+                "anteprima": 770,
+                "file": 794,
+                "didascalia": ""
+              }
+            ]
+          },
+          "featured_media": 596,
+          "tipo_robot": [38],
+          "slug": "gyre-400",
+          "title": { "rendered": "GYRE 400" }
+        }
+      ]
+    },
+    {
+      "id": 28,
+      "acf": {
+        "icona": 180,
+        "testo": "<strong>Un robot altamente destreggiante per operazioni di pallettizzazione e applicazioni di pick and place rapido</strong>\r\n<p>\r\nLo SCARA (Selective Compliance Assembly Robot Arm) è un robot industriale con una cinematica simile a quella del braccio umano.\r\nDotato di tre assi di rotazione - spalla, gomito e polso - e di un asse lineare per il movimento in direzione verticale, è un robot altamente destreggiante, tipicamente utilizzato per applicazioni di pick and place e pallettizzazione rapida.\r\n</p>\r\n<p>\r\nLa forza dello SCARA Campetella risiede nella particolare architettura dell'asse verticale: in particolare, il movimento in Z è possibile grazie allo scorrimento dell'intero braccio lungo la robusta colonna di supporto del robot, consentendo una corsa verticale di oltre 3 metri con un carico utile fino a 50 kg.\r\n</p>\r\n<p>\r\nQuesta caratteristica lo rende una valida alternativa - per molti aspetti superiore - ai robot antropomorfi nelle operazioni di pallettizzazione, soprattutto in termini di ingombro e facilità di programmazione.\r\n</p>\r\n<p>\r\nGli SCARA Campetella sono disponibili esclusivamente nelle apparecchiature della Serie X, sinonimo di massime prestazioni su ogni fronte.\r\n</p>",
+        "immagine": 226,
+        "sezione": "iniezione",
+        "allegato": [
+          {
+            "tipo_file": "video",
+            "anteprima": "",
+            "file": 656,
+            "didascalia": "Modula W"
+          },
+          {
+            "tipo_file": "video",
+            "anteprima": "",
+            "file": 655,
+            "didascalia": "Modula Maxi Twin | Fakuma 2021"
+          },
+          {
+            "tipo_file": "video",
+            "anteprima": 578,
+            "file": 652,
+            "didascalia": "Thin wall food container | Packaging | IML"
+          },
+          {
+            "tipo_file": "video",
+            "anteprima": 576,
+            "file": 650,
+            "didascalia": "Coffe capsules | Packaging | IML + process inspection"
+          },
+          {
+            "tipo_file": "video",
+            "anteprima": 575,
+            "file": 649,
+            "didascalia": "Thin walled food containers | Packaging | Flowpack"
+          },
+          {
+            "tipo_file": "video",
+            "anteprima": 570,
+            "file": 621,
+            "didascalia": "Plastic cups | Disposable Cutlery | Flowpack"
+          },
+          {
+            "tipo_file": "video",
+            "anteprima": 560,
+            "file": 618,
+            "didascalia": "Cutlery | Disposable Cutlery | Flowpack"
+          },
+          {
+            "tipo_file": "video",
+            "anteprima": 557,
+            "file": 616,
+            "didascalia": "Plastic cups | Disposable Cutlery | Pick and place"
+          },
+          {
+            "tipo_file": "video",
+            "anteprima": 556,
+            "file": 615,
+            "didascalia": "Plastic cups | Disposable Cutlery | Pick and place"
+          },
+          {
+            "tipo_file": "video",
+            "anteprima": 554,
+            "file": 641,
+            "didascalia": "Thin wall food container | Packaging | Pick and place"
+          },
+          {
+            "tipo_file": "video",
+            "anteprima": 549,
+            "file": 613,
+            "didascalia": "Cutlery | Disposable Cutlery | Flowpack"
+          }
+        ]
+      },
+      "name": "SCARA",
+      "description": "",
+      "slug": "scara-it",
+      "count": 3,
+      "children_robots": [
+        {
+          "id": 351,
+          "acf": {
+            "ordine": 1,
+            "intro": "Lo SCARA innovativo ad alta velocità Spin 1 X-Series rivoluziona il panorama degli SCARA ultrarapidi. Adottando materiali e tecnologie di ultima generazione, tra cui fibra di carbonio e stampa additiva, garantisce pesi limitati, alte prestazioni e consumi energetici ridotti. ",
+            "immagine_robot": 223,
+            "testo": "<strong>Compatto ed agile nelle applicazioni di pick place rapido</strong> Spin 1 X-Series è il robot SCARA compatto, progettato per assicurare tempi ciclo ridotti nelle applicazioni di pick place rapido con payload fino a 2kg.\r\n<ul>\r\n \t<li>Portata fino a 2 kg</li>\r\n \t<li>Sbraccio: 800 mm</li>\r\n \t<li>Range rotazione J1: ±100°</li>\r\n \t<li>Range rotazione J2: ±154°</li>\r\n \t<li>Corsa verticale J3: 100 mm</li>\r\n \t<li>Range rotazione J4: ±660°</li>\r\n</ul>",
+            "file_csv": 466,
+            "allegato": null
+          },
+          "featured_media": 226,
+          "tipo_robot": [28],
+          "slug": "spin-1",
+          "title": { "rendered": "SPIN 1" }
+        },
+        {
+          "id": 354,
+          "acf": {
+            "ordine": 2,
+            "intro": "Lo SCARA rivoluzionario dalla destrezza superiore Spin 2 X-Series determina un nuovo modo di concepire ed impiegare lo SCARA. Elevata corsa verticale, lunghi bracci in fibra di carbonio e polso integrato, sono gli ingredienti di un’architettura del tutto inedita. Progettato per garantire spazi di lavoro ampi, con altezze eguagliabili solamente da mastodontici robot a sei assi dal payload spesso sovradimensionato.  ",
+            "immagine_robot": 588,
+            "testo": "<strong>La semplicità dello SCARA con i vantaggi di un 6-assi</strong> L’inedita struttura di Spin 2 X-Series concilia la semplicità degli SCARA con doti di agilità e raggiungibilità più tipiche dei robot 6-assi.\r\n<ul>\r\n \t<li>Portata fino a 10 kg</li>\r\n \t<li>Sbraccio: 1000 - 1200 mm</li>\r\n \t<li>Range rotazione J1: ±100°</li>\r\n \t<li>Range rotazione J2: ±154°</li>\r\n \t<li>Corsa verticale J3: 100 mm</li>\r\n \t<li>Range rotazione J4: ±660°</li>\r\n \t<li>Corse fino a 3000mm su richiesta</li>\r\n</ul>",
+            "file_csv": 739,
+            "allegato": [
+              {
+                "tipo_file": "video",
+                "anteprima": 765,
+                "file": 789,
+                "didascalia": "Coffe capsules | Packaging | IML + process inspection"
+              },
+              {
+                "tipo_file": "video",
+                "anteprima": 753,
+                "file": 786,
+                "didascalia": "Plastic cups | Disposable Cutlery | Flowpack"
+              },
+              {
+                "tipo_file": "video",
+                "anteprima": 576,
+                "file": 650,
+                "didascalia": "Cutlery | Disposable Cutlery | Flowpack"
+              },
+              {
+                "tipo_file": "video",
+                "anteprima": 570,
+                "file": 621,
+                "didascalia": "Cutlery | Disposable Cutlery | Flowpack"
+              },
+              {
+                "tipo_file": "video",
+                "anteprima": 560,
+                "file": 618,
+                "didascalia": ""
+              },
+              {
+                "tipo_file": "video",
+                "anteprima": 549,
+                "file": 613,
+                "didascalia": ""
+              }
+            ]
+          },
+          "featured_media": 587,
+          "tipo_robot": [28],
+          "slug": "spin-2",
+          "title": { "rendered": "SPIN 2" }
+        },
+        {
+          "id": 353,
+          "acf": {
+            "ordine": 3,
+            "intro": "Potente e robusto, lo SCARA dedicato ai pesi massimi Fratello maggiore dello Spin 2, aumenta i muscoli con motori potenziati e bracci ancora più lunghi a sezioni maggiorate. Il risultato è uno SCARA in grado di manipolare carichi generosi in uno spazio di lavoro estremamente ampio, con altezze eguagliabili solamente da mastodontici robot a sei assi dal payload spesso sovradimensionato. Scopri come ottimizzare la tua produzione con il nostro robot! Contattaci   ",
+            "immagine_robot": 227,
+            "testo": "<strong>La semplicità dello SCARA con i vantaggi di un 6-assi </strong>L’inedita struttura di Spin 3 X-Series concilia la semplicità degli SCARA con doti di robustezza e raggiungibilità più tipiche dei più grandi robot 6-assi.\r\n<ul>\r\n \t<li>Portata fino a 50 kg</li>\r\n \t<li>Sbraccio: 1200 - 1650 mm</li>\r\n \t<li>Range rotazione J1: ±100°</li>\r\n \t<li>Range rotazione J2: ±154°</li>\r\n \t<li>Corsa verticale J3: 950 mm *</li>\r\n \t<li>Range rotazione J4: ±660°</li>\r\n \t<li>Corse fino a 3000mm su richiesta</li>\r\n</ul>",
+            "file_csv": 740,
+            "allegato": [
+              {
+                "tipo_file": "video",
+                "anteprima": 762,
+                "file": 787,
+                "didascalia": "Thin wall food container | Packaging | IML"
+              },
+              {
+                "tipo_file": "video",
+                "anteprima": 750,
+                "file": 785,
+                "didascalia": "Thin walled food containers | Packaging | Flowpack"
+              },
+              {
+                "tipo_file": "video",
+                "anteprima": 578,
+                "file": 652,
+                "didascalia": "Plastic cups | Disposable Cutlery | Pick and place"
+              },
+              {
+                "tipo_file": "video",
+                "anteprima": 575,
+                "file": 649,
+                "didascalia": "Thin wall food container | Packaging | Pick and place"
+              },
+              {
+                "tipo_file": "video",
+                "anteprima": 557,
+                "file": 616,
+                "didascalia": ""
+              },
+              {
+                "tipo_file": "video",
+                "anteprima": 554,
+                "file": 641,
+                "didascalia": ""
+              }
+            ]
+          },
+          "featured_media": 718,
+          "tipo_robot": [28],
+          "slug": "spin-3",
+          "title": { "rendered": "SPIN 3" }
+        }
+      ]
+    },
+    {
+      "id": 29,
+      "acf": {
+        "icona": 178,
+        "testo": "<strong>Robot ad elevata configurabilità, ottimizzati per garantire prestazioni massime anche alle più alte velocità</strong>\r\n<p>\r\nMantenendo le caratteristiche di linearità e semplicità di programmazione del cartesiano, la particolare architettura side-entry permette di minimizzare il percorso dei componenti dall'area di prelievo verso l'area di deposito.</p>\r\n<p>\r\nUn minor percorso, unito a potenti motorizzazioni su un telaio rigido, danno vita ad un robot dalle prestazioni estreme, che consente una notevole riduzione dei tempi di produzione.\r\nDotati di struttura portante a terra, sono del tutto svincolati da vibrazioni provenienti dalla pressa, garantendo la massima precisione anche alle più elevate velocità.</p>\r\n<p>\r\nI robot laterali si prestano a molteplici esigenze applicative in svariati settori industriali, dalla presa e deposito ad alta velocità fino alle più complesse soluzioni IML.\r\n</p>\r\n<p>\r\nI side-entry Campetella sono disponibili esclusivamente in allestimento X-Series, sinonimo di massime prestazioni su ogni fronte.</p>",
+        "immagine": 242,
+        "sezione": "iniezione",
+        "allegato": [
+          {
+            "tipo_file": "video",
+            "anteprima": "",
+            "file": 656,
+            "didascalia": "Modula W"
+          },
+          {
+            "tipo_file": "video",
+            "anteprima": "",
+            "file": 655,
+            "didascalia": "Modula Maxi Twin | Fakuma 2021"
+          },
+          {
+            "tipo_file": "video",
+            "anteprima": 578,
+            "file": 652,
+            "didascalia": "Thin wall food container | Packaging | IML"
+          },
+          {
+            "tipo_file": "video",
+            "anteprima": 577,
+            "file": 651,
+            "didascalia": "Thin wall food container | Packaging | IML"
+          },
+          {
+            "tipo_file": "video",
+            "anteprima": 576,
+            "file": 650,
+            "didascalia": "Coffe capsules | Packaging | IML + process inspection"
+          },
+          {
+            "tipo_file": "video",
+            "anteprima": 575,
+            "file": 649,
+            "didascalia": "Thin walled food containers | Packaging | Flowpack"
+          },
+          {
+            "tipo_file": "video",
+            "anteprima": 574,
+            "file": 648,
+            "didascalia": "5 gallons bucket | Packaging | IML"
+          },
+          {
+            "tipo_file": "video",
+            "anteprima": 573,
+            "file": 647,
+            "didascalia": "Plastico Brasil 2019"
+          },
+          {
+            "tipo_file": "video",
+            "anteprima": 570,
+            "file": 621,
+            "didascalia": "Plastic cups | Disposable Cutlery | Flowpack"
+          },
+          {
+            "tipo_file": "video",
+            "anteprima": 568,
+            "file": 646,
+            "didascalia": "5 gallons bucket  Packaging | IML"
+          },
+          {
+            "tipo_file": "video",
+            "anteprima": 565,
+            "file": 645,
+            "didascalia": "Thin wall food container | Packaging | IML"
+          },
+          {
+            "tipo_file": "video",
+            "anteprima": 560,
+            "file": 618,
+            "didascalia": "Cutlery | Disposable Cutlery | Flowpack"
+          },
+          {
+            "tipo_file": "video",
+            "anteprima": 558,
+            "file": 617,
+            "didascalia": "Plastic cups | Disposable Cutlery | Pick and place"
+          },
+          {
+            "tipo_file": "video",
+            "anteprima": 555,
+            "file": 642,
+            "didascalia": "Thin wall food container | Packaging | Pick and place"
+          },
+          {
+            "tipo_file": "video",
+            "anteprima": 554,
+            "file": 641,
+            "didascalia": "Thin wall food container | Packaging | Pick and place"
+          },
+          {
+            "tipo_file": "video",
+            "anteprima": 552,
+            "file": 640,
+            "didascalia": "10 liters bucket | Packaging | IML"
+          },
+          {
+            "tipo_file": "video",
+            "anteprima": 551,
+            "file": 614,
+            "didascalia": "Plastic cups | Disposable Cutlery | Pick and place"
+          },
+          {
+            "tipo_file": "video",
+            "anteprima": 549,
+            "file": 613,
+            "didascalia": "Cutlery | Disposable Cutlery | Flowpack"
+          },
+          {
+            "tipo_file": "video",
+            "anteprima": 546,
+            "file": 638,
+            "didascalia": "Thin wall food conatiner | Packaging | IML"
+          },
+          {
+            "tipo_file": "video",
+            "anteprima": 545,
+            "file": 612,
+            "didascalia": "Plastic cups | Disposable Cutlery | Flowpack"
+          },
+          {
+            "tipo_file": "video",
+            "anteprima": 543,
+            "file": 611,
+            "didascalia": "Cutlery | Disposable Cutlery | Flowpack"
+          },
+          {
+            "tipo_file": "video",
+            "anteprima": 540,
+            "file": 636,
+            "didascalia": "Thin wall food container | Packaging | Pick and place"
+          },
+          {
+            "tipo_file": "video",
+            "anteprima": 539,
+            "file": 635,
+            "didascalia": "Thin wall food container | Packaging | IML"
+          },
+          {
+            "tipo_file": "video",
+            "anteprima": 538,
+            "file": 610,
+            "didascalia": "Tea spoon | Disposable Cutlery | Flowpack"
+          },
+          {
+            "tipo_file": "video",
+            "anteprima": 535,
+            "file": 633,
+            "didascalia": "Thin wall food container | Packaging | Pick and place"
+          },
+          {
+            "tipo_file": "video",
+            "anteprima": 534,
+            "file": 609,
+            "didascalia": "Plastic cups | Disposable Cutlery | Flowpack"
+          },
+          {
+            "tipo_file": "video",
+            "anteprima": 533,
+            "file": 632,
+            "didascalia": "1,5 gallon bucket | Packaging | IML"
+          }
+        ]
+      },
+      "name": "SIDE ENTRY",
+      "description": "",
+      "slug": "side-entry-it",
+      "count": 6,
+      "children_robots": [
+        {
+          "id": 355,
+          "acf": {
+            "ordine": 6,
+            "intro": "Ridefinisce il concetto di side-entry nelle applicazioni multi-cavità Caratterizzato da una meccanica geniale e rivoluzionaria, Concept X-Series stravolge il concetto di produttività nel mondo dei robot side-entry ad alta velocità. Perfetto con l’impiego di voluminose mani di presa, è imbattibile nelle più spinte applicazioni ad alto numero di cavità di particolari leggeri.  ",
+            "immagine_robot": 229,
+            "testo": "<strong>Estremamente produttivo nelle applicazioni ad elevato numero di cavità</strong>\r\nConcept X-Series è il robot side-entry ideale nelle applicazioni ad alto numero di cavità di particolari leggeri, con cicli di lavoro particolarmente rapidi in presse di medio-alto tonnellaggio.\r\n<ul>\r\n \t<li>Pressa fino a 700 tonnellate</li>\r\n \t<li>Asse Z 2520 mm</li>\r\n \t<li>Asse X 290 mm</li>\r\n \t<li>Asse di scarico 670 mm</li>\r\n \t<li>Portata fino a 15 kg</li>\r\n \t<li>Dry Cycle da 5,0”</li>\r\n</ul>",
+            "file_csv": 470,
+            "allegato": [
+              {
+                "tipo_file": "video",
+                "anteprima": 753,
+                "file": 786,
+                "didascalia": "Cutlery | Disposable Cutlery | Flowpack"
+              },
+              {
+                "tipo_file": "video",
+                "anteprima": 560,
+                "file": 618,
+                "didascalia": "Cutlery | Disposable Cutlery | Flowpack"
+              },
+              {
+                "tipo_file": "video",
+                "anteprima": 549,
+                "file": 613,
+                "didascalia": "Plastic cups | Disposable Cutlery | Flowpack"
+              },
+              {
+                "tipo_file": "video",
+                "anteprima": 545,
+                "file": 612,
+                "didascalia": "Cutlery | Disposable Cutlery | Flowpack"
+              },
+              {
+                "tipo_file": "video",
+                "anteprima": 543,
+                "file": 611,
+                "didascalia": ""
+              }
+            ]
+          },
+          "featured_media": 239,
+          "tipo_robot": [29],
+          "slug": "concept",
+          "title": { "rendered": "CONCEPT" }
+        },
+        {
+          "id": 356,
+          "acf": {
+            "ordine": 3,
+            "intro": "Modula W X-Series è il robot side entry progettato per combinare ridotti ingombri a terra ed elevata produttività nelle applicazioni stack-molding. Robusta struttura in acciaio, leghe leggere e fibra di carbonio identificano il DNA di una meccanica concepita per le massime prestazioni nel take-out rapido ed IML.  ",
+            "immagine_robot": 230,
+            "testo": "<strong>Ridotto ingombro a terra, precisione ed efficienza</strong>\r\nModula W X-Series ha un ingombro laterale particolarmente limitato per consentire l’affiancamento di un numero più elevato di presse. Questo, unitamene alla struttura concepita per stampi stack, consente la massima produttività a parità di superficie occupata a terra.\r\n<ul>\r\n \t<li>Pressa fino a 450 tonnellate</li>\r\n \t<li>Asse Z: 2500 mm</li>\r\n \t<li>Asse X: 300 mm (x2)</li>\r\n \t<li>Asse di scarico: 760 mm</li>\r\n \t<li>Portata fino a 15 kg (x2)</li>\r\n \t<li>Dry Cycle da 4,2”</li>\r\n</ul>",
+            "file_csv": 471,
+            "allegato": [
+              {
+                "tipo_file": "video",
+                "anteprima": 764,
+                "file": 788,
+                "didascalia": "Thin wall food container | Packaging | IML"
+              },
+              {
+                "tipo_file": "video",
+                "anteprima": 578,
+                "file": 652,
+                "didascalia": "Plastico Brasil 2019"
+              },
+              {
+                "tipo_file": "video",
+                "anteprima": 573,
+                "file": 647,
+                "didascalia": "Thin wall food container | Packaging | IML"
+              },
+              {
+                "tipo_file": "video",
+                "anteprima": 539,
+                "file": 635,
+                "didascalia": "1,5 gallon bucket | Packaging | IML"
+              },
+              {
+                "tipo_file": "video",
+                "anteprima": 533,
+                "file": 632,
+                "didascalia": ""
+              }
+            ]
+          },
+          "featured_media": 240,
+          "tipo_robot": [29],
+          "slug": "modula",
+          "title": { "rendered": "MODULA" }
+        },
+        {
+          "id": 357,
+          "acf": {
+            "ordine": 5,
+            "intro": "Il side-entry imponente, robusto e veloce Fratello maggiore di Modula X-Series, il modello Maxi aumenta corse ed ingombi conservando l’inconfondibile vocazione alle massime performance. Progettato per sopportare elevati payload con tempi ciclo ridotti, stupisce in azione per le accelerazioni poderose conferite alle parti più pesanti e voluminose ",
+            "immagine_robot": 232,
+            "testo": "<strong>Concepito per le più elevate prestazioni in presse di alto tonnellaggio</strong>\r\nModula Maxi X-Series è il robot side-entry particolarmente indicato per cicli di lavoro rapidi con payload elevati, in multi-cavità su presse di alto tonnellaggio\r\n<ul>\r\n \t<li>Pressa fino a 1000 tonnellate</li>\r\n \t<li>Asse Z 3225 mm</li>\r\n \t<li>Asse X 400 mm</li>\r\n \t<li>Asse di scarico 1240 mm</li>\r\n \t<li>Portata fino a 25 kg</li>\r\n \t<li>Dry Cycle da 6,0”</li>\r\n</ul>",
+            "file_csv": 472,
+            "allegato": [
+              {
+                "tipo_file": "video",
+                "anteprima": 574,
+                "file": 648,
+                "didascalia": "5 gallons bucket | Packaging | IML"
+              },
+              {
+                "tipo_file": "video",
+                "anteprima": 568,
+                "file": 646,
+                "didascalia": "5 gallons bucket | Packaging | IML"
+              }
+            ]
+          },
+          "featured_media": 231,
+          "tipo_robot": [29],
+          "slug": "modula-maxi",
+          "title": { "rendered": "MODULA MAXI" }
+        },
+        {
+          "id": 358,
+          "acf": {
+            "ordine": 4,
+            "intro": "Il side-entry compatto ed ultrarapido Fratello minore di Modula X-Series, il modello Mini riduce corse ed ingombi ma non certo l’inconfondibile vocazione alle massime performance. Mantenendo i potenti servomotori brushless e riducendo le masse in movimento, Modula Mini X-Series è il più veloce robot side-entry Campetella, consentendo tempi ciclo prossimi ai 2 secondi. ",
+            "immagine_robot": 586,
+            "testo": "<strong>Concepito per le più elevate prestazioni in presse di medio tonnellaggio</strong>\r\nModula Mini X-Series è il robot side-entry particolarmente indicato per cicli di lavoro estremamente rapidi, mono e multi-cavità su presse di medio tonnellaggio\r\n<ul>\r\n \t<li>Pressa fino a 600 tonnellate</li>\r\n \t<li>Asse Z 2150 mm</li>\r\n \t<li>Asse X 150 mm</li>\r\n \t<li>Asse di scarico 1300 mm</li>\r\n \t<li>Portata fino a 10 kg</li>\r\n \t<li>Dry Cycle da 2,0”</li>\r\n</ul>",
+            "file_csv": 473,
+            "allegato": [
+              {
+                "tipo_file": "video",
+                "anteprima": 577,
+                "file": 651,
+                "didascalia": "Thin wall food container | Packaging | IML"
+              },
+              {
+                "tipo_file": "video",
+                "anteprima": 576,
+                "file": 650,
+                "didascalia": "Coffe capsules | Packaging | IML + process inspection"
+              },
+              {
+                "tipo_file": "video",
+                "anteprima": 565,
+                "file": 645,
+                "didascalia": "Thin wall food container | Packaging | IML"
+              },
+              {
+                "tipo_file": "video",
+                "anteprima": 555,
+                "file": 642,
+                "didascalia": "Thin wall food container | Packaging | Pick and place"
+              },
+              {
+                "tipo_file": "video",
+                "anteprima": 554,
+                "file": 641,
+                "didascalia": "Thin wall food container | Packaging | Pick and place"
+              }
+            ]
+          },
+          "featured_media": 585,
+          "tipo_robot": [29],
+          "slug": "modula-mini",
+          "title": { "rendered": "MODULA MINI" }
+        },
+        {
+          "id": 359,
+          "acf": {
+            "ordine": 1,
+            "intro": "Il robot ad elevate prestazioni in grado di conciliare la tipica produttività dei side entry con caratteristiche di versatilità rivoluzionarie per la categoria. L’inedita architettura, con solido basamento a terra ed assi ad ampia escursione nelle tre direzioni, determina un salto di paradigma nella flessibilità di utilizzo dei robot side-entry. ",
+            "immagine_robot": 234,
+            "testo": "<strong>Il robot side-entry rapido e flessibile per presse di medio tonnellaggio</strong>\r\nSM2 X-Series è il robot side-entry particolarmente indicato per cicli di lavoro rapidi, mono e multi-cavità, con presse di medio tonnellaggio\r\n<ul>\r\n \t<li>Pressa fino a 600 tonnellate</li>\r\n \t<li>Asse Z 1800 mm</li>\r\n \t<li>Asse X 600 mm</li>\r\n \t<li>Asse Y 700 mm</li>\r\n \t<li>Portata fino a 6 kg</li>\r\n \t<li>Dry Cycle da 4,0”</li>\r\n</ul>",
+            "file_csv": 474,
+            "allegato": [
+              {
+                "tipo_file": "video",
+                "anteprima": 570,
+                "file": 621,
+                "didascalia": "Plastic cups | Disposable Cutlery | Flowpack"
+              },
+              {
+                "tipo_file": "video",
+                "anteprima": 553,
+                "file": 607,
+                "didascalia": "Foldable crate | Crates, pallets and bins | Pick and place"
+              },
+              {
+                "tipo_file": "video",
+                "anteprima": 551,
+                "file": 614,
+                "didascalia": "Plastic cups | Disposable Cutlery | Pick and place"
+              },
+              {
+                "tipo_file": "video",
+                "anteprima": 546,
+                "file": 638,
+                "didascalia": "Thin wall food conatiner | Packaging | IML"
+              },
+              {
+                "tipo_file": "video",
+                "anteprima": 540,
+                "file": 636,
+                "didascalia": "Thin wall food container | Packaging | Pick and place"
+              },
+              {
+                "tipo_file": "video",
+                "anteprima": 538,
+                "file": 610,
+                "didascalia": "Tea spoon | Disposable Cutlery | Flowpack"
+              },
+              {
+                "tipo_file": "video",
+                "anteprima": 534,
+                "file": 609,
+                "didascalia": "Plastic cups | Disposable Cutlery | Flowpack"
+              }
+            ]
+          },
+          "featured_media": 242,
+          "tipo_robot": [29],
+          "slug": "sm2",
+          "title": { "rendered": "SM2" }
+        },
+        {
+          "id": 360,
+          "acf": {
+            "ordine": 2,
+            "intro": "Il robot ad alte prestazioni in grado di conciliare la tipica produttività dei side entry con caratteristiche di versatilità rivoluzionarie per la categoria. L’inedita architettura, con solido basamento a terra ed assi ad ampia escursione nelle tre direzioni, determina un salto di paradigma nella flessibilità di utilizzo dei robot side-entry.  Rispetto al fratello minore SM2, presenta una struttura più rigida e massiccia, con doppia colonna portante e corse ancora più lunghe, consentendo l’esecuzione di cicli rapidi con payload più elevati.",
+            "immagine_robot": 235,
+            "testo": "<strong>Il robot side-entry robusto e flessibile per presse di medio-alto tonnellaggio</strong>\r\nSM3 X-Series è il robot side-entry particolarmente indicato per cicli di lavoro rapidi con articoli di dimensioni generose, mono e multi-cavità su presse di medio-alto tonnellaggio\r\n<ul>\r\n \t<li>Pressa fino a 800 tonnellate</li>\r\n \t<li>Asse Z 2400 mm</li>\r\n \t<li>Asse X 800 mm</li>\r\n \t<li>Asse Y 800 mm</li>\r\n \t<li>Portata fino a 12 kg</li>\r\n \t<li>Dry Cycle da 6,0”</li>\r\n</ul>",
+            "file_csv": 475,
+            "allegato": [
+              {
+                "tipo_file": "video",
+                "anteprima": 552,
+                "file": 640,
+                "didascalia": "10 liters bucket | Packaging | IML"
+              }
+            ]
+          },
+          "featured_media": 243,
+          "tipo_robot": [29],
+          "slug": "sm3",
+          "title": { "rendered": "SM3" }
+        }
+      ]
+    },
+    {
+      "id": 30,
+      "acf": {
+        "icona": 717,
+        "testo": "<strong>Robot veloci e affidabili, per il prelievo delle materozze nello stampaggio ad iniezione</strong>\r\n<p>\r\nI robot smaterozzatori sono dei manipolatori concepiti per il prelievo delle materozze nello stampaggio a iniezione.\r\nDisponibili con architettura cartesiana o rotativa, a seconda delle specifiche esigenze dell'applicazione, tutti i robot smaterozzatori Campetella vantano servoazionamenti elettrici, veloci, affidabili e che richiedono minima manutenzione.</p>\r\n<p>\r\nGli sprue picker Campetella sono disponibili esclusivamente in allestimento Prime Series, ideato per offrire tutte le funzionalità di base con la massima accuratezza e semplicità di utilizzo.</p>",
+        "immagine": 300,
+        "sezione": "iniezione",
+        "allegato": [
+          {
+            "tipo_file": "video",
+            "anteprima": 572,
+            "file": 622,
+            "didascalia": "Cutlery | Disposable Cutlery | Pick and place"
+          },
+          {
+            "tipo_file": "video",
+            "anteprima": 548,
+            "file": 627,
+            "didascalia": "Card holder | Houseware | Pick and place"
+          }
+        ]
+      },
+      "name": "SPRUE PICKER",
+      "description": "",
+      "slug": "sprue-picker-it",
+      "count": 3,
+      "children_robots": [
+        {
+          "id": 361,
+          "acf": {
+            "ordine": 3,
+            "intro": "Smaterozzatore cartesiano d’ultima generazione che unisce alle massime prestazioni ridotti consumi energetici ed alta affidabilità. Con 3 assi lineari servocontrollati ed un’evoluta elettronica, consente rapidità di movimenti e produttività inimmaginabili ",
+            "immagine_robot": 237,
+            "testo": "<strong>Lo sprue picker cartesiano compatto e funzionale</strong>\r\nIl robot smaterozzatore SP3C PRIME-Series, interamente realizzato in alluminio profilato, viene consigliato per presse da 20 a 150 ton.\r\n<ul>\r\n \t<li>Pressa 20 -150 tonnellate</li>\r\n \t<li>Asse verticale di tipo A</li>\r\n \t<li>Pinza pneumatica con rotazione</li>\r\n \t<li>Corsa asse Z: 1200 - 1500</li>\r\n \t<li>Corsa asse X: 300 mm</li>\r\n \t<li>Corsa asse Y: 800 mm</li>\r\n \t<li>Portata fino a 1 kg</li>\r\n \t<li>Dry Cycle da 4”</li>\r\n</ul>",
+            "file_csv": 476,
+            "allegato": [
+              {
+                "tipo_file": "video",
+                "anteprima": 572,
+                "file": 622,
+                "didascalia": "Cutlery | Disposable Cutlery | Pick and place"
+              }
+            ]
+          },
+          "featured_media": 244,
+          "tipo_robot": [30],
+          "slug": "sp3c",
+          "title": { "rendered": "SP3C" }
+        },
+        {
+          "id": 362,
+          "acf": {
+            "ordine": 2,
+            "intro": "<br>Smaterozzatore di ultima generazione per unire alle massime prestazioni ridotti consumi energetici ed elevata affidabilità. Dotato di 3 assi servo-controllati, gestiti da un’evoluta elettronica, consente rapidità di movimenti e produttività inimmaginabili ",
+            "immagine_robot": 245,
+            "testo": "<strong>Lo sprue picker cartesiano - rotativo compatto e funzionale</strong>\r\nIl robot smaterozzatore SP3R PRIME-Series, realizzato in alluminio profilato, viene consigliato per presse da 20 a 300 tonnellate. La sua peculiarità consiste nell’avere tre assi elettrici servo controllati, di cui due lineari (X,Y) ed uno rotativo (A) per la rotazione dell’asse verticale nell’intero range ± 90°.\r\n<ul>\r\n \t<li>Pressa 20-300 tonnellate</li>\r\n \t<li>Asse verticale di tipo A</li>\r\n \t<li>Pinza pneumatica con rotazione</li>\r\n \t<li>Rotazione dell’asse verticale: ±90°</li>\r\n \t<li>Corsa Asse X - Estrazione: 300 mm</li>\r\n \t<li>Corsa asse Y - Verticale: 800 mm</li>\r\n \t<li>Portata fino a 1 kg</li>\r\n \t<li>Dry Cycle da 4”</li>\r\n</ul>",
+            "file_csv": 477,
+            "allegato": [
+              {
+                "tipo_file": "video",
+                "anteprima": 548,
+                "file": 627,
+                "didascalia": "Card holder | Houseware | Pick and place"
+              }
+            ]
+          },
+          "featured_media": 246,
+          "tipo_robot": [30],
+          "slug": "sp3r",
+          "title": { "rendered": "SP3R" }
+        },
+        {
+          "id": 363,
+          "acf": {
+            "ordine": 1,
+            "intro": "Smaterozzatore di ultima generazione per unire alle massime prestazioni ridotti consumi energetici ed elevata affidabilità. Dotato di 3 assi servo-controllati, gestiti da un’evoluta elettronica, consente rapidità di movimenti e produttività inimmaginabili ",
+            "immagine_robot": 245,
+            "testo": "<strong>Lo sprue picker con base pneumatica rotante per il minimo ingombro</strong>\r\nSP3R-AR PRIME-Series è un robot smaterozzatore cartesiano-rotativo, realizzato in alluminio profilato e consigliato per presse da 20 a 300 tonnellate. La sua peculiarità consiste nell’avere tre assi elettrici servo controllati, di cui due lineari (X,Y) ed uno rotativo (A) per la rotazione dell’asse verticale . A questi si aggiunge la base pneumatica rotante regolabile, ideale per limitare l’ingombro dell’automazione in casi particolari.\r\n<ul>\r\n \t<li>Pressa 20-300 tonnellate</li>\r\n \t<li>Asse verticale di tipo A</li>\r\n \t<li>Pinza pneumatica con rotazione</li>\r\n \t<li>Base pneumatica rotante regolabile</li>\r\n \t<li>Rotazione dell’asse verticale: ±90°</li>\r\n \t<li>Corsa Asse X - Estrazione: 300 mm</li>\r\n \t<li>Corsa asse Y - Verticale: 800 mm</li>\r\n \t<li>Portata fino a 1 kg</li>\r\n \t<li>Dry Cycle da 4”</li>\r\n</ul>",
+            "file_csv": 478,
+            "allegato": null
+          },
+          "featured_media": 246,
+          "tipo_robot": [30],
+          "slug": "sp3r-ar",
+          "title": { "rendered": "SP3R-AR" }
+        }
+      ]
+    },
+    {
+      "id": 31,
+      "acf": {
+        "icona": 716,
+        "testo": "<strong>Ottimizza gli spazi aumentando produttività e sostenibilità</strong>\r\n<p>\r\nLa tecnologia stack-molding consiste in una particolare architettura dello stampo per stampaggio ad iniezione, il quale consente di distribuire la plastica in due o più piani dello stesso. La produttività della pressa è così pressoché raddoppiata, lasciando invariati i tempi di stampaggio.\r\n</p>\r\n<p>\r\nQuesta tecnologia offre indiscutibili vantaggi nei settori ad alta produttività, ottimizzando i costi aziendali e rispettando l’ambiente: a parità di cavità per singola stampata, il tonnellaggio pressa è quasi dimezzato rispetto ai sistemi tradizionali. Sono di conseguenza abbattuti i consumi energetici e le relative emissioni di CO2 in atmosfera, riducendo l’impatto sul riscaldamento globale. La sfida della Green Economy è oramai alle porte e non possiamo più fare a meno di impiegare sistemi produttivi altamente efficienti e sostenibili.\r\n</p>\r\n<p>\r\nSempre pronta a promuovere il progresso tecnologico, Campetella Robotic Center lancia l’innovativa e raffinata gamma robot progettata per esprimere il massimo potenziale nelle applicazioni stack-molding. Un ricco ventaglio di modelli top-entry e side-entry in grado di performare al meglio nelle applicazioni di take-out ad alta velocità ed IML.</p>",
+        "immagine": 248,
+        "sezione": "iniezione",
+        "allegato": [
+          {
+            "tipo_file": "video",
+            "anteprima": "",
+            "file": 656,
+            "didascalia": "Modula W"
+          },
+          {
+            "tipo_file": "video",
+            "anteprima": "",
+            "file": 655,
+            "didascalia": "Modula Maxi Twin | Fakuma 2021"
+          },
+          {
+            "tipo_file": "video",
+            "anteprima": "",
+            "file": 654,
+            "didascalia": "The stack molding revolution | GS2W"
+          },
+          {
+            "tipo_file": "video",
+            "anteprima": "",
+            "file": 653,
+            "didascalia": "The stack molding revolution | GS3W"
+          },
+          {
+            "tipo_file": "video",
+            "anteprima": 575,
+            "file": 649,
+            "didascalia": "Thin walled food containers | Packaging | Flowpack"
+          },
+          {
+            "tipo_file": "video",
+            "anteprima": 535,
+            "file": 633,
+            "didascalia": "Thin wall food container | Packaging | Pick and place"
+          }
+        ]
+      },
+      "name": "STACK MOLD",
+      "description": "",
+      "slug": "stack-mold",
+      "count": 8,
+      "children_robots": [
+        {
+          "id": 364,
+          "acf": {
+            "ordine": 1,
+            "intro": "Raddoppia la produttività con il doppio asse verticale full electric. CL2W X-Series è il robot cartesiano industriale top entry di fascia premium, dotato di doppio asse verticale per l’asservimento di presse con stampi stack mold. ",
+            "immagine_robot": 247,
+            "testo": "<strong>Il top-entry a doppio asse verticale robusto e veloce per lo stampaggio stack mold</strong>\r\nRobusto, veloce e dal raffinato controllo dei 5 assi elettrici interpolati, il robot cartesiano industriale CL2W X-Series è particolarmente indicato per l’automazione di presse per stampaggio a iniezione di medio tonnellaggio con stampi stack mold.\r\n<ul>\r\n \t<li>Pressa fino a 600 tonnellate</li>\r\n \t<li>Assi verticali configurabili: tipo A-H</li>\r\n \t<li>Sistema anticollisione assi verticali</li>\r\n \t<li>5 assi elettrici servo-controllati con interpolazione lineare</li>\r\n \t<li>Corsa asse Z: 2000 – 2500 - 3000 mm</li>\r\n \t<li>Corsa asse X: 660 (x2) mm</li>\r\n \t<li>Corsa asse Y: 1400 (x2) -1600 (x2) mm</li>\r\n \t<li>Portata fino a 18 kg</li>\r\n \t<li>Dry Cycle da 6,0”</li>\r\n</ul>",
+            "file_csv": 479,
+            "allegato": null
+          },
+          "featured_media": 248,
+          "tipo_robot": [31],
+          "slug": "cl2w",
+          "title": { "rendered": "CL2W" }
+        },
+        {
+          "id": 365,
+          "acf": {
+            "ordine": 2,
+            "intro": "A top-entry premium class robot with double vertical axis designed for the most extreme performances: ultra-high-performance motors combined with materials used in the aerospace industry ensure record-breaking accelerations and speed, for operating cycle times of up to 3.0 seconds.",
+            "immagine_robot": 250,
+            "testo": "<strong>Il top-entry ultrarapido dal minimo ingombro a terra per le applicazioni stack molding</strong>\r\nIl cartesiano industriale GS2W X-Series è stato progettato per applicazioni stack molding con tempi ciclo estremamente bassi, paragonabili ai side-entry, pur mantenendo il minimo ingombro a terra dei robot top-entry. Le iniziali di questo modello sono l’acronimo della parola “GunShot”, un colpo di pistola, per descrivere la sua rapidità esplosiva.\r\n<ul>\r\n \t<li>Pressa fino a 400 tonnellate</li>\r\n \t<li>Carbon Technology: doppio asse verticale in fibra di carbonio</li>\r\n \t<li>5 assi servo-azionati</li>\r\n \t<li>Polso con asse C pneumatico</li>\r\n \t<li>Corsa asse Z: 2000-2500 mm</li>\r\n \t<li>Corsa asse X: 600 mm</li>\r\n \t<li>Corsa asse Y: 1200 mm</li>\r\n \t<li>Portata fino a 2,5 kg</li>\r\n \t<li>Dry Cycle da 3,0”</li>\r\n</ul>",
+            "file_csv": 480,
+            "allegato": [
+              {
+                "tipo_file": "video",
+                "anteprima": 701,
+                "file": 654,
+                "didascalia": "The stack molding revolution | GS3W"
+              }
+            ]
+          },
+          "featured_media": 251,
+          "tipo_robot": [31],
+          "slug": "gs2w",
+          "title": { "rendered": "GS2W" }
+        },
+        {
+          "id": 366,
+          "acf": {
+            "ordine": 3,
+            "intro": "Robot top-entry di fascia premium con doppio asse verticale concepito per le prestazioni più estreme: motori ultra-performanti uniti a materiali da industria aerospaziale conferiscono accelerazioni e velocità da primato, per tempi di ciclo operativo fino a 4,9 secondi.",
+            "immagine_robot": 253,
+            "testo": "<strong>Il top-entry robusto ed ultrarapido dal minimo ingombro a terra per le applicazioni stack molding</strong>\r\nIl cartesiano industriale GS3W X-Series è stato progettato per applicazioni stack molding con tempi ciclo estremamente bassi, paragonabili ai side-entry, pur mantenendo il minimo ingombro a terra dei robot top-entry. Le iniziali di questo modello sono l’acronimo della parola “GunShot”, un colpo di pistola, per descrivere la sua rapidità esplosiva.\r\n<ul>\r\n \t<li>Pressa fino a 650 tonnellate</li>\r\n \t<li>Carbon Technology: doppio asse verticale in fibra di carbonio</li>\r\n \t<li>Full electric: 7 servo-brushless axes</li>\r\n \t<li>Polsi con asse C servo-brushless di serie</li>\r\n \t<li>Corsa asse Z: 2500-3000-3500 mm</li>\r\n \t<li>Corsa asse X: 800 mm (2X)</li>\r\n \t<li>Corsa asse Y: 1500 mm (2X)</li>\r\n \t<li>Portata fino a 8 kg (2X)</li>\r\n \t<li>Dry Cycle da 4,9”</li>\r\n</ul>",
+            "file_csv": 481,
+            "allegato": [
+              {
+                "tipo_file": "video",
+                "anteprima": 700,
+                "file": 653,
+                "didascalia": "The stack molding revolution | GS3W"
+              }
+            ]
+          },
+          "featured_media": 439,
+          "tipo_robot": [31],
+          "slug": "gs3w",
+          "title": { "rendered": "GS3W" }
+        },
+        {
+          "id": 367,
+          "acf": {
+            "ordine": 5,
+            "intro": "Modula TWIN X-Series è il robot side entry esclusivamente progettato per la riduzione del tempo ciclo nelle applicazioni più estreme. Robusta struttura in acciaio, leghe leggere e fibra di carbonio identificano il DNA di una meccanica concepita per le massime sollecitazioni, supportando accelerazioni e velocità ai vertici della categoria.",
+            "immagine_robot": 255,
+            "testo": "<strong>Qualità, precisione e produttività nelle applicazioni stack-moulding</strong>\r\nModula Twin X-Series è il robot side-entry particolarmente indicato per cicli di lavoro rapidi con payload elevati, in multi-cavità su presse di alto tonnellaggio\r\n<ul>\r\n \t<li>Asse Z 2550 - 2970 mm (x2)</li>\r\n \t<li>Asse X 300 mm (x2)</li>\r\n \t<li>Asse di scarico 600 mm</li>\r\n \t<li>Portata fino a 15 kg (x2)</li>\r\n \t<li>Dry Cycle da 2,5”</li>\r\n</ul>",
+            "file_csv": 482,
+            "allegato": [
+              {
+                "tipo_file": "video",
+                "anteprima": 703,
+                "file": 656,
+                "didascalia": "Modula W"
+              }
+            ]
+          },
+          "featured_media": 254,
+          "tipo_robot": [31],
+          "slug": "modula-twin",
+          "title": { "rendered": "MODULA TWIN" }
+        },
+        {
+          "id": 368,
+          "acf": {
+            "ordine": 6,
+            "intro": "Fratello maggiore di Modula Twin X-Series, il modello Maxi aumenta corse ed ingombi conservando l’inconfondibile vocazione alle massime performance. Progettato per sopportare elevati payload con tempi ciclo ridotti, stupisce in azione per le accelerazioni poderose conferite alle parti più pesanti e voluminose ",
+            "immagine_robot": 257,
+            "testo": "<strong>Il side-entry robusto, potente e veloce per lo stack molding</strong>\r\nModula Twin Maxi X-Series è il robot side-entry particolarmente indicato per cicli di lavoro rapidi con payload elevati, in multi-cavità su presse di alto tonnellaggio\r\n<ul>\r\n \t<li>Pressa fino a 1200 tonnellate</li>\r\n \t<li>Asse Z 3225 mm (x2)</li>\r\n \t<li>Asse X 400 mm (x2)</li>\r\n \t<li>Asse di scarico 800 mm</li>\r\n \t<li>Portata fino a 25 kg (x2)</li>\r\n \t<li>Dry Cycle da 5,0”</li>\r\n</ul>",
+            "file_csv": 483,
+            "allegato": [
+              {
+                "tipo_file": "video",
+                "anteprima": 702,
+                "file": 655,
+                "didascalia": "Modula Maxi Twin | Fakuma 2021"
+              }
+            ]
+          },
+          "featured_media": 256,
+          "tipo_robot": [31],
+          "slug": "modula-twin-maxi",
+          "title": { "rendered": "MODULA TWIN MAXI" }
+        },
+        {
+          "id": 369,
+          "acf": {
+            "ordine": 7,
+            "intro": "Concepito per applicazioni stack molding è il doppio robot side-entry su solido basamento a terra in grado di garantire il perfetto mix tra flessibilità, velocità e robustezza. Ideale per presse di medio-alto tonnellaggio ed elevati payload. ",
+            "immagine_robot": 259,
+            "testo": "<strong>Il doppio robot side-entry robusto e flessibile per lo stampaggio stack mold</strong>\r\nSM2 TWIN X-Series è particolarmente indicato per cicli di lavoro rapidi con stampi stack multi-cavità. Dotato di 6 assi indipendenti con corse elevate garantisce un centraggio semplice ed immediato su molteplici stampi e presse.\r\n<ul>\r\n \t<li>6 assi elettrici servo-controllati con interpolazione lineare</li>\r\n \t<li>Asse Z 1800 mm (x2)</li>\r\n \t<li>Asse X 600 mm (x2)</li>\r\n \t<li>Asse Y 700 mm (x2)</li>\r\n \t<li>Portata fino a 6 kg (x2)</li>\r\n \t<li>Dry Cycle da 4,0”</li>\r\n</ul>",
+            "file_csv": 726,
+            "allegato": null
+          },
+          "featured_media": 258,
+          "tipo_robot": [31],
+          "slug": "sm2-twin",
+          "title": { "rendered": "SM2 TWIN" }
+        },
+        {
+          "id": 370,
+          "acf": {
+            "ordine": 8,
+            "intro": "Concepito per applicazioni stack molding è il doppio robot side-entry su solido basamento a terra in grado di garantire il perfetto mix tra flessibilità, velocità e robustezza. Ideale per presse di medio-alto tonnellaggio ed elevati payload. ",
+            "immagine_robot": 261,
+            "testo": "<strong>Il doppio robot side-entry robusto e flessibile per lo stampaggio stack mold</strong>\r\nSM3 Twin X-Series è particolarmente indicato per cicli di lavoro rapidi ad elevato payload, con stampi stack mono o multi-cavità. Dotato di 6 assi indipendenti con corse elevate garantisce un centraggio semplice ed immediato su molteplici stampi e presse.\r\n<ul>\r\n \t<li>Pressa fino a 800 tonnellate</li>\r\n \t<li>6 assi elettrici servo-controllati con interpolazione lineare</li>\r\n \t<li>Asse Z 2400 mm (x2)</li>\r\n \t<li>Asse X 800 mm (x2)</li>\r\n \t<li>Asse Y 800 mm (x2)</li>\r\n \t<li>Portata fino a 12 kg (x2)</li>\r\n \t<li>Dry Cycle da 6,0”</li>\r\n</ul>",
+            "file_csv": 733,
+            "allegato": [
+              {
+                "tipo_file": "video",
+                "anteprima": 575,
+                "file": 649,
+                "didascalia": "Thin walled food containers | Packaging | Flowpack"
+              },
+              {
+                "tipo_file": "video",
+                "anteprima": 535,
+                "file": 633,
+                "didascalia": "Thin wall food container | Packaging | Pick and place"
+              }
+            ]
+          },
+          "featured_media": 260,
+          "tipo_robot": [31],
+          "slug": "sm3-twin",
+          "title": { "rendered": "SM3 TWIN" }
+        },
+        {
+          "id": 371,
+          "acf": {
+            "ordine": 4,
+            "intro": "Twin Concept X-Series stravolge il concetto di produttività nel mondo dei robot side-entry ultra-rapidi per applicazioni stack molding. Perfetto con l’impiego mani di presa voluminose, è imbattibile nelle più spinte applicazioni ad alto numero di cavità di particolari leggeri. ",
+            "immagine_robot": 262,
+            "testo": "<strong>Estremamente produttivo nelle applicazioni stack molding ad alto numero di cavità</strong>\r\nTwin Concept X-Series è il robot side-entry ideale nelle applicazioni ad alto numero di cavità di particolari leggeri, con cicli di lavoro particolarmente rapidi in presse di medio-alto tonnellaggio.\r\n<ul>\r\n \t<li>Pressa fino a 800 tonnellate</li>\r\n \t<li>Asse Z 2700 mm (x2)</li>\r\n \t<li>Asse X 270 mm (x2)</li>\r\n \t<li>Asse Y 730 mm</li>\r\n \t<li>Portata fino a 20 kg (x2)</li>\r\n \t<li>Dry Cycle da 4,0”</li>\r\n</ul>",
+            "file_csv": 486,
+            "allegato": null
+          },
+          "featured_media": 263,
+          "tipo_robot": [31],
+          "slug": "twin-concept",
+          "title": { "rendered": "TWIN CONCEPT" }
+        }
+      ]
+    },
+    {
+      "id": 32,
+      "acf": {
+        "icona": 177,
+        "testo": "<strong>Robot ad elevata configurabilità, ottimizzati per garantire prestazioni massime in settori specifici</strong>\r\n<p>\r\nCampetella Robotic Center vanta di una vasta gamma di robot cartesiani, ciascuno dei quali progettato ed ottimizzato per garantire le massime prestazioni nei più specifici settori.\r\n</p><p>\r\nStudiati in ottica modulare, le particolari caratteristiche di ciascun robot derivano dall'incrocio tra allestimento e famiglia meccanica.</p>\r\n<p>\r\nAlla solida e collaudata meccanica si uniscono controlli elettronici di ultima generazione ed un intuitivo software proprietario in costante sviluppo.</p>\r\n<p>\r\nOgni robot è inoltre concepito per un'elevata configurabilità, dalla pneumatica del sistema di presa ai dispositivi elettronici e di controllo, incontrando al meglio ogni possibile esigenza applicativa.</p>",
+        "immagine": 281,
+        "sezione": "iniezione",
+        "allegato": [
+          {
+            "tipo_file": "video",
+            "anteprima": 577,
+            "file": 651,
+            "didascalia": "Thin wall food container | Packaging | IML"
+          },
+          {
+            "tipo_file": "video",
+            "anteprima": 571,
+            "file": 631,
+            "didascalia": "Fakuma 2018"
+          },
+          {
+            "tipo_file": "video",
+            "anteprima": 569,
+            "file": 620,
+            "didascalia": "Disposable plates | Disposable Cutlery | Pick and place"
+          },
+          {
+            "tipo_file": "video",
+            "anteprima": 567,
+            "file": 630,
+            "didascalia": "Portable ashtray | Houseware | Pick and place"
+          },
+          {
+            "tipo_file": "video",
+            "anteprima": 566,
+            "file": 629,
+            "didascalia": "Flower vase | Houseware | Pick and place"
+          },
+          {
+            "tipo_file": "video",
+            "anteprima": 564,
+            "file": 628,
+            "didascalia": "Shovel and beach rake | Houseware | Pick and place"
+          },
+          {
+            "tipo_file": "video",
+            "anteprima": 563,
+            "file": 608,
+            "didascalia": "Collapsible box | Crates, pallets and bins | Pick and place"
+          },
+          {
+            "tipo_file": "video",
+            "anteprima": 562,
+            "file": 619,
+            "didascalia": "Ice cream scoops | Disposable Cutlery | Flowpack"
+          },
+          {
+            "tipo_file": "video",
+            "anteprima": 561,
+            "file": 644,
+            "didascalia": "Thin wall food container | Packaging | Pick and Place"
+          },
+          {
+            "tipo_file": "video",
+            "anteprima": 559,
+            "file": 643,
+            "didascalia": "Thin wall food container | Packaging | Pick and Place"
+          },
+          {
+            "tipo_file": "video",
+            "anteprima": 558,
+            "file": 617,
+            "didascalia": "Plastic cups | Disposable Cutlery | Pick and place"
+          },
+          {
+            "tipo_file": "video",
+            "anteprima": 557,
+            "file": 616,
+            "didascalia": "Plastic cups | Disposable Cutlery | Pick and place"
+          },
+          {
+            "tipo_file": "video",
+            "anteprima": 556,
+            "file": 615,
+            "didascalia": "Plastic cups | Disposable Cutlery | Pick and place"
+          },
+          {
+            "tipo_file": "video",
+            "anteprima": 550,
+            "file": 639,
+            "didascalia": "Thin wall food packaging | Packaging | Pick and Place"
+          },
+          {
+            "tipo_file": "video",
+            "anteprima": 544,
+            "file": 626,
+            "didascalia": "Squeegee | Houseware | Pick and place"
+          },
+          {
+            "tipo_file": "video",
+            "anteprima": 542,
+            "file": 637,
+            "didascalia": "Thin wall food conatiner | Packaging | IML"
+          },
+          {
+            "tipo_file": "video",
+            "anteprima": 541,
+            "file": 625,
+            "didascalia": "Small vase | Houseware | Pick and place"
+          },
+          {
+            "tipo_file": "video",
+            "anteprima": 537,
+            "file": 624,
+            "didascalia": "Plastic container | Houseware | Pick and place"
+          },
+          {
+            "tipo_file": "video",
+            "anteprima": 536,
+            "file": 634,
+            "didascalia": "1 liter bucket | Packaging | IML"
+          }
+        ]
+      },
+      "name": "TOP ENTRY",
+      "description": "",
+      "slug": "top-entry-it-2",
+      "count": 19,
+      "children_robots": [
+        {
+          "id": 373,
+          "acf": {
+            "ordine": 50,
+            "intro": "Design minimale, sintesi di funzionalità ed accuratezza, è il robot industriale cartesiano top-entry progettato per offrire elevate prestazioni nel massimo rapporto qualità-prezzo.",
+            "immagine_robot": 267,
+            "testo": "<strong>Il robot compatto per le presse di piccolo e medio tonnellaggio</strong>\r\nME1 PRIME Series è consigliato per l’automazione di presse per stampaggio a iniezione di piccolo e medio tonnellaggio.\r\n<ul>\r\n \t<li><strong>Pressa 20-200 tonnellate</strong></li>\r\n \t<li><strong>Asse verticale di tipo A</strong></li>\r\n \t<li><strong>Polso pneumatico configurabile</strong></li>\r\n \t<li><strong>Corsa asse Z: 1500-2000 mm</strong></li>\r\n \t<li><strong>Corsa asse X: 600 mm</strong></li>\r\n \t<li><strong>Corsa asse Y: 1200 mm</strong></li>\r\n \t<li><strong>Portata fino a 6 kg</strong></li>\r\n \t<li><strong>Dry Cycle da 6”</strong></li>\r\n</ul>\r\n&nbsp;",
+            "file_csv": 487,
+            "allegato": [
+              {
+                "tipo_file": "video",
+                "anteprima": 567,
+                "file": 630,
+                "didascalia": "Portable ashtray | Houseware | Pick and place"
+              }
+            ]
+          },
+          "featured_media": 266,
+          "tipo_robot": [32],
+          "slug": "me1-prime",
+          "title": { "rendered": "ME1 PRIME" }
+        },
+        {
+          "id": 372,
+          "acf": {
+            "ordine": 60,
+            "intro": "Robot cartesiano industriale di ultima generazione, progettato per elevate performance, accuratezza ed affidabilità. Dalle funzionalità più avanzate per il massimo livello di controllo. ",
+            "immagine_robot": 264,
+            "testo": "<strong>Il robot compatto per le presse di piccolo e medio tonnellaggio</strong>\r\nME1 E-Series è consigliato per l’automazione di presse per stampaggio a iniezione di piccolo e medio tonnellaggio.\r\n<ul>\r\n \t<li><strong>Pressa da 20 a 200 tonnellate</strong></li>\r\n \t<li><strong>Asse verticale di tipo A</strong></li>\r\n \t<li><strong>Polso configurabile: fino a 4 assi servo-controllati</strong></li>\r\n \t<li><strong>Corsa asse Z: 1500-2000 mm</strong></li>\r\n \t<li><strong>Corsa asse X: 600 mm</strong></li>\r\n \t<li><strong>Corsa asse Y: 1200 mm</strong></li>\r\n \t<li><strong>Portata fino a 6 kg</strong></li>\r\n \t<li><strong>Dry Cycle da 5’5”</strong></li>\r\n</ul>",
+            "file_csv": 488,
+            "allegato": null
+          },
+          "featured_media": 265,
+          "tipo_robot": [32],
+          "slug": "me1-e-series",
+          "title": { "rendered": "ME1 E-SERIES" }
+        },
+        {
+          "id": 375,
+          "acf": {
+            "ordine": 190,
+            "intro": "Robot cartesiano industriale top entry di fascia premium, accuratamente progettato per le più elevate performance. Robustezza, velocità e controllo sono le caratteristiche principali di questo manipolatore di ultima generazione per la massima produttività ",
+            "immagine_robot": 268,
+            "testo": "<strong>Mastodontico per carichi da record. Adatto a presse di elevatissimo tonnellaggio. </strong> Il robot cartesiano MC6 X-Series è il più grande della famiglia dei robot cartesiani top-entry Campetella. È consigliato per l’automazione più spinta di presse per stampaggio a iniezione ad elevatissimo tonnellaggio.\r\n<ul>\r\n \t<li><strong>Pressa fino a 6000 tonnellate</strong></li>\r\n \t<li><strong>Asse verticale configurabile: tipo H – T</strong></li>\r\n \t<li><strong>Polso configurabile: fino a 5 assi servo-controllati</strong></li>\r\n \t<li><strong>Corsa asse Z: 6000 mm</strong></li>\r\n \t<li><strong>Corsa asse X: 2500 mm</strong></li>\r\n \t<li><strong>Corsa asse Y: 3400 mm</strong></li>\r\n \t<li><strong>Portata fino a 120 kg</strong></li>\r\n \t<li><strong>Dry Cycle da 40”</strong></li>\r\n</ul>",
+            "file_csv": 489,
+            "allegato": null
+          },
+          "featured_media": 269,
+          "tipo_robot": [32],
+          "slug": "mc6-x-series",
+          "title": { "rendered": "MC6 X-SERIES" }
+        },
+        {
+          "id": 395,
+          "acf": {
+            "ordine": 180,
+            "intro": "Robot cartesiano top entry di fascia premium, accuratamente progettato per le più elevate performance su ogni fronte. Robustezza, velocità e controllo sono le caratteristiche principali di questo manipolatore pensato per la massima produttività. ",
+            "immagine_robot": 270,
+            "testo": "<strong>Imponente e robusto, ideale per l’automazione di presse ad alto tonnellaggio</strong>\r\nIl robot cartesiano MC5 X-Series è caratterizzato da una robusta struttura meccanica e da corse generose. È consigliato per l’automazione più spinta di presse per stampaggio a iniezione ad elevato tonnellaggio.\r\n<ul>\r\n \t<li><strong>Pressa fino a 3000 tonnellate</strong></li>\r\n \t<li><strong>Asse verticale configurabile: tipo H – T</strong></li>\r\n \t<li><strong>Polso configurabile: fino a 5 assi servo-controllati</strong></li>\r\n \t<li><strong>Corsa asse Z: 4000-5000 mm</strong></li>\r\n \t<li><strong>Corsa asse X: 2000 -2500 mm</strong></li>\r\n \t<li><strong>Corsa asse Y: 2400 – 2800 mm</strong></li>\r\n \t<li><strong>Portata fino a 60 kg</strong></li>\r\n \t<li><strong>Dry Cycle da 25”</strong></li>\r\n</ul>",
+            "file_csv": 490,
+            "allegato": null
+          },
+          "featured_media": 271,
+          "tipo_robot": [32],
+          "slug": "mc5-x-series",
+          "title": { "rendered": "MC5 X-SERIES" }
+        },
+        {
+          "id": 374,
+          "acf": {
+            "ordine": 170,
+            "intro": "Robot cartesiano top entry di fascia premium, accuratamente progettato per le più elevate performance su ogni fronte. Robustezza, velocità e controllo sono le caratteristiche principali di questo manipolatore pensato per la massima produttività. ",
+            "immagine_robot": 273,
+            "testo": "<strong>Il robot dalle dimensioni generose e dalle massime prestazioni per le presse di alto tonnellaggio</strong>\r\nIl robot cartesiano MC4 X-Series è caratterizzato da una robusta struttura meccanica ed è consigliato per l’automazione più spinta di presse per stampaggio a iniezione di elevato tonnellaggio.\r\n<ul>\r\n \t<li><strong>Pressa fino a 1600 tonnellate</strong></li>\r\n \t<li><strong>Asse verticale configurabile: tipo H – T</strong></li>\r\n \t<li><strong>Polso configurabile: fino a 5 assi servo-controllati</strong></li>\r\n \t<li><strong>Corsa asse Z: 3000-3500 -4000 mm</strong></li>\r\n \t<li><strong>Corsa asse X: 1500 mm</strong></li>\r\n \t<li><strong>Corsa asse Y: 2000-2400-2580 mm</strong></li>\r\n \t<li><strong>Portata fino a 40 kg</strong></li>\r\n \t<li><strong>Dry Cycle da 10”</strong></li>\r\n</ul>",
+            "file_csv": 491,
+            "allegato": [
+              {
+                "tipo_file": "video",
+                "anteprima": 563,
+                "file": 608,
+                "didascalia": "Collapsible box | Crates, pallets and bins | Pick and place"
+              }
+            ]
+          },
+          "featured_media": 272,
+          "tipo_robot": [32],
+          "slug": "mc4-x-series",
+          "title": { "rendered": "MC4 X-SERIES" }
+        },
+        {
+          "id": 376,
+          "acf": {
+            "ordine": 160,
+            "intro": "Robot cartesiano top entry di fascia premium, accuratamente progettato per le più elevate performance su ogni fronte. Robustezza, velocità e controllo sono le caratteristiche principali di questo manipolatore pensato per la massima produttività. ",
+            "immagine_robot": 274,
+            "testo": "<strong>Il robot dalle massime prestazioni per le presse di medio e alto tonnellaggio</strong>\r\nIl robot cartesiano industriale MC3 X-Series viene consigliato per l’automazione più spinta di presse per stampaggio a iniezione di medio e alto tonnellaggio.\r\n<ul>\r\n \t<li><strong>Pressa fino a 1000 tonnellate</strong></li>\r\n \t<li><strong>Asse verticale configurabile: tipo H – M – B</strong></li>\r\n \t<li><strong>Polso configurabile: fino a 5 assi servo-controllati</strong></li>\r\n \t<li><strong>Corsa asse Z: 2500-3000-3500 mm</strong></li>\r\n \t<li><strong>Corsa asse X: 1200 mm</strong></li>\r\n \t<li><strong>Corsa asse Y: 1400-1600-1800 mm</strong></li>\r\n \t<li><strong>Portata fino a 40 kg</strong></li>\r\n \t<li><strong>Dry Cycle da 8”</strong></li>\r\n</ul>",
+            "file_csv": 492,
+            "allegato": [
+              {
+                "tipo_file": "video",
+                "anteprima": 566,
+                "file": 629,
+                "didascalia": "Flower vase | Houseware | Pick and place"
+              }
+            ]
+          },
+          "featured_media": 275,
+          "tipo_robot": [32],
+          "slug": "mc3-x-series",
+          "title": { "rendered": "MC3 X-SERIES" }
+        },
+        {
+          "id": 377,
+          "acf": {
+            "ordine": 150,
+            "intro": "MC3 E-Series è un robot cartesiano industriale di ultima generazione, progettato per elevate performance, accuratezza ed affidabilità. Dalle funzionalità più avanzate per il massimo livello di controllo. ",
+            "immagine_robot": 277,
+            "testo": "<strong>Il robot adatto per presse di medio e alto tonnellaggio</strong>\r\nIl robot cartesiano industriale MC3 E-Series viene consigliato per l’automazione di presse per stampaggio a iniezione di medio e alto tonnellaggio.\r\n<ul>\r\n \t<li><strong>Pressa fino a 1000 tonnellate</strong></li>\r\n \t<li><strong>Asse verticale tipo L</strong></li>\r\n \t<li><strong>Polso configurabile: fino a 4 assi servo-controllati</strong></li>\r\n \t<li><strong>Corsa asse Z: 2500-3000-3500 mm</strong></li>\r\n \t<li><strong>Corsa asse X: 1200 mm</strong></li>\r\n \t<li><strong>Corsa asse Y: 1800 mm</strong></li>\r\n \t<li><strong>Portata fino a 16 kg</strong></li>\r\n \t<li><strong>Dry Cycle da 10”</strong></li>\r\n</ul>",
+            "file_csv": 729,
+            "allegato": null
+          },
+          "featured_media": 276,
+          "tipo_robot": [32],
+          "slug": "mc3-e-series",
+          "title": { "rendered": "MC3 E-SERIES" }
+        },
+        {
+          "id": 378,
+          "acf": {
+            "ordine": 140,
+            "intro": "Robot cartesiano top entry di fascia premium, accuratamente progettato per le più elevate performance su ogni fronte. Robustezza, velocità e controllo sono le caratteristiche principali di questo manipolatore pensato per la massima produttività. ",
+            "immagine_robot": 278,
+            "testo": "<strong>Il robot dalle massime prestazioni per le presse di piccolo e medio tonnellaggio</strong>\r\nIl robot cartesiano industriale MC2 X-Series viene consigliato per l’automazione più spinta di presse per stampaggio a iniezione di medio tonnellaggio.\r\n<ul>\r\n \t<li><strong>Pressa fino a 600 tonnellate</strong></li>\r\n \t<li><strong>Asse verticale configurabile: tipo B – M – H</strong></li>\r\n \t<li><strong>Polso configurabile: fino a 5 assi servo-controllati</strong></li>\r\n \t<li><strong>Corsa asse Z: 2000 – 2500 - 3000 mm</strong></li>\r\n \t<li><strong>Corsa asse X: 970 mm</strong></li>\r\n \t<li><strong>Corsa asse Y: 1200 – 1400 -1600 mm</strong></li>\r\n \t<li><strong>Portata fino a 30 kg</strong></li>\r\n \t<li><strong>Disponibile nell’esclusiva versione HS – High Speed</strong></li>\r\n \t<li><strong>Dry Cycle da 4,5”</strong></li>\r\n</ul>",
+            "file_csv": 494,
+            "allegato": [
+              {
+                "tipo_file": "video",
+                "anteprima": 562,
+                "file": 619,
+                "didascalia": "Ice cream scoops | Disposable Cutlery | Flowpack"
+              },
+              {
+                "tipo_file": "video",
+                "anteprima": 537,
+                "file": 624,
+                "didascalia": "Plastic container | Houseware | Pick and place"
+              },
+              {
+                "tipo_file": "video",
+                "anteprima": 536,
+                "file": 634,
+                "didascalia": "1 liter bucket | Packaging | IML"
+              }
+            ]
+          },
+          "featured_media": 279,
+          "tipo_robot": [32],
+          "slug": "mc2-x-series",
+          "title": { "rendered": "MC2 X-SERIES" }
+        },
+        {
+          "id": 379,
+          "acf": {
+            "ordine": 130,
+            "intro": "Robot cartesiano industriale di ultima generazione, progettato per elevate performance, accuratezza ed affidabilità. Dalle funzionalità più avanzate per il massimo livello di controllo. ",
+            "immagine_robot": 280,
+            "testo": "<strong>Il robot adatto per le presse di piccolo e medio tonnellaggio</strong>\r\nIl robot cartesiano industriale MC2 E-Series viene consigliato per l’automazione di presse per stampaggio a iniezione di medio tonnellaggio.\r\n<ul>\r\n \t<li><strong>Pressa fino a 600 tonnellate</strong></li>\r\n \t<li><strong>Asse verticale configurabile: tipo A e L</strong></li>\r\n \t<li><strong>Polso configurabile: fino a 4 assi servo-controllati</strong></li>\r\n \t<li><strong>Corsa asse Z: 2000 – 2500 - 3000 mm</strong></li>\r\n \t<li><strong>Corsa asse X: 970 mm</strong></li>\r\n \t<li><strong>Corsa asse Y: 1400-1600 mm</strong></li>\r\n \t<li><strong>Portata fino a 9 kg</strong></li>\r\n \t<li><strong>Dry Cycle da 8”</strong></li>\r\n</ul>",
+            "file_csv": 495,
+            "allegato": null
+          },
+          "featured_media": 281,
+          "tipo_robot": [32],
+          "slug": "mc2-e-series",
+          "title": { "rendered": "MC2 E-SERIES" }
+        },
+        {
+          "id": 380,
+          "acf": {
+            "ordine": 80,
+            "intro": "GS3 X-Series è il robot cartesiano ad entrata verticale per le prestazioni più estreme: motori ultra-performanti uniti a materiali da industria aerospaziale conferiscono accelerazioni e velocità da primato, per tempi di ciclo operativo fino a 3,5 secondi.",
+            "immagine_robot": 282,
+            "testo": "<strong>Massima velocità per la massima produttività </strong>\r\n<ul>\r\n \t<li>Carbon Technology: asse verticale in fibra di carbonio</li>\r\n \t<li>Polso con asse C pneumatico</li>\r\n \t<li>Corsa asse Z: 2500-3500 mm</li>\r\n \t<li>Corsa asse X: 800 mm</li>\r\n \t<li>Corsa asse Y: 1500 mm</li>\r\n \t<li>Portata fino a 8 kg</li>\r\n \t<li>Dry Cycle da 3,5”</li>\r\n</ul>",
+            "file_csv": 737,
+            "allegato": null
+          },
+          "featured_media": 283,
+          "tipo_robot": [32],
+          "slug": "gs3-x-series",
+          "title": { "rendered": "GS3 X-SERIES" }
+        },
+        {
+          "id": 384,
+          "acf": {
+            "ordine": 70,
+            "intro": "GS2 X-Series è il robot cartesiano ad entrata verticale per le prestazioni più estreme: motori ultra-performanti uniti a materiali da industria aerospaziale conferiscono accelerazioni e velocità da primato, per tempi di ciclo operativo fino a 2,5 secondi.",
+            "immagine_robot": 285,
+            "testo": "<strong>Massima velocità per la massima produttività</strong>\r\nIl cartesiano industriale GS2 X-Series è stato progettato per la massima riduzione del tempo ciclo, adatto a presse di medio tonnellaggio. Le iniziali di questo modello sono l’acronimo della parola “GunShot”: un colpo di pistola, non esiste infatti altro termine di paragone per descrivere la sua rapidità esplosiva.\r\n<ul>\r\n \t<li><strong>Pressa fino a 400 tonnellate</strong></li>\r\n \t<li><strong>Carbon Technology: asse verticale in fibra di carbonio</strong></li>\r\n \t<li><strong>Polso con asse C pneumatico</strong></li>\r\n \t<li><strong>Corsa asse Z: 2000-2500 mm</strong></li>\r\n \t<li><strong>Corsa asse X: 500 mm</strong></li>\r\n \t<li><strong>Corsa asse Y: 1200 mm</strong></li>\r\n \t<li><strong>Portata fino a 2,5 kg</strong></li>\r\n \t<li><strong>Dry Cycle da 2,5”</strong></li>\r\n</ul>",
+            "file_csv": 497,
+            "allegato": [
+              {
+                "tipo_file": "video",
+                "anteprima": 765,
+                "file": 789,
+                "didascalia": "Fakuma 2018"
+              },
+              {
+                "tipo_file": "video",
+                "anteprima": 571,
+                "file": 631,
+                "didascalia": "Disposable plates | Disposable Cutlery | Pick and place"
+              },
+              {
+                "tipo_file": "video",
+                "anteprima": 569,
+                "file": 620,
+                "didascalia": "Thin wall food container | Packaging | Pick and Place"
+              },
+              {
+                "tipo_file": "video",
+                "anteprima": 561,
+                "file": 644,
+                "didascalia": "Thin wall food container | Packaging | Pick and Place"
+              },
+              {
+                "tipo_file": "video",
+                "anteprima": 559,
+                "file": 643,
+                "didascalia": "Plastic cups | Disposable Cutlery | Pick and place"
+              },
+              {
+                "tipo_file": "video",
+                "anteprima": 558,
+                "file": 617,
+                "didascalia": "Plastic cups | Disposable Cutlery | Pick and place"
+              },
+              {
+                "tipo_file": "video",
+                "anteprima": 557,
+                "file": 616,
+                "didascalia": "Plastic cups | Disposable Cutlery | Pick and place"
+              },
+              {
+                "tipo_file": "video",
+                "anteprima": 556,
+                "file": 615,
+                "didascalia": "Thin wall food packaging | Packaging | Pick and Place"
+              },
+              {
+                "tipo_file": "video",
+                "anteprima": 550,
+                "file": 639,
+                "didascalia": ""
+              }
+            ]
+          },
+          "featured_media": 284,
+          "tipo_robot": [32],
+          "slug": "gs2-x-series",
+          "title": { "rendered": "GS2 X-SERIES" }
+        },
+        {
+          "id": 385,
+          "acf": {
+            "ordine": 30,
+            "intro": "Design minimale, sintesi di funzionalità ed accuratezza, è il robot industriale cartesiano top-entry progettato per offrire elevate prestazioni nel massimo rapporto qualità-prezzo.",
+            "immagine_robot": 287,
+            "testo": "<strong>Il robot compatto per le presse di piccolo e medio tonnellaggio</strong>\r\nCX1 PRIME Series è consigliato per l’automazione di presse per stampaggio a iniezione di piccolo e medio tonnellaggio.\r\n<ul>\r\n \t<li><strong>Pressa da 20 a 200 tonnellate</strong></li>\r\n \t<li><strong>Asse verticale di tipo A</strong></li>\r\n \t<li><strong>Polso pneumatico configurabile</strong></li>\r\n \t<li><strong>Corsa asse Z: 1500-2000 mm</strong></li>\r\n \t<li><strong>Corsa asse X: 600 mm</strong></li>\r\n \t<li><strong>Corsa asse Y: 1200 mm</strong></li>\r\n \t<li><strong>Portata fino a 6 kg</strong></li>\r\n \t<li><strong>Dry Cycle da 6”</strong></li>\r\n</ul>",
+            "file_csv": 498,
+            "allegato": [
+              {
+                "tipo_file": "video",
+                "anteprima": 564,
+                "file": 628,
+                "didascalia": "Shovel and beach rake | Houseware | Pick and place"
+              }
+            ]
+          },
+          "featured_media": 286,
+          "tipo_robot": [32],
+          "slug": "cx1-prime",
+          "title": { "rendered": "CX1 PRIME" }
+        },
+        {
+          "id": 386,
+          "acf": {
+            "ordine": 40,
+            "intro": "Robot cartesiano industriale di ultima generazione, progettato per elevate performance, accuratezza ed affidabilità. Dalle funzionalità più avanzate per il massimo livello di controllo. ",
+            "immagine_robot": 289,
+            "testo": "<strong>Il robot compatto per le presse di piccolo e medio tonnellaggio</strong>\r\n\r\nCX1 E-Series è consigliato per l’automazione di presse per stampaggio a iniezione di piccolo e medio tonnellaggio.\r\n<ul>\r\n \t<li><strong>Pressa da 20 a 200 tonnellate</strong></li>\r\n \t<li><strong>Asse verticale di tipo A</strong></li>\r\n \t<li><strong>Polso configurabile: fino a 4 assi servo-controllati</strong></li>\r\n \t<li><strong>Corsa asse Z: 1500-2000 mm</strong></li>\r\n \t<li><strong>Corsa asse X: 600 mm</strong></li>\r\n \t<li><strong>Corsa asse Y: 1200 mm</strong></li>\r\n \t<li><strong>Portata fino a 6 kg</strong></li>\r\n \t<li><strong>Dry Cycle da 5’5”</strong></li>\r\n</ul>",
+            "file_csv": 500,
+            "allegato": [
+              {
+                "tipo_file": "video",
+                "anteprima": 544,
+                "file": 626,
+                "didascalia": "Squeegee | Houseware | Pick and place"
+              }
+            ]
+          },
+          "featured_media": 288,
+          "tipo_robot": [32],
+          "slug": "cx1-e-series",
+          "title": { "rendered": "CX1 E-SERIES" }
+        },
+        {
+          "id": 387,
+          "acf": {
+            "ordine": 20,
+            "intro": "Design minimale, sintesi di funzionalità ed accuratezza, è il robot industriale cartesiano top-entry progettato per offrire elevate prestazioni nel massimo rapporto qualità-prezzo.",
+            "immagine_robot": 290,
+            "testo": "<strong>Il robot compatto per le presse di piccolo tonnellaggio</strong>\r\nCX0 PRIME Series è consigliato per l’automazione di presse per stampaggio a iniezione di piccolo tonnellaggio.\r\n<ul>\r\n \t<li><strong>Pressa 50-130 tonnellate</strong></li>\r\n \t<li><strong>Asse verticale di tipo A</strong></li>\r\n \t<li><strong>Polso pneumatico configurabile</strong></li>\r\n \t<li><strong>Corsa asse Z: 1200-1500 mm</strong></li>\r\n \t<li><strong>Corsa asse X: 450 mm</strong></li>\r\n \t<li><strong>Corsa asse Y: 1000 mm</strong></li>\r\n \t<li><strong>Portata fino a 3 kg</strong></li>\r\n \t<li><strong>Dry Cycle da 4,5”</strong></li>\r\n</ul>",
+            "file_csv": 501,
+            "allegato": null
+          },
+          "featured_media": 291,
+          "tipo_robot": [32],
+          "slug": "cx0-prime",
+          "title": { "rendered": "CX0 PRIME" }
+        },
+        {
+          "id": 388,
+          "acf": {
+            "ordine": 100,
+            "intro": "Robot cartesiano top entry di fascia premium, accuratamente progettato per le più elevate performance su ogni fronte. Robustezza, velocità e controllo sono le caratteristiche principali di questo manipolatore pensato per la massima produttività. ",
+            "immagine_robot": 292,
+            "testo": "<strong>Il robot compatto dalle massime prestazioni per le presse di piccolo e medio tonnellaggio</strong>\r\nI modelli CO1-CO2 X-Series sono consigliati per l’automazione più spinta di presse per stampaggio a iniezione di piccolo e medio tonnellaggio.\r\n\r\n<strong>MODELLO CO1</strong>\r\n<ul>\r\n \t<li>Pressa fino a 200 tonnellate</li>\r\n \t<li>Asse Verticale di tipo S</li>\r\n \t<li>Polso configurabile: fino a 4 assi servo-controllati</li>\r\n \t<li>Corsa asse Z: 1600 mm</li>\r\n \t<li>Corsa asse X: 600 mm</li>\r\n \t<li>Corsa asse Y: 1000 mm</li>\r\n \t<li>Portata fino a 6 kg</li>\r\n \t<li>Dry Cycle da 4,5”</li>\r\n</ul>\r\n<strong>MODELLO CO2</strong>\r\n<ul>\r\n \t<li>Pressa fino a 400 tonnellate</li>\r\n \t<li>Asse Verticale di tipo S</li>\r\n \t<li>Polso configurabile: fino a 4 assi servo-controllati</li>\r\n \t<li>Asse Z 2000 - 2500 mm</li>\r\n \t<li>Asse X 700 mm</li>\r\n \t<li>Asse Y 1400 mm</li>\r\n \t<li>Portata fino a 6 kg</li>\r\n \t<li>Dry Cycle da 4,5”</li>\r\n</ul>",
+            "file_csv": 502,
+            "allegato": [
+              {
+                "tipo_file": "video",
+                "anteprima": 542,
+                "file": 637,
+                "didascalia": "Thin wall food conatiner | Packaging | IML"
+              },
+              {
+                "tipo_file": "video",
+                "anteprima": 541,
+                "file": 625,
+                "didascalia": "Small vase | Houseware | Pick and place"
+              }
+            ]
+          },
+          "featured_media": 293,
+          "tipo_robot": [32],
+          "slug": "co1-co2-x-series",
+          "title": { "rendered": "CO1-CO2 X-SERIES" }
+        },
+        {
+          "id": 389,
+          "acf": {
+            "ordine": 90,
+            "intro": "Robot cartesiano industriale di ultima generazione, progettato per elevate performance, accuratezza ed affidabilità. Dalle funzionalità più avanzate per il massimo livello di controllo. ",
+            "immagine_robot": 295,
+            "testo": "<strong>Il robot compatto per le presse di piccolo e medio tonnellaggio</strong>\r\nI modelli CO1-CO2 E-Series sono consigliati per l’automazione di presse per stampaggio a iniezione di piccolo e medio tonnellaggio. \r\n<strong>MODELLO CO1</strong>\r\n<ul>\r\n \t<li><strong>Pressa fino a 200 tonnellate</strong></li>\r\n \t<li><strong>Asse verticale configurabile: tipo A e L</strong></li>\r\n \t<li><strong>Polso configurabile: fino a 4 assi servo-controllati</strong></li>\r\n \t<li><strong>Corsa asse Z: 1600 mm</strong></li>\r\n \t<li><strong>Corsa asse X: 600 mm</strong></li>\r\n \t<li><strong>Corsa asse Y: 1000 mm</strong></li>\r\n \t<li><strong>Portata fino a 9 kg</strong></li>\r\n \t<li><strong>Dry Cycle da 8”</strong></li>\r\n</ul>\r\n<strong>MODELLO CO2</strong>\r\n<ul>\r\n \t<li><strong>Pressa fino a 400 tonnellate</strong></li>\r\n \t<li><strong>Asse verticale configurabile: tipo A e L</strong></li>\r\n \t<li><strong>Polso configurabile: fino a 4 assi servo-controllati</strong></li>\r\n \t<li><strong>Asse Z 2000 - 2500 mm</strong></li>\r\n \t<li><strong>Asse X 700 mm</strong></li>\r\n \t<li><strong>Asse Y 1200 – 1400 mm</strong></li>\r\n \t<li><strong>Portata fino a 9 kg</strong></li>\r\n \t<li><strong>Dry Cycle da 8”</strong></li>\r\n</ul>",
+            "file_csv": 503,
+            "allegato": [
+              {
+                "tipo_file": "video",
+                "anteprima": 747,
+                "file": 783,
+                "didascalia": "Thin wall food container | Packaging | IML"
+              },
+              {
+                "tipo_file": "video",
+                "anteprima": 577,
+                "file": 651,
+                "didascalia": ""
+              }
+            ]
+          },
+          "featured_media": 294,
+          "tipo_robot": [32],
+          "slug": "co1-co2-e-series",
+          "title": { "rendered": "CO1-CO2 E-SERIES" }
+        },
+        {
+          "id": 390,
+          "acf": {
+            "ordine": 120,
+            "intro": "Robot cartesiano top entry di fascia premium, accuratamente progettato per le più elevate performance su ogni fronte. Robustezza, velocità e controllo sono le caratteristiche principali di questo manipolatore pensato per la massima produttività. ",
+            "immagine_robot": 297,
+            "testo": "<strong>Il robot dalle massime prestazioni per le presse di medio tonnellaggio</strong>\r\nIl robot cartesiano industriale CL2 X-Series viene consigliato per l’automazione più spinta di presse per stampaggio a iniezione di medio tonnellaggio.\r\n<ul>\r\n \t<li>Pressa fino a 600 tonnellate</li>\r\n \t<li>Asse verticale configurabile: tipo B – M – H</li>\r\n \t<li>Polso configurabile: fino a 5 assi servo-controllati</li>\r\n \t<li>Corsa asse Z: 2000 – 2500 - 3000 mm</li>\r\n \t<li>Corsa asse X: 970 mm</li>\r\n \t<li>Corsa asse Y: 1200-1400-1600 mm</li>\r\n \t<li>Portata fino a 30 kg</li>\r\n \t<li>Dry Cycle da 5”</li>\r\n</ul>",
+            "file_csv": 504,
+            "allegato": [
+              {
+                "tipo_file": "video",
+                "anteprima": 761,
+                "file": 784,
+                "didascalia": ""
+              }
+            ]
+          },
+          "featured_media": 296,
+          "tipo_robot": [32],
+          "slug": "cl2-x-series",
+          "title": { "rendered": "CL2 X-SERIES" }
+        },
+        {
+          "id": 391,
+          "acf": {
+            "ordine": 110,
+            "intro": "Robot cartesiano industriale di ultima generazione, progettato per elevate performance, accuratezza ed affidabilità. Dalle funzionalità più avanzate per il massimo livello di controllo. ",
+            "immagine_robot": 299,
+            "testo": "<strong>Il robot adatto per le presse di piccolo e medio tonnellaggio</strong>\r\nIl robot cartesiano industriale CL2 E-Series viene consigliato per l’automazione di presse per stampaggio a iniezione di piccolo e medio tonnellaggio. <strong>Pressa fino a 600 tonnellate</strong>\r\n<ul>\r\n \t<li><strong>Asse verticale configurabile: tipo A e L</strong></li>\r\n \t<li><strong>Polso configurabile: fino a 4 assi servo-controllati</strong></li>\r\n \t<li><strong>Corsa asse Z: 2000 – 2500 - 3000 mm</strong></li>\r\n \t<li><strong>Corsa asse X: 970 mm</strong></li>\r\n \t<li><strong>Corsa asse Y: 1400-1600 mm</strong></li>\r\n \t<li><strong>Portata fino a 9 kg</strong></li>\r\n \t<li><strong>Dry Cycle da 8”</strong></li>\r\n</ul>",
+            "file_csv": 505,
+            "allegato": null
+          },
+          "featured_media": 298,
+          "tipo_robot": [32],
+          "slug": "cl2-e-series",
+          "title": { "rendered": "CL2 E-SERIES" }
+        },
+        {
+          "id": 392,
+          "acf": {
+            "ordine": 10,
+            "intro": "Design minimale, sintesi di funzionalità ed accuratezza, è il robot industriale cartesiano top-entry progettato per offrire elevate prestazioni nel massimo rapporto qualità-prezzo.",
+            "immagine_robot": 301,
+            "testo": "<strong>Ultracompatto, ultrarapido. Ideale per presse di piccole dimensioni </strong> RHEA PRIME Series è il più piccolo dei robot cartesiani industriali Campetella, nato per presse ad iniezione da 20 a 150 tonnellate, è dotato di tre assi elettrici servo controllati ed è pensato per il take-out multi-cavità.\r\n<ul>\r\n \t<li>Pressa 20 -150 tonnellate</li>\r\n \t<li>Asse verticale di tipo A</li>\r\n \t<li>Corsa asse Z: 1200-1500 mm</li>\r\n \t<li>Corsa asse X: 300 mm</li>\r\n \t<li>Corsa asse Y: 800 mm</li>\r\n \t<li>Portata fino a 2 kg</li>\r\n \t<li>Dry Cycle da 5”</li>\r\n</ul>",
+            "file_csv": 464,
+            "allegato": null
+          },
+          "featured_media": 300,
+          "tipo_robot": [32],
+          "slug": "rhea-prime",
+          "title": { "rendered": "RHEA PRIME" }
+        }
+      ]
+    }
+  ],
+  "icons": [
+    {
+      "id": 675,
+      "date": "2024-09-30T17:14:11",
+      "date_gmt": "2024-09-30T15:14:11",
+      "guid": {
+        "rendered": "https://campetella.wp.jef.it/?post_type=service&#038;p=675"
+      },
+      "modified": "2024-10-02T11:27:57",
+      "modified_gmt": "2024-10-02T09:27:57",
+      "slug": "scheduled-manteinance",
+      "status": "publish",
+      "type": "service",
+      "link": "https://campetella.wp.jef.it/it/index.php/service/scheduled-manteinance/",
+      "title": { "rendered": "Scheduled Manteinance" },
+      "content": { "rendered": "", "protected": false },
+      "featured_media": 0,
+      "template": "",
+      "meta": { "_acf_changed": true },
+      "class_list": [
+        "post-675",
+        "service",
+        "type-service",
+        "status-publish",
+        "hentry"
+      ],
+      "acf": {
+        "ordine": 1,
+        "nome": "<b>Manutenzione</b> programmata",
+        "icona": 678
+      },
+      "_links": {
+        "self": [
+          {
+            "href": "https://campetella.wp.jef.it/it/index.php/wp-json/wp/v2/service/675",
+            "targetHints": { "allow": ["GET"] }
+          }
+        ],
+        "collection": [
+          {
+            "href": "https://campetella.wp.jef.it/it/index.php/wp-json/wp/v2/service"
+          }
+        ],
+        "about": [
+          {
+            "href": "https://campetella.wp.jef.it/it/index.php/wp-json/wp/v2/types/service"
+          }
+        ],
+        "wp:attachment": [
+          {
+            "href": "https://campetella.wp.jef.it/it/index.php/wp-json/wp/v2/media?parent=675"
+          }
+        ],
+        "curies": [
+          {
+            "name": "wp",
+            "href": "https://api.w.org/{rel}",
+            "templated": true
+          }
+        ]
+      }
+    },
+    {
+      "id": 683,
+      "date": "2024-09-30T17:19:33",
+      "date_gmt": "2024-09-30T15:19:33",
+      "guid": {
+        "rendered": "https://campetella.wp.jef.it/index.php/service/remote-assistance/"
+      },
+      "modified": "2024-09-30T17:24:15",
+      "modified_gmt": "2024-09-30T15:24:15",
+      "slug": "remote-assistance",
+      "status": "publish",
+      "type": "service",
+      "link": "https://campetella.wp.jef.it/it/index.php/service/remote-assistance/",
+      "title": { "rendered": "Remote assistance" },
+      "content": { "rendered": "", "protected": false },
+      "featured_media": 0,
+      "template": "",
+      "meta": { "_acf_changed": true },
+      "class_list": [
+        "post-683",
+        "service",
+        "type-service",
+        "status-publish",
+        "hentry"
+      ],
+      "acf": {
+        "ordine": 2,
+        "nome": "<b>Cleanroom</b> and handling material <b>GMP compliance<b/>",
+        "icona": 676
+      },
+      "_links": {
+        "self": [
+          {
+            "href": "https://campetella.wp.jef.it/it/index.php/wp-json/wp/v2/service/683",
+            "targetHints": { "allow": ["GET"] }
+          }
+        ],
+        "collection": [
+          {
+            "href": "https://campetella.wp.jef.it/it/index.php/wp-json/wp/v2/service"
+          }
+        ],
+        "about": [
+          {
+            "href": "https://campetella.wp.jef.it/it/index.php/wp-json/wp/v2/types/service"
+          }
+        ],
+        "wp:attachment": [
+          {
+            "href": "https://campetella.wp.jef.it/it/index.php/wp-json/wp/v2/media?parent=683"
+          }
+        ],
+        "curies": [
+          {
+            "name": "wp",
+            "href": "https://api.w.org/{rel}",
+            "templated": true
+          }
+        ]
+      }
+    },
+    {
+      "id": 685,
+      "date": "2024-09-30T17:20:54",
+      "date_gmt": "2024-09-30T15:20:54",
+      "guid": {
+        "rendered": "https://campetella.wp.jef.it/index.php/service/fast-shipping/"
+      },
+      "modified": "2024-09-30T17:24:03",
+      "modified_gmt": "2024-09-30T15:24:03",
+      "slug": "fast-shipping",
+      "status": "publish",
+      "type": "service",
+      "link": "https://campetella.wp.jef.it/it/index.php/service/fast-shipping/",
+      "title": { "rendered": "Fast shipping" },
+      "content": { "rendered": "", "protected": false },
+      "featured_media": 0,
+      "template": "",
+      "meta": { "_acf_changed": true },
+      "class_list": [
+        "post-685",
+        "service",
+        "type-service",
+        "status-publish",
+        "hentry"
+      ],
+      "acf": {
+        "ordine": 3,
+        "nome": "SPEDIZIONE RAPIDA RICAMBI",
+        "icona": 680
+      },
+      "_links": {
+        "self": [
+          {
+            "href": "https://campetella.wp.jef.it/it/index.php/wp-json/wp/v2/service/685",
+            "targetHints": { "allow": ["GET"] }
+          }
+        ],
+        "collection": [
+          {
+            "href": "https://campetella.wp.jef.it/it/index.php/wp-json/wp/v2/service"
+          }
+        ],
+        "about": [
+          {
+            "href": "https://campetella.wp.jef.it/it/index.php/wp-json/wp/v2/types/service"
+          }
+        ],
+        "wp:attachment": [
+          {
+            "href": "https://campetella.wp.jef.it/it/index.php/wp-json/wp/v2/media?parent=685"
+          }
+        ],
+        "curies": [
+          {
+            "name": "wp",
+            "href": "https://api.w.org/{rel}",
+            "templated": true
+          }
+        ]
+      }
+    },
+    {
+      "id": 689,
+      "date": "2024-09-30T17:22:10",
+      "date_gmt": "2024-09-30T15:22:10",
+      "guid": {
+        "rendered": "https://campetella.wp.jef.it/index.php/service/revamping/"
+      },
+      "modified": "2024-09-30T17:26:57",
+      "modified_gmt": "2024-09-30T15:26:57",
+      "slug": "revamping",
+      "status": "publish",
+      "type": "service",
+      "link": "https://campetella.wp.jef.it/it/index.php/service/revamping/",
+      "title": { "rendered": "Revamping" },
+      "content": { "rendered": "", "protected": false },
+      "featured_media": 0,
+      "template": "",
+      "meta": { "_acf_changed": true },
+      "class_list": [
+        "post-689",
+        "service",
+        "type-service",
+        "status-publish",
+        "hentry"
+      ],
+      "acf": { "ordine": 4, "nome": "REVAMPING", "icona": 679 },
+      "_links": {
+        "self": [
+          {
+            "href": "https://campetella.wp.jef.it/it/index.php/wp-json/wp/v2/service/689",
+            "targetHints": { "allow": ["GET"] }
+          }
+        ],
+        "collection": [
+          {
+            "href": "https://campetella.wp.jef.it/it/index.php/wp-json/wp/v2/service"
+          }
+        ],
+        "about": [
+          {
+            "href": "https://campetella.wp.jef.it/it/index.php/wp-json/wp/v2/types/service"
+          }
+        ],
+        "wp:attachment": [
+          {
+            "href": "https://campetella.wp.jef.it/it/index.php/wp-json/wp/v2/media?parent=689"
+          }
+        ],
+        "curies": [
+          {
+            "name": "wp",
+            "href": "https://api.w.org/{rel}",
+            "templated": true
+          }
+        ]
+      }
+    },
+    {
+      "id": 688,
+      "date": "2024-09-30T17:22:53",
+      "date_gmt": "2024-09-30T15:22:53",
+      "guid": {
+        "rendered": "https://campetella.wp.jef.it/index.php/service/training/"
+      },
+      "modified": "2024-09-30T17:23:45",
+      "modified_gmt": "2024-09-30T15:23:45",
+      "slug": "training",
+      "status": "publish",
+      "type": "service",
+      "link": "https://campetella.wp.jef.it/it/index.php/service/training/",
+      "title": { "rendered": "Training" },
+      "content": { "rendered": "", "protected": false },
+      "featured_media": 0,
+      "template": "",
+      "meta": { "_acf_changed": true },
+      "class_list": [
+        "post-688",
+        "service",
+        "type-service",
+        "status-publish",
+        "hentry"
+      ],
+      "acf": { "ordine": 5, "nome": "FORMAZIONE", "icona": 677 },
+      "_links": {
+        "self": [
+          {
+            "href": "https://campetella.wp.jef.it/it/index.php/wp-json/wp/v2/service/688",
+            "targetHints": { "allow": ["GET"] }
+          }
+        ],
+        "collection": [
+          {
+            "href": "https://campetella.wp.jef.it/it/index.php/wp-json/wp/v2/service"
+          }
+        ],
+        "about": [
+          {
+            "href": "https://campetella.wp.jef.it/it/index.php/wp-json/wp/v2/types/service"
+          }
+        ],
+        "wp:attachment": [
+          {
+            "href": "https://campetella.wp.jef.it/it/index.php/wp-json/wp/v2/media?parent=688"
+          }
+        ],
+        "curies": [
+          {
+            "name": "wp",
+            "href": "https://api.w.org/{rel}",
+            "templated": true
+          }
+        ]
+      }
+    },
+    {
+      "id": 675,
+      "date": "2024-09-30T17:14:11",
+      "date_gmt": "2024-09-30T15:14:11",
+      "guid": {
+        "rendered": "https://campetella.wp.jef.it/?post_type=service&#038;p=675"
+      },
+      "modified": "2024-10-02T11:27:57",
+      "modified_gmt": "2024-10-02T09:27:57",
+      "slug": "scheduled-manteinance",
+      "status": "publish",
+      "type": "service",
+      "link": "https://campetella.wp.jef.it/it/index.php/service/scheduled-manteinance/",
+      "title": { "rendered": "Scheduled Manteinance" },
+      "content": { "rendered": "", "protected": false },
+      "featured_media": 0,
+      "template": "",
+      "meta": { "_acf_changed": true },
+      "class_list": [
+        "post-675",
+        "service",
+        "type-service",
+        "status-publish",
+        "hentry"
+      ],
+      "acf": {
+        "ordine": 1,
+        "nome": "<b>Manutenzione</b> programmata",
+        "icona": 678
+      },
+      "_links": {
+        "self": [
+          {
+            "href": "https://campetella.wp.jef.it/it/index.php/wp-json/wp/v2/service/675",
+            "targetHints": { "allow": ["GET"] }
+          }
+        ],
+        "collection": [
+          {
+            "href": "https://campetella.wp.jef.it/it/index.php/wp-json/wp/v2/service"
+          }
+        ],
+        "about": [
+          {
+            "href": "https://campetella.wp.jef.it/it/index.php/wp-json/wp/v2/types/service"
+          }
+        ],
+        "wp:attachment": [
+          {
+            "href": "https://campetella.wp.jef.it/it/index.php/wp-json/wp/v2/media?parent=675"
+          }
+        ],
+        "curies": [
+          {
+            "name": "wp",
+            "href": "https://api.w.org/{rel}",
+            "templated": true
+          }
+        ]
+      }
+    }
+  ]
+}

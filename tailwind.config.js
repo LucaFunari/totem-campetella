@@ -7,6 +7,7 @@ export default {
       fontSize: {
         contentTitle: ["4.5rem", "5rem"],
         content: ["3rem", "4rem"],
+        contentMd: ["3.5rem", "4.375rem"],
         contentLg: ["4rem", "4.75rem"],
       },
       fontFamily: {
