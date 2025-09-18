@@ -13,6 +13,7 @@ export const homePageData: PageData = {
     {
       goTo: "medical",
       title: "medical",
+      icon: "./asset/campetella-medical-white.svg",
       key: null,
     },
     {
@@ -74,7 +75,7 @@ export const medicalData: PageData = {
   titleKey: "medical_title",
   bgImgKey: "medical_sfondo",
   bgImgPath: "./asset/sfondi/Immagine-per-sito_MEDICAL_high.jpg",
-  customLogoPath: "./asset/Logo CampetellaMEDICALTMP.svg",
+  customLogoPath: "./asset/campetella-medical-black.svg",
   links: [
     {
       goTo: "medical-execution",

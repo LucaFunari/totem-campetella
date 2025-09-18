@@ -1,4 +1,4 @@
-import { RobotType } from "./queries";
+import { Allegato, RobotType } from "./queries";
 
 export type EstrusioneEntitaResp = {
   id: number;
@@ -105,6 +105,8 @@ export type ParsedEstrusioni = {
     immagine: number;
     sezione: "iniezione" | "estrusione" | "medical";
     testo: string;
+    icone_aggiuntive?: Array<{ titolo: string; icona: number }>;
+    allegato?: Array<Allegato>;
   };
   slug: string;
   meta: [];

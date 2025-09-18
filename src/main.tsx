@@ -177,30 +177,44 @@ const router = createHashRouter([
           },
           {
             path: "medical-execution",
+            loader: async () =>
+              robotTypesLoader(queryClient, {
+                slugs: ["medical-execution"],
+              }),
             element: (
               <SecondLevelPageWrapper
-                customLogoPath="./asset/Logo CampetellaMEDICALTMP.svg"
+                customLogoPath="./asset/campetella-medical-black.svg"
                 variant="secondary"
-              />
+              >
+                <Medical />
+              </SecondLevelPageWrapper>
             ),
 
-            children: [
-              {
-                path: "",
-                element: <Medical />,
-                loader: async () =>
-                  robotTypesLoader(queryClient, {
-                    slugs: ["medical-execution"],
-                  }),
-              },
-              // { path: ":robotId", element: <RobotPage /> },
-            ],
+            // children: [
+            //   {
+            //     path: "",
+            //     element: <Medical />,
+            //     loader: async () =>
+            //       robotTypesLoader(queryClient, {
+            //         slugs: ["medical-execution"],
+            //       }),
+            //   },
+            // ],
           },
-
           {
-            path: "fine-linea",
-
-            element: <FineLinea />,
+            path: "cleanroom-execution",
+            loader: async () =>
+              robotTypesLoader(queryClient, {
+                slugs: ["cleanroom-execution"],
+              }),
+            element: (
+              <SecondLevelPageWrapper
+                customLogoPath="./asset/campetella-medical-black.svg"
+                variant="secondary"
+              >
+                <Medical />
+              </SecondLevelPageWrapper>
+            ),
           },
         ],
       },

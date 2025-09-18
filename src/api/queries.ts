@@ -62,7 +62,6 @@ export const robotTypesQuery = (langID: "it" | "en") => ({
     );
     const robotListJson: Robot[] = await robotList.json();
 
-    console.debug(json);
     const parsedRobots = robotListJson.map((robot) => {
       const parentFamilies: RobotType[] = json.filter((families: RobotType) =>
         robot["tipo-robot"].includes(families.id),

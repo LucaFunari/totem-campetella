@@ -1,11 +1,12 @@
 import React from "react";
-import { gridElement, useLocalizationStore } from "../../../zustand-stores";
+import { gridElement } from "../../../zustand-stores";
 import PageTitle from "../../third-level-pages/PageTitle";
 import Grid from "../../third-level-pages/Grids/Grid";
 import { useMultipleAssets } from "../../../api/queries";
 import MedicalSmallIcon from "./MedicalSmallIcon";
 import { useLoaderData } from "react-router-dom";
 import { ParsedEstrusioni } from "../../../api/types";
+import { VideoGrid } from "../../third-level-pages/Grids/VideoGrid";
 
 function Medical() {
   const data = useLoaderData() as ParsedEstrusioni[];
@@ -24,13 +25,19 @@ function Medical() {
 }
 
 function RobotTypeSection({ robot }: { robot: ParsedEstrusioni }) {
+  const iconsIDs = React.useMemo(() => {
+    return robot.acf.icone_aggiuntive?.map(({ icona }) => icona);
+  }, [robot]);
+
+  const iconsURLs = useMultipleAssets(iconsIDs ?? []);
+
   return (
     <>
       <p
         className="mt-24 line-clamp-2 overflow-clip break-words px-40 text-center font-d-din-condensed text-[184px] font-bold uppercase leading-[200px]"
         dangerouslySetInnerHTML={{ __html: robot.name }}
       />
-      <p className="line-clamp-6 font-thin">{robot.description}</p>
+      <p className="line-clamp-6 font-thin">{robot.acf.testo}</p>
       {/* ROBOTS GRID */}
       <div className="flex-1">
         <Grid
@@ -48,14 +55,17 @@ function RobotTypeSection({ robot }: { robot: ParsedEstrusioni }) {
       </div>
       {/* ICONS */}
       <div className="flex">
-        {/* {data.icons.map((icon, i) => (
-            <MedicalSmallIcon
-              key={i}
-              title={icon.title}
-              iconURL={iconURLs?.get(icon.iconId)?.source_url}
-            />
-          ))} */}
+        {robot.acf.icone_aggiuntive?.map((icon, i) => (
+          <MedicalSmallIcon
+            key={i}
+            title={icon.titolo}
+            iconURL={iconsURLs?.get(icon.icona)?.source_url}
+          />
+        ))}
       </div>
+      {/* VIDEO */}
+
+      {robot.acf.allegato && <VideoGrid content={robot.acf.allegato} />}
     </>
   );
 }
