@@ -49,8 +49,8 @@ const FirstLevelAlternative = (props: { pageData: PageData }) => {
         <Header pageData={pageData} />
 
         <div className="flex items-center justify-between">
-          {!pageData.isHomePage && <GoBackRoundBtn alternative />}
-          <h1 className="text-medicalgray text-center font-d-din-condensed text-[280px]/[360px] font-bold uppercase">
+          {!pageData.isHomePage && <GoBackRoundBtn />}
+          <h1 className="text-center font-d-din-condensed text-[280px]/[360px] font-bold uppercase text-medicalgray">
             {pageTitle as string}
           </h1>
           <div className="w-[140px]" />

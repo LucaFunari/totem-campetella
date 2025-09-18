@@ -1,11 +1,12 @@
 import * as React from "react";
 import "./App.css";
-import { Outlet, useLocation } from "react-router-dom";
+import { Outlet, useLocation, useNavigation } from "react-router-dom";
 import Popup from "./components/popup/Popup";
 import { useLocalizationStore, usePopupStateStore } from "./zustand-stores";
 import { generalSettingsQuery, useAssets } from "./api/queries";
 import { useQuery, useQueryClient } from "@tanstack/react-query";
 import WholePageSpinner from "./components/reusable/WholePageSpinner";
+import Spinner from "./components/reusable/Spinner";
 
 const width = 2160;
 const heigth = 3840;
@@ -13,6 +14,8 @@ const heigth = 3840;
 function App() {
   const { isOpen, setOpen } = usePopupStateStore();
   const { lang } = useLocalizationStore();
+
+  const { state } = useNavigation();
 
   const queryClient = useQueryClient();
 
@@ -45,6 +48,12 @@ function App() {
   return (
     <div className="absolute left-1/2 aspect-[9/16] h-dvh -translate-x-1/2 overflow-hidden bg-white">
       {isLoading && <WholePageSpinner />}
+
+      {state === "loading" && (
+        <div className="absolute z-10 h-full w-full">
+          <Spinner scale=".5" />
+        </div>
+      )}
       <div
         style={{
           width: width,
