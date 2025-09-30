@@ -346,7 +346,9 @@ export function useAssets() {
       const map = new Map();
 
       json.forEach((asset) => {
-        map.set(asset.id, { source_url: asset.source_url });
+        map.set(asset.id, {
+          ...asset,
+        });
       });
 
       return map;
@@ -360,7 +362,7 @@ export function useAssets() {
 
 export function useSingleAsset(id?: number) {
   const resp: {
-    asset?: { source_url: string };
+    asset?: Asset;
     error?: Error;
     isLoading: boolean;
   } = {
@@ -370,14 +372,13 @@ export function useSingleAsset(id?: number) {
   };
 
   const { data, error, isLoading } = useAssets() as {
-    data: Map<number, { source_url: string }>;
+    data: Map<number, Asset>;
     error: Error;
     isLoading: boolean;
   };
   if (data && id) {
     // const singleAsset = data.find((one) => one.id == id);
     const singleAsset = data.get(id);
-
     if (singleAsset) {
       resp.asset = singleAsset;
       resp.isLoading = false;

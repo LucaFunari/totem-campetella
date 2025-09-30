@@ -1,9 +1,8 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { gridElement } from "../../../zustand-stores";
 import Spinner from "../../reusable/Spinner";
 import { useSingleAsset } from "../../../api/queries";
-import SpinnerSmall from "../../reusable/SpinnerSmall";
 
 const Grid = ({
   elements,
@@ -84,13 +83,20 @@ export const Icon = (props: {
 
   const [loaded, setLoaded] = React.useState(false);
 
+  const { pathname } = useLocation();
+
+  const isTitleless = React.useMemo(() => {
+    // HARDCODED IN A SPECIFIIC PAGE
+    return pathname.includes("cleanroom-execution");
+  }, [pathname]);
+
   return (
     <div
       onClick={() => iconFn()}
       className={`${elementIsEmpty && "cursor-not-allowed opacity-50"} flex shrink-0 grow-0 flex-col items-center gap-5`}
     >
       <div
-        className={`float-start flex aspect-square ${props.large ? "min-h-[30rem]" : "min-h-96"} items-end justify-center overflow-hidden align-middle`}
+        className={`float-start flex aspect-square ${isTitleless ? "min-h-[40rem]" : props.large ? "min-h-[30rem]" : "min-h-96"} items-end justify-center overflow-hidden align-middle`}
       >
         {isLoading ? (
           <div className="flex aspect-square h-96 items-center justify-center opacity-40">
@@ -101,7 +107,7 @@ export const Icon = (props: {
             src={props.iconURL ?? asset?.source_url}
             loading="lazy"
             onLoad={() => setLoaded(true)}
-            className={`aspect-square h-96 scale-125 object-contain transition-opacity ${loaded ? "opacity-100" : "opacity-0"} `}
+            className={`aspect-square ${isTitleless ? "h-[40rem]" : "h-96"} scale-125 object-contain transition-opacity ${loaded ? "opacity-100" : "opacity-0"} `}
           />
         ) : (
           <div className="flex aspect-square h-96 items-center justify-center">
@@ -109,12 +115,15 @@ export const Icon = (props: {
           </div>
         )}
       </div>
-      <p
-        className={`${props.smaller ? "line-clamp-2 h-[2lh]" : "line-clamp-3 h-[3lh]"} w-[26rem] select-none whitespace-pre-wrap break-words text-center font-d-din-condensed text-[4rem] font-semibold uppercase text-white [&>strong]:mb-10 [&>strong]:block`}
-        dangerouslySetInnerHTML={{
-          __html: obj.name ?? obj?.title?.rendered,
-        }}
-      />
+
+      {!isTitleless && (
+        <p
+          className={`${props.smaller ? "line-clamp-2 h-[2lh]" : "line-clamp-3 h-[3lh]"} w-[26rem] select-none whitespace-pre-wrap break-words text-center font-d-din-condensed text-[4rem] font-semibold uppercase text-white [&>strong]:mb-10 [&>strong]:block`}
+          dangerouslySetInnerHTML={{
+            __html: obj.name ?? obj?.title?.rendered,
+          }}
+        />
+      )}
     </div>
   );
 };

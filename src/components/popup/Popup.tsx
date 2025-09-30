@@ -2,12 +2,12 @@ import React from "react";
 import { usePopupStateStore } from "../../zustand-stores";
 import ExitRoundBtn from "../reusable/ExitRoundBtn";
 import { useSingleAsset } from "../../api/queries";
-import SpinnerSmall from "../reusable/SpinnerSmall";
 
 const Popup = () => {
   const { setOpen, video } = usePopupStateStore();
 
-  const { asset, error, isLoading } = useSingleAsset(video?.file as number);
+  const { asset, error } = useSingleAsset(video?.file as number);
+
   return (
     <div
       className="absolute left-0 top-0 z-20 h-full w-full bg-white bg-opacity-60"

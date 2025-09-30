@@ -13,7 +13,7 @@ function Medical() {
 
   if (data)
     return (
-      <div className="mb-40 flex h-full flex-col gap-10 text-content text-medicalgray">
+      <div className="mb-40 flex h-full flex-col gap-10 text-content text-medicalgray [&_hr]:bg-medicalgray">
         <PageTitle />
         {/* TITLE */}
 
