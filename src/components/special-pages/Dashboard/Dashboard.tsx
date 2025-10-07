@@ -17,8 +17,8 @@ function Dashboard() {
           {/* {settingsData["service_titolo" as keyof typeof settingsData]} */}
         </PageTitle>
 
-        <div className="flex flex-1 flex-col items-center justify-center gap-7">
-          <div className="relative aspect-video w-full">
+        <div className="flex flex-1 flex-col items-center justify-start gap-10">
+          <div className="relative aspect-[16/10] w-full">
             {!iframeLoaded && (
               <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-contentLg">
                 <Spinner />

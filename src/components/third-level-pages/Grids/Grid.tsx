@@ -54,7 +54,7 @@ export const GridWrapper = (props: {
     </div>
   );
 };
-
+const isTitleless = false;
 export const Icon = (props: {
   obj: gridElement;
   shouldNavigate: boolean;
@@ -83,12 +83,13 @@ export const Icon = (props: {
 
   const [loaded, setLoaded] = React.useState(false);
 
-  const { pathname } = useLocation();
+  // const { pathname } = useLocation();
 
-  const isTitleless = React.useMemo(() => {
-    // HARDCODED IN A SPECIFIIC PAGE
-    return pathname.includes("cleanroom-execution");
-  }, [pathname]);
+  // Unnecessary for now
+  // const isTitleless = React.useMemo(() => {
+  //   // HARDCODED IN A SPECIFIIC PAGE
+  //   return pathname.includes("cleanroom-execution");
+  // }, [pathname]);
 
   return (
     <div

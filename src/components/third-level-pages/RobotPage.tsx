@@ -99,15 +99,19 @@ const RobotPage = () => {
       <div className="flex-col gap-3 overflow-y-scroll">
         <div className="flex flex-1 flex-col overflow-y-scroll">
           <PageTitle>{currentRobotProduct?.title.rendered}</PageTitle>
-          
-          <div className="grid grid-cols-2">
-            <p className="flex items-center p-14 font-d-din text-content font-thin italic leading-[4.5rem]">
-              {currentRobotProduct?.acf.intro}
-            </p>
+
+          <div
+            className={`grid ${currentRobotProduct.acf.intro && "grid-cols-2"} `}
+          >
+            {currentRobotProduct.acf.intro && (
+              <p className="flex items-center p-14 font-d-din text-content font-thin italic leading-[4.5rem]">
+                {currentRobotProduct?.acf.intro}
+              </p>
+            )}
             <img
               src={asset?.source_url ?? asset?.guid.rendered}
               loading="lazy"
-              className="min-h-[705px] flex-1"
+              className="min-h-[705px] flex-1 justify-self-center"
             />
           </div>
           <div className="p-14 pb-28">
@@ -128,7 +132,7 @@ const RobotPage = () => {
                   ) => (
                     <tr key={ind}>
                       {row.map(
-                        (cell, index, row) =>
+                        (cell, index) =>
                           cell && (
                             <td
                               className={`border-4 border-white p-3 text-center text-2xl`}

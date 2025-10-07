@@ -1,4 +1,3 @@
-import React from "react";
 import { QueryType } from "../../api/queries";
 import { SecondLevelPage } from "./secondlevelpage";
 import PageTitle from "../third-level-pages/PageTitle";

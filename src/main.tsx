@@ -19,7 +19,6 @@ import FirstLevel from "./components/first-level-pages/FirstLevel.tsx";
 import SecondLevel from "./components/second-level-pages/SecondLevel.tsx";
 import {
   campiApplicativiLoader,
-  campiApplicativiQuery,
   estrusioniLoader,
   generalSettingsLoader,
   robotTypesLoader,
@@ -36,17 +35,14 @@ import RobotPage from "./components/third-level-pages/RobotPage.tsx";
 import CampoApplicativo from "./components/third-level-pages/CampoApplicativo.tsx";
 import FineLinea from "./components/special-pages/FineLinea.tsx";
 import Avvolgitori from "./components/second-level-pages/Avvolgitori.tsx";
-import { defaultLanguage, useLocalizationStore } from "./zustand-stores.ts";
+import { defaultLanguage } from "./zustand-stores.ts";
 import EduCamp from "./components/special-pages/EduCamp.tsx";
 import Dashboard from "./components/special-pages/Dashboard/Dashboard.tsx";
 import Medical from "./components/second-level-pages/medical/Medical.tsx";
-import FirstLevelPage from "./components/deprecated/FirstLevelPage.tsx";
 import FirstLevelAlternative from "./components/first-level-pages/FirstLevelAlternative.tsx";
 
 export const queryClient = new QueryClient();
-
-let language = defaultLanguage;
-const unsub = useLocalizationStore.subscribe(({ lang }) => (language = lang));
+const language = defaultLanguage;
 
 const router = createHashRouter([
   {

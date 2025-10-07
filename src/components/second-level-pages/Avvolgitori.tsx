@@ -1,6 +1,6 @@
 import React from "react";
 import PageTitle from "../third-level-pages/PageTitle";
-import { useQueries, useQuery } from "@tanstack/react-query";
+import { useQuery } from "@tanstack/react-query";
 import {
   estrusioniQuery,
   RobotType,
@@ -121,10 +121,10 @@ const AvvolgitoriSection = (props: {
       <div
         className={`flex h-min w-[95%] flex-wrap items-center justify-center gap-10`}
       >
-        {props.avvolgitore.children.map((ent) => (
+        {props.avvolgitore?.children.map((ent) => (
           <Icon
             smaller={true}
-            // @ts-expect-error must recheck this type
+            large={false}
             obj={{ ...ent, name: ent.title.rendered } as gridElement}
             shouldNavigate={false}
             iconURL={icons?.get(ent.featured_media)?.source_url}
@@ -173,18 +173,23 @@ const RobotSection = (props: { robot: RobotType }) => {
     <div className="flex w-full flex-col items-center font-d-din-condensed text-contentTitle">
       <p
         className="line-clamp-2 overflow-clip text-center font-d-din-condensed text-[184px]/[278px] font-bold uppercase text-white"
-        dangerouslySetInnerHTML={{ __html: robotString }}
-      ></p>
+        // dangerouslySetInnerHTML={{ __html: robotString }}
+      >
+        {robotString}
+      </p>
       <div className="flex h-min w-[95%] flex-wrap items-center justify-center gap-10">
-        {props.robot.children_robots?.map((robot) => (
-          <Icon
-            smaller={true}
-            iconID={robot.featured_media}
-            obj={{ ...robot, name: robot.title.rendered }}
-            key={robot.id}
-            shouldNavigate={true}
-          ></Icon>
-        ))}
+        {props.robot.children_robots
+          ?.sort((a, b) => a.acf.ordine - b.acf.ordine)
+          ?.map((robot) => (
+            <Icon
+              large={false}
+              smaller={true}
+              iconID={robot.featured_media}
+              obj={{ ...robot, name: robot.title.rendered }}
+              key={robot.id}
+              shouldNavigate={true}
+            ></Icon>
+          ))}
       </div>
     </div>
   );
