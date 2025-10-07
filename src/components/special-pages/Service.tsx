@@ -25,7 +25,11 @@ const Service = () => {
 
         <div className="flex w-full flex-col px-20">
           <PageTitle>
-            {settingsData["service_titolo" as keyof typeof settingsData]}
+            {
+              settingsData[
+                "service_titolo" as keyof typeof settingsData
+              ] as string
+            }
           </PageTitle>
 
           <div className="flex flex-1 flex-col items-center justify-center gap-14 p-16">
